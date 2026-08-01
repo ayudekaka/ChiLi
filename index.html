@@ -1,346 +1,92 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chili Token - 🌶️ 一个不懂的小菜鸡代币</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-        
-        .container {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 600px;
-            width: 100%;
-            overflow: hidden;
-            animation: slideIn 0.6s ease-out;
-        }
-        
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .header {
-            background: linear-gradient(135deg, #FF6B35 0%, #D63900 100%);
-            padding: 40px 20px;
-            text-align: center;
-            color: white;
-        }
-        
-        .logo {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 20px;
-            animation: rotate 20s linear infinite;
-            display: block;
-        }
-        
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        
-        .logo:hover {
-            animation: none;
-        }
-        
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-        
-        .tagline {
-            font-size: 1.1em;
-            opacity: 0.95;
-            font-style: italic;
-        }
-        
-        .content {
-            padding: 40px;
-        }
-        
-        .section {
-            margin-bottom: 30px;
-        }
-        
-        h2 {
-            color: #FF6B35;
-            margin-bottom: 15px;
-            font-size: 1.5em;
-            border-bottom: 2px solid #FF6B35;
-            padding-bottom: 8px;
-        }
-        
-        p {
-            color: #555;
-            line-height: 1.8;
-            margin-bottom: 12px;
-            font-size: 1em;
-        }
-        
-        .info-box {
-            background: #FFF3E0;
-            border-left: 4px solid #FF6B35;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 15px 0;
-        }
-        
-        .info-box strong {
-            color: #D63900;
-        }
-        
-        .features {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin: 20px 0;
-        }
-        
-        .feature-card {
-            background: #F5F5F5;
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-            border: 2px solid #FFE0D0;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.2);
-        }
-        
-        .feature-icon {
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
-        
-        .feature-title {
-            color: #FF6B35;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        
-        .feature-desc {
-            font-size: 0.9em;
-            color: #777;
-        }
-        
-        .footer {
-            background: #F9F9F9;
-            padding: 20px;
-            text-align: center;
-            border-top: 1px solid #EEE;
-            color: #999;
-            font-size: 0.9em;
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 20px 0;
-        }
-        
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #FF6B35 0%, #D63900 100%);
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .social-links a:hover {
-            transform: scale(1.1);
-            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
-        }
-        
-        .button {
-            display: inline-block;
-            background: linear-gradient(135deg, #FF6B35 0%, #D63900 100%);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: none;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-        
-        .button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.4);
-        }
-        
-        .download-input {
-            width: 100%;
-            padding: 10px 12px;
-            border: 2px solid #E5F6EF;
-            background: #F3FFF9;
-            border-radius: 8px;
-            color: #333;
-            font-size: 0.95em;
-        }
-
-        .copy-btn {
-            margin-top: 8px;
-            display: inline-block;
-            background: #2d8f6f;
-            color: white;
-            padding: 8px 12px;
-            border-radius: 6px;
-            cursor: pointer;
-            border: none;
-        }
-        
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2em;
-            }
-            
-            .features {
-                grid-template-columns: 1fr;
-            }
-            
-            .logo {
-                width: 60px;
-                height: 60px;
-            }
-        }
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>小辣椒 CHILI - 官方网站</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <!-- Use hosted SVG from repository so the website uses the same icon file -->
-            <img class="logo" src="https://raw.githubusercontent.com/ayudekaka/lifengyu/main/chili-32x32.svg" alt="Chili Token logo" width="80" height="80"/>
-            <h1>🌶️ Chili Token</h1>
-            <p class="tagline">一个不懂的小菜鸡</p>
-        </div>
-        
-        <div class="content">
-            <div class="section">
-                <h2>关于我们</h2>
-                <p>欢迎来到 Chili Token 的官方项目页面！我们是一个充满热情的去中心化社区项目，致力于为 Web3 生态带来更多创意和活力。</p>
-                <div class="info-box">
-                    <strong>💡 项目愿景：</strong> 打造一个有趣、透明、社区驱动的代币生态。
-                </div>
-            </div>
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/">
+      <img src="https://raw.githubusercontent.com/ayudekaka/lifengyu/main/chili-32x32.svg" alt="小辣椒 CHILI" width="48" height="48" />
+      <span class="brand-name">小辣椒 <strong>CHILI</strong></span>
+    </a>
+    <nav class="main-nav">
+      <a href="/">首页</a>
+      <a href="tokenomics.html">Tokenomics</a>
+      <a href="roadmap.html">路线图</a>
+      <a href="contact.html">联系我们</a>
+    </nav>
+  </div>
+</header>
 
-            <div class="section">
-                <h2>图标下载（32×32 SVG）</h2>
-                <p>下面的链接指向仓库中的 32×32 SVG 文件，你可以把这个链接粘贴到需要填写“下载32x32 SVG图标的链接”的表单中：</p>
-                <input class="download-input" id="svgLink" readonly value="https://raw.githubusercontent.com/ayudekaka/lifengyu/main/chili-32x32.svg"/>
-                <br/>
-                <button class="copy-btn" onclick="copyLink()">复制链接</button>
-            </div>
-            
-            <div class="section">
-                <h2>项目特色</h2>
-                <div class="features">
-                    <div class="feature-card">
-                        <div class="feature-icon">🔥</div>
-                        <div class="feature-title">高效能</div>
-                        <div class="feature-desc">快速、低成本的交易体验</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🛡️</div>
-                        <div class="feature-title">安全性</div>
-                        <div class="feature-desc">经过审计的智能合约</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">👥</div>
-                        <div class="feature-title">社区驱动</div>
-                        <div class="feature-desc">由持币者治理的项目</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🌍</div>
-                        <div class="feature-title">全球化</div>
-                        <div class="feature-desc">支持全球用户参与</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="section">
-                <h2>快速开始</h2>
-                <div class="info-box">
-                    <strong>获取 Chili Token：</strong>
-                    <p style="margin-top: 10px; margin-bottom: 0;">通过主流 DEX（Uniswap、PancakeSwap 等）购买，或参与社区活动获得奖励。</p>
-                </div>
-                <button class="button">立即购买</button>
-            </div>
-            
-            <div class="section">
-                <h2>社区</h2>
-                <p>加入我们的社区，与志同道合的人共同构建 Web3 的未来！</p>
-                <div class="social-links">
-                    <a href="#" title="Discord">💬</a>
-                    <a href="#" title="Twitter">𝕏</a>
-                    <a href="#" title="Telegram">✈️</a>
-                    <a href="#" title="GitHub">⭐</a>
-                </div>
-            </div>
-            
-            <div class="section">
-                <h2>联系方式</h2>
-                <p>有任何问题或建议？欢迎随时与我们联系！</p>
-                <p>
-                    <strong>邮箱：</strong> <a href="mailto:contact@chilitoken.com" style="color: #FF6B35;">contact@chilitoken.com</a><br>
-                    <strong>社区：</strong> 加入我们的 Discord 或 Telegram 频道获得实时支持
-                </p>
-            </div>
-        </div>
-        
-        <div class="footer">
-            <p>© 2024 Chili Token. All rights reserved.</p>
-            <p>Built with ❤️ for the Web3 community</p>
-        </div>
+<main class="hero">
+  <div class="container">
+    <h1>小辣椒 <span class="accent">CHILI</span></h1>
+    <p class="lead">一个有趣、社区驱动的代币项目 — 轻松上手，热力十足</p>
+    <p>
+      <a class="btn" href="#buy">立即购买</a>
+      <a class="btn ghost" href="tokenomics.html">查看代币分配</a>
+    </p>
+  </div>
+</main>
+
+<section class="features">
+  <div class="container grid">
+    <article class="card">
+      <h3>易于接入</h3>
+      <p>支持主流去中心化交易所（Uniswap/PancakeSwap），快速添加流动性。</p>
+    </article>
+
+    <article class="card">
+      <h3>社区治理</h3>
+      <p>由持币者参与治理，投票决定社区基金使用与发展方向。</p>
+    </article>
+
+    <article class="card">
+      <h3>轻松有趣</h3>
+      <p>我们重视用户体验和社区活动，让持币过程充满乐趣。</p>
+    </article>
+
+    <article class="card">
+      <h3>透明安全</h3>
+      <p>合约源码公开，定期审计（计划中）。</p>
+    </article>
+  </div>
+</section>
+
+<section class="token-quick" id="buy">
+  <div class="container">
+    <h2>如何获取 CHILI</h2>
+    <ol>
+      <li>在你的钱包中添加网络（如 BSC / Ethereum，视我们发布的合约而定）。</li>
+      <li>在 Uniswap / PancakeSwap 上通过代币合约地址交换或添加流动性。</li>
+      <li>关注社区活动，参与空投/奖励。</li>
+    </ol>
+    <p class="muted">合约地址和更多详细信息请见 <a href="tokenomics.html">Tokenomics</a> 页面。</p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>小辣椒 CHILI</h4>
+        <p>© 2026 小辣椒 CHILI。保留所有权利。</p>
+      </div>
+      <div>
+        <h4>联系</h4>
+        <p><a href="mailto:ayudekaka@gmail.com">ayudekaka@gmail.com</a></p>
+      </div>
+      <div>
+        <h4>快速链接</h4>
+        <p><a href="https://raw.githubusercontent.com/ayudekaka/lifengyu/main/chili-32x32.svg">下载 32×32 SVG 图标</a></p>
+      </div>
     </div>
+  </div>
+</footer>
 
-    <script>
-        function copyLink(){
-            const el = document.getElementById('svgLink');
-            el.select();
-            el.setSelectionRange(0, 99999);
-            try{
-                document.execCommand('copy');
-                alert('链接已复制到剪贴板');
-            }catch(err){
-                navigator.clipboard.writeText(el.value).then(()=>alert('链接已复制到剪贴板'));
-            }
-        }
-    </script>
 </body>
 </html>
