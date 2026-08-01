@@ -54,6 +54,7 @@
             height: 80px;
             margin: 0 auto 20px;
             animation: rotate 20s linear infinite;
+            display: block;
         }
         
         @keyframes rotate {
@@ -203,6 +204,27 @@
             box-shadow: 0 10px 25px rgba(255, 107, 53, 0.4);
         }
         
+        .download-input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 2px solid #E5F6EF;
+            background: #F3FFF9;
+            border-radius: 8px;
+            color: #333;
+            font-size: 0.95em;
+        }
+
+        .copy-btn {
+            margin-top: 8px;
+            display: inline-block;
+            background: #2d8f6f;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            border: none;
+        }
+        
         @media (max-width: 600px) {
             h1 {
                 font-size: 2em;
@@ -222,26 +244,8 @@
 <body>
     <div class="container">
         <div class="header">
-            <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                <defs>
-                    <linearGradient id="pepperGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#FF6B35;stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:#D63900;stop-opacity:1" />
-                    </linearGradient>
-                    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
-                        <feDropShadow dx="0" dy="1" stdDeviation="1" flood-opacity="0.3"/>
-                    </filter>
-                </defs>
-                <ellipse cx="16" cy="18" rx="9" ry="11" fill="url(#pepperGradient)" filter="url(#shadow)"/>
-                <path d="M 16 29 Q 14 26 14 23 Q 14 20 16 19 Q 18 20 18 23 Q 18 26 16 29" fill="url(#pepperGradient)"/>
-                <ellipse cx="16" cy="5" rx="2.5" ry="4" fill="#2D5016"/>
-                <path d="M 14 8 Q 12 7 11 9" stroke="#2D5016" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                <path d="M 18 8 Q 20 7 21 9" stroke="#2D5016" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                <ellipse cx="12" cy="13" rx="3" ry="4" fill="white" opacity="0.4"/>
-                <circle cx="13" cy="16" r="1" fill="#8B4513" opacity="0.6"/>
-                <circle cx="19" cy="16" r="1" fill="#8B4513" opacity="0.6"/>
-                <path d="M 15 19 Q 16 20 17 19" stroke="#8B4513" stroke-width="0.8" fill="none" stroke-linecap="round" opacity="0.5"/>
-            </svg>
+            <!-- Use hosted SVG from repository so the website uses the same icon file -->
+            <img class="logo" src="https://raw.githubusercontent.com/ayudekaka/lifengyu/main/chili-32x32.svg" alt="Chili Token logo" width="80" height="80"/>
             <h1>🌶️ Chili Token</h1>
             <p class="tagline">一个不懂的小菜鸡</p>
         </div>
@@ -253,6 +257,14 @@
                 <div class="info-box">
                     <strong>💡 项目愿景：</strong> 打造一个有趣、透明、社区驱动的代币生态。
                 </div>
+            </div>
+
+            <div class="section">
+                <h2>图标下载（32×32 SVG）</h2>
+                <p>下面的链接指向仓库中的 32×32 SVG 文件，你可以把这个链接粘贴到需要填写“下载32x32 SVG图标的链接”的表单中：</p>
+                <input class="download-input" id="svgLink" readonly value="https://raw.githubusercontent.com/ayudekaka/lifengyu/main/chili-32x32.svg"/>
+                <br/>
+                <button class="copy-btn" onclick="copyLink()">复制链接</button>
             </div>
             
             <div class="section">
@@ -316,5 +328,19 @@
             <p>Built with ❤️ for the Web3 community</p>
         </div>
     </div>
+
+    <script>
+        function copyLink(){
+            const el = document.getElementById('svgLink');
+            el.select();
+            el.setSelectionRange(0, 99999);
+            try{
+                document.execCommand('copy');
+                alert('链接已复制到剪贴板');
+            }catch(err){
+                navigator.clipboard.writeText(el.value).then(()=>alert('链接已复制到剪贴板'));
+            }
+        }
+    </script>
 </body>
 </html>
