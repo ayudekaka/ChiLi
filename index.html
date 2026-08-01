@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chili Token - 🌶️ 一个不懂的小菜鸡代币</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 100%;
+            overflow: hidden;
+            animation: slideIn 0.6s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #FF6B35 0%, #D63900 100%);
+            padding: 40px 20px;
+            text-align: center;
+            color: white;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .logo:hover {
+            animation: none;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .tagline {
+            font-size: 1.1em;
+            opacity: 0.95;
+            font-style: italic;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            color: #FF6B35;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            border-bottom: 2px solid #FF6B35;
+            padding-bottom: 8px;
+        }
+        
+        p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 12px;
+            font-size: 1em;
+        }
+        
+        .info-box {
+            background: #FFF3E0;
+            border-left: 4px solid #FF6B35;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        
+        .info-box strong {
+            color: #D63900;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .feature-card {
+            background: #F5F5F5;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid #FFE0D0;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.2);
+        }
+        
+        .feature-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        
+        .feature-title {
+            color: #FF6B35;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .feature-desc {
+            font-size: 0.9em;
+            color: #777;
+        }
+        
+        .footer {
+            background: #F9F9F9;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #EEE;
+            color: #999;
+            font-size: 0.9em;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #FF6B35 0%, #D63900 100%);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .social-links a:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+        }
+        
+        .button {
+            display: inline-block;
+            background: linear-gradient(135deg, #FF6B35 0%, #D63900 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.4);
+        }
+        
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo {
+                width: 60px;
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                <defs>
+                    <linearGradient id="pepperGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#FF6B35;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#D63900;stop-opacity:1" />
+                    </linearGradient>
+                    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+                        <feDropShadow dx="0" dy="1" stdDeviation="1" flood-opacity="0.3"/>
+                    </filter>
+                </defs>
+                <ellipse cx="16" cy="18" rx="9" ry="11" fill="url(#pepperGradient)" filter="url(#shadow)"/>
+                <path d="M 16 29 Q 14 26 14 23 Q 14 20 16 19 Q 18 20 18 23 Q 18 26 16 29" fill="url(#pepperGradient)"/>
+                <ellipse cx="16" cy="5" rx="2.5" ry="4" fill="#2D5016"/>
+                <path d="M 14 8 Q 12 7 11 9" stroke="#2D5016" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                <path d="M 18 8 Q 20 7 21 9" stroke="#2D5016" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                <ellipse cx="12" cy="13" rx="3" ry="4" fill="white" opacity="0.4"/>
+                <circle cx="13" cy="16" r="1" fill="#8B4513" opacity="0.6"/>
+                <circle cx="19" cy="16" r="1" fill="#8B4513" opacity="0.6"/>
+                <path d="M 15 19 Q 16 20 17 19" stroke="#8B4513" stroke-width="0.8" fill="none" stroke-linecap="round" opacity="0.5"/>
+            </svg>
+            <h1>🌶️ Chili Token</h1>
+            <p class="tagline">一个不懂的小菜鸡</p>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <h2>关于我们</h2>
+                <p>欢迎来到 Chili Token 的官方项目页面！我们是一个充满热情的去中心化社区项目，致力于为 Web3 生态带来更多创意和活力。</p>
+                <div class="info-box">
+                    <strong>💡 项目愿景：</strong> 打造一个有趣、透明、社区驱动的代币生态。
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>项目特色</h2>
+                <div class="features">
+                    <div class="feature-card">
+                        <div class="feature-icon">🔥</div>
+                        <div class="feature-title">高效能</div>
+                        <div class="feature-desc">快速、低成本的交易体验</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <div class="feature-title">安全性</div>
+                        <div class="feature-desc">经过审计的智能合约</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">👥</div>
+                        <div class="feature-title">社区驱动</div>
+                        <div class="feature-desc">由持币者治理的项目</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌍</div>
+                        <div class="feature-title">全球化</div>
+                        <div class="feature-desc">支持全球用户参与</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>快速开始</h2>
+                <div class="info-box">
+                    <strong>获取 Chili Token：</strong>
+                    <p style="margin-top: 10px; margin-bottom: 0;">通过主流 DEX（Uniswap、PancakeSwap 等）购买，或参与社区活动获得奖励。</p>
+                </div>
+                <button class="button">立即购买</button>
+            </div>
+            
+            <div class="section">
+                <h2>社区</h2>
+                <p>加入我们的社区，与志同道合的人共同构建 Web3 的未来！</p>
+                <div class="social-links">
+                    <a href="#" title="Discord">💬</a>
+                    <a href="#" title="Twitter">𝕏</a>
+                    <a href="#" title="Telegram">✈️</a>
+                    <a href="#" title="GitHub">⭐</a>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>联系方式</h2>
+                <p>有任何问题或建议？欢迎随时与我们联系！</p>
+                <p>
+                    <strong>邮箱：</strong> <a href="mailto:contact@chilitoken.com" style="color: #FF6B35;">contact@chilitoken.com</a><br>
+                    <strong>社区：</strong> 加入我们的 Discord 或 Telegram 频道获得实时支持
+                </p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2024 Chili Token. All rights reserved.</p>
+            <p>Built with ❤️ for the Web3 community</p>
+        </div>
+    </div>
+</body>
+</html>
