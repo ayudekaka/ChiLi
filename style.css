@@ -1,33 +1,25 @@
-/* =====================================
- CHILI Token Website CSS
- Desktop Keep + Mobile Footer Fix
-===================================== */
+/* ===============================
+   CHILI Token Official Website CSS
+   Desktop + Mobile Responsive
+================================ */
 
 
-*{
+/* 基础 */
 
-    margin:0;
-
-    padding:0;
-
-    box-sizing:border-box;
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-
 
 
 html,
-body{
+body {
 
-    width:100%;
+    width: 100%;
+    min-height: 100%;
 
-    overflow-x:hidden;
-
-}
-
-
-
-body{
+    overflow-x: hidden;
 
     font-family:
 
@@ -38,10 +30,17 @@ body{
     Arial,
     sans-serif;
 
+    background: #fff7f2;
 
-    background:#fff7f2;
+    color: #333;
 
-    color:#222;
+}
+
+
+
+a {
+
+    text-decoration: none;
 
 }
 
@@ -49,70 +48,63 @@ body{
 
 
 
-/* =========================
- Container
-========================= */
+/* ===============================
+   容器
+================================ */
 
 
-.container{
+.container {
+
+    width: 100%;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 0 25px;
+
+}
+
+
+
+
+
+
+/* ===============================
+   顶部导航
+================================ */
+
+
+.site-header {
+
 
     width:100%;
 
-    max-width:1200px;
+    background:#ffffff;
 
-    margin:0 auto;
-
-    padding:0 25px;
+    box-shadow:0 3px 15px rgba(0,0,0,.08);
 
 }
 
 
 
+.site-header .container {
 
 
-
-/* =========================
- Header
-========================= */
-
-
-.site-header{
-
-    width:100%;
-
-    background:#fff;
-
-    position:sticky;
-
-    top:0;
-
-    z-index:999;
-
-    box-shadow:
-
-    0 3px 15px rgba(0,0,0,.08);
-
-}
-
-
-
-.site-header .container{
-
-    height:76px;
+    min-height:75px;
 
     display:flex;
 
-    align-items:center;
-
     justify-content:space-between;
+
+    align-items:center;
 
 }
 
 
 
+.brand {
 
-
-.brand{
 
     display:flex;
 
@@ -120,13 +112,12 @@ body{
 
     gap:12px;
 
-    text-decoration:none;
-
 }
 
 
 
-.brand img{
+.brand img {
+
 
     width:40px;
 
@@ -136,17 +127,20 @@ body{
 
 
 
-.brand-name{
+.brand-name {
+
 
     font-size:22px;
 
     font-weight:700;
 
+    color:#333;
+
 }
 
 
+.brand-name strong {
 
-.brand-name strong{
 
     color:#e53935;
 
@@ -156,12 +150,15 @@ body{
 
 
 
-/* =========================
- Navigation
-========================= */
 
 
-.main-nav{
+/* ===============================
+   导航
+================================ */
+
+
+.main-nav {
+
 
     display:flex;
 
@@ -171,11 +168,10 @@ body{
 
 
 
-.main-nav a{
+.main-nav a {
+
 
     color:#555;
-
-    text-decoration:none;
 
     font-weight:600;
 
@@ -183,20 +179,29 @@ body{
 
 
 
+.main-nav a:hover {
+
+
+    color:#e53935;
+
+}
 
 
 
 
-/* =========================
- Hero
-========================= */
 
 
-.hero{
 
-    width:100%;
 
-    padding:90px 0 60px;
+/* ===============================
+   首页标题
+================================ */
+
+
+.hero {
+
+
+    padding:80px 0 50px;
 
     text-align:center;
 
@@ -204,7 +209,8 @@ body{
 
 
 
-.hero h1{
+.hero h1 {
+
 
     font-size:48px;
 
@@ -214,52 +220,136 @@ body{
 
 
 
+.hero .lead {
+
+
+    margin-top:15px;
+
+    font-size:18px;
+
+    color:#777;
+
+}
 
 
 
 
 
-/* =========================
- Cards
-========================= */
 
 
-.grid{
+
+/* ===============================
+   内容区域
+================================ */
+
+
+.features {
+
 
     width:100%;
+
+    padding:20px 0;
+
+}
+
+
+
+.grid {
+
+
+    width:100%;
+
 
     display:grid;
 
+
     grid-template-columns:
+
 
     repeat(3,1fr);
 
+
     gap:25px;
+
 
 }
 
 
 
-.card{
 
-    background:#fff;
+
+
+/* 卡片 */
+
+
+.card {
+
+
+    background:#ffffff;
+
 
     padding:30px;
 
-    border-radius:22px;
+
+    border-radius:20px;
+
 
     box-shadow:
 
+
     0 10px 30px rgba(0,0,0,.08);
+
+
+    word-break:break-word;
+
 
 }
 
 
 
-.card h3{
+.card h3 {
+
 
     color:#d32f2f;
 
+
+    margin-bottom:18px;
+
+
+    font-size:22px;
+
+
+}
+
+
+
+.card p {
+
+
+    line-height:1.8;
+
+    color:#666;
+
+    font-size:15px;
+
+}
+
+
+
+
+
+
+
+/* BscScan / 邮箱链接 */
+
+
+.card a {
+
+
+    color:#d32f2f;
+
+    font-weight:bold;
+
 }
 
 
@@ -269,29 +359,27 @@ body{
 
 
 
-
-/* =========================
- Footer Desktop
- 保持电脑
-========================= */
+/* ===============================
+   Footer
+================================ */
 
 
-.site-footer{
+.site-footer {
 
 
     width:100%;
 
 
-    background:#fff;
+    background:#ffffff;
 
 
-    padding:30px 0;
+    border-top:1px solid #eeeeee;
 
 
-    margin-top:40px;
+    margin-top:50px;
 
 
-    border-top:1px solid #eee;
+    padding:30px 15px;
 
 
     text-align:center;
@@ -301,82 +389,31 @@ body{
 
 
 
-.footer-grid{
+.site-footer h4 {
 
 
-    width:100%;
-
-
-    display:flex;
-
-
-    justify-content:center;
-
-
-    align-items:flex-start;
-
-
-    gap:60px;
-
-
-    flex-wrap:wrap;
-
-
-}
-
-
-
-.footer-item{
-
-
-    min-width:200px;
-
-
-}
-
-
-
-.site-footer h4{
+    font-size:22px;
 
 
     color:#d32f2f;
 
 
-    font-size:20px;
-
-
-    margin-bottom:15px;
+    margin-bottom:10px;
 
 
 }
 
 
 
-.site-footer p{
+.site-footer p {
 
 
-    color:#777;
+    color:#888;
 
 
     font-size:14px;
 
 
-    margin:6px 0;
-
-
-}
-
-
-
-.site-footer a{
-
-
-    color:#d32f2f;
-
-
-    text-decoration:none;
-
-
 }
 
 
@@ -385,19 +422,29 @@ body{
 
 
 
-/* =========================
- Tablet
-========================= */
+/* ===============================
+   平板
+================================ */
 
 
 @media(max-width:900px){
 
 
-.grid{
+
+.grid {
 
 
-    grid-template-columns:1fr;
+    grid-template-columns:1fr 1fr;
 
+
+}
+
+
+
+.main-nav {
+
+
+    gap:15px;
 
 }
 
@@ -410,22 +457,19 @@ body{
 
 
 
-
-/* =========================
- Mobile Only
- 只修改手机
-========================= */
+/* ===============================
+   手机
+================================ */
 
 
 @media(max-width:600px){
 
 
 
-.container{
+.container {
 
 
     padding-left:15px;
-
 
     padding-right:15px;
 
@@ -435,16 +479,10 @@ body{
 
 
 
-.site-header .container{
-
-
-    height:auto;
+.site-header .container {
 
 
     flex-direction:column;
-
-
-    gap:15px;
 
 
     padding-top:15px;
@@ -457,24 +495,27 @@ body{
 
 
 
-.main-nav{
+
+.brand-name {
 
 
-    flex-wrap:wrap;
+    font-size:20px;
+
+
+}
+
+
+
+.main-nav {
+
+
+    width:100%;
 
 
     justify-content:center;
 
 
-}
-
-
-
-
-.hero h1{
-
-
-    font-size:30px;
+    flex-wrap:wrap;
 
 
 }
@@ -483,16 +524,95 @@ body{
 
 
 
-/* Footer 手机强制显示 */
+.hero {
 
 
-.site-footer{
+    padding:50px 0 30px;
 
 
-    display:block !important;
+}
+
+
+
+
+.hero h1 {
+
+
+    font-size:32px;
+
+
+}
+
+
+
+.hero .lead {
+
+
+    font-size:15px;
+
+
+}
+
+
+
+
+
+.grid {
+
+
+    grid-template-columns:1fr;
+
+
+    gap:18px;
+
+
+}
+
+
+
+
+
+.card {
 
 
     width:100%;
+
+
+    padding:22px;
+
+
+    border-radius:16px;
+
+
+}
+
+
+
+
+
+.card h3 {
+
+
+    font-size:19px;
+
+
+}
+
+
+
+.card p {
+
+
+    font-size:14px;
+
+
+}
+
+
+
+
+
+.site-footer {
 
 
     padding:25px 15px;
@@ -503,79 +623,20 @@ body{
 
 
 
-.footer-grid{
+.site-footer h4 {
 
 
-    display:flex !important;
-
-
-    flex-direction:column !important;
-
-
-    justify-content:center;
-
-
-    align-items:center;
-
-
-    width:100%;
-
-
-    gap:25px;
+    font-size:20px;
 
 
 }
 
 
 
-
-.footer-item{
-
-
-    display:block !important;
-
-
-    width:100%;
-
-
-    min-width:0;
-
-
-    text-align:center;
-
-
-}
-
-
-
-
-.site-footer h4{
-
-
-    font-size:18px;
-
-
-}
-
-
-
-.site-footer p{
-
-
-    display:block !important;
+.site-footer p {
 
 
     font-size:13px;
-
-
-}
-
-
-
-.site-footer a{
-
-
-    display:inline-block !important;
 
 
 }
