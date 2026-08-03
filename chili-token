@@ -12,45 +12,38 @@
             box-sizing: border-box;
         }
 
-        html, body {
+        html {
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
             width: 100%;
             height: 100%;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: #333;
-        }
-
-        body {
+            margin: 0;
+            padding: 0;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 100%;
-            margin: 0 auto;
-            padding: 20px;
-            flex: 1;
-            overflow-y: auto;
             overflow-x: hidden;
         }
 
-        /* 导航栏 */
         .navbar {
             background: white;
             padding: 15px 20px;
-            border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
             align-items: center;
-            margin-bottom: 20px;
             position: sticky;
-            top: 20px;
+            top: 0;
             z-index: 100;
-            flex-wrap: wrap;
-            gap: 10px;
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
         }
 
         .navbar-brand {
@@ -59,6 +52,7 @@
             gap: 10px;
             font-size: 20px;
             font-weight: bold;
+            white-space: nowrap;
         }
 
         .navbar-brand .emoji {
@@ -69,19 +63,39 @@
             color: #667eea;
         }
 
+        .scroll-container {
+            width: 100vw;
+            height: 100%;
+            overflow-y: auto;
+            overflow-x: hidden;
+            flex: 1;
+        }
+
+        .content {
+            width: 100%;
+            max-width: 100%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
         /* 主内容区域 */
         .main-section {
             background: white;
             border-radius: 16px;
             padding: 30px 25px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
         }
 
         .main-section h1 {
             font-size: 36px;
             color: #667eea;
             margin-bottom: 10px;
+            word-break: break-word;
         }
 
         .main-section .subtitle {
@@ -89,6 +103,7 @@
             color: #999;
             margin-bottom: 20px;
             font-weight: 500;
+            word-break: break-word;
         }
 
         .main-section .description {
@@ -96,13 +111,7 @@
             line-height: 1.8;
             margin-bottom: 20px;
             font-size: 14px;
-        }
-
-        /* 分隔线 */
-        .divider {
-            height: 2px;
-            background: linear-gradient(to right, transparent, #e0e0e0, transparent);
-            margin: 25px 0;
+            word-break: break-word;
         }
 
         /* 卡片样式 */
@@ -111,7 +120,9 @@
             border-radius: 16px;
             padding: 25px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
         }
 
         .card h2 {
@@ -120,6 +131,7 @@
             margin-bottom: 20px;
             padding-bottom: 12px;
             border-bottom: 2px solid #f0f0f0;
+            word-break: break-word;
         }
 
         .card h3 {
@@ -127,14 +139,23 @@
             color: #333;
             margin-bottom: 12px;
             margin-top: 0;
+            word-break: break-word;
         }
 
         /* 信息卡片组 */
         .info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: 1fr 1fr;
             gap: 15px;
             margin-bottom: 20px;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        @media (max-width: 600px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .info-card {
@@ -142,6 +163,8 @@
             padding: 18px;
             border-radius: 12px;
             border-left: 4px solid #ff6b6b;
+            width: 100%;
+            overflow-x: hidden;
         }
 
         .info-card .label {
@@ -151,13 +174,15 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin-bottom: 8px;
+            word-break: break-word;
         }
 
         .info-card .value {
             font-size: 16px;
             font-weight: bold;
             color: #333;
-            word-break: break-word;
+            word-break: break-all;
+            overflow-wrap: break-word;
         }
 
         /* 地址框 */
@@ -167,6 +192,8 @@
             border-radius: 12px;
             border-left: 4px solid #ff6b6b;
             margin-bottom: 15px;
+            width: 100%;
+            overflow-x: hidden;
         }
 
         .address-box {
@@ -181,6 +208,9 @@
             word-break: break-all;
             margin-bottom: 12px;
             line-height: 1.6;
+            width: 100%;
+            overflow-x: hidden;
+            box-sizing: border-box;
         }
 
         .btn-small {
@@ -194,6 +224,8 @@
             font-weight: bold;
             transition: all 0.3s;
             font-size: 13px;
+            max-width: 100%;
+            overflow-x: hidden;
         }
 
         .btn-small:active {
@@ -201,15 +233,12 @@
             transform: scale(0.98);
         }
 
-        .btn-small:hover {
-            background: #ff5252;
-        }
-
         /* 链接列表 */
         .links-list {
             display: grid;
             grid-template-columns: 1fr;
             gap: 12px;
+            width: 100%;
         }
 
         .link-item {
@@ -221,17 +250,17 @@
             justify-content: space-between;
             align-items: center;
             transition: all 0.3s;
-        }
-
-        .link-item:active {
-            background: #f0f0f0;
-            transform: translateX(3px);
+            width: 100%;
+            overflow-x: hidden;
+            box-sizing: border-box;
         }
 
         .link-item .label {
             font-size: 13px;
             color: #666;
             font-weight: 500;
+            word-break: break-word;
+            min-width: 0;
         }
 
         .link-item a {
@@ -240,15 +269,13 @@
             font-weight: bold;
             transition: color 0.3s;
             font-size: 13px;
-        }
-
-        .link-item a:active {
-            color: #ff6b6b;
+            white-space: nowrap;
         }
 
         .coming-soon {
             color: #999;
             font-size: 12px;
+            white-space: nowrap;
         }
 
         /* 步骤列表 */
@@ -256,6 +283,7 @@
             display: grid;
             grid-template-columns: 1fr;
             gap: 12px;
+            width: 100%;
         }
 
         .step {
@@ -263,6 +291,9 @@
             background: #f9f9f9;
             border-radius: 8px;
             border-left: 4px solid #ff6b6b;
+            width: 100%;
+            overflow-x: hidden;
+            box-sizing: border-box;
         }
 
         .step-header {
@@ -290,6 +321,7 @@
             font-weight: bold;
             color: #333;
             font-size: 14px;
+            word-break: break-word;
         }
 
         .step-desc {
@@ -297,6 +329,7 @@
             font-size: 13px;
             line-height: 1.6;
             margin-left: 44px;
+            word-break: break-word;
         }
 
         /* 警告框 */
@@ -309,6 +342,10 @@
             color: #666;
             line-height: 1.6;
             margin-bottom: 15px;
+            width: 100%;
+            overflow-x: hidden;
+            box-sizing: border-box;
+            word-break: break-word;
         }
 
         .warning-box strong {
@@ -325,6 +362,11 @@
             font-size: 12px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+            box-sizing: border-box;
+            word-break: break-word;
         }
 
         /* 动画 */
@@ -345,15 +387,6 @@
 
         /* 响应式设计 */
         @media (max-width: 768px) {
-            .navbar {
-                top: 10px;
-                padding: 12px 15px;
-            }
-
-            .main-section, .card {
-                padding: 20px 15px;
-            }
-
             .main-section h1 {
                 font-size: 28px;
             }
@@ -362,12 +395,12 @@
                 font-size: 18px;
             }
 
-            .info-grid {
-                grid-template-columns: 1fr;
+            .main-section, .card {
+                padding: 20px 15px;
             }
 
-            .container {
-                padding: 10px;
+            .content {
+                padding: 15px;
             }
         }
 
@@ -378,6 +411,10 @@
 
             .navbar-brand .emoji {
                 font-size: 20px;
+            }
+
+            .navbar {
+                padding: 12px 15px;
             }
 
             .main-section h1 {
@@ -396,165 +433,154 @@
                 font-size: 11px;
             }
 
-            .container {
-                padding: 8px;
+            .main-section, .card {
+                padding: 15px 12px;
             }
-        }
 
-        /* 滚动条美化 */
-        .container::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        .container::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-        }
-
-        .container::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 10px;
-        }
-
-        .container::-webkit-scrollbar-thumb:hover {
-            background: rgba(255, 255, 255, 0.5);
+            .content {
+                padding: 12px;
+                gap: 15px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <!-- 导航栏 -->
-        <div class="navbar">
-            <div class="navbar-brand">
-                <span class="emoji">🌶️</span>
-                <span class="text">CHILI Token</span>
+    <!-- 导航栏（固定在上方） -->
+    <div class="navbar">
+        <div class="navbar-brand">
+            <span class="emoji">🌶️</span>
+            <span class="text">CHILI</span>
+        </div>
+    </div>
+
+    <!-- 可滚动内容区域 -->
+    <div class="scroll-container">
+        <div class="content">
+            <!-- 项目介绍 -->
+            <div class="main-section">
+                <h1>CHILI Token</h1>
+                <p class="subtitle">小辣椒 | Community Driven Token</p>
+                <p class="description">
+                    CHILI（小辣椒）是一个部署在 BNB Smart Chain（币安智能链）上的社区驱动型代币，专注于社区参与和去中心化发展。我们致力于打造一个透明、开放、包容的区块链社区。
+                </p>
             </div>
-        </div>
 
-        <!-- 主标题区 -->
-        <div class="main-section">
-            <h1>CHILI Token</h1>
-            <p class="subtitle">小辣椒 | Community Driven Token on BNB Smart Chain</p>
-            <p class="description">
-                CHILI（小辣椒）是一个部署在 BNB Smart Chain（币安智能链）上的社区驱动型代币，专注于社区参与和去中心化发展。我们致力于打造一个透明、开放、包容的区块链社区。
-            </p>
-        </div>
-
-        <!-- 代币信息 -->
-        <div class="card">
-            <h2>📊 代币信息</h2>
-            <div class="info-grid">
-                <div class="info-card">
-                    <div class="label">代币名称</div>
-                    <div class="value">CHILI</div>
-                </div>
-                <div class="info-card">
-                    <div class="label">代币符号</div>
-                    <div class="value">CHILI</div>
-                </div>
-                <div class="info-card">
-                    <div class="label">网络</div>
-                    <div class="value">BNB Smart Chain</div>
-                </div>
-                <div class="info-card">
-                    <div class="label">总供应量</div>
-                    <div class="value">20,150,822</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 合约地址 -->
-        <div class="card">
-            <h2>🔐 合约地址</h2>
-            <div class="address-section">
-                <div style="font-size: 12px; color: #999; margin-bottom: 8px; font-weight: bold; text-transform: uppercase;">
-                    智能合约地址
-                </div>
-                <div class="address-box">0xed3caca4903256fb3e4997bc0c7830d19fb35f7c</div>
-                <button class="btn-small" onclick="copyAddress()">📋 复制合约地址</button>
-            </div>
-            <p style="color: #666; font-size: 12px; line-height: 1.6; margin-top: 15px;">
-                请在去中心化交易所（如 PancakeSwap）中使用该地址进行交换或添加流动性。请务必核对合约地址，防止诈骗。
-            </p>
-        </div>
-
-        <!-- 官方链接 -->
-        <div class="card">
-            <h2>🔗 官方链接</h2>
-            <div class="links-list">
-                <div class="link-item">
-                    <div class="label">📊 BscScan</div>
-                    <a href="https://bscscan.com/token/0xed3caca4903256fb3e4997bc0c7830d19fb35f7c" target="_blank">
-                        查看 →
-                    </a>
-                </div>
-                <div class="link-item">
-                    <div class="label">🌐 官方网站</div>
-                    <span class="coming-soon">Coming Soon</span>
-                </div>
-                <div class="link-item">
-                    <div class="label">💬 Telegram</div>
-                    <span class="coming-soon">Coming Soon</span>
-                </div>
-                <div class="link-item">
-                    <div class="label">𝕏 Twitter</div>
-                    <span class="coming-soon">Coming Soon</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- 如何获取 -->
-        <div class="card">
-            <h2>🎯 如何获取 CHILI</h2>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-header">
-                        <div class="step-num">1</div>
-                        <div class="step-title">配置钱包</div>
+            <!-- 代币信息卡片 -->
+            <div class="card">
+                <h2>📊 代币信息</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="label">代币名称</div>
+                        <div class="value">CHILI</div>
                     </div>
-                    <div class="step-desc">
-                        在您的钱包（MetaMask、Trust Wallet 等）中添加 BNB Smart Chain 网络
+                    <div class="info-card">
+                        <div class="label">代币符号</div>
+                        <div class="value">CHILI</div>
                     </div>
-                </div>
-                <div class="step">
-                    <div class="step-header">
-                        <div class="step-num">2</div>
-                        <div class="step-title">前往交易所</div>
+                    <div class="info-card">
+                        <div class="label">网络</div>
+                        <div class="value">BNB Smart Chain</div>
                     </div>
-                    <div class="step-desc">
-                        在 PancakeSwap 或其他去中心化交易所中搜索合约地址
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-header">
-                        <div class="step-num">3</div>
-                        <div class="step-title">交换��币</div>
-                    </div>
-                    <div class="step-desc">
-                        使用 BNB 或其他代币交换 CHILI，或添加流动性
+                    <div class="info-card">
+                        <div class="label">总供应量</div>
+                        <div class="value">20,150,822</div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- 免责声明 -->
-        <div class="card">
-            <h2>⚠️ 免责声明</h2>
-            <p style="color: #666; font-size: 13px; line-height: 1.8; margin-bottom: 12px;">
-                CHILI Token 是一个基于区块链技术的社区项目。参与前请进行充分的研究和了解，风险自担。我们不承诺任何投资回报，请仅将其作为社区参与的一部分。
-            </p>
-            <p style="font-size: 12px; color: #999; line-height: 1.6;">
-                CHILI Token is a community project based on blockchain technology. Users should conduct their own research before participating. We do not guarantee any investment returns.
-            </p>
-            <div class="warning-box" style="margin-top: 15px;">
-                💡 投资有风险，参与需谨慎。请确保您已完全了解代币机制和相关风险。
+            <!-- 合约地址卡片 -->
+            <div class="card">
+                <h2>🔐 合约地址</h2>
+                <div class="address-section">
+                    <div style="font-size: 12px; color: #999; margin-bottom: 8px; font-weight: bold; text-transform: uppercase;">
+                        智能合约地址
+                    </div>
+                    <div class="address-box">0xed3caca4903256fb3e4997bc0c7830d19fb35f7c</div>
+                    <button class="btn-small" onclick="copyAddress()">📋 复制合约地址</button>
+                </div>
+                <p style="color: #666; font-size: 12px; line-height: 1.6; margin-top: 15px; word-break: break-word;">
+                    请在去中心化交易所（如 PancakeSwap）中使用该地址进行交换或添加流动性。请务必核对合约地址，防止诈骗。
+                </p>
             </div>
-        </div>
 
-        <!-- 页脚 -->
-        <div class="footer">
-            © 2026 CHILI Token Community. All Rights Reserved. | 社区驱动 · 去中心化发展
+            <!-- 官方链接 -->
+            <div class="card">
+                <h2>🔗 官方链接</h2>
+                <div class="links-list">
+                    <div class="link-item">
+                        <div class="label">📊 BscScan</div>
+                        <a href="https://bscscan.com/token/0xed3caca4903256fb3e4997bc0c7830d19fb35f7c" target="_blank">
+                            查看 →
+                        </a>
+                    </div>
+                    <div class="link-item">
+                        <div class="label">🌐 官方网站</div>
+                        <span class="coming-soon">Coming Soon</span>
+                    </div>
+                    <div class="link-item">
+                        <div class="label">💬 Telegram</div>
+                        <span class="coming-soon">Coming Soon</span>
+                    </div>
+                    <div class="link-item">
+                        <div class="label">𝕏 Twitter</div>
+                        <span class="coming-soon">Coming Soon</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 如何获取指南 -->
+            <div class="card">
+                <h2>🎯 如何获取 CHILI</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-header">
+                            <div class="step-num">1</div>
+                            <div class="step-title">配置钱包</div>
+                        </div>
+                        <div class="step-desc">
+                            在您的钱包（MetaMask、Trust Wallet 等）中添加 BNB Smart Chain 网络
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-header">
+                            <div class="step-num">2</div>
+                            <div class="step-title">前往交易所</div>
+                        </div>
+                        <div class="step-desc">
+                            在 PancakeSwap 或其他去中心化交易所中搜索合约地址
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-header">
+                            <div class="step-num">3</div>
+                            <div class="step-title">交换代币</div>
+                        </div>
+                        <div class="step-desc">
+                            使用 BNB 或其他代币交换 CHILI，或添加流动性
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 免责声明 -->
+            <div class="card">
+                <h2>⚠️ 免责声明</h2>
+                <p style="color: #666; font-size: 13px; line-height: 1.8; margin-bottom: 12px; word-break: break-word;">
+                    CHILI Token 是一个基于区块链技术的社区项目。参与前请进行充分的研究和了解，风险自担。我们不承诺任何投资回报，请仅将其作为社区参与的一部分。
+                </p>
+                <p style="font-size: 12px; color: #999; line-height: 1.6; word-break: break-word;">
+                    CHILI Token is a community project based on blockchain technology. Users should conduct their own research before participating. We do not guarantee any investment returns.
+                </p>
+                <div class="warning-box">
+                    💡 投资有风险，参与需谨慎。请确保您已完全了解代币机制和相关风险。
+                </div>
+            </div>
+
+            <!-- 页脚 -->
+            <div class="footer">
+                © 2026 CHILI Token Community. All Rights Reserved.<br>社区驱动 · 去中心化发展
+            </div>
         </div>
     </div>
 
@@ -564,7 +590,7 @@
             navigator.clipboard.writeText(address).then(() => {
                 const btn = event.target;
                 const originalText = btn.innerText;
-                btn.innerText = '✅ 已复制到剪贴板！';
+                btn.innerText = '✅ 已复制！';
                 btn.style.background = '#4caf50';
                 setTimeout(() => {
                     btn.innerText = originalText;
