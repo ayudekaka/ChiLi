@@ -21,83 +21,70 @@ height="32"
 </span>
 </a>
 <nav class="main-nav">
-<a href="index.html">
-首页
-</a>
-<a href="tokenomics.html">
-Tokenomics
-</a>
-<a href="roadmap.html">
-路线图
-</a>
-<a href="contact.html">
-联系我们
-</a>
+<a href="index.html">首页</a>
+<a href="tokenomics.html">Tokenomics</a>
+<a href="roadmap.html">路线图</a>
+<a href="contact.html">联系我们</a>
 </nav>
 </div>
 </header>
 <main class="hero">
 <div class="container">
-<h1>
-联系我们
-</h1>
-<p class="lead">
-有问题或建议，请通过以下方式联系
-</p>
+<h1>联系我们</h1>
+<p class="lead">有问题或建议，请通过以下方式联系</p>
 </div>
 </main>
 <section class="features">
 <div class="container grid">
 <article class="card">
-<h3>
-📧 电子邮件
-</h3>
+<h3>📧 电子邮件</h3>
 <p>
 <a href="mailto:ayudekaka@gmail.com">
 ayudekaka@gmail.com
 </a>
 </p>
 </article>
+
 <article class="card">
-<h3>
-💬 微信
-</h3>
+<h3>💬 微信</h3>
 <p>
+<span id="wechatId" style="color:#d32f2f;cursor:pointer;font-weight:500;" onclick="copyWechat()">
 2041316568
+</span>
 </p>
+<p id="wechatTip" style="font-size:12px;color:#888;margin-top:6px;min-height:16px;"></p>
 </article>
+
 <article class="card">
-<h3>
-📱 欧意群聊
-</h3>
+<h3>📱 欧意群聊</h3>
 <p>
 <a href="https://oyidl.net/ul/r3HZQQG" target="_blank" rel="noopener">
 点击进入群聊
 </a>
 </p>
 </article>
+
 <article class="card">
-<h3>
-🎵 国际版抖音
-</h3>
-<p>
-Coming Soon（如有账号请提供链接）
+<h3>🎵 国际版抖音</h3>
+<p style="color:#888;">
+Coming Soon<br>
+<span style="font-size:13px;">（TikTok Account）</span>
 </p>
 </article>
+
 <article class="card">
-<h3>
-✈️ Telegram
-</h3>
-<p>
-Coming Soon（如有群组请提供链接）
+<h3>✈️ Telegram</h3>
+<p style="color:#888;">
+Coming Soon<br>
+<span style="font-size:13px;">（Telegram Group）</span>
 </p>
 </article>
+
 <article class="card">
-<h3>
-🐦 Twitter / X
-</h3>
-<p>
-Coming Soon（如有账号请提供链接）
+<h3>🐦 Twitter / X</h3>
+<p style="color:#888;">
+Coming Soon<br>
+<span style="font-size:13px;">（X / Twitter Account）</span>
 </p>
 </article>
 </div>
@@ -106,15 +93,24 @@ Coming Soon（如有账号请提供链接）
 <div class="container">
 <div class="footer-grid">
 <div>
-<h4>
-🌶️ 小辣椒 CHILI
-</h4>
-<p>
-© 2026 小辣椒 CHILI。保留所有权利。
-</p>
+<h4>🌶️ 小辣椒 CHILI</h4>
+<p>© 2026 小辣椒 CHILI。保留所有权利。</p>
 </div>
 </div>
 </div>
 </footer>
+<script>
+function copyWechat() {
+  const id = "2041316568";
+  navigator.clipboard.writeText(id).then(() => {
+    const tip = document.getElementById("wechatTip");
+    tip.innerText = "已复制 ✓";
+    tip.style.color = "#2e7d32";
+    setTimeout(() => {
+      tip.innerText = "";
+    }, 2000);
+  });
+}
+</script>
 </body>
 </html>
