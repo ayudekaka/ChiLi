@@ -40,6 +40,7 @@ alt="小辣椒 CHILI">
 </section>
 <section class="features">
 <div class="container grid">
+<!-- 第一行：代币名称 | 代币符号 | 总发行量 -->
 <div class="card">
 <h3>
 🌶️ 代币名称
@@ -58,24 +59,24 @@ CHILI
 </div>
 <div class="card">
 <h3>
-🌐 网络
-</h3>
-<p>
-BNB Smart Chain（BSC）
-</p>
-</div>
-<!-- 总发行量在左，合约信息在右 -->
-<div class="card">
-<h3>
 💰 总发行量
 </h3>
 <p>
 20,150,822 CHILI
 </p>
 </div>
+<!-- 第二行：网络 | 合约地址 -->
 <div class="card">
 <h3>
-🔐 智能合约地址
+🌐 网络
+</h3>
+<p>
+BNB Smart Chain（BSC）
+</p>
+</div>
+<div class="card">
+<h3>
+🔐 合约地址
 </h3>
 <p class="contract-text">
 0xed3caca4903256fb3e4997bc0c7830d19fb35f7c
