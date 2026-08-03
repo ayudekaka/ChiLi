@@ -1,307 +1,28 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>小辣椒 CHILI Token</title>
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html,body{
-    width:100%;
-    overflow-x:hidden;
-}
-
-body{
-
-    font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Arial,
-    "Microsoft YaHei",
-    sans-serif;
-
-    background:#fff8f5;
-    color:#333;
-
-}
-
-
-.container{
-
-    width:100%;
-    max-width:600px;
-    margin:auto;
-    padding:20px;
-
-}
-
-
-/* 顶部 */
-
-.hero{
-
-    text-align:center;
-    background:white;
-    padding:35px 20px;
-    border-radius:20px;
-    margin-bottom:20px;
-    box-shadow:0 5px 20px rgba(0,0,0,.08);
-
-}
-
-
-.logo{
-
-    font-size:80px;
-    margin-bottom:10px;
-
-}
-
-
-h1{
-
-    font-size:32px;
-    color:#e53935;
-
-}
-
-
-.subtitle{
-
-    margin-top:10px;
-    color:#777;
-    font-size:16px;
-
-}
-
-
-
-.card{
-
-    background:white;
-    border-radius:20px;
-    padding:25px 20px;
-    margin-bottom:20px;
-
-    box-shadow:
-    0 5px 20px rgba(0,0,0,.06);
-
-}
-
-
-.card h2{
-
-    color:#e53935;
-    font-size:20px;
-    margin-bottom:18px;
-
-}
-
-
-.text{
-
-    line-height:1.8;
-    color:#555;
-    font-size:15px;
-
-}
-
-
-/* 信息 */
-
-.item{
-
-    padding:15px 0;
-    border-bottom:1px solid #eee;
-
-}
-
-
-.item:last-child{
-
-    border-bottom:none;
-
-}
-
-
-.label{
-
-    color:#999;
-    font-size:13px;
-
-}
-
-
-.value{
-
-    margin-top:5px;
-    font-size:17px;
-    font-weight:bold;
-
-}
-
-
-/* 地址 */
-
-.address{
-
-    background:#fff3f0;
-    padding:15px;
-    border-radius:12px;
-
-    font-family:
-    monospace;
-
-    font-size:13px;
-
-    word-break:break-all;
-
-    margin-bottom:15px;
-
-}
-
-
-button{
-
-    width:100%;
-    padding:14px;
-
-    border:none;
-
-    border-radius:12px;
-
-    background:#e53935;
-
-    color:white;
-
-    font-size:15px;
-
-    font-weight:bold;
-
-}
-
-
-button:active{
-
-    transform:scale(.98);
-
-}
-
-
-
-/* 链接 */
-
-
-.link{
-
-    display:block;
-
-    padding:15px;
-
-    background:#fff3f0;
-
-    border-radius:12px;
-
-    margin-bottom:12px;
-
-    color:#e53935;
-
-    text-decoration:none;
-
-    font-weight:bold;
-
-}
-
-
-
-
-.warning{
-
-    background:#fff8e1;
-
-    border-left:4px solid #ff9800;
-
-    padding:15px;
-
-    border-radius:10px;
-
-    font-size:14px;
-
-    line-height:1.7;
-
-}
-
-
-
-.footer{
-
-    text-align:center;
-
-    color:#999;
-
-    font-size:13px;
-
-    padding:20px;
-
-}
-
-
-
-</style>
-
-
-</head>
-
-
 <body>
 
 
-<div class="container">
+<!-- 导航栏 -->
 
+<div class="navbar">
 
+    <div class="navbar-brand">
 
-<!-- 首页 -->
+        <span class="emoji">🌶️</span>
 
-<div class="hero">
+        <span class="text">CHILI</span>
 
-
-<div class="logo">
-
-🌶️
-
-</div>
-
-
-<h1>
-
-小辣椒 CHILI
-
-</h1>
-
-
-<div class="subtitle">
-
-Community Driven Token
-
-<br>
-
-BNB Smart Chain
+    </div>
 
 </div>
 
 
-</div>
+
+
+
+<div class="scroll-container">
+
+
+<div class="content">
 
 
 
@@ -310,38 +31,32 @@ BNB Smart Chain
 <!-- 项目介绍 -->
 
 
-<div class="card">
+<div class="main-section">
 
 
-<h2>
-🌶️ About CHILI
-</h2>
+<h1>
+CHILI Token
+</h1>
 
 
-<div class="text">
+<div class="subtitle">
+
+小辣椒 | Community Driven Token
+
+</div>
 
 
-<p>
-CHILI is a community-driven token deployed on BNB Smart Chain.
-</p>
 
+<div class="description">
 
-<br>
-
-
-<p>
-小辣椒 CHILI 是一个部署在币安智能链
-(BNB Smart Chain) 上的社区驱动型代币。
-
-项目专注于社区参与、透明发展和去中心化生态建设。
-
-</p>
-
+CHILI（小辣椒）是一个部署在 BNB Smart Chain（币安智能链）上的社区驱动型代币，专注于社区参与和去中心化发展。我们致力于打造一个透明、开放、包容的区块链社区。
 
 </div>
 
 
 </div>
+
+
 
 
 
@@ -356,30 +71,18 @@ CHILI is a community-driven token deployed on BNB Smart Chain.
 
 
 <h2>
-📊 Token Information
+📊 代币信息
 </h2>
 
 
 
-<div class="item">
+<div class="info-grid">
+
+
+<div class="info-card">
 
 <div class="label">
 代币名称
-</div>
-
-<div class="value">
-小辣椒 CHILI
-</div>
-
-</div>
-
-
-
-
-<div class="item">
-
-<div class="label">
-Token Symbol
 </div>
 
 <div class="value">
@@ -391,14 +94,15 @@ CHILI
 
 
 
-<div class="item">
+
+<div class="info-card">
 
 <div class="label">
-Network
+代币符号
 </div>
 
 <div class="value">
-BNB Smart Chain (BSC)
+CHILI
 </div>
 
 </div>
@@ -406,14 +110,31 @@ BNB Smart Chain (BSC)
 
 
 
-<div class="item">
+
+<div class="info-card">
 
 <div class="label">
-Total Supply
+网络
 </div>
 
 <div class="value">
-20,150,822 CHILI
+BNB Smart Chain
+</div>
+
+</div>
+
+
+
+
+
+<div class="info-card">
+
+<div class="label">
+总供应量
+</div>
+
+<div class="value">
+20,150,822
 </div>
 
 </div>
@@ -423,25 +144,32 @@ Total Supply
 </div>
 
 
+</div>
 
 
 
 
 
 
-<!-- 合约 -->
+
+
+
+<!-- 合约地址 -->
 
 
 <div class="card">
 
 
 <h2>
-🔐 Contract Address
+🔐 合约地址
 </h2>
 
 
 
-<div class="address">
+<div class="address-section">
+
+
+<div class="address-box">
 
 0xed3caca4903256fb3e4997bc0c7830d19fb35f7c
 
@@ -449,15 +177,29 @@ Total Supply
 
 
 
-<button onclick="copyAddress()">
+<button class="btn-small" onclick="copyAddress()">
 
-📋 Copy Contract Address
+📋 复制合约地址
 
 </button>
 
 
 
 </div>
+
+
+
+<p style="margin-top:15px;color:#666;font-size:13px;line-height:1.7;">
+
+请在去中心化交易所（如 PancakeSwap）中使用该地址进行交换或添加流动性。请务必核对合约地址，防止诈骗。
+
+</p>
+
+
+
+</div>
+
+
 
 
 
@@ -472,43 +214,109 @@ Total Supply
 
 
 <h2>
-🔗 Official Links
+🔗 官方链接
 </h2>
 
 
 
-<a class="link"
-href="https://bscscan.com/token/0xed3caca4903256fb3e4997bc0c7830d19fb35f7c"
+<div class="links-list">
+
+
+
+<div class="link-item">
+
+
+<div>
+
+📊 BscScan
+
+</div>
+
+
+<a href="https://bscscan.com/token/0xed3caca4903256fb3e4997bc0c7830d19fb35f7c"
 target="_blank">
 
-📊 BscScan Explorer →
+查看 →
 
 </a>
 
 
-
-<a class="link">
-
-🌐 Official Website
-
-</a>
+</div>
 
 
 
-<a class="link">
+
+
+<div class="link-item">
+
+
+<div>
+
+🌐 官方网站
+
+</div>
+
+
+<div class="coming-soon">
+
+Coming Soon
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="link-item">
+
+
+<div>
 
 💬 Telegram
 
-</a>
+</div>
+
+
+<div class="coming-soon">
+
+Coming Soon
+
+</div>
+
+
+</div>
 
 
 
-<a class="link">
+
+
+
+<div class="link-item">
+
+
+<div>
 
 𝕏 Twitter
 
-</a>
+</div>
 
+
+<div class="coming-soon">
+
+Coming Soon
+
+</div>
+
+
+</div>
+
+
+
+</div>
 
 
 </div>
@@ -520,34 +328,126 @@ target="_blank">
 
 
 
-<!-- 获取 -->
+
+<!-- 获取指南 -->
 
 
 <div class="card">
 
 
 <h2>
-🚀 How To Get CHILI
+🎯 如何获取 CHILI
 </h2>
 
 
 
-<div class="text">
+<div class="steps">
 
 
-1. 添加 BNB Smart Chain 网络钱包
+
+<div class="step">
 
 
-<br><br>
+<div class="step-header">
 
 
-2. 在 PancakeSwap 等 DEX 中使用合约地址搜索 CHILI
+<div class="step-num">
+1
+</div>
 
 
-<br><br>
+<div>
+配置钱包
+</div>
 
 
-3. 添加流动性或进行代币交换
+</div>
+
+
+
+<div class="step-desc">
+
+在您的钱包（MetaMask、Trust Wallet 等）中添加 BNB Smart Chain 网络。
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="step">
+
+
+<div class="step-header">
+
+
+<div class="step-num">
+2
+</div>
+
+
+<div>
+前往交易所
+</div>
+
+
+</div>
+
+
+
+<div class="step-desc">
+
+在 PancakeSwap 或其他去中心化交易所中搜索合约地址。
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="step">
+
+
+<div class="step-header">
+
+
+<div class="step-num">
+3
+</div>
+
+
+<div>
+交换代币
+</div>
+
+
+</div>
+
+
+
+<div class="step-desc">
+
+使用 BNB 或其他代币交换 CHILI，或添加流动性。
+
+</div>
+
+
+
+</div>
+
 
 
 
@@ -563,26 +463,31 @@ target="_blank">
 
 
 
-<!-- 风险 -->
+
+<!-- 免责声明 -->
 
 
 <div class="card">
 
 
 <h2>
-⚠️ Disclaimer
+⚠️ 免责声明
 </h2>
 
 
 
-<div class="warning">
+<div class="warning-box">
 
 
-CHILI Token 是一个区块链社区项目。
+CHILI Token 是一个基于区块链技术的社区项目。
 
-请用户自行了解项目风险并进行独立研究。
+<br><br>
 
-本项目不保证任何投资收益。
+参与前请进行充分的研究和了解，风险自担。
+
+<br><br>
+
+我们不承诺任何投资回报，请仅将其作为社区参与的一部分。
 
 </div>
 
@@ -595,21 +500,35 @@ CHILI Token 是一个区块链社区项目。
 
 
 
+
+
+
+<!-- 页脚 -->
 
 
 <div class="footer">
 
-© 2026 小辣椒 CHILI Token Community
+
+© 2026 CHILI Token Community.
 
 <br>
 
-Community Driven · Decentralized Development
+社区驱动 · 去中心化发展
+
+
+</div>
+
+
+
+
+
+
+</div>
 
 </div>
 
 
 
-</div>
 
 
 
@@ -621,14 +540,25 @@ Community Driven · Decentralized Development
 function copyAddress(){
 
 
-let address =
+const address =
 "0xed3caca4903256fb3e4997bc0c7830d19fb35f7c";
 
 
-navigator.clipboard.writeText(address);
+navigator.clipboard.writeText(address)
+.then(()=>{
 
 
 alert("合约地址已复制");
+
+
+})
+.catch(()=>{
+
+
+alert(address);
+
+
+});
 
 
 }
