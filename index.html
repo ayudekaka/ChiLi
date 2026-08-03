@@ -21,31 +21,21 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.10);
         }
 
-        /* 头部 */
+        /* 头部 — 白色背景，与原设计统一 */
         .security-header {
-            background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
-            padding: 28px 40px 22px;
+            background: #ffffff;
+            padding: 26px 40px 18px;
             text-align: center;
+            border-bottom: 2px solid #f0f2f0;
             position: relative;
-        }
-
-        .security-header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #ff6f00, #ffca28, #ff6f00);
-            opacity: 0.6;
         }
 
         .security-header h3 {
             margin: 0;
             font-size: 24px;
             font-weight: 700;
-            color: #fff;
-            letter-spacing: 0.5px;
+            color: #1e2a1e;
+            letter-spacing: 0.3px;
         }
 
         .security-header h3 .chili-icon {
@@ -54,17 +44,18 @@
         }
 
         .security-header .sub-link {
-            color: rgba(255, 255, 255, 0.85);
+            color: #d32f2f;
             font-size: 14px;
             text-decoration: none;
+            font-weight: 500;
             transition: color 0.2s;
-            border-bottom: 1px dashed rgba(255, 255, 255, 0.4);
+            border-bottom: 1px dashed rgba(211, 47, 47, 0.3);
             padding-bottom: 2px;
         }
 
         .security-header .sub-link:hover {
-            color: #fff;
-            border-bottom-color: #fff;
+            color: #b71c1c;
+            border-bottom-color: #b71c1c;
         }
 
         /* 主体内边距 */
@@ -72,12 +63,13 @@
             padding: 24px 32px 28px;
         }
 
-        /* 税率区域 */
+        /* 税率区域 — 居中 */
         .tax-grid {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             gap: 16px;
-            margin-bottom: 28px;
+            max-width: 600px;
+            margin: 0 auto 28px auto;
         }
 
         .tax-item {
@@ -109,19 +101,20 @@
             letter-spacing: 0.3px;
         }
 
-        /* 检测项网格 — 两列 */
+        /* 检测项网格 — 两列居中 */
         .checks-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px 32px;
-            margin-bottom: 22px;
+            gap: 8px 40px;
+            max-width: 780px;
+            margin: 0 auto 22px auto;
         }
 
         .check-item {
             display: flex;
             align-items: flex-start;
             gap: 12px;
-            padding: 8px 0;
+            padding: 7px 0;
             border-bottom: 1px solid #f0f2f0;
         }
 
@@ -172,17 +165,18 @@
             text-decoration: underline;
         }
 
-        /* 底部评级 */
+        /* 底部评级 — 居中 */
         .security-footer {
             background: #f0f7f0;
             border-radius: 14px;
             padding: 16px 24px;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 6px;
+            gap: 12px 20px;
+            max-width: 780px;
+            margin: 0 auto;
         }
 
         .security-footer .rating-label {
@@ -194,7 +188,7 @@
         .security-footer .rating-badge {
             background: #2e7d32;
             color: #fff;
-            padding: 6px 18px;
+            padding: 6px 20px;
             border-radius: 30px;
             font-size: 15px;
             font-weight: 600;
@@ -213,15 +207,15 @@
             color: #999;
             width: 100%;
             text-align: center;
-            margin-top: 4px;
+            margin-top: 2px;
             padding-top: 10px;
             border-top: 1px solid #e0ece0;
         }
 
-        /* 响应式 */
+        /* ===== 响应式 ===== */
         @media (max-width: 768px) {
             .security-header {
-                padding: 20px 20px 16px;
+                padding: 20px 20px 14px;
             }
             .security-header h3 {
                 font-size: 19px;
@@ -229,25 +223,32 @@
             .security-body {
                 padding: 16px 16px 20px;
             }
+
             .tax-grid {
                 grid-template-columns: 1fr 1fr 1fr;
                 gap: 10px;
+                max-width: 100%;
             }
             .tax-item .tax-value {
                 font-size: 22px;
             }
+
+            /* 手机版：检测项改为单列 */
             .checks-grid {
                 grid-template-columns: 1fr;
                 gap: 2px;
+                max-width: 100%;
             }
             .check-item {
                 padding: 6px 0;
             }
+
             .security-footer {
                 flex-direction: column;
-                align-items: stretch;
+                align-items: center;
                 text-align: center;
                 padding: 14px 16px;
+                max-width: 100%;
             }
             .security-footer .rating-badge {
                 justify-content: center;
@@ -269,6 +270,12 @@
                 font-size: 14px;
             }
             .check-content .check-sub {
+                font-size: 12px;
+            }
+            .security-header h3 {
+                font-size: 17px;
+            }
+            .security-header .sub-link {
                 font-size: 12px;
             }
         }
@@ -303,6 +310,7 @@
         </div>
     </section>
 
+    <!-- 基础卡片区域（保持不变） -->
     <section class="features">
         <div class="container grid">
             <div class="card">
@@ -353,17 +361,17 @@
     </section>
 
     <!-- ============================================================ -->
-    <!-- 安全检测报告卡片 — 全新美观优化版（其他卡片完全不变）       -->
+    <!-- 安全检测报告卡片 — 白色头部 + 双列居中 + 手机单列          -->
     <!-- ============================================================ -->
     <section class="features" style="padding-top:10px;">
         <div class="container">
             <div class="security-card">
 
-                <!-- 头部：渐变背景 + 标题 -->
+                <!-- 头部：白色背景 -->
                 <div class="security-header">
                     <h3>
                         <span class="chili-icon">🛡️</span> $CHILI Token Security
-                        <span style="display:inline-block;margin-left:12px;font-size:14px;font-weight:400;opacity:0.85;">
+                        <span style="display:inline-block;margin-left:12px;font-size:14px;font-weight:400;">
                             <a href="https://bscscan.com/address/0xed3caca4903256fb3e4997bc0c7830d19fb35f7c#code" target="_blank" rel="noopener" class="sub-link">查看源码 →</a>
                         </span>
                     </h3>
@@ -371,7 +379,7 @@
 
                 <div class="security-body">
 
-                    <!-- 税率检测 -->
+                    <!-- 税率检测 — 居中 -->
                     <div class="tax-grid">
                         <div class="tax-item">
                             <div class="tax-value">0.00%</div>
@@ -387,7 +395,7 @@
                         </div>
                     </div>
 
-                    <!-- 检测项：两列网格 -->
+                    <!-- 检测项：双列居中，手机单列 -->
                     <div class="checks-grid">
 
                         <!-- 左列 -->
@@ -546,7 +554,7 @@
 
                     </div>
 
-                    <!-- 底部：综合风险评级 -->
+                    <!-- 底部：综合风险评级 — 居中 -->
                     <div class="security-footer">
                         <span class="rating-label">📊 综合风险评级</span>
                         <span class="rating-badge">
