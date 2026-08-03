@@ -102,51 +102,111 @@ BNB Smart Chain（BSC）
 <!-- $CHILI Token Security 安全检测报告 -->
 <section class="features" style="padding-top:10px;">
 <div class="container">
-<div class="card" style="max-width:900px;margin:0 auto;text-align:left;">
-<h3 style="text-align:center;margin-bottom:20px;">
+<div class="card" style="max-width:920px;margin:0 auto;text-align:left;">
+<h3 style="text-align:center;margin-bottom:8px;">
 🛡️ $CHILI Token Security · 合约安全检测报告
 </h3>
 <p style="text-align:center;color:#666;font-size:14px;margin-bottom:25px;">
-检测时间：已完成 · 数据来源：BSCScan 公开验证 + 合约代码分析
+检测已完成 · 数据来源：公开链上分析
 </p>
 
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px 30px;">
-<div style="display:flex;align-items:center;gap:10px;">
-<span style="color:#2e7d32;font-size:18px;">✅</span>
-<span>合约源码已公开验证</span>
+<!-- 税率 -->
+<div style="background:#f8f9fa;border-radius:12px;padding:18px 20px;margin-bottom:20px;">
+<p style="margin:0 0 10px;font-weight:600;color:#333;">📊 税率检测</p>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;text-align:center;">
+<div>
+<div style="font-size:20px;font-weight:700;color:#2e7d32;">0.00%</div>
+<div style="font-size:13px;color:#666;">购买税</div>
 </div>
-<div style="display:flex;align-items:center;gap:10px;">
-<span style="color:#2e7d32;font-size:18px;">✅</span>
-<span><strong>蜜罐风险：无</strong>（可正常买卖）</span>
+<div>
+<div style="font-size:20px;font-weight:700;color:#2e7d32;">0.00%</div>
+<div style="font-size:13px;color:#666;">销售税</div>
 </div>
-<div style="display:flex;align-items:center;gap:10px;">
-<span style="color:#2e7d32;font-size:18px;">✅</span>
-<span>无增发功能（总量固定）</span>
+<div>
+<div style="font-size:20px;font-weight:700;color:#2e7d32;">0.00%</div>
+<div style="font-size:13px;color:#666;">转让税</div>
 </div>
-<div style="display:flex;align-items:center;gap:10px;">
-<span style="color:#2e7d32;font-size:18px;">✅</span>
-<span>无黑名单功能</span>
 </div>
-<div style="display:flex;align-items:center;gap:10px;">
-<span style="color:#2e7d32;font-size:18px;">✅</span>
-<span>无交易暂停功能</span>
+<p style="margin:12px 0 0;font-size:13px;color:#888;">
+超过10%的税率可能被视为较高。税率超过50%意味着可能无法交易。
+</p>
 </div>
-<div style="display:flex;align-items:center;gap:10px;">
-<span style="color:#2e7d32;font-size:18px;">✅</span>
-<span>无隐藏所有者权限</span>
+
+<!-- 蜜罐与核心安全 -->
+<div style="margin-bottom:18px;">
+<p style="font-weight:600;margin-bottom:12px;">🔍 蜜罐风险 & 核心安全检测</p>
+<div style="display:grid;grid-template-columns:1fr;gap:10px;">
+<div style="display:flex;align-items:flex-start;gap:10px;">
+<span style="color:#2e7d32;font-size:18px;line-height:1.3;">✅</span>
+<div>
+<strong>蜜罐风险：无</strong><br>
+<span style="font-size:13px;color:#666;">这看起来不像是诱饵。我们目前没有发现任何恶意代码。</span>
 </div>
-<div style="display:flex;align-items:center;gap:10px;">
-<span style="color:#2e7d32;font-size:18px;">✅</span>
-<span>支持用户自主销毁（Burn）</span>
 </div>
-<div style="display:flex;align-items:center;gap:10px;">
-<span style="color:#2e7d32;font-size:18px;">✅</span>
-<span>买卖税率：0%</span>
+<div style="display:flex;align-items:flex-start;gap:10px;">
+<span style="color:#2e7d32;font-size:18px;line-height:1.3;">✅</span>
+<div>
+<strong>未发现暂停交易代码</strong><br>
+<span style="font-size:13px;color:#666;">如果包含可暂停的代码，代币可能既不能买卖（蜜罐风险）。</span>
+</div>
+</div>
+<div style="display:flex;align-items:flex-start;gap:10px;">
+<span style="color:#2e7d32;font-size:18px;line-height:1.3;">✅</span>
+<div>
+<strong>持有者可以出售所有代币</strong><br>
+<span style="font-size:13px;color:#666;">有些代币合约会有最大卖出比率。</span>
+</div>
+</div>
+<div style="display:flex;align-items:flex-start;gap:10px;">
+<span style="color:#2e7d32;font-size:18px;line-height:1.3;">✅</span>
+<div>
+<strong>代币可以购买</strong><br>
+<span style="font-size:13px;color:#666;">通常不可购买的代币会在奖励代币中找到。</span>
+</div>
+</div>
 </div>
 </div>
 
-<p style="margin-top:25px;text-align:center;font-size:15px;color:#2e7d32;font-weight:600;">
-综合风险评级：<span style="background:#e8f5e9;padding:4px 12px;border-radius:20px;">低风险 · Safe</span>
+<!-- 其他安全项 -->
+<div style="margin-bottom:18px;">
+<p style="font-weight:600;margin-bottom:12px;">🛡️ 其他安全检测</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;">
+<div style="display:flex;align-items:flex-start;gap:8px;">
+<span style="color:#2e7d32;">✅</span>
+<span style="font-size:14px;">没有交易冷却功能</span>
+</div>
+<div style="display:flex;align-items:flex-start;gap:8px;">
+<span style="color:#2e7d32;">✅</span>
+<span style="font-size:14px;">无 anti_whale（交易次数无限）</span>
+</div>
+<div style="display:flex;align-items:flex-start;gap:8px;">
+<span style="color:#2e7d32;">✅</span>
+<span style="font-size:14px;">反鲸鱼无法被修改</span>
+</div>
+<div style="display:flex;align-items:flex-start;gap:8px;">
+<span style="color:#2e7d32;">✅</span>
+<span style="font-size:14px;">税收无法更改</span>
+</div>
+<div style="display:flex;align-items:flex-start;gap:8px;">
+<span style="color:#2e7d32;">✅</span>
+<span style="font-size:14px;">没有黑名单</span>
+</div>
+<div style="display:flex;align-items:flex-start;gap:8px;">
+<span style="color:#2e7d32;">✅</span>
+<span style="font-size:14px;">没有白名单</span>
+</div>
+<div style="display:flex;align-items:flex-start;gap:8px;">
+<span style="color:#2e7d32;">✅</span>
+<span style="font-size:14px;">个人地址没有税务变更</span>
+</div>
+</div>
+</div>
+
+<p style="margin-top:20px;text-align:center;font-size:16px;color:#2e7d32;font-weight:600;">
+综合风险评级：
+<span style="background:#e8f5e9;padding:5px 14px;border-radius:20px;">
+低风险 · 非蜜罐 · Safe
+</span>
 </p>
 <p style="text-align:center;font-size:13px;color:#888;margin-top:10px;">
 以上结果基于公开链上数据与合约代码分析，仅供参考。请自行做好尽职调查（DYOR）。
