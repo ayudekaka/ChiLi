@@ -1,37 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>小辣椒 CHILI Token</title>
+
+<link rel="stylesheet" href="style.css">
+
+
+<style>
+
+.info-card a{
+
+color:#d32f2f;
+
+text-decoration:none;
+
+font-weight:bold;
+
+}
+
+
+.site-footer{
+
+background:#fff;
+
+text-align:center;
+
+padding:30px 15px;
+
+border-top:1px solid #eee;
+
+margin-top:40px;
+
+}
+
+
+.site-footer h4{
+
+color:#d32f2f;
+
+font-size:22px;
+
+margin-bottom:10px;
+
+}
+
+
+.site-footer p{
+
+color:#888;
+
+font-size:14px;
+
+}
+
+
+</style>
+
+
+</head>
+
+
+
 <body>
 
 
-<!-- 导航栏 -->
 
-<div class="navbar">
+<!-- 顶部 -->
 
-    <div class="navbar-brand">
+<header class="site-header">
 
-        <span class="emoji">🌶️</span>
 
-        <span class="text">CHILI</span>
+<div class="container">
 
-    </div>
+
+<a class="brand" href="/">
+
+
+<img src="https://raw.githubusercontent.com/ayudekaka/lifengyu/main/chili-32x32.svg">
+
+
+<span class="brand-name">
+
+小辣椒 <strong>CHILI</strong>
+
+</span>
+
+
+</a>
+
+
+
+<nav class="main-nav">
+
+
+<a href="/">首页</a>
+
+<a href="tokenomics.html">Tokenomics</a>
+
+<a href="roadmap.html">路线图</a>
+
+<a href="contact.html">联系我们</a>
+
+
+</nav>
+
 
 </div>
 
 
-
-
-
-<div class="scroll-container">
-
-
-<div class="content">
+</header>
 
 
 
 
 
-<!-- 项目介绍 -->
+<!-- 主标题 -->
+
+<section class="hero">
 
 
-<div class="main-section">
+<div class="container">
 
 
 <h1>
@@ -39,159 +133,82 @@ CHILI Token
 </h1>
 
 
-<div class="subtitle">
+<p class="lead">
 
 小辣椒 | Community Driven Token
 
-</div>
-
-
-
-<div class="description">
-
-CHILI（小辣椒）是一个部署在 BNB Smart Chain（币安智能链）上的社区驱动型代币，专注于社区参与和去中心化发展。我们致力于打造一个透明、开放、包容的区块链社区。
-
-</div>
+</p>
 
 
 </div>
 
 
+</section>
 
 
 
 
 
+<!-- 信息区域 -->
+
+<section class="features">
 
 
-<!-- 代币信息 -->
+<div class="container">
+
+
+<div class="grid">
+
 
 
 <div class="card">
 
 
-<h2>
+<h3>
+🌶️ 项目介绍
+</h3>
+
+
+<p>
+
+CHILI（小辣椒）是部署在 BNB Smart Chain
+上的社区驱动型代币，致力于打造透明、
+开放、去中心化的社区生态。
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+
+<h3>
 📊 代币信息
-</h2>
+</h3>
 
 
+<p>
 
-<div class="info-grid">
+代币名称：小辣椒 CHILI
 
+</p>
 
-<div class="info-card">
 
-<div class="label">
-代币名称
-</div>
+<p>
 
-<div class="value">
-CHILI
-</div>
+网络：BNB Smart Chain
 
-</div>
+</p>
 
 
+<p>
 
-
-
-<div class="info-card">
-
-<div class="label">
-代币符号
-</div>
-
-<div class="value">
-CHILI
-</div>
-
-</div>
-
-
-
-
-
-<div class="info-card">
-
-<div class="label">
-网络
-</div>
-
-<div class="value">
-BNB Smart Chain
-</div>
-
-</div>
-
-
-
-
-
-<div class="info-card">
-
-<div class="label">
-总供应量
-</div>
-
-<div class="value">
-20,150,822
-</div>
-
-</div>
-
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<!-- 合约地址 -->
-
-
-<div class="card">
-
-
-<h2>
-🔐 合约地址
-</h2>
-
-
-
-<div class="address-section">
-
-
-<div class="address-box">
-
-0xed3caca4903256fb3e4997bc0c7830d19fb35f7c
-
-</div>
-
-
-
-<button class="btn-small" onclick="copyAddress()">
-
-📋 复制合约地址
-
-</button>
-
-
-
-</div>
-
-
-
-<p style="margin-top:15px;color:#666;font-size:13px;line-height:1.7;">
-
-请在去中心化交易所（如 PancakeSwap）中使用该地址进行交换或添加流动性。请务必核对合约地址，防止诈骗。
+符号：CHILI
 
 </p>
 
@@ -203,65 +220,49 @@ BNB Smart Chain
 
 
 
-
-
-
-
-<!-- 官方链接 -->
-
-
 <div class="card">
 
 
-<h2>
-🔗 官方链接
-</h2>
+<h3>
+💰 供应信息
+</h3>
 
 
 
-<div class="links-list">
+<p>
+
+总发行量：
+
+<strong>
+
+20,150,822
+
+</strong>
+
+</p>
 
 
 
-<div class="link-item">
+<p>
+
+外部链接：
+
+</p>
 
 
-<div>
-
-📊 BscScan
-
-</div>
+<p>
 
 
-<a href="https://bscscan.com/token/0xed3caca4903256fb3e4997bc0c7830d19fb35f7c"
-target="_blank">
+<a target="_blank"
 
-查看 →
+href="https://bscscan.com/token/0xed3caca4903256fb3e4997bc0c7830d19fb35f7c">
+
+在 BscScan 查看合约
 
 </a>
 
 
-</div>
-
-
-
-
-
-<div class="link-item">
-
-
-<div>
-
-🌐 官方网站
-
-</div>
-
-
-<div class="coming-soon">
-
-Coming Soon
-
-</div>
+</p>
 
 
 </div>
@@ -269,108 +270,34 @@ Coming Soon
 
 
 
-
-
-<div class="link-item">
-
-
-<div>
-
-💬 Telegram
-
-</div>
-
-
-<div class="coming-soon">
-
-Coming Soon
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-<div class="link-item">
-
-
-<div>
-
-𝕏 Twitter
-
-</div>
-
-
-<div class="coming-soon">
-
-Coming Soon
-
-</div>
-
-
-</div>
-
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<!-- 获取指南 -->
 
 
 <div class="card">
 
 
-<h2>
-🎯 如何获取 CHILI
-</h2>
+<h3>
+📧 联系方式
+</h3>
 
 
+<p>
 
-<div class="steps">
+官方邮箱：
 
-
-
-<div class="step">
-
-
-<div class="step-header">
+</p>
 
 
-<div class="step-num">
-1
-</div>
+<p>
 
 
-<div>
-配置钱包
-</div>
+<a href="mailto:ayudekaka@gmail.com">
+
+ayudekaka@gmail.com
+
+</a>
 
 
-</div>
-
-
-
-<div class="step-desc">
-
-在您的钱包（MetaMask、Trust Wallet 等）中添加 BNB Smart Chain 网络。
-
-</div>
-
+</p>
 
 
 </div>
@@ -378,197 +305,147 @@ Coming Soon
 
 
 
-
-
-
-
-<div class="step">
-
-
-<div class="step-header">
-
-
-<div class="step-num">
-2
-</div>
-
-
-<div>
-前往交易所
-</div>
-
-
-</div>
-
-
-
-<div class="step-desc">
-
-在 PancakeSwap 或其他去中心化交易所中搜索合约地址。
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-
-<div class="step">
-
-
-<div class="step-header">
-
-
-<div class="step-num">
-3
-</div>
-
-
-<div>
-交换代币
-</div>
-
-
-</div>
-
-
-
-<div class="step-desc">
-
-使用 BNB 或其他代币交换 CHILI，或添加流动性。
-
-</div>
-
-
-
-</div>
-
-
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<!-- 免责声明 -->
 
 
 <div class="card">
 
 
-<h2>
+<h3>
+🔐 智能合约
+</h3>
+
+
+<p>
+
+0xed3caca4903256fb3e4997bc0c7830d19fb35f7c
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+
+<h3>
+🌐 网络
+
+</h3>
+
+
+<p>
+
+BNB Smart Chain (BSC)
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<!-- 风险说明 -->
+
+
+<section class="features">
+
+
+<div class="container">
+
+
+<div class="card">
+
+
+<h3>
+
 ⚠️ 免责声明
-</h2>
+
+</h3>
 
 
-
-<div class="warning-box">
+<p>
 
 
 CHILI Token 是一个基于区块链技术的社区项目。
+参与前请自行研究并了解相关风险。
 
-<br><br>
-
-参与前请进行充分的研究和了解，风险自担。
-
-<br><br>
-
-我们不承诺任何投资回报，请仅将其作为社区参与的一部分。
-
-</div>
+</p>
 
 
-
-</div>
-
+<p>
 
 
+CHILI Token is a community driven blockchain project.
+Please conduct your own research before participating.
 
-
-
-
-
-
-<!-- 页脚 -->
-
-
-<div class="footer">
-
-
-© 2026 CHILI Token Community.
-
-<br>
-
-社区驱动 · 去中心化发展
+</p>
 
 
 </div>
 
 
+</div>
 
 
+</section>
+
+
+
+
+
+
+
+
+<!-- 底部 -->
+
+
+<footer class="site-footer">
+
+
+<div class="container">
+
+
+<h4>
+
+🌶️ 小辣椒 CHILI
+
+</h4>
+
+
+<p>
+
+© 2026 小辣椒 CHILI。保留所有权利。
+
+</p>
 
 
 </div>
 
-</div>
+
+</footer>
 
 
 
-
-
-
-
-
-<script>
-
-
-function copyAddress(){
-
-
-const address =
-"0xed3caca4903256fb3e4997bc0c7830d19fb35f7c";
-
-
-navigator.clipboard.writeText(address)
-.then(()=>{
-
-
-alert("合约地址已复制");
-
-
-})
-.catch(()=>{
-
-
-alert(address);
-
-
-});
-
-
-}
-
-
-</script>
 
 
 
 </body>
-
 
 </html>
