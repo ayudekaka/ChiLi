@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>小辣椒 CHILI - 官方网站</title>
@@ -23,9 +26,11 @@
 
 <a class="brand" href="index.html">
 
-<img src="https://raw.githubusercontent.com/ayudekaka/lifengyu/main/chili-32x32.svg"
+<img 
+src="https://raw.githubusercontent.com/ayudekaka/lifengyu/main/chili-32x32.svg"
 width="48"
-height="48">
+height="48"
+alt="小辣椒 CHILI">
 
 
 <span class="brand-name">
@@ -34,6 +39,7 @@ height="48">
 
 
 </a>
+
 
 
 
@@ -53,6 +59,8 @@ height="48">
 </div>
 
 </header>
+
+
 
 
 
@@ -82,95 +90,47 @@ height="48">
 
 
 
+
+
+
 <section class="features">
+
 
 <div class="container grid">
 
 
+
 <div class="card">
 
+
 <h3>
-代币名称
+🌶️ 代币名称
 </h3>
+
 
 <p>
 小辣椒 CHILI
 </p>
 
-</div>
-
-
-
-<div class="card">
-
-<h3>
-代币符号
-</h3>
-
-<p>
-CHILI
-</p>
 
 </div>
+
+
 
 
 
 
 <div class="card">
 
-<h3>
-网络
-</h3>
-
-<p>
-BNB Smart Chain（BSC）
-</p>
-
-</div>
-
-
-
-
-<div class="card">
 
 <h3>
-总发行量
+🔐 合约地址
 </h3>
 
-<p>
-20,150,822 CHILI
+
+<p class="contract-text">
+0xed3caca4903256fb3e4997bc0c7830d19fb35f7c
 </p>
-
-</div>
-
-
-
-</div>
-
-</section>
-
-
-
-
-
-
-
-
-<section class="token-quick" id="buy">
-
-<div class="container">
-
-
-<h2>
-智能合约地址
-</h2>
-
-
-<input 
-class="copy-input"
-id="contractInput"
-readonly
-value="0xed3caca4903256fb3e4997bc0c7830d19fb35f7c">
 
 
 <button class="copy-btn" id="copyBtn">
@@ -178,16 +138,79 @@ value="0xed3caca4903256fb3e4997bc0c7830d19fb35f7c">
 </button>
 
 
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h3>
+🔹 代币符号
+</h3>
+
 
 <p>
-请在去中心化交易所使用该合约地址搜索 CHILI。
+CHILI
 </p>
+
+
+</div>
+
+
+
+
+
+
+<div class="card">
+
+
+<h3>
+🌐 网络
+</h3>
+
+
+<p>
+BNB Smart Chain（BSC）
+</p>
+
+
+</div>
+
+
+
+
+
+
+<div class="card">
+
+
+<h3>
+💰 总发行量
+</h3>
+
+
+<p>
+20,150,822 CHILI
+</p>
+
+
+</div>
+
+
 
 
 
 </div>
 
+
 </section>
+
+
 
 
 
@@ -222,21 +245,29 @@ value="0xed3caca4903256fb3e4997bc0c7830d19fb35f7c">
 
 
 
+
 <script>
 
 document.getElementById("copyBtn").onclick=function(){
 
-let address=document.getElementById("contractInput");
 
-navigator.clipboard.writeText(address.value);
+let address="0xed3caca4903256fb3e4997bc0c7830d19fb35f7c";
+
+
+navigator.clipboard.writeText(address);
+
 
 this.innerHTML="已复制 ✓";
 
+
 setTimeout(()=>{
+
 
 this.innerHTML="复制合约地址";
 
+
 },2000);
+
 
 
 }
@@ -247,4 +278,5 @@ this.innerHTML="复制合约地址";
 
 
 </body>
+
 </html>
