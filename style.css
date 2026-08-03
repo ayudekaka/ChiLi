@@ -1,6 +1,6 @@
 /* ==========================================
-   CHILI Token Official Website
-   Responsive Professional Style
+   CHILI Token Official Website CSS
+   Professional Final Version
 ========================================== */
 
 
@@ -9,7 +9,6 @@
     padding:0;
     box-sizing:border-box;
 }
-
 
 
 html,
@@ -34,8 +33,13 @@ body{
     Arial,
     sans-serif;
 
+    background:
 
-    background:#fff7f2;
+    linear-gradient(
+        180deg,
+        #fff5f0 0%,
+        #ffffff 45%
+    );
 
     color:#222;
 
@@ -49,9 +53,9 @@ body{
 
 
 
-/* =========================
-   Container
-========================= */
+/* ==========================
+   页面容器
+========================== */
 
 
 .container{
@@ -62,9 +66,7 @@ body{
 
     margin:0 auto;
 
-    padding-left:25px;
-
-    padding-right:25px;
+    padding:0 25px;
 
 }
 
@@ -74,56 +76,43 @@ body{
 
 
 
-
-/* =========================
-   Header
-========================= */
+/* ==========================
+   顶部导航
+========================== */
 
 
 .site-header{
 
-
     width:100%;
 
-
-    background:white;
-
+    background:#ffffff;
 
     position:sticky;
 
-
     top:0;
 
-
     z-index:999;
-
 
     box-shadow:
 
     0 3px 15px rgba(0,0,0,.08);
 
-
 }
+
 
 
 
 .site-header .container{
 
-
-    height:75px;
-
+    height:76px;
 
     display:flex;
 
-
     align-items:center;
-
 
     justify-content:space-between;
 
-
 }
-
 
 
 
@@ -136,21 +125,15 @@ body{
 
 .brand{
 
-
     display:flex;
-
 
     align-items:center;
 
-
     gap:12px;
-
 
     text-decoration:none;
 
-
     color:#222;
-
 
 }
 
@@ -158,11 +141,9 @@ body{
 
 .brand img{
 
-
     width:40px;
 
     height:40px;
-
 
 }
 
@@ -170,11 +151,9 @@ body{
 
 .brand-name{
 
-
     font-size:22px;
 
     font-weight:700;
-
 
 }
 
@@ -182,9 +161,7 @@ body{
 
 .brand-name strong{
 
-
     color:#e53935;
-
 
 }
 
@@ -195,22 +172,18 @@ body{
 
 
 
-/* =========================
-   Navigation
-========================= */
+/* ==========================
+   导航菜单
+========================== */
 
 
 .main-nav{
 
-
     display:flex;
-
 
     align-items:center;
 
-
     gap:30px;
-
 
 }
 
@@ -218,18 +191,15 @@ body{
 
 .main-nav a{
 
-
     text-decoration:none;
-
 
     color:#555;
 
-
     font-size:15px;
-
 
     font-weight:600;
 
+    transition:.3s;
 
 }
 
@@ -237,9 +207,7 @@ body{
 
 .main-nav a:hover{
 
-
     color:#e53935;
-
 
 }
 
@@ -250,22 +218,18 @@ body{
 
 
 
-/* =========================
-   Hero
-========================= */
+/* ==========================
+   页面标题
+========================== */
 
 
 .hero{
 
-
     width:100%;
-
 
     padding:90px 0 60px;
 
-
     text-align:center;
-
 
 }
 
@@ -273,18 +237,13 @@ body{
 
 .hero h1{
 
-
     font-size:48px;
-
 
     font-weight:800;
 
-
     color:#d32f2f;
 
-
     margin-bottom:18px;
-
 
 }
 
@@ -292,18 +251,13 @@ body{
 
 .lead{
 
-
     max-width:700px;
 
-
-    margin:0 auto;
-
-
-    font-size:19px;
-
+    margin:auto;
 
     color:#777;
 
+    font-size:19px;
 
 }
 
@@ -314,40 +268,33 @@ body{
 
 
 
-/* =========================
-   Content
-========================= */
+/* ==========================
+   内容区域
+========================== */
 
 
 .features{
 
-
     width:100%;
-
 
     padding-bottom:80px;
 
-
 }
+
 
 
 
 .grid{
 
-
     width:100%;
 
-
     display:grid;
-
 
     grid-template-columns:
 
     repeat(3,1fr);
 
-
     gap:25px;
-
 
 }
 
@@ -358,39 +305,32 @@ body{
 
 
 
-/* =========================
-   Cards
-========================= */
+/* ==========================
+   卡片
+========================== */
 
 
 .card{
 
+    background:#ffffff;
 
     width:100%;
 
-
-    background:white;
-
+    padding:32px;
 
     border-radius:22px;
 
+    border:
 
-    padding:30px;
+    1px solid #eeeeee;
 
 
     box-shadow:
 
-
-    0 10px 30px rgba(0,0,0,.08);
-
-
-    border:
-
-    1px solid #eee;
+    0 12px 35px rgba(0,0,0,.08);
 
 
     transition:.3s;
-
 
 }
 
@@ -398,9 +338,7 @@ body{
 
 .card:hover{
 
-
     transform:translateY(-5px);
-
 
 }
 
@@ -408,15 +346,11 @@ body{
 
 .card h3{
 
-
     color:#d32f2f;
-
 
     font-size:22px;
 
-
     margin-bottom:15px;
-
 
 }
 
@@ -424,12 +358,9 @@ body{
 
 .card p{
 
-
     color:#666;
 
-
     font-size:15px;
-
 
 }
 
@@ -440,28 +371,22 @@ body{
 
 
 
-/* =========================
-   Tables
-========================= */
+/* ==========================
+   表格
+========================== */
 
 
 table{
 
-
     width:100%;
-
 
     background:white;
 
-
-    border-radius:15px;
-
+    border-radius:18px;
 
     overflow:hidden;
 
-
     border-collapse:collapse;
-
 
 }
 
@@ -469,12 +394,9 @@ table{
 
 th{
 
-
     background:#d32f2f;
 
-
     color:white;
-
 
 }
 
@@ -483,12 +405,9 @@ th{
 td,
 th{
 
-
-    padding:15px;
-
+    padding:16px;
 
     border-bottom:1px solid #eee;
-
 
 }
 
@@ -499,37 +418,31 @@ th{
 
 
 
-/* =========================
-   Address
-========================= */
+/* ==========================
+   合约地址
+========================== */
 
 
 .address,
 .contract{
 
-
     width:100%;
 
-
-    padding:18px;
-
-
     background:#fff1eb;
-
 
     border-left:
 
     5px solid #e53935;
 
+    padding:20px;
 
     border-radius:15px;
 
-
     word-break:break-all;
-
 
     overflow-wrap:anywhere;
 
+    font-family:monospace;
 
 }
 
@@ -540,9 +453,9 @@ th{
 
 
 
-/* =========================
-   Footer
-========================= */
+/* ==========================
+   底部 Footer
+========================== */
 
 
 .site-footer{
@@ -551,15 +464,21 @@ th{
 
     background:#ffffff;
 
-    padding:50px 0;
+    padding:45px 0;
+
+    margin-top:50px;
 
     color:#888;
 
     text-align:center;
 
-    border-top:1px solid #eeeeee;
+    border-top:
+
+    1px solid #eeeeee;
 
 }
+
+
 
 
 .site-footer h4{
@@ -568,9 +487,10 @@ th{
 
     font-size:22px;
 
-    margin-bottom:10px;
+    margin-bottom:20px;
 
 }
+
 
 
 .site-footer p{
@@ -578,5 +498,221 @@ th{
     color:#888;
 
     font-size:14px;
+
+}
+
+
+
+
+
+
+
+/* 底部横向布局 */
+
+
+.footer-grid{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:50px;
+
+    flex-wrap:wrap;
+
+}
+
+
+
+.footer-grid > div{
+
+    min-width:180px;
+
+    text-align:center;
+
+}
+
+
+
+.site-footer a{
+
+    color:#d32f2f;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+}
+
+
+
+.site-footer a:hover{
+
+    text-decoration:underline;
+
+}
+
+
+
+
+
+
+
+
+/* ==========================
+   平板
+========================== */
+
+
+@media(max-width:900px){
+
+
+
+.site-header .container{
+
+    height:auto;
+
+    flex-direction:column;
+
+    gap:15px;
+
+    padding-top:15px;
+
+    padding-bottom:15px;
+
+}
+
+
+
+.main-nav{
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+}
+
+
+
+.grid{
+
+    grid-template-columns:1fr;
+
+}
+
+
+
+.hero{
+
+    padding:60px 0 40px;
+
+}
+
+
+
+.hero h1{
+
+    font-size:36px;
+
+}
+
+
+
+.card{
+
+    padding:22px;
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+/* ==========================
+   手机
+========================== */
+
+
+@media(max-width:480px){
+
+
+
+.container{
+
+    padding-left:15px;
+
+    padding-right:15px;
+
+}
+
+
+
+.brand-name{
+
+    font-size:18px;
+
+}
+
+
+
+.main-nav{
+
+    gap:15px;
+
+}
+
+
+
+.main-nav a{
+
+    font-size:14px;
+
+}
+
+
+
+.hero h1{
+
+    font-size:30px;
+
+}
+
+
+
+.card{
+
+    padding:18px;
+
+}
+
+
+
+.footer-grid{
+
+    flex-direction:column;
+
+    gap:25px;
+
+}
+
+
+
+.footer-grid > div{
+
+    width:100%;
+
+}
+
+
 
 }
