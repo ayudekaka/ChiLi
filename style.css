@@ -1,7 +1,7 @@
-/* =========================================
+/* ==========================================
    CHILI Token Official Website
-   Final Responsive CSS
-========================================= */
+   Final Responsive Style
+========================================== */
 
 
 *{
@@ -25,7 +25,6 @@ body{
 body{
 
     font-family:
-
     -apple-system,
     BlinkMacSystemFont,
     "Segoe UI",
@@ -33,16 +32,18 @@ body{
     Arial,
     sans-serif;
 
-
-    background:#fff7f2;
+    background:
+    linear-gradient(
+        180deg,
+        #fff5f0 0%,
+        #ffffff 45%
+    );
 
     color:#222;
 
     line-height:1.6;
 
 }
-
-
 
 
 
@@ -68,9 +69,8 @@ body{
 
 
 
-
 /* =========================
- Header
+   Header
 ========================= */
 
 
@@ -86,7 +86,6 @@ body{
 
     z-index:999;
 
-
     box-shadow:
 
     0 3px 15px rgba(0,0,0,.08);
@@ -97,45 +96,32 @@ body{
 
 .site-header .container{
 
-
     height:76px;
-
 
     display:flex;
 
-
     align-items:center;
 
-
     justify-content:space-between;
-
 
 }
 
 
 
 
-
 /* Logo */
-
 
 .brand{
 
-
     display:flex;
-
 
     align-items:center;
 
-
     gap:12px;
-
 
     text-decoration:none;
 
-
     color:#222;
-
 
 }
 
@@ -143,12 +129,9 @@ body{
 
 .brand img{
 
-
     width:40px;
 
-
     height:40px;
-
 
 }
 
@@ -156,12 +139,9 @@ body{
 
 .brand-name{
 
-
     font-size:22px;
 
-
     font-weight:700;
-
 
 }
 
@@ -169,9 +149,7 @@ body{
 
 .brand-name strong{
 
-
     color:#e53935;
-
 
 }
 
@@ -180,23 +158,18 @@ body{
 
 
 
-
 /* =========================
- Navigation
+   Navigation
 ========================= */
 
 
 .main-nav{
 
-
     display:flex;
-
 
     align-items:center;
 
-
     gap:30px;
-
 
 }
 
@@ -204,18 +177,13 @@ body{
 
 .main-nav a{
 
-
     text-decoration:none;
-
 
     color:#555;
 
-
     font-size:15px;
 
-
     font-weight:600;
-
 
 }
 
@@ -223,9 +191,7 @@ body{
 
 .main-nav a:hover{
 
-
     color:#e53935;
-
 
 }
 
@@ -236,21 +202,17 @@ body{
 
 
 /* =========================
- Hero
+   Hero
 ========================= */
 
 
 .hero{
 
-
     width:100%;
-
 
     padding:90px 0 60px;
 
-
     text-align:center;
-
 
 }
 
@@ -258,18 +220,13 @@ body{
 
 .hero h1{
 
-
     font-size:48px;
-
-
-    color:#d32f2f;
-
 
     font-weight:800;
 
+    color:#d32f2f;
 
-    margin-bottom:20px;
-
+    margin-bottom:18px;
 
 }
 
@@ -277,18 +234,13 @@ body{
 
 .lead{
 
-
     max-width:700px;
-
 
     margin:auto;
 
-
     color:#777;
 
-
     font-size:19px;
-
 
 }
 
@@ -298,19 +250,17 @@ body{
 
 
 
+
 /* =========================
- Content
+   Content
 ========================= */
 
 
 .features{
 
-
     width:100%;
 
-
-    padding-bottom:80px;
-
+    padding-bottom:70px;
 
 }
 
@@ -318,21 +268,15 @@ body{
 
 .grid{
 
-
     width:100%;
-
 
     display:grid;
 
-
     grid-template-columns:
-
 
     repeat(3,1fr);
 
-
     gap:25px;
-
 
 }
 
@@ -343,33 +287,26 @@ body{
 
 
 /* =========================
- Cards
+   Cards
 ========================= */
 
 
 .card{
 
-
     width:100%;
-
 
     background:#fff;
 
-
-    padding:32px;
-
+    padding:30px;
 
     border-radius:22px;
-
 
     border:1px solid #eee;
 
 
     box-shadow:
 
-
     0 10px 30px rgba(0,0,0,.08);
-
 
 }
 
@@ -377,15 +314,11 @@ body{
 
 .card h3{
 
-
     color:#d32f2f;
-
 
     font-size:22px;
 
-
     margin-bottom:15px;
-
 
 }
 
@@ -393,9 +326,7 @@ body{
 
 .card p{
 
-
     color:#666;
-
 
 }
 
@@ -407,21 +338,17 @@ body{
 
 
 /* =========================
- Table
+   Table
 ========================= */
 
 
 table{
 
-
     width:100%;
-
-
-    border-collapse:collapse;
-
 
     background:#fff;
 
+    border-collapse:collapse;
 
 }
 
@@ -429,12 +356,9 @@ table{
 
 th{
 
-
     background:#d32f2f;
 
-
-    color:white;
-
+    color:#fff;
 
 }
 
@@ -443,12 +367,9 @@ th{
 td,
 th{
 
-
     padding:16px;
 
-
     border-bottom:1px solid #eee;
-
 
 }
 
@@ -458,25 +379,24 @@ th{
 
 
 
+
 /* =========================
- Contract
+   Contract
 ========================= */
 
 
 .address,
 .contract{
 
-
     width:100%;
-
 
     padding:20px;
 
-
     background:#fff1eb;
 
+    border-left:
 
-    border-left:5px solid #e53935;
+    5px solid #e53935;
 
 
     border-radius:15px;
@@ -484,8 +404,8 @@ th{
 
     word-break:break-all;
 
-
 }
+
 
 
 
@@ -494,33 +414,25 @@ th{
 
 
 /* =========================
- Footer
+   Footer
 ========================= */
 
 
 .site-footer{
 
-
     width:100%;
-
 
     background:#fff;
 
-
     color:#888;
 
+    padding:30px 0;
 
-    padding:45px 0;
-
-
-    margin-top:50px;
-
+    margin-top:40px;
 
     text-align:center;
 
-
     border-top:1px solid #eee;
-
 
 }
 
@@ -528,12 +440,11 @@ th{
 
 .site-footer h4{
 
-
     color:#d32f2f;
-
 
     font-size:22px;
 
+    margin-bottom:15px;
 
 }
 
@@ -541,35 +452,30 @@ th{
 
 .site-footer p{
 
-
     font-size:14px;
-
 
 }
 
 
 
 
-.footer-grid{
 
+
+/* Footer 横向 */
+
+.footer-grid{
 
     width:100%;
 
-
     display:flex;
-
 
     justify-content:center;
 
-
     align-items:center;
 
-
-    gap:50px;
-
+    gap:40px;
 
     flex-wrap:wrap;
-
 
 }
 
@@ -577,9 +483,29 @@ th{
 
 .footer-grid > div{
 
-
     min-width:180px;
 
+    text-align:center;
+
+}
+
+
+
+.site-footer a{
+
+    color:#d32f2f;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+}
+
+
+
+.site-footer a:hover{
+
+    text-decoration:underline;
 
 }
 
@@ -587,41 +513,14 @@ th{
 
 
 
+
+
 /* =================================
-   Desktop 强制布局
+   Desktop
 ================================= */
 
 
 @media(min-width:901px){
-
-
-
-    .container{
-
-        max-width:1200px;
-
-        margin:auto;
-
-    }
-
-
-
-    .site-header .container{
-
-        flex-direction:row;
-
-        justify-content:space-between;
-
-    }
-
-
-
-    .main-nav{
-
-        flex-direction:row;
-
-    }
-
 
 
     .grid{
@@ -629,14 +528,6 @@ th{
         grid-template-columns:
 
         repeat(3,1fr);
-
-    }
-
-
-
-    .card{
-
-        min-height:200px;
 
     }
 
@@ -661,9 +552,7 @@ th{
 
 .container{
 
-
     padding:0 18px;
-
 
 }
 
@@ -671,21 +560,15 @@ th{
 
 .site-header .container{
 
-
     height:auto;
-
 
     flex-direction:column;
 
-
     gap:15px;
-
 
     padding-top:15px;
 
-
     padding-bottom:15px;
-
 
 }
 
@@ -693,12 +576,9 @@ th{
 
 .main-nav{
 
-
     flex-wrap:wrap;
 
-
     justify-content:center;
-
 
 }
 
@@ -706,9 +586,17 @@ th{
 
 .grid{
 
+    grid-template-columns:
 
-    grid-template-columns:1fr;
+    1fr;
 
+}
+
+
+
+.hero{
+
+    padding:60px 0 40px;
 
 }
 
@@ -716,18 +604,14 @@ th{
 
 .hero h1{
 
-
     font-size:36px;
 
-
 }
 
 
 
-
-
-
 }
+
 
 
 
@@ -740,15 +624,13 @@ th{
 ================================= */
 
 
-@media(max-width:480px){
+@media(max-width:600px){
 
 
 
 .container{
 
-
     padding:0 15px;
-
 
 }
 
@@ -756,9 +638,7 @@ th{
 
 .brand-name{
 
-
     font-size:18px;
-
 
 }
 
@@ -766,9 +646,7 @@ th{
 
 .main-nav{
 
-
     gap:15px;
-
 
 }
 
@@ -776,9 +654,7 @@ th{
 
 .main-nav a{
 
-
     font-size:14px;
-
 
 }
 
@@ -786,9 +662,7 @@ th{
 
 .hero h1{
 
-
     font-size:30px;
-
 
 }
 
@@ -796,9 +670,19 @@ th{
 
 .card{
 
-
     padding:18px;
 
+}
+
+
+
+
+/* 手机 Footer 修复 */
+
+
+.site-footer{
+
+    padding:25px 15px;
 
 }
 
@@ -806,12 +690,39 @@ th{
 
 .footer-grid{
 
+    display:flex;
 
     flex-direction:column;
 
+    gap:18px;
 
-    gap:25px;
+    width:100%;
 
+}
+
+
+
+.footer-grid > div{
+
+    width:100%;
+
+    min-width:0;
+
+}
+
+
+
+.site-footer h4{
+
+    font-size:20px;
+
+}
+
+
+
+.site-footer p{
+
+    font-size:13px;
 
 }
 
