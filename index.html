@@ -93,7 +93,7 @@ alt="小辣椒 CHILI">
 </section>
 
 <!-- =========================================== -->
-<!-- 开始：根据 GoPlus 文案重新优化的安全检测卡片 -->
+<!-- 开始：完全按你要求，勾勾+大字+注释 居中对齐卡片 -->
 <!-- =========================================== -->
 <section class="features" style="padding-top:8px;">
 <div class="container">
@@ -127,108 +127,231 @@ alt="小辣椒 CHILI">
 </div>
 </div>
 
-<!-- ✅ 核心布局：使用强制居中的双列 Flex 布局，勾勾垂直对齐，左右列数平衡解决偏移 -->
+<!-- ✅ 核心布局：勾勾+大字+注释，完美双列居中 -->
 <div style="display:flex; justify-content:center; width:100%;">
   <div style="max-width: 1000px; width:100%; margin: 0 auto; display:flex; flex-wrap:wrap; justify-content:center; gap: 6px 28px;">
     
     <!-- 左侧列（共10项） -->
-    <div style="flex: 1 1 calc(50% - 14px); min-width: 300px; display:flex; flex-direction:column; gap:6px;">
-      <div style="display:flex; align-items:center; gap:8px;">
-        <span style="color:#2e7d32;font-size:16px; width:24px; flex-shrink:0; text-align:center;">✅</span>
-        <div><strong style="font-size:14px;">合同源代码已验证</strong><br><span style="font-size:12px;color:#666;">这个代币合约是开源的。你可以查看合同代码了解更多细节。无来源代币合约很可能具有恶意功能，以欺诈用户资产。</span></div>
+    <div style="flex: 1 1 calc(50% - 14px); min-width: 300px; display:flex; flex-direction:column; gap:8px;">
+      
+      <div style="display:flex; flex-direction:column; gap:2px;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="color:#2e7d32;font-size:16px; width:24px; flex-shrink:0; text-align:center;">✅</span>
+          <strong style="font-size:15px;">合同源代码已验证</strong>
+        </div>
+        <div style="padding-left:32px; font-size:12px; color:#666; line-height:1.5;">
+          这个代币合约是开源的。你可以查看合同代码了解更多细节。无来源代币合约很可能具有恶意功能，以欺诈用户资产。
+        </div>
       </div>
-      <div style="display:flex; align-items:center; gap:8px;">
-        <span style="color:#2e7d32;font-size:16px; width:24px; flex-shrink:0; text-align:center;">✅</span>
-        <div><strong style="font-size:14px;">没有铸币功能</strong><br><span style="font-size:12px;color:#666;">Mint功能是透明的，甚至不存在。隐藏铸币功能可能会增加流通中的代币数量，并影响代币的价格。</span></div>
+
+      <div style="display:flex; flex-direction:column; gap:2px;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="color:#2e7d32;font-size:16px; width:24px; flex-shrink:0; text-align:center;">✅</span>
+          <strong style="font-size:15px;">没有铸币功能</strong>
+        </div>
+        <div style="padding-left:32px; font-size:12px; color:#666; line-height:1.5;">
+          Mint功能是透明的，甚至不存在。隐藏铸币功能可能会增加流通中的代币数量，并影响代币的价格。
+        </div>
       </div>
-      <div style="display:flex; align-items:center; gap:8px;">
-        <span style="color:#2e7d32;font-size:16px; width:24px; flex-shrink:0; text-align:center;">✅</span>
-        <div><strong style="font-size:14px;">所有者不能更改余额</strong><br><span style="font-size:12px;color:#666;">合同持有人无权修改其他地址的代币余额。</span></div>
+
+      <div style="display:flex; flex-direction:column; gap:2px;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="color:#2e7d32;font-size:16px; width:24px; flex-shrink:0; text-align:center;">✅</span>
+          <strong style="font-size:15px;">所有者不能更改余额</strong>
+        </div>
+        <div style="padding-left:32px; font-size:12px; color:#666; line-height:1.5;">
+          合同持有人无权修改其他地址的代币余额。
+        </div>
       </div>
-      <div style="display:flex; align-items:center; gap:8px;">
-        <span style="color:#2e7d32;font-size:16px; width:24px; flex-shrink:0; text-align:center;">✅</span>
-        <div><strong style="font-size:14px;">该代币不能自毁</strong><br><span style="font-size:12px;color:#666;">未发现自毁功能。如果该函数存在并被触发，合同将被销毁，所有函数将不可用，所有相关资产也会被清除。</span></div>
+
+      <div style="display:flex; flex-direction:column; gap:2px;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="color:#2e7d32;font-size:16px; width:24px; flex-shrink:0; text-align:center;">✅</span>
+          <strong style="font-size:15px;">该代币不能自毁</strong>
+        </div>
+        <div style="padding-left:32px; font-size:12px; color:#666; line-height:1.5;">
+          未发现自毁功能。如果该函数存在并被触发，合同将被销毁，所有函数将不可用，所有相关资产也会被清除。
+        </div>
       </div>
-      <div style="display:flex; align-items:center; gap:8px;">
-        <span style="color:#2e7d32;font-size:16px; width:24px; flex-shrink:0; text-align:center;">✅</span>
-        <div><strong style="font-size:14px;">不是气体滥用者</strong><br><span style="font-size:12px;color:#666;">未发现气体滥用活动。</span></div>
+
+      <div style="display:flex; flex-direction:column; gap:2px;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="color:#2e7d32;font-size:16px; width:24px; flex-shrink:0; text-align:center;">✅</span>
+          <strong style="font-size:15px;">不是气体滥用者</strong>
+        </div>
+        <div style="padding-left:32px; font-size:12px; color:#666; line-height:1.5;">
+          未发现气体滥用活动。
+        </div>
       </div>
-      <div style="display:flex; align-items:center; gap:8px;">
-        <span style="color:#2e7d32;font-size:16px; width:24px; flex-shrink:0; text-align:center;">✅</span>
-        <div><strong style="font-size:14px;">蜜罐风险：无</strong><br><span style="font-size:12px;color:#666;">购买税：0.00% 销售税：0.00% 转让税：0.00%。超过10%的税率可能被视为较高。税率超过50%意味着可能无法交易。这看起来不像是诱饵。我们目前没有发现任何恶意代码。</span></div>
+
+      <div style="display:flex; flex-direction:column; gap:2px;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="color:#2e7d32;font-size:16px; width:24px; flex-shrink:0; text-align:center;">✅</span>
+          <strong style="font-size:15px;">蜜罐风险：无</strong>
+        </div>
+        <div style="padding-left:32px; font-size:12px; color:#666; line-height:1.5;">
+          购买税：0.00% 销售税：0.00% 转让税：0.00%。超过10%的税率可能被视为较高。税率超过50%意味着可能无法交易。这看起来不像是诱饵。我们目前没有发现任何恶意代码。
+        </div>
       </div>
-      <div style="display:flex; align-items:center; gap:8px;">
-        <span style="color:#2e7d32;font-size:16px; width:24px; flex-shrink:0; text-align:center;">✅</span>
-        <div><strong style="font-size:14px;">持有者可以出售所有代币</strong><br><span style="font-size:12px;color:#666;">持有者可以出售所有代币。有些代币合约会有最大卖出比率。</span></div>
+
+      <div style="display:flex; flex-direction:column; gap:2px;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="color:#2e7d32;font-size:16px; width:24px; flex-shrink:0; text-align:center;">✅</span>
+          <strong style="font-size:15px;">持有者可以出售所有代币</strong>
+        </div>
+        <div style="padding-left:32px; font-size:12px; color:#666; line-height:1.5;">
+          持有者可以出售所有代币。有些代币合约会有最大卖出比率。
+        </div>
       </div>
-      <div style="display:flex; align-items:center; gap:8px;">
-        <span style="color:#2e7d32;font-size:16px; width:24px; flex-shrink:0; text-align:center;">✅</span>
-        <div><strong style="font-size:14px;">无 anti_whale</strong><br><span style="font-size:12px;color:#666;">代币交易数量没有限制。诈骗代币交易数量可能有限（蜜罐风险）。</span></div>
+
+      <div style="display:flex; flex-direction:column; gap:2px;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="color:#2e7d32;font-size:16px; width:24px; flex-shrink:0; text-align:center;">✅</span>
+          <strong style="font-size:15px;">无 anti_whale</strong>
+        </div>
+        <div style="padding-left:32px; font-size:12px; color:#666; line-height:1.5;">
+          代币交易数量没有限制。诈骗代币交易数量可能有限（蜜罐风险）。
+        </div>
       </div>
-      <div style="display:flex; align-items:center; gap:8px;">
-        <span style="color:#2e7d32;font-size:16px; width:24px; flex-shrink:0; text-align:center;">✅</span>
-        <div><strong style="font-size:14px;">税收无法更改</strong><br><span style="font-size:12px;color:#666;">合同所有者不得拥有修改交易税的权力。如果交易税提高到超过49%，代币将无法交易（蜜罐风险）。</span></div>
+
+      <div style="display:flex; flex-direction:column; gap:2px;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="color:#2e7d32;font-size:16px; width:24px; flex-shrink:0; text-align:center;">✅</span>
+          <strong style="font-size:15px;">税收无法更改</strong>
+        </div>
+        <div style="padding-left:32px; font-size:12px; color:#666; line-height:1.5;">
+          合同所有者不得拥有修改交易税的权力。如果交易税提高到超过49%，代币将无法交易（蜜罐风险）。
+        </div>
       </div>
-      <div style="display:flex; align-items:center; gap:8px;">
-        <span style="color:#2e7d32;font-size:16px; width:24px; flex-shrink:0; text-align:center;">✅</span>
-        <div><strong style="font-size:14px;">个人地址没有税务变更</strong><br><span style="font-size:12px;color:#666;">每个指定地址都未发现税务变化。如果有，合同持有人可能会对指定地址设定非常高的税率，以阻止其交易。</span></div>
+
+      <div style="display:flex; flex-direction:column; gap:2px;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="color:#2e7d32;font-size:16px; width:24px; flex-shrink:0; text-align:center;">✅</span>
+          <strong style="font-size:15px;">个人地址没有税务变更</strong>
+        </div>
+        <div style="padding-left:32px; font-size:12px; color:#666; line-height:1.5;">
+          每个指定地址都未发现税务变化。如果有，合同持有人可能会对指定地址设定非常高的税率，以阻止其交易。
+        </div>
       </div>
+      
     </div>
 
-    <!-- 右侧列（共10项，左右对等，解决视觉中心偏移） -->
-    <div style="flex: 1 1 calc(50% - 14px); min-width: 300px; display:flex; flex-direction:column; gap:6px;">
-      <div style="display:flex; align-items:center; gap:8px;">
-        <span style="color:#2e7d32;font-size:16px; width:24px; flex-shrink:0; text-align:center;">✅</span>
-        <div><strong style="font-size:14px;">没有代理</strong><br><span style="font-size:12px;color:#666;">合同中没有代理权。代理合同意味着合同持有人可以修改代币的功能，甚至可能影响价格。</span></div>
+    <!-- 右侧列（共10项，完美平衡解决左偏） -->
+    <div style="flex: 1 1 calc(50% - 14px); min-width: 300px; display:flex; flex-direction:column; gap:8px;">
+
+      <div style="display:flex; flex-direction:column; gap:2px;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="color:#2e7d32;font-size:16px; width:24px; flex-shrink:0; text-align:center;">✅</span>
+          <strong style="font-size:15px;">没有代理</strong>
+        </div>
+        <div style="padding-left:32px; font-size:12px; color:#666; line-height:1.5;">
+          合同中没有代理权。代理合同意味着合同持有人可以修改代币的功能，甚至可能影响价格。
+        </div>
       </div>
-      <div style="display:flex; align-items:center; gap:8px;">
-        <span style="color:#2e7d32;font-size:16px; width:24px; flex-shrink:0; text-align:center;">✅</span>
-        <div><strong style="font-size:14px;">未找到可恢复所有权的函数</strong><br><span style="font-size:12px;color:#666;">如果存在此功能，项目所有者即使放弃了所有权，仍有可能重新获得所有权。</span></div>
+
+      <div style="display:flex; flex-direction:column; gap:2px;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="color:#2e7d32;font-size:16px; width:24px; flex-shrink:0; text-align:center;">✅</span>
+          <strong style="font-size:15px;">未找到可恢复所有权的函数</strong>
+        </div>
+        <div style="padding-left:32px; font-size:12px; color:#666; line-height:1.5;">
+          如果存在此功能，项目所有者即使放弃了所有权，仍有可能重新获得所有权。
+        </div>
       </div>
-      <div style="display:flex; align-items:center; gap:8px;">
-        <span style="color:#2e7d32;font-size:16px; width:24px; flex-shrink:0; text-align:center;">✅</span>
-        <div><strong style="font-size:14px;">没有隐藏的主人</strong><br><span style="font-size:12px;color:#666;">没有找到该代币的隐藏所有者地址。对于与隐藏所有者签订的合同，即使所有权已被放弃，开发商仍可操控合同。</span></div>
+
+      <div style="display:flex; flex-direction:column; gap:2px;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="color:#2e7d32;font-size:16px; width:24px; flex-shrink:0; text-align:center;">✅</span>
+          <strong style="font-size:15px;">没有隐藏的主人</strong>
+        </div>
+        <div style="padding-left:32px; font-size:12px; color:#666; line-height:1.5;">
+          没有找到该代币的隐藏所有者地址。对于与隐藏所有者签订的合同，即使所有权已被放弃，开发商仍可操控合同。
+        </div>
       </div>
-      <div style="display:flex; align-items:center; gap:8px;">
-        <span style="color:#2e7d32;font-size:16px; width:24px; flex-shrink:0; text-align:center;">✅</span>
-        <div><strong style="font-size:14px;">未发现外部呼叫风险</strong><br><span style="font-size:12px;color:#666;">外部看涨期权会导致该代币合约高度依赖其他合约，这可能构成潜在风险。</span></div>
+
+      <div style="display:flex; flex-direction:column; gap:2px;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="color:#2e7d32;font-size:16px; width:24px; flex-shrink:0; text-align:center;">✅</span>
+          <strong style="font-size:15px;">未发现外部呼叫风险</strong>
+        </div>
+        <div style="padding-left:32px; font-size:12px; color:#666; line-height:1.5;">
+          外部看涨期权会导致该代币合约高度依赖其他合约，这可能构成潜在风险。
+        </div>
       </div>
-      <div style="display:flex; align-items:center; gap:8px;">
-        <span style="color:#2e7d32;font-size:16px; width:24px; flex-shrink:0; text-align:center;">✅</span>
-        <div><strong style="font-size:14px;">未发现暂停交易的代码</strong><br><span style="font-size:12px;color:#666;">如果包含可暂停的代码，代币可能既不能买卖（蜜罐风险）。</span></div>
+
+      <div style="display:flex; flex-direction:column; gap:2px;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="color:#2e7d32;font-size:16px; width:24px; flex-shrink:0; text-align:center;">✅</span>
+          <strong style="font-size:15px;">未发现暂停交易的代码</strong>
+        </div>
+        <div style="padding-left:32px; font-size:12px; color:#666; line-height:1.5;">
+          如果包含可暂停的代码，代币可能既不能买卖（蜜罐风险）。
+        </div>
       </div>
-      <div style="display:flex; align-items:center; gap:8px;">
-        <span style="color:#2e7d32;font-size:16px; width:24px; flex-shrink:0; text-align:center;">✅</span>
-        <div><strong style="font-size:14px;">代币可以购买</strong><br><span style="font-size:12px;color:#666;">通常，这些不可购买的代币会在奖励代币中找到。此类代币作为部分链上应用的奖励发行，用户无法直接购买。</span></div>
+
+      <div style="display:flex; flex-direction:column; gap:2px;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="color:#2e7d32;font-size:16px; width:24px; flex-shrink:0; text-align:center;">✅</span>
+          <strong style="font-size:15px;">代币可以购买</strong>
+        </div>
+        <div style="padding-left:32px; font-size:12px; color:#666; line-height:1.5;">
+          通常，这些不可购买的代币会在奖励代币中找到。此类代币作为部分链上应用的奖励发行，用户无法直接购买。
+        </div>
       </div>
-      <div style="display:flex; align-items:center; gap:8px;">
-        <span style="color:#2e7d32;font-size:16px; width:24px; flex-shrink:0; text-align:center;">✅</span>
-        <div><strong style="font-size:14px;">没有交易冷却功能</strong><br><span style="font-size:12px;color:#666;">代币合约没有交易冷却功能。如果有交易冷却功能，用户在买入后无法在一定时间内或块内卖出代币。</span></div>
+
+      <div style="display:flex; flex-direction:column; gap:2px;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="color:#2e7d32;font-size:16px; width:24px; flex-shrink:0; text-align:center;">✅</span>
+          <strong style="font-size:15px;">没有交易冷却功能</strong>
+        </div>
+        <div style="padding-left:32px; font-size:12px; color:#666; line-height:1.5;">
+          代币合约没有交易冷却功能。如果有交易冷却功能，用户在买入后无法在一定时间内或块内卖出代币。
+        </div>
       </div>
-      <div style="display:flex; align-items:center; gap:8px;">
-        <span style="color:#2e7d32;font-size:16px; width:24px; flex-shrink:0; text-align:center;">✅</span>
-        <div><strong style="font-size:14px;">反鲸鱼无法被修改</strong><br><span style="font-size:12px;color:#666;">最大交易金额或最大持仓无法更改。</span></div>
+
+      <div style="display:flex; flex-direction:column; gap:2px;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="color:#2e7d32;font-size:16px; width:24px; flex-shrink:0; text-align:center;">✅</span>
+          <strong style="font-size:15px;">反鲸鱼无法被修改</strong>
+        </div>
+        <div style="padding-left:32px; font-size:12px; color:#666; line-height:1.5;">
+          最大交易金额或最大持仓无法更改。
+        </div>
       </div>
-      <div style="display:flex; align-items:center; gap:8px;">
-        <span style="color:#2e7d32;font-size:16px; width:24px; flex-shrink:0; text-align:center;">✅</span>
-        <div><strong style="font-size:14px;">没有黑名单</strong><br><span style="font-size:12px;color:#666;">黑名单功能未包含在内。如果存在黑名单，某些地址可能无法正常交易（蜜罐风险）。</span></div>
+
+      <div style="display:flex; flex-direction:column; gap:2px;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="color:#2e7d32;font-size:16px; width:24px; flex-shrink:0; text-align:center;">✅</span>
+          <strong style="font-size:15px;">没有黑名单</strong>
+        </div>
+        <div style="padding-left:32px; font-size:12px; color:#666; line-height:1.5;">
+          黑名单功能未包含在内。如果存在黑名单，某些地址可能无法正常交易（蜜罐风险）。
+        </div>
       </div>
-      <div style="display:flex; align-items:center; gap:8px;">
-        <span style="color:#2e7d32;font-size:16px; width:24px; flex-shrink:0; text-align:center;">✅</span>
-        <div><strong style="font-size:14px;">没有白名单</strong><br><span style="font-size:12px;color:#666;">白名单功能不包含在内。如果有白名单，某些地址可能无法正常交易（蜜罐风险）。</span></div>
+
+      <div style="display:flex; flex-direction:column; gap:2px;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="color:#2e7d32;font-size:16px; width:24px; flex-shrink:0; text-align:center;">✅</span>
+          <strong style="font-size:15px;">没有白名单</strong>
+        </div>
+        <div style="padding-left:32px; font-size:12px; color:#666; line-height:1.5;">
+          白名单功能不包含在内。如果有白名单，某些地址可能无法正常交易（蜜罐风险）。
+        </div>
       </div>
+
     </div>
 
   </div>
 </div>
 
-<p style="margin:18px 0 0;text-align:center;font-size:16px;color:#2e7d32;font-weight:600;">
+<!-- 💡 增加顶部外边距，向下移动留出间距 -->
+<p style="margin:32px 0 0;text-align:center;font-size:16px;color:#2e7d32;font-weight:600;">
 综合风险评级：
 <span style="background:#e8f5e9;padding:5px 14px;border-radius:20px;">
 低风险 · 非蜜罐 · Safe
 </span>
 </p>
-<p style="text-align:center;font-size:12px;color:#999;margin:8px 0 0;">
+<p style="text-align:center;font-size:12px;color:#999;margin:16px 0 0;">
 以上结果基于公开链上数据与合约代码分析，仅供参考。请自行做好尽职调查（DYOR）。
 </p>
 </div>
