@@ -1,7 +1,7 @@
-/* ==========================================
-   CHILI Token Official Website CSS
-   Professional Final Version
-========================================== */
+/* =========================================
+   CHILI Token Official Website
+   Final Responsive CSS
+========================================= */
 
 
 *{
@@ -33,13 +33,8 @@ body{
     Arial,
     sans-serif;
 
-    background:
 
-    linear-gradient(
-        180deg,
-        #fff5f0 0%,
-        #ffffff 45%
-    );
+    background:#fff7f2;
 
     color:#222;
 
@@ -51,11 +46,9 @@ body{
 
 
 
-
-
-/* ==========================
-   页面容器
-========================== */
+/* =========================
+   Container
+========================= */
 
 
 .container{
@@ -76,22 +69,23 @@ body{
 
 
 
-/* ==========================
-   顶部导航
-========================== */
+/* =========================
+ Header
+========================= */
 
 
 .site-header{
 
     width:100%;
 
-    background:#ffffff;
+    background:#fff;
 
     position:sticky;
 
     top:0;
 
     z-index:999;
+
 
     box-shadow:
 
@@ -101,20 +95,22 @@ body{
 
 
 
-
 .site-header .container{
+
 
     height:76px;
 
+
     display:flex;
+
 
     align-items:center;
 
+
     justify-content:space-between;
 
+
 }
-
-
 
 
 
@@ -125,15 +121,21 @@ body{
 
 .brand{
 
+
     display:flex;
+
 
     align-items:center;
 
+
     gap:12px;
+
 
     text-decoration:none;
 
+
     color:#222;
+
 
 }
 
@@ -141,9 +143,12 @@ body{
 
 .brand img{
 
+
     width:40px;
 
+
     height:40px;
+
 
 }
 
@@ -151,9 +156,12 @@ body{
 
 .brand-name{
 
+
     font-size:22px;
 
+
     font-weight:700;
+
 
 }
 
@@ -161,7 +169,9 @@ body{
 
 .brand-name strong{
 
+
     color:#e53935;
+
 
 }
 
@@ -171,19 +181,22 @@ body{
 
 
 
-
-/* ==========================
-   导航菜单
-========================== */
+/* =========================
+ Navigation
+========================= */
 
 
 .main-nav{
 
+
     display:flex;
+
 
     align-items:center;
 
+
     gap:30px;
+
 
 }
 
@@ -191,15 +204,18 @@ body{
 
 .main-nav a{
 
+
     text-decoration:none;
+
 
     color:#555;
 
+
     font-size:15px;
+
 
     font-weight:600;
 
-    transition:.3s;
 
 }
 
@@ -207,7 +223,9 @@ body{
 
 .main-nav a:hover{
 
+
     color:#e53935;
+
 
 }
 
@@ -217,19 +235,22 @@ body{
 
 
 
-
-/* ==========================
-   页面标题
-========================== */
+/* =========================
+ Hero
+========================= */
 
 
 .hero{
 
+
     width:100%;
+
 
     padding:90px 0 60px;
 
+
     text-align:center;
+
 
 }
 
@@ -237,13 +258,18 @@ body{
 
 .hero h1{
 
+
     font-size:48px;
 
-    font-weight:800;
 
     color:#d32f2f;
 
-    margin-bottom:18px;
+
+    font-weight:800;
+
+
+    margin-bottom:20px;
+
 
 }
 
@@ -251,13 +277,18 @@ body{
 
 .lead{
 
+
     max-width:700px;
+
 
     margin:auto;
 
+
     color:#777;
 
+
     font-size:19px;
+
 
 }
 
@@ -267,34 +298,41 @@ body{
 
 
 
-
-/* ==========================
-   内容区域
-========================== */
+/* =========================
+ Content
+========================= */
 
 
 .features{
 
+
     width:100%;
+
 
     padding-bottom:80px;
 
-}
 
+}
 
 
 
 .grid{
 
+
     width:100%;
+
 
     display:grid;
 
+
     grid-template-columns:
+
 
     repeat(3,1fr);
 
+
     gap:25px;
+
 
 }
 
@@ -304,41 +342,34 @@ body{
 
 
 
-
-/* ==========================
-   卡片
-========================== */
+/* =========================
+ Cards
+========================= */
 
 
 .card{
 
-    background:#ffffff;
 
     width:100%;
 
+
+    background:#fff;
+
+
     padding:32px;
+
 
     border-radius:22px;
 
-    border:
 
-    1px solid #eeeeee;
+    border:1px solid #eee;
 
 
     box-shadow:
 
-    0 12px 35px rgba(0,0,0,.08);
 
+    0 10px 30px rgba(0,0,0,.08);
 
-    transition:.3s;
-
-}
-
-
-
-.card:hover{
-
-    transform:translateY(-5px);
 
 }
 
@@ -346,11 +377,15 @@ body{
 
 .card h3{
 
+
     color:#d32f2f;
+
 
     font-size:22px;
 
+
     margin-bottom:15px;
+
 
 }
 
@@ -358,9 +393,9 @@ body{
 
 .card p{
 
+
     color:#666;
 
-    font-size:15px;
 
 }
 
@@ -371,22 +406,22 @@ body{
 
 
 
-/* ==========================
-   表格
-========================== */
+/* =========================
+ Table
+========================= */
 
 
 table{
 
+
     width:100%;
 
-    background:white;
-
-    border-radius:18px;
-
-    overflow:hidden;
 
     border-collapse:collapse;
+
+
+    background:#fff;
+
 
 }
 
@@ -394,9 +429,12 @@ table{
 
 th{
 
+
     background:#d32f2f;
 
+
     color:white;
+
 
 }
 
@@ -405,9 +443,12 @@ th{
 td,
 th{
 
+
     padding:16px;
 
+
     border-bottom:1px solid #eee;
+
 
 }
 
@@ -417,32 +458,32 @@ th{
 
 
 
-
-/* ==========================
-   合约地址
-========================== */
+/* =========================
+ Contract
+========================= */
 
 
 .address,
 .contract{
 
+
     width:100%;
 
-    background:#fff1eb;
-
-    border-left:
-
-    5px solid #e53935;
 
     padding:20px;
 
+
+    background:#fff1eb;
+
+
+    border-left:5px solid #e53935;
+
+
     border-radius:15px;
+
 
     word-break:break-all;
 
-    overflow-wrap:anywhere;
-
-    font-family:monospace;
 
 }
 
@@ -452,42 +493,47 @@ th{
 
 
 
-
-/* ==========================
-   底部 Footer
-========================== */
+/* =========================
+ Footer
+========================= */
 
 
 .site-footer{
 
+
     width:100%;
 
-    background:#ffffff;
 
-    padding:45px 0;
+    background:#fff;
 
-    margin-top:50px;
 
     color:#888;
 
+
+    padding:45px 0;
+
+
+    margin-top:50px;
+
+
     text-align:center;
 
-    border-top:
 
-    1px solid #eeeeee;
+    border-top:1px solid #eee;
+
 
 }
-
 
 
 
 .site-footer h4{
 
+
     color:#d32f2f;
+
 
     font-size:22px;
 
-    margin-bottom:20px;
 
 }
 
@@ -495,34 +541,35 @@ th{
 
 .site-footer p{
 
-    color:#888;
 
     font-size:14px;
+
 
 }
 
 
 
 
-
-
-
-/* 底部横向布局 */
-
-
 .footer-grid{
+
 
     width:100%;
 
+
     display:flex;
+
 
     justify-content:center;
 
+
     align-items:center;
+
 
     gap:50px;
 
+
     flex-wrap:wrap;
+
 
 }
 
@@ -530,29 +577,9 @@ th{
 
 .footer-grid > div{
 
+
     min-width:180px;
 
-    text-align:center;
-
-}
-
-
-
-.site-footer a{
-
-    color:#d32f2f;
-
-    text-decoration:none;
-
-    font-weight:600;
-
-}
-
-
-
-.site-footer a:hover{
-
-    text-decoration:underline;
 
 }
 
@@ -560,29 +587,105 @@ th{
 
 
 
+/* =================================
+   Desktop 强制布局
+================================= */
+
+
+@media(min-width:901px){
 
 
 
-/* ==========================
-   平板
-========================== */
+    .container{
+
+        max-width:1200px;
+
+        margin:auto;
+
+    }
+
+
+
+    .site-header .container{
+
+        flex-direction:row;
+
+        justify-content:space-between;
+
+    }
+
+
+
+    .main-nav{
+
+        flex-direction:row;
+
+    }
+
+
+
+    .grid{
+
+        grid-template-columns:
+
+        repeat(3,1fr);
+
+    }
+
+
+
+    .card{
+
+        min-height:200px;
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+/* =================================
+   Tablet
+================================= */
 
 
 @media(max-width:900px){
 
 
 
+.container{
+
+
+    padding:0 18px;
+
+
+}
+
+
+
 .site-header .container{
+
 
     height:auto;
 
+
     flex-direction:column;
+
 
     gap:15px;
 
+
     padding-top:15px;
 
+
     padding-bottom:15px;
+
 
 }
 
@@ -590,9 +693,12 @@ th{
 
 .main-nav{
 
+
     flex-wrap:wrap;
 
+
     justify-content:center;
+
 
 }
 
@@ -600,15 +706,9 @@ th{
 
 .grid{
 
+
     grid-template-columns:1fr;
 
-}
-
-
-
-.hero{
-
-    padding:60px 0 40px;
 
 }
 
@@ -616,18 +716,9 @@ th{
 
 .hero h1{
 
+
     font-size:36px;
 
-}
-
-
-
-.card{
-
-    padding:22px;
-
-}
-
 
 }
 
@@ -636,11 +727,17 @@ th{
 
 
 
+}
 
 
-/* ==========================
-   手机
-========================== */
+
+
+
+
+
+/* =================================
+   Mobile
+================================= */
 
 
 @media(max-width:480px){
@@ -649,9 +746,9 @@ th{
 
 .container{
 
-    padding-left:15px;
 
-    padding-right:15px;
+    padding:0 15px;
+
 
 }
 
@@ -659,7 +756,9 @@ th{
 
 .brand-name{
 
+
     font-size:18px;
+
 
 }
 
@@ -667,7 +766,9 @@ th{
 
 .main-nav{
 
+
     gap:15px;
+
 
 }
 
@@ -675,7 +776,9 @@ th{
 
 .main-nav a{
 
+
     font-size:14px;
+
 
 }
 
@@ -683,7 +786,9 @@ th{
 
 .hero h1{
 
+
     font-size:30px;
+
 
 }
 
@@ -691,7 +796,9 @@ th{
 
 .card{
 
+
     padding:18px;
+
 
 }
 
@@ -699,20 +806,14 @@ th{
 
 .footer-grid{
 
+
     flex-direction:column;
+
 
     gap:25px;
 
-}
-
-
-
-.footer-grid > div{
-
-    width:100%;
 
 }
-
 
 
 }
