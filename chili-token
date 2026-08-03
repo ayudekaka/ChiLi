@@ -1,1 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CHILI Token | Official Website</title>
+
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    background:#fff7ed;
+    color:#333;
+    margin:0;
+}
+
+.container {
+    max-width:800px;
+    margin:auto;
+    padding:30px;
+}
+
+.logo {
+    text-align:center;
+    font-size:70px;
+}
+
+h1 {
+    text-align:center;
+    color:#d9480f;
+}
+
+h2 {
+    color:#d9480f;
+}
+
+.card {
+
+    background:white;
+    padding:20px;
+    margin:20px 0;
+    border-radius:12px;
+
+}
+
+
+.address {
+
+    word-break:break-all;
+    background:#f2f2f2;
+    padding:12px;
+    border-radius:8px;
+
+}
+
+
+a {
+
+color:#d9480f;
+
+}
+
+
+.footer {
+
+text-align:center;
+margin-top:40px;
+font-size:14px;
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<div class="logo">
+🌶️
+</div>
+
+
+<h1>
+CHILI Token
+</h1>
+
+
+<p style="text-align:center">
+
+Community Driven Token on BNB Smart Chain
+
+</p>
+
+
+
+<div class="card">
+
+
+<h2>
+About CHILI
+</h2>
+
+
+<p>
+
+CHILI is a community-driven token deployed on BNB Smart Chain.
+The project focuses on community participation and decentralized development.
+
+</p>
+
+
+<p>
+
+CHILI（小辣椒）是一个部署在 BNB Smart Chain（币安智能链）
+上的社区驱动型代币，专注于社区参与和去中心化发展。
+
+</p>
+
+
+</div>
+
+
+
+
+<div class="card">
+
+
+<h2>
+Token Information
+</h2>
+
+
+<p>
+<b>Token Name:</b> CHILI
+</p>
+
+
+<p>
+<b>Symbol:</b> CHILI
+</p>
+
+
+<p>
+<b>Network:</b> BNB Smart Chain (BSC)
+</p>
+
+
+<p>
+<b>Total Supply:</b> 20,150,822 CHILI
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+Contract Address
+</h2>
+
+
+<p class="address">
+
+0xed3caca4903256fb3e4997bc0c7830d19fb35f7c
+
+</p>
+
+
+</div>
+
+
+
+
+<div class="card">
+
+
+<h2>
+Official Links
+</h2>
+
+
+
+<p>
+
+BscScan:
+
+<br>
+
+<a href="https://bscscan.com/token/0xed3caca4903256fb3e4997bc0c7830d19fb35f7c">
+
+CHILI Token BscScan
+
+</a>
+
+</p>
+
+
+
+<p>
+
+Website:
+
+<br>
+
+Coming Soon
+
+</p>
+
+
+
+<p>
+
+Telegram:
+
+<br>
+
+Coming Soon
+
+</p>
+
+
+
+<p>
+
+Twitter / X:
+
+<br>
+
+Coming Soon
+
+</p>
+
+
+</div>
+
+
+
+
+<div class="card">
+
+
+<h2>
+Disclaimer
+</h2>
+
+
+<p>
+
+CHILI Token is a community project based on blockchain technology.
+Users should conduct their own research before participating.
+
+</p>
+
+
+</div>
+
+
+
+
+<div class="footer">
+
+© 2026 CHILI Token. All Rights Reserved.
+
+</div>
+
+
+
+</div>
+
+
+</body>
+
+</html>
