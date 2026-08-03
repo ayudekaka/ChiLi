@@ -1,7 +1,7 @@
-/* =========================
-   CHILI Token Website Style
-   Layout Version
-========================= */
+/* ================================
+   CHILI TOKEN Official Website CSS
+   Professional Version
+================================ */
 
 
 *{
@@ -15,7 +15,6 @@ html,
 body{
 
     width:100%;
-    max-width:100%;
 
     overflow-x:hidden;
 
@@ -26,34 +25,46 @@ body{
 body{
 
     font-family:
+    Inter,
     -apple-system,
     BlinkMacSystemFont,
     "Segoe UI",
-    Arial,
     "Microsoft YaHei",
     sans-serif;
 
-    background:#fff7f2;
+    background:
+    linear-gradient(
+        180deg,
+        #fff5f0 0%,
+        #ffffff 35%
+    );
 
-    color:#333;
-
-    line-height:1.6;
+    color:#222;
 
 }
 
 
 
-/* 页面宽度 */
+
+
+
+
+/* =================
+   通用容器
+================= */
+
 
 .container{
 
+
     width:100%;
 
-    max-width:1100px;
+    max-width:1200px;
 
-    margin:0 auto;
+    margin:auto;
 
-    padding:0 20px;
+    padding:0 24px;
+
 
 }
 
@@ -61,20 +72,36 @@ body{
 
 
 
-/* 顶部导航 */
+
+
+
+/* =================
+   顶部导航
+================= */
+
 
 .site-header{
 
-    background:#ffffff;
 
     position:sticky;
 
     top:0;
 
-    z-index:100;
+    z-index:999;
 
-    box-shadow:
-    0 3px 15px rgba(0,0,0,.08);
+
+    background:
+
+    rgba(255,255,255,.85);
+
+
+    backdrop-filter:blur(15px);
+
+
+    border-bottom:
+
+    1px solid rgba(0,0,0,.06);
+
 
 }
 
@@ -82,7 +109,9 @@ body{
 
 .site-header .container{
 
-    height:70px;
+
+    height:76px;
+
 
     display:flex;
 
@@ -90,24 +119,26 @@ body{
 
     justify-content:space-between;
 
+
 }
 
 
 
 
-/* Logo */
-
 .brand{
+
 
     display:flex;
 
     align-items:center;
 
-    gap:10px;
+    gap:12px;
+
 
     text-decoration:none;
 
-    color:#333;
+    color:#222;
+
 
 }
 
@@ -115,9 +146,11 @@ body{
 
 .brand img{
 
-    width:32px;
 
-    height:32px;
+    width:42px;
+
+    height:42px;
+
 
 }
 
@@ -125,9 +158,11 @@ body{
 
 .brand-name{
 
-    font-size:20px;
+
+    font-size:22px;
 
     font-weight:700;
+
 
 }
 
@@ -135,7 +170,9 @@ body{
 
 .brand-name strong{
 
+
     color:#e53935;
+
 
 }
 
@@ -143,13 +180,20 @@ body{
 
 
 
-/* 导航 */
+
+
+/* =================
+   导航菜单
+================= */
+
 
 .main-nav{
 
+
     display:flex;
 
-    gap:25px;
+    gap:30px;
+
 
 }
 
@@ -157,11 +201,18 @@ body{
 
 .main-nav a{
 
-    color:#555;
 
     text-decoration:none;
 
-    font-weight:500;
+    color:#555;
+
+    font-size:15px;
+
+    font-weight:600;
+
+
+    transition:.3s;
+
 
 }
 
@@ -169,7 +220,9 @@ body{
 
 .main-nav a:hover{
 
+
     color:#e53935;
+
 
 }
 
@@ -177,14 +230,24 @@ body{
 
 
 
-/* 主标题区域 */
+
+
+
+/* =================
+   Hero
+================= */
 
 
 .hero{
 
-    padding:70px 0 40px;
+
+    padding:
+
+    90px 0 60px;
+
 
     text-align:center;
+
 
 }
 
@@ -192,11 +255,28 @@ body{
 
 .hero h1{
 
-    font-size:42px;
 
-    color:#d32f2f;
+    font-size:52px;
 
-    margin-bottom:15px;
+    font-weight:800;
+
+
+    background:
+
+    linear-gradient(
+    90deg,
+    #d32f2f,
+    #ff7043
+    );
+
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+
+
+    margin-bottom:20px;
+
 
 }
 
@@ -204,9 +284,16 @@ body{
 
 .lead{
 
+
+    max-width:650px;
+
+    margin:auto;
+
+
     color:#777;
 
-    font-size:18px;
+    font-size:20px;
+
 
 }
 
@@ -216,12 +303,17 @@ body{
 
 
 
-/* 内容区域 */
+
+/* =================
+   内容区域
+================= */
 
 
 .features{
 
-    padding:30px 0 60px;
+
+    padding-bottom:80px;
+
 
 }
 
@@ -229,11 +321,17 @@ body{
 
 .grid{
 
+
     display:grid;
 
-    grid-template-columns:1fr;
 
-    gap:20px;
+    grid-template-columns:
+
+    repeat(3,1fr);
+
+
+    gap:25px;
+
 
 }
 
@@ -241,19 +339,58 @@ body{
 
 
 
-/* 卡片 */
+
+
+/* =================
+   卡片
+================= */
+
 
 .card{
 
+
     background:white;
 
-    padding:30px;
 
-    border-radius:20px;
+    border-radius:24px;
+
+
+    padding:32px;
+
+
+    border:
+
+    1px solid rgba(0,0,0,.05);
+
 
     box-shadow:
 
-    0 8px 25px rgba(0,0,0,.06);
+
+    0 15px 40px
+
+    rgba(0,0,0,.08);
+
+
+    transition:.35s;
+
+
+}
+
+
+
+.card:hover{
+
+
+    transform:translateY(-8px);
+
+
+    box-shadow:
+
+
+    0 25px 50px
+
+    rgba(0,0,0,.12);
+
 
 }
 
@@ -261,9 +398,14 @@ body{
 
 .card h3{
 
+
+    font-size:22px;
+
     color:#d32f2f;
 
-    margin-bottom:12px;
+
+    margin-bottom:15px;
+
 
 }
 
@@ -271,31 +413,10 @@ body{
 
 .card p{
 
-    color:#555;
 
-}
+    color:#666;
 
-
-
-
-
-
-/* 按钮 */
-
-button,
-.btn{
-
-    background:#e53935;
-
-    color:white;
-
-    border:none;
-
-    border-radius:12px;
-
-    padding:12px 25px;
-
-    cursor:pointer;
+    font-size:15px;
 
 }
 
@@ -305,19 +426,38 @@ button,
 
 
 
-/* 表格/信息 */
+
+/* =================
+   Token信息
+================= */
+
 
 table{
 
+
     width:100%;
 
-    border-collapse:collapse;
 
     background:white;
 
-    border-radius:15px;
+
+    border-radius:20px;
+
 
     overflow:hidden;
+
+
+}
+
+
+
+th{
+
+
+    background:#d32f2f;
+
+    color:white;
+
 
 }
 
@@ -326,11 +466,9 @@ table{
 td,
 th{
 
-    padding:15px;
 
-    border-bottom:1px solid #eee;
+    padding:18px;
 
-    text-align:left;
 
 }
 
@@ -339,20 +477,43 @@ th{
 
 
 
-/* 地址 */
+
+
+
+/* =================
+   地址显示
+================= */
+
 
 .address,
 .contract{
 
-    background:#fff3ee;
 
-    padding:15px;
+    background:
 
-    border-radius:12px;
+    linear-gradient(
+    135deg,
+    #fff1eb,
+    #fff
+    );
+
+
+    border-left:
+
+    5px solid #e53935;
+
+
+    padding:20px;
+
+
+    border-radius:16px;
+
+
+    font-family:monospace;
+
 
     word-break:break-all;
 
-    overflow-wrap:anywhere;
 
 }
 
@@ -361,19 +522,42 @@ th{
 
 
 
-/* 页脚 */
+
+
+/* =================
+   页脚
+================= */
+
 
 .site-footer{
 
-    background:#ffffff;
 
-    padding:35px 0;
+    background:#111;
 
-    margin-top:40px;
+
+    color:#aaa;
+
+
+    padding:50px 0;
+
 
     text-align:center;
 
-    color:#777;
+
+}
+
+
+
+.site-footer h4{
+
+
+    color:white;
+
+    font-size:22px;
+
+
+    margin-bottom:10px;
+
 
 }
 
@@ -382,53 +566,22 @@ th{
 
 
 
-/* 手机适配 */
-
-@media(max-width:768px){
 
 
+/* =================
+   手机端
+================= */
 
-.container{
 
-    padding:0 15px;
-
-}
+@media(max-width:900px){
 
 
 
-.site-header .container{
-
-    height:auto;
-
-    padding-top:15px;
-
-    padding-bottom:15px;
-
-    flex-direction:column;
-
-    gap:15px;
-
-}
+.grid{
 
 
+    grid-template-columns:1fr;
 
-.main-nav{
-
-    width:100%;
-
-    justify-content:center;
-
-    flex-wrap:wrap;
-
-    gap:15px;
-
-}
-
-
-
-.hero{
-
-    padding:40px 0 25px;
 
 }
 
@@ -436,44 +589,99 @@ th{
 
 .hero h1{
 
-    font-size:30px;
+
+    font-size:36px;
+
+
+}
+
+
+
+.site-header .container{
+
+
+    flex-direction:column;
+
+
+    height:auto;
+
+
+    padding-top:18px;
+
+    padding-bottom:18px;
+
 
 }
 
 
 
-.card{
+.main-nav{
 
-    padding:20px;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+
+}
+
 
 }
 
 
 
-}
 
 
 
 @media(max-width:480px){
 
 
-.brand-name{
 
-    font-size:18px;
+.container{
+
+
+    padding:0 16px;
+
+
+}
+
+
+
+.hero{
+
+
+    padding:50px 0 30px;
+
 
 }
 
 
-.main-nav a{
 
-    font-size:14px;
+.hero h1{
+
+
+    font-size:30px;
+
 
 }
+
 
 
 .card{
 
-    padding:18px;
+
+    padding:22px;
+
+
+}
+
+
+
+.brand-name{
+
+
+    font-size:18px;
+
 
 }
 
