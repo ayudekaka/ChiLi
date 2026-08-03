@@ -547,225 +547,36 @@ th{
 
 .site-footer{
 
-
     width:100%;
 
-
-    background:#111;
-
+    background:#ffffff;
 
     padding:50px 0;
 
-
-    color:#aaa;
-
+    color:#888;
 
     text-align:center;
 
+    border-top:1px solid #eeeeee;
 
 }
-
 
 
 .site-footer h4{
 
-
-    color:white;
-
+    color:#d32f2f;
 
     font-size:22px;
 
+    margin-bottom:10px;
 
 }
 
 
+.site-footer p{
 
-
-
-
-
-
-
-/* ==================================
-   Tablet
-================================== */
-
-
-@media(max-width:900px){
-
-
-
-.container{
-
-
-    padding-left:18px;
-
-    padding-right:18px;
-
-
-}
-
-
-
-.site-header .container{
-
-
-    height:auto;
-
-
-    flex-direction:column;
-
-
-    justify-content:center;
-
-
-    gap:15px;
-
-
-    padding-top:15px;
-
-
-    padding-bottom:15px;
-
-
-}
-
-
-
-.main-nav{
-
-
-    flex-wrap:wrap;
-
-
-    justify-content:center;
-
-
-}
-
-
-
-.grid{
-
-
-    grid-template-columns:
-
-    1fr;
-
-
-}
-
-
-
-.hero{
-
-
-    padding:60px 0 40px;
-
-
-}
-
-
-
-.hero h1{
-
-
-    font-size:36px;
-
-
-}
-
-
-
-.card{
-
-
-    padding:22px;
-
-
-}
-
-
-
-}
-
-
-
-
-
-
-
-
-/* ==================================
-   Mobile
-================================== */
-
-
-@media(max-width:480px){
-
-
-
-.container{
-
-
-    padding-left:15px;
-
-
-    padding-right:15px;
-
-
-}
-
-
-
-.brand-name{
-
-
-    font-size:18px;
-
-
-}
-
-
-
-.main-nav{
-
-
-    gap:15px;
-
-
-}
-
-
-
-.main-nav a{
-
+    color:#888;
 
     font-size:14px;
-
-
-}
-
-
-
-.hero h1{
-
-
-    font-size:30px;
-
-
-}
-
-
-
-.card{
-
-
-    padding:18px;
-
-
-}
-
-
 
 }
