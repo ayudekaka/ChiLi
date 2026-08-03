@@ -1,591 +1,426 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>小辣椒 CHILI - 官方网站</title>
-    <link rel="icon" href="https://raw.githubusercontent.com/ayudekaka/lifengyu/main/chili-32x32.svg">
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* ===== 安全检测卡片专属样式（不影响其他卡片） ===== */
-        .security-card {
-            border-radius: 20px;
-            background: #ffffff;
-            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.07), 0 4px 16px rgba(0, 0, 0, 0.03);
-            padding: 0;
-            overflow: hidden;
-            transition: box-shadow 0.3s ease;
-        }
-
-        .security-card:hover {
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.10);
-        }
-
-        /* 头部 — 白色背景，与原设计统一 */
-        .security-header {
-            background: #ffffff;
-            padding: 26px 40px 18px;
-            text-align: center;
-            border-bottom: 2px solid #f0f2f0;
-            position: relative;
-        }
-
-        .security-header h3 {
-            margin: 0;
-            font-size: 24px;
-            font-weight: 700;
-            color: #1e2a1e;
-            letter-spacing: 0.3px;
-        }
-
-        .security-header h3 .chili-icon {
-            display: inline-block;
-            margin-right: 6px;
-        }
-
-        .security-header .sub-link {
-            color: #d32f2f;
-            font-size: 14px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s;
-            border-bottom: 1px dashed rgba(211, 47, 47, 0.3);
-            padding-bottom: 2px;
-        }
-
-        .security-header .sub-link:hover {
-            color: #b71c1c;
-            border-bottom-color: #b71c1c;
-        }
-
-        /* 主体内边距 */
-        .security-body {
-            padding: 24px 32px 28px;
-        }
-
-        /* 税率区域 — 居中 */
-        .tax-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 16px;
-            max-width: 600px;
-            margin: 0 auto 28px auto;
-        }
-
-        .tax-item {
-            background: #f8faf8;
-            border-radius: 14px;
-            padding: 16px 12px 14px;
-            text-align: center;
-            border: 1px solid #e8ece8;
-            transition: transform 0.2s, border-color 0.2s;
-        }
-
-        .tax-item:hover {
-            transform: translateY(-2px);
-            border-color: #c8d6c8;
-        }
-
-        .tax-item .tax-value {
-            font-size: 28px;
-            font-weight: 700;
-            color: #2e7d32;
-            line-height: 1.2;
-        }
-
-        .tax-item .tax-label {
-            font-size: 13px;
-            color: #777;
-            margin-top: 4px;
-            font-weight: 500;
-            letter-spacing: 0.3px;
-        }
-
-        /* 检测项网格 — 两列居中 */
-        .checks-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px 40px;
-            max-width: 780px;
-            margin: 0 auto 22px auto;
-        }
-
-        .check-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            padding: 7px 0;
-            border-bottom: 1px solid #f0f2f0;
-        }
-
-        .check-item:last-child {
-            border-bottom: none;
-        }
-
-        .check-icon {
-            flex-shrink: 0;
-            width: 22px;
-            height: 22px;
-            background: #e8f5e9;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 13px;
-            color: #2e7d32;
-            margin-top: 1px;
-        }
-
-        .check-content {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .check-content .check-title {
-            font-size: 15px;
-            font-weight: 600;
-            color: #1e2a1e;
-            line-height: 1.4;
-        }
-
-        .check-content .check-sub {
-            font-size: 13px;
-            color: #777;
-            margin-top: 1px;
-            line-height: 1.4;
-        }
-
-        .check-content .check-sub a {
-            color: #d32f2f;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .check-content .check-sub a:hover {
-            text-decoration: underline;
-        }
-
-        /* 底部评级 — 居中 */
-        .security-footer {
-            background: #f0f7f0;
-            border-radius: 14px;
-            padding: 16px 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 12px 20px;
-            max-width: 780px;
-            margin: 0 auto;
-        }
-
-        .security-footer .rating-label {
-            font-size: 15px;
-            font-weight: 600;
-            color: #1e2a1e;
-        }
-
-        .security-footer .rating-badge {
-            background: #2e7d32;
-            color: #fff;
-            padding: 6px 20px;
-            border-radius: 30px;
-            font-size: 15px;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .security-footer .rating-badge span {
-            opacity: 0.9;
-        }
-
-        .security-footer .disclaimer {
-            font-size: 12px;
-            color: #999;
-            width: 100%;
-            text-align: center;
-            margin-top: 2px;
-            padding-top: 10px;
-            border-top: 1px solid #e0ece0;
-        }
-
-        /* ===== 响应式 ===== */
-        @media (max-width: 768px) {
-            .security-header {
-                padding: 20px 20px 14px;
-            }
-            .security-header h3 {
-                font-size: 19px;
-            }
-            .security-body {
-                padding: 16px 16px 20px;
-            }
-
-            .tax-grid {
-                grid-template-columns: 1fr 1fr 1fr;
-                gap: 10px;
-                max-width: 100%;
-            }
-            .tax-item .tax-value {
-                font-size: 22px;
-            }
-
-            /* 手机版：检测项改为单列 */
-            .checks-grid {
-                grid-template-columns: 1fr;
-                gap: 2px;
-                max-width: 100%;
-            }
-            .check-item {
-                padding: 6px 0;
-            }
-
-            .security-footer {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                padding: 14px 16px;
-                max-width: 100%;
-            }
-            .security-footer .rating-badge {
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .tax-grid {
-                grid-template-columns: 1fr;
-                gap: 8px;
-            }
-            .tax-item {
-                padding: 12px;
-            }
-            .tax-item .tax-value {
-                font-size: 20px;
-            }
-            .check-content .check-title {
-                font-size: 14px;
-            }
-            .check-content .check-sub {
-                font-size: 12px;
-            }
-            .security-header h3 {
-                font-size: 17px;
-            }
-            .security-header .sub-link {
-                font-size: 12px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小辣椒 CHILI - 官方网站</title>
+<link rel="icon" href="https://raw.githubusercontent.com/ayudekaka/lifengyu/main/chili-32x32.svg">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ===== 仅针对安全报告卡片的样式（不影响其他卡片） ===== */
+.security-report {
+    padding-top: 10px;
+}
+.security-report .card {
+    padding: 32px 48px !important;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.07), 0 4px 16px rgba(0, 0, 0, 0.03);
+    transition: box-shadow 0.3s ease;
+}
+.security-report .card:hover {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.10);
+}
+/* 头部标题行：白色背景，保留所有文字 */
+.security-header {
+    text-align: center;
+    margin-bottom: 24px;
+    border-bottom: 2px solid #f0f2f0;
+    padding-bottom: 18px;
+}
+.security-header h3 {
+    margin: 0 0 6px 0;
+    font-size: 22px;
+    color: #d32f2f;
+}
+.security-header .sub-line {
+    color: #666;
+    font-size: 14px;
+    margin: 0;
+}
+.security-header .sub-line a {
+    color: #d32f2f;
+    text-decoration: none;
+}
+.security-header .sub-line a:hover {
+    text-decoration: underline;
+}
+/* 税率区域：保持原有布局，居中 */
+.tax-wrapper {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 18px 0;
+    margin-bottom: 26px;
+}
+.tax-wrapper .tax-title {
+    font-weight: 600;
+    margin-bottom: 14px;
+    font-size: 15px;
+    text-align: center;
+}
+.tax-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+}
+.tax-item .tax-value {
+    font-size: 22px;
+    font-weight: 700;
+    color: #2e7d32;
+}
+.tax-item .tax-label {
+    font-size: 13px;
+    color: #666;
+    margin-top: 3px;
+}
+/* 检测项双列网格：居中，手机版自动单列 */
+.checks-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 40px;
+    max-width: 720px;
+    margin: 0 auto;
+}
+.check-item {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+.check-item .check-icon {
+    color: #2e7d32;
+    font-size: 17px;
+    flex-shrink: 0;
+}
+.check-item .check-main {
+    font-size: 15px;
+    font-weight: 600;
+}
+.check-item .check-sub {
+    font-size: 13px;
+    color: #666;
+    margin-top: 2px;
+}
+.check-item .check-sub a {
+    color: #d32f2f;
+    text-decoration: none;
+}
+.check-item .check-sub a:hover {
+    text-decoration: underline;
+}
+/* 底部评级 */
+.rating-footer {
+    margin: 28px 0 0;
+    text-align: center;
+    font-size: 16px;
+    color: #2e7d32;
+    font-weight: 600;
+}
+.rating-footer .badge {
+    background: #e8f5e9;
+    padding: 5px 14px;
+    border-radius: 20px;
+}
+.rating-footer .disclaimer {
+    text-align: center;
+    font-size: 12.5px;
+    color: #999;
+    margin: 8px 0 0;
+}
+/* 响应式：手机版变为单列 */
+@media (max-width: 768px) {
+    .security-report .card {
+        padding: 20px 16px !important;
+    }
+    .checks-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    .tax-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 6px;
+    }
+}
+@media (max-width: 480px) {
+    .tax-grid {
+        grid-template-columns: 1fr;
+    }
+    .security-header h3 {
+        font-size: 18px;
+    }
+    .security-header .sub-line {
+        font-size: 12px;
+    }
+}
+</style>
 </head>
 <body>
-    <header class="site-header">
-        <div class="container">
-            <a class="brand" href="index.html">
-                <img src="https://raw.githubusercontent.com/ayudekaka/lifengyu/main/chili-32x32.svg" width="48" height="48" alt="小辣椒 CHILI">
-                <span class="brand-name">
-                    小辣椒 <strong>CHILI</strong>
-                </span>
-            </a>
-            <nav class="main-nav">
-                <a href="index.html">首页</a>
-                <a href="tokenomics.html">Tokenomics</a>
-                <a href="roadmap.html">路线图</a>
-                <a href="contact.html">联系我们</a>
-            </nav>
+<header class="site-header">
+<div class="container">
+<a class="brand" href="index.html">
+<img src="https://raw.githubusercontent.com/ayudekaka/lifengyu/main/chili-32x32.svg" width="48" height="48" alt="小辣椒 CHILI">
+<span class="brand-name">小辣椒 <strong>CHILI</strong></span>
+</a>
+<nav class="main-nav">
+<a href="index.html">首页</a>
+<a href="tokenomics.html">Tokenomics</a>
+<a href="roadmap.html">路线图</a>
+<a href="contact.html">联系我们</a>
+</nav>
+</div>
+</header>
+
+<section class="hero">
+<div class="container">
+<h1>🌶️ 小辣椒 <span class="accent">CHILI</span></h1>
+<p class="lead">社区驱动代币 — BNB Smart Chain</p>
+</div>
+</section>
+
+<!-- 基础卡片区域（完全保持不变） -->
+<section class="features">
+<div class="container grid">
+<div class="card">
+<h3 style="font-size:22px;margin-bottom:14px;">🌶️ 代币名称</h3>
+<p style="font-size:20px;font-weight:500;margin:0;">小辣椒 CHILI</p>
+</div>
+<div class="card">
+<h3 style="font-size:22px;margin-bottom:14px;">🔹 代币符号</h3>
+<p style="font-size:20px;font-weight:500;margin:0;">CHILI</p>
+</div>
+<div class="card">
+<h3 style="font-size:22px;margin-bottom:14px;">💰 总发行量</h3>
+<p style="font-size:20px;font-weight:500;margin:0;">20,150,822 CHILI</p>
+</div>
+<div class="card">
+<h3 style="font-size:22px;margin-bottom:14px;">🌐 网络</h3>
+<p style="font-size:18px;font-weight:500;margin:0;line-height:1.5;">BNB Smart Chain<br>（BSC）</p>
+</div>
+<div class="card" style="text-align:left;padding:22px 20px;">
+<h3 style="text-align:center;font-size:18px;margin:0 0 12px;">🌶️ 小辣椒的故事</h3>
+<p style="font-size:14px;line-height:1.75;color:#444;margin:0;">
+普通人的故事，人生会结束，名字会被遗忘，但社区的信念与记忆可以延续。我们相信，每一位参与者都是小辣椒的守护者。它不是某个人的专属，而是一群人的共同符号。人会消失，币会留下，故事会继续燃烧。小辣椒代表平凡人的希望与坚持，让每次参与都有意义。未来，朋友们，让它一直存在好吗？
+</p>
+</div>
+<div class="card" style="padding:22px 18px;">
+<h3 style="font-size:20px;margin-bottom:12px;">🔐 合约地址</h3>
+<p class="contract-text" style="font-size:13px;line-height:1.5;margin:0 0 10px;">
+0xed3caca4903256fb3e4997bc0c7830d19fb35f7c
+</p>
+<p style="margin:8px 0;font-size:14px;">
+<a href="https://bscscan.com/address/0xed3caca4903256fb3e4997bc0c7830d19fb35f7c" target="_blank" rel="noopener" style="color:#d32f2f;text-decoration:none;font-weight:500;">
+0xEd3Caca4......19Fb35F7c | BSC扫描
+</a>
+</p>
+<p style="margin:6px 0 12px;font-size:14px;">
+<a href="https://bscscan.com/address/0xed3caca4903256fb3e4997bc0c7830d19fb35f7c#code" target="_blank" rel="noopener" style="color:#2e7d32;text-decoration:none;font-weight:500;">
+✅ 公开合约源码验证
+</a>
+</p>
+<button class="copy-btn" id="copyBtn" style="padding:9px 20px;font-size:14px;">复制合约地址</button>
+<p style="margin-top:12px;font-size:13px;opacity:0.85;line-height:1.5;">
+请在去中心化交易所使用该合约地址搜索 CHILI。
+</p>
+</div>
+</div>
+</section>
+
+<!-- ===== 安全检测报告 - 保留全部文本，仅样式优化 ===== -->
+<section class="features security-report">
+<div class="container">
+<div class="card">
+    <!-- 头部：保留“合约安全检测报告”文字 -->
+    <div class="security-header">
+        <h3>🛡️ $CHILI Token Security</h3>
+        <p class="sub-line">合约安全检测报告 · <a href="https://bscscan.com/address/0xed3caca4903256fb3e4997bc0c7830d19fb35f7c#code" target="_blank" rel="noopener">查看源码 →</a></p>
+    </div>
+
+    <!-- 税率检测 -->
+    <div class="tax-wrapper">
+        <div class="tax-title">📊 税率检测</div>
+        <div class="tax-grid">
+            <div class="tax-item">
+                <div class="tax-value">0.00%</div>
+                <div class="tax-label">购买税</div>
+            </div>
+            <div class="tax-item">
+                <div class="tax-value">0.00%</div>
+                <div class="tax-label">销售税</div>
+            </div>
+            <div class="tax-item">
+                <div class="tax-value">0.00%</div>
+                <div class="tax-label">转让税</div>
+            </div>
         </div>
-    </header>
+    </div>
 
-    <section class="hero">
-        <div class="container">
-            <h1>
-                🌶️ 小辣椒 <span class="accent">CHILI</span>
-            </h1>
-            <p class="lead">
-                社区驱动代币 — BNB Smart Chain
-            </p>
-        </div>
-    </section>
-
-    <!-- 基础卡片区域（保持不变） -->
-    <section class="features">
-        <div class="container grid">
-            <div class="card">
-                <h3 style="font-size:22px;margin-bottom:14px;">🌶️ 代币名称</h3>
-                <p style="font-size:20px;font-weight:500;margin:0;">小辣椒 CHILI</p>
-            </div>
-            <div class="card">
-                <h3 style="font-size:22px;margin-bottom:14px;">🔹 代币符号</h3>
-                <p style="font-size:20px;font-weight:500;margin:0;">CHILI</p>
-            </div>
-            <div class="card">
-                <h3 style="font-size:22px;margin-bottom:14px;">💰 总发行量</h3>
-                <p style="font-size:20px;font-weight:500;margin:0;">20,150,822 CHILI</p>
-            </div>
-            <div class="card">
-                <h3 style="font-size:22px;margin-bottom:14px;">🌐 网络</h3>
-                <p style="font-size:18px;font-weight:500;margin:0;line-height:1.5;">BNB Smart Chain<br>（BSC）</p>
-            </div>
-            <div class="card" style="text-align:left;padding:22px 20px;">
-                <h3 style="text-align:center;font-size:18px;margin:0 0 12px;">🌶️ 小辣椒的故事</h3>
-                <p style="font-size:14px;line-height:1.75;color:#444;margin:0;">
-                    普通人的故事，人生会结束，名字会被遗忘，但社区的信念与记忆可以延续。我们相信，每一位参与者都是小辣椒的守护者。它不是某个人的专属，而是一群人的共同符号。人会消失，币会留下，故事会继续燃烧。小辣椒代表平凡人的希望与坚持，让每次参与都有意义。未来，朋友们，让它一直存在好吗？
-                </p>
-            </div>
-            <div class="card" style="padding:22px 18px;">
-                <h3 style="font-size:20px;margin-bottom:12px;">🔐 合约地址</h3>
-                <p class="contract-text" style="font-size:13px;line-height:1.5;margin:0 0 10px;">
-                    0xed3caca4903256fb3e4997bc0c7830d19fb35f7c
-                </p>
-                <p style="margin:8px 0;font-size:14px;">
-                    <a href="https://bscscan.com/address/0xed3caca4903256fb3e4997bc0c7830d19fb35f7c" target="_blank" rel="noopener" style="color:#d32f2f;text-decoration:none;font-weight:500;">
-                        0xEd3Caca4......19Fb35F7c | BSC扫描
-                    </a>
-                </p>
-                <p style="margin:6px 0 12px;font-size:14px;">
-                    <a href="https://bscscan.com/address/0xed3caca4903256fb3e4997bc0c7830d19fb35f7c#code" target="_blank" rel="noopener" style="color:#2e7d32;text-decoration:none;font-weight:500;">
-                        ✅ 公开合约源码验证
-                    </a>
-                </p>
-                <button class="copy-btn" id="copyBtn" style="padding:9px 20px;font-size:14px;">
-                    复制合约地址
-                </button>
-                <p style="margin-top:12px;font-size:13px;opacity:0.85;line-height:1.5;">
-                    请在去中心化交易所使用该合约地址搜索 CHILI。
-                </p>
+    <!-- 检测项双列（所有文本完整保留） -->
+    <div class="checks-grid">
+        <!-- 左列 -->
+        <div class="check-item">
+            <span class="check-icon">✅</span>
+            <div>
+                <div class="check-main">蜜罐风险：无</div>
+                <div class="check-sub">未发现恶意代码</div>
             </div>
         </div>
-    </section>
-
-    <!-- ============================================================ -->
-    <!-- 安全检测报告卡片 — 白色头部 + 双列居中 + 手机单列          -->
-    <!-- ============================================================ -->
-    <section class="features" style="padding-top:10px;">
-        <div class="container">
-            <div class="security-card">
-
-                <!-- 头部：白色背景 -->
-                <div class="security-header">
-                    <h3>
-                        <span class="chili-icon">🛡️</span> $CHILI Token Security
-                        <span style="display:inline-block;margin-left:12px;font-size:14px;font-weight:400;">
-                            <a href="https://bscscan.com/address/0xed3caca4903256fb3e4997bc0c7830d19fb35f7c#code" target="_blank" rel="noopener" class="sub-link">查看源码 →</a>
-                        </span>
-                    </h3>
-                </div>
-
-                <div class="security-body">
-
-                    <!-- 税率检测 — 居中 -->
-                    <div class="tax-grid">
-                        <div class="tax-item">
-                            <div class="tax-value">0.00%</div>
-                            <div class="tax-label">📈 购买税</div>
-                        </div>
-                        <div class="tax-item">
-                            <div class="tax-value">0.00%</div>
-                            <div class="tax-label">📉 销售税</div>
-                        </div>
-                        <div class="tax-item">
-                            <div class="tax-value">0.00%</div>
-                            <div class="tax-label">🔄 转让税</div>
-                        </div>
-                    </div>
-
-                    <!-- 检测项：双列居中，手机单列 -->
-                    <div class="checks-grid">
-
-                        <!-- 左列 -->
-                        <div class="check-item">
-                            <div class="check-icon">✓</div>
-                            <div class="check-content">
-                                <div class="check-title">蜜罐风险：无</div>
-                                <div class="check-sub">未发现恶意代码</div>
-                            </div>
-                        </div>
-
-                        <div class="check-item">
-                            <div class="check-icon">✓</div>
-                            <div class="check-content">
-                                <div class="check-title">持有者可出售全部代币</div>
-                                <div class="check-sub">无最大卖出限制</div>
-                            </div>
-                        </div>
-
-                        <div class="check-item">
-                            <div class="check-icon">✓</div>
-                            <div class="check-content">
-                                <div class="check-title">合同源代码已验证</div>
-                                <div class="check-sub"><a href="https://bscscan.com/address/0xed3caca4903256fb3e4997bc0c7830d19fb35f7c#code" target="_blank">查看合同代码</a></div>
-                            </div>
-                        </div>
-
-                        <div class="check-item">
-                            <div class="check-icon">✓</div>
-                            <div class="check-content">
-                                <div class="check-title">没有铸币功能</div>
-                                <div class="check-sub">总量固定不可增发</div>
-                            </div>
-                        </div>
-
-                        <div class="check-item">
-                            <div class="check-icon">✓</div>
-                            <div class="check-content">
-                                <div class="check-title">所有者不能更改余额</div>
-                                <div class="check-sub">无法修改他人余额</div>
-                            </div>
-                        </div>
-
-                        <div class="check-item">
-                            <div class="check-icon">✓</div>
-                            <div class="check-content">
-                                <div class="check-title">该代币不能自毁</div>
-                                <div class="check-sub">未发现自毁功能</div>
-                            </div>
-                        </div>
-
-                        <div class="check-item">
-                            <div class="check-icon">✓</div>
-                            <div class="check-content">
-                                <div class="check-title">不是气体滥用者</div>
-                                <div class="check-sub">无恶意消耗 Gas</div>
-                            </div>
-                        </div>
-
-                        <div class="check-item">
-                            <div class="check-icon">✓</div>
-                            <div class="check-content">
-                                <div class="check-title">无 anti_whale</div>
-                                <div class="check-sub">—</div>
-                            </div>
-                        </div>
-
-                        <div class="check-item">
-                            <div class="check-icon">✓</div>
-                            <div class="check-content">
-                                <div class="check-title">税收无法更改</div>
-                                <div class="check-sub">—</div>
-                            </div>
-                        </div>
-
-                        <div class="check-item">
-                            <div class="check-icon">✓</div>
-                            <div class="check-content">
-                                <div class="check-title">个人地址无税务变更</div>
-                                <div class="check-sub">—</div>
-                            </div>
-                        </div>
-
-                        <!-- 右列 -->
-                        <div class="check-item">
-                            <div class="check-icon">✓</div>
-                            <div class="check-content">
-                                <div class="check-title">未发现暂停交易代码</div>
-                                <div class="check-sub">可正常买卖</div>
-                            </div>
-                        </div>
-
-                        <div class="check-item">
-                            <div class="check-icon">✓</div>
-                            <div class="check-content">
-                                <div class="check-title">代币可以购买</div>
-                                <div class="check-sub">支持正常买入</div>
-                            </div>
-                        </div>
-
-                        <div class="check-item">
-                            <div class="check-icon">✓</div>
-                            <div class="check-content">
-                                <div class="check-title">没有代理</div>
-                                <div class="check-sub">无法修改合约功能</div>
-                            </div>
-                        </div>
-
-                        <div class="check-item">
-                            <div class="check-icon">✓</div>
-                            <div class="check-content">
-                                <div class="check-title">不可恢复所有权</div>
-                                <div class="check-sub">无法重新获得权限</div>
-                            </div>
-                        </div>
-
-                        <div class="check-item">
-                            <div class="check-icon">✓</div>
-                            <div class="check-content">
-                                <div class="check-title">没有隐藏的主人</div>
-                                <div class="check-sub">无隐藏所有者</div>
-                            </div>
-                        </div>
-
-                        <div class="check-item">
-                            <div class="check-icon">✓</div>
-                            <div class="check-content">
-                                <div class="check-title">未发现外部呼叫风险</div>
-                                <div class="check-sub">无外部依赖风险</div>
-                            </div>
-                        </div>
-
-                        <div class="check-item">
-                            <div class="check-icon">✓</div>
-                            <div class="check-content">
-                                <div class="check-title">没有交易冷却功能</div>
-                                <div class="check-sub">—</div>
-                            </div>
-                        </div>
-
-                        <div class="check-item">
-                            <div class="check-icon">✓</div>
-                            <div class="check-content">
-                                <div class="check-title">反鲸鱼无法被修改</div>
-                                <div class="check-sub">—</div>
-                            </div>
-                        </div>
-
-                        <div class="check-item">
-                            <div class="check-icon">✓</div>
-                            <div class="check-content">
-                                <div class="check-title">没有黑名单 / 白名单</div>
-                                <div class="check-sub">—</div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <!-- 底部：综合风险评级 — 居中 -->
-                    <div class="security-footer">
-                        <span class="rating-label">📊 综合风险评级</span>
-                        <span class="rating-badge">
-                            <span>🟢</span> 低风险 · 非蜜罐 · Safe
-                        </span>
-                        <div class="disclaimer">
-                            以上结果基于公开链上数据与合约代码分析，仅供参考。请自行做好尽职调查（DYOR）。
-                        </div>
-                    </div>
-
-                </div><!-- /security-body -->
-            </div><!-- /security-card -->
+        <div class="check-item">
+            <span class="check-icon">✅</span>
+            <div>
+                <div class="check-main">持有者可出售全部代币</div>
+                <div class="check-sub">无最大卖出限制</div>
+            </div>
         </div>
-    </section>
-
-    <footer class="site-footer">
-        <div class="container">
-            <h4>🌶️ 小辣椒 CHILI</h4>
-            <p>© 2026 小辣椒 CHILI。保留所有权利。</p>
+        <div class="check-item">
+            <span class="check-icon">✅</span>
+            <div>
+                <div class="check-main">合同源代码已验证</div>
+                <div class="check-sub"><a href="https://bscscan.com/address/0xed3caca4903256fb3e4997bc0c7830d19fb35f7c#code" target="_blank">查看合同代码</a></div>
+            </div>
         </div>
-    </footer>
+        <div class="check-item">
+            <span class="check-icon">✅</span>
+            <div>
+                <div class="check-main">没有铸币功能</div>
+                <div class="check-sub">总量固定不可增发</div>
+            </div>
+        </div>
+        <div class="check-item">
+            <span class="check-icon">✅</span>
+            <div>
+                <div class="check-main">所有者不能更改余额</div>
+                <div class="check-sub">无法修改他人余额</div>
+            </div>
+        </div>
+        <div class="check-item">
+            <span class="check-icon">✅</span>
+            <div>
+                <div class="check-main">该代币不能自毁</div>
+                <div class="check-sub">未发现自毁功能</div>
+            </div>
+        </div>
+        <div class="check-item">
+            <span class="check-icon">✅</span>
+            <div>
+                <div class="check-main">不是气体滥用者</div>
+                <div class="check-sub">无恶意消耗 Gas</div>
+            </div>
+        </div>
+        <div class="check-item">
+            <span class="check-icon">✅</span>
+            <div>
+                <div class="check-main">无 anti_whale</div>
+                <!-- 原代码无副标题，保留空 -->
+            </div>
+        </div>
+        <div class="check-item">
+            <span class="check-icon">✅</span>
+            <div>
+                <div class="check-main">税收无法更改</div>
+                <!-- 原代码无副标题 -->
+            </div>
+        </div>
+        <div class="check-item">
+            <span class="check-icon">✅</span>
+            <div>
+                <div class="check-main">个人地址无税务变更</div>
+                <!-- 原代码无副标题 -->
+            </div>
+        </div>
 
-    <script>
-        document.getElementById("copyBtn").onclick = function() {
-            let address = "0xed3caca4903256fb3e4997bc0c7830d19fb35f7c";
-            navigator.clipboard.writeText(address);
-            this.innerHTML = "已复制 ✓";
-            setTimeout(() => {
-                this.innerHTML = "复制合约地址";
-            }, 2000);
-        }
-    </script>
+        <!-- 右列 -->
+        <div class="check-item">
+            <span class="check-icon">✅</span>
+            <div>
+                <div class="check-main">未发现暂停交易代码</div>
+                <div class="check-sub">可正常买卖</div>
+            </div>
+        </div>
+        <div class="check-item">
+            <span class="check-icon">✅</span>
+            <div>
+                <div class="check-main">代币可以购买</div>
+                <div class="check-sub">支持正常买入</div>
+            </div>
+        </div>
+        <div class="check-item">
+            <span class="check-icon">✅</span>
+            <div>
+                <div class="check-main">没有代理</div>
+                <div class="check-sub">无法修改合约功能</div>
+            </div>
+        </div>
+        <div class="check-item">
+            <span class="check-icon">✅</span>
+            <div>
+                <div class="check-main">不可恢复所有权</div>
+                <div class="check-sub">无法重新获得权限</div>
+            </div>
+        </div>
+        <div class="check-item">
+            <span class="check-icon">✅</span>
+            <div>
+                <div class="check-main">没有隐藏的主人</div>
+                <div class="check-sub">无隐藏所有者</div>
+            </div>
+        </div>
+        <div class="check-item">
+            <span class="check-icon">✅</span>
+            <div>
+                <div class="check-main">未发现外部呼叫风险</div>
+                <div class="check-sub">无外部依赖风险</div>
+            </div>
+        </div>
+        <div class="check-item">
+            <span class="check-icon">✅</span>
+            <div>
+                <div class="check-main">没有交易冷却功能</div>
+                <!-- 原代码无副标题 -->
+            </div>
+        </div>
+        <div class="check-item">
+            <span class="check-icon">✅</span>
+            <div>
+                <div class="check-main">反鲸鱼无法被修改</div>
+                <!-- 原代码无副标题 -->
+            </div>
+        </div>
+        <div class="check-item">
+            <span class="check-icon">✅</span>
+            <div>
+                <div class="check-main">没有黑名单 / 白名单</div>
+                <!-- 原代码无副标题 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部评级 -->
+    <div class="rating-footer">
+        综合风险评级：
+        <span class="badge">低风险 · 非蜜罐 · Safe</span>
+        <div class="disclaimer">以上结果基于公开链上数据与合约代码分析，仅供参考。请自行做好尽职调查（DYOR）。</div>
+    </div>
+</div>
+</div>
+</section>
+
+<footer class="site-footer">
+<div class="container">
+<h4>🌶️ 小辣椒 CHILI</h4>
+<p>© 2026 小辣椒 CHILI。保留所有权利。</p>
+</div>
+</footer>
+
+<script>
+document.getElementById("copyBtn").onclick = function() {
+    let address = "0xed3caca4903256fb3e4997bc0c7830d19fb35f7c";
+    navigator.clipboard.writeText(address);
+    this.innerHTML = "已复制 ✓";
+    setTimeout(() => {
+        this.innerHTML = "复制合约地址";
+    }, 2000);
+}
+</script>
 </body>
 </html>
