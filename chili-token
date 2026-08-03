@@ -40,7 +40,6 @@ alt="小辣椒 CHILI">
 </section>
 <section class="features">
 <div class="container grid">
-<!-- 第一行：代币名称 | 代币符号 | 总发行量 -->
 <div class="card">
 <h3>
 🌶️ 代币名称
@@ -65,7 +64,6 @@ CHILI
 20,150,822 CHILI
 </p>
 </div>
-<!-- 第二行：网络 | 合约地址 -->
 <div class="card">
 <h3>
 🌐 网络
