@@ -92,7 +92,7 @@ alt="小辣椒 CHILI">
 </div>
 </section>
 
-<!-- 安全检测报告（修改后：单列居中） -->
+<!-- 安全检测报告（修改为双列并排居中，左右留白） -->
 <section class="features" style="padding-top:8px;">
 <div class="container">
 <div class="card" style="width:100%;margin:0;padding:24px 28px;">
@@ -125,39 +125,42 @@ alt="小辣椒 CHILI">
 </div>
 </div>
 
-<!-- 修改点：将双列 grid 改为单列 flex 列，并居中每个条目 -->
-<div style="display:flex;flex-direction:column;align-items:center;gap:8px;margin-bottom:16px;">
-<!-- 每个检测项均改为居中 flex 行 -->
-<div style="display:flex;justify-content:center;align-items:center;gap:8px;">
+<!-- 修改点：双列网格，整体居中，左右留白，每项内容居中 -->
+<div style="display:grid; grid-template-columns:1fr 1fr; gap:8px 20px; max-width:860px; margin:0 auto; margin-bottom:16px;">
+<!-- 蜜罐风险 -->
+<div style="display:flex; justify-content:center; align-items:center; gap:8px;">
 <span style="color:#2e7d32;font-size:16px;">✅</span>
 <div style="text-align:center;">
 <strong style="font-size:14px;">蜜罐风险：无</strong>
 <div style="font-size:12px;color:#666;">未发现恶意代码</div>
 </div>
 </div>
-<div style="display:flex;justify-content:center;align-items:center;gap:8px;">
+<!-- 暂停交易 -->
+<div style="display:flex; justify-content:center; align-items:center; gap:8px;">
 <span style="color:#2e7d32;font-size:16px;">✅</span>
 <div style="text-align:center;">
 <strong style="font-size:14px;">未发现暂停交易代码</strong>
 <div style="font-size:12px;color:#666;">可正常买卖</div>
 </div>
 </div>
-<div style="display:flex;justify-content:center;align-items:center;gap:8px;">
+<!-- 持有者可出售 -->
+<div style="display:flex; justify-content:center; align-items:center; gap:8px;">
 <span style="color:#2e7d32;font-size:16px;">✅</span>
 <div style="text-align:center;">
 <strong style="font-size:14px;">持有者可出售全部代币</strong>
 <div style="font-size:12px;color:#666;">无最大卖出限制</div>
 </div>
 </div>
-<div style="display:flex;justify-content:center;align-items:center;gap:8px;">
+<!-- 代币可以购买 -->
+<div style="display:flex; justify-content:center; align-items:center; gap:8px;">
 <span style="color:#2e7d32;font-size:16px;">✅</span>
 <div style="text-align:center;">
 <strong style="font-size:14px;">代币可以购买</strong>
 <div style="font-size:12px;color:#666;">支持正常买入</div>
 </div>
 </div>
-<!-- 合同安全 -->
-<div style="display:flex;justify-content:center;align-items:center;gap:8px;">
+<!-- 合同源代码已验证 -->
+<div style="display:flex; justify-content:center; align-items:center; gap:8px;">
 <span style="color:#2e7d32;font-size:16px;">✅</span>
 <div style="text-align:center;">
 <strong style="font-size:14px;">合同源代码已验证</strong>
@@ -166,94 +169,107 @@ alt="小辣椒 CHILI">
 </div>
 </div>
 </div>
-<div style="display:flex;justify-content:center;align-items:center;gap:8px;">
+<!-- 没有代理 -->
+<div style="display:flex; justify-content:center; align-items:center; gap:8px;">
 <span style="color:#2e7d32;font-size:16px;">✅</span>
 <div style="text-align:center;">
 <strong style="font-size:14px;">没有代理</strong>
 <div style="font-size:12px;color:#666;">无法修改合约功能</div>
 </div>
 </div>
-<div style="display:flex;justify-content:center;align-items:center;gap:8px;">
+<!-- 没有铸币功能 -->
+<div style="display:flex; justify-content:center; align-items:center; gap:8px;">
 <span style="color:#2e7d32;font-size:16px;">✅</span>
 <div style="text-align:center;">
 <strong style="font-size:14px;">没有铸币功能</strong>
 <div style="font-size:12px;color:#666;">总量固定不可增发</div>
 </div>
 </div>
-<div style="display:flex;justify-content:center;align-items:center;gap:8px;">
+<!-- 不可恢复所有权 -->
+<div style="display:flex; justify-content:center; align-items:center; gap:8px;">
 <span style="color:#2e7d32;font-size:16px;">✅</span>
 <div style="text-align:center;">
 <strong style="font-size:14px;">不可恢复所有权</strong>
 <div style="font-size:12px;color:#666;">无法重新获得权限</div>
 </div>
 </div>
-<div style="display:flex;justify-content:center;align-items:center;gap:8px;">
+<!-- 所有者不能更改余额 -->
+<div style="display:flex; justify-content:center; align-items:center; gap:8px;">
 <span style="color:#2e7d32;font-size:16px;">✅</span>
 <div style="text-align:center;">
 <strong style="font-size:14px;">所有者不能更改余额</strong>
 <div style="font-size:12px;color:#666;">无法修改他人余额</div>
 </div>
 </div>
-<div style="display:flex;justify-content:center;align-items:center;gap:8px;">
+<!-- 没有隐藏的主人 -->
+<div style="display:flex; justify-content:center; align-items:center; gap:8px;">
 <span style="color:#2e7d32;font-size:16px;">✅</span>
 <div style="text-align:center;">
 <strong style="font-size:14px;">没有隐藏的主人</strong>
 <div style="font-size:12px;color:#666;">无隐藏所有者</div>
 </div>
 </div>
-<div style="display:flex;justify-content:center;align-items:center;gap:8px;">
+<!-- 该代币不能自毁 -->
+<div style="display:flex; justify-content:center; align-items:center; gap:8px;">
 <span style="color:#2e7d32;font-size:16px;">✅</span>
 <div style="text-align:center;">
 <strong style="font-size:14px;">该代币不能自毁</strong>
 <div style="font-size:12px;color:#666;">未发现自毁功能</div>
 </div>
 </div>
-<div style="display:flex;justify-content:center;align-items:center;gap:8px;">
+<!-- 未发现外部呼叫风险 -->
+<div style="display:flex; justify-content:center; align-items:center; gap:8px;">
 <span style="color:#2e7d32;font-size:16px;">✅</span>
 <div style="text-align:center;">
 <strong style="font-size:14px;">未发现外部呼叫风险</strong>
 <div style="font-size:12px;color:#666;">无外部依赖风险</div>
 </div>
 </div>
-<div style="display:flex;justify-content:center;align-items:center;gap:8px;">
+<!-- 不是气体滥用者 -->
+<div style="display:flex; justify-content:center; align-items:center; gap:8px;">
 <span style="color:#2e7d32;font-size:16px;">✅</span>
 <div style="text-align:center;">
 <strong style="font-size:14px;">不是气体滥用者</strong>
 <div style="font-size:12px;color:#666;">无恶意消耗 Gas</div>
 </div>
 </div>
-<!-- 其他 -->
-<div style="display:flex;justify-content:center;align-items:center;gap:8px;">
+<!-- 没有交易冷却功能 -->
+<div style="display:flex; justify-content:center; align-items:center; gap:8px;">
 <span style="color:#2e7d32;font-size:16px;">✅</span>
 <div style="text-align:center;">
 <strong style="font-size:14px;">没有交易冷却功能</strong>
 </div>
 </div>
-<div style="display:flex;justify-content:center;align-items:center;gap:8px;">
+<!-- 无 anti_whale -->
+<div style="display:flex; justify-content:center; align-items:center; gap:8px;">
 <span style="color:#2e7d32;font-size:16px;">✅</span>
 <div style="text-align:center;">
 <strong style="font-size:14px;">无 anti_whale</strong>
 </div>
 </div>
-<div style="display:flex;justify-content:center;align-items:center;gap:8px;">
+<!-- 反鲸鱼无法被修改 -->
+<div style="display:flex; justify-content:center; align-items:center; gap:8px;">
 <span style="color:#2e7d32;font-size:16px;">✅</span>
 <div style="text-align:center;">
 <strong style="font-size:14px;">反鲸鱼无法被修改</strong>
 </div>
 </div>
-<div style="display:flex;justify-content:center;align-items:center;gap:8px;">
+<!-- 税收无法更改 -->
+<div style="display:flex; justify-content:center; align-items:center; gap:8px;">
 <span style="color:#2e7d32;font-size:16px;">✅</span>
 <div style="text-align:center;">
 <strong style="font-size:14px;">税收无法更改</strong>
 </div>
 </div>
-<div style="display:flex;justify-content:center;align-items:center;gap:8px;">
+<!-- 没有黑名单 / 白名单 -->
+<div style="display:flex; justify-content:center; align-items:center; gap:8px;">
 <span style="color:#2e7d32;font-size:16px;">✅</span>
 <div style="text-align:center;">
 <strong style="font-size:14px;">没有黑名单 / 白名单</strong>
 </div>
 </div>
-<div style="display:flex;justify-content:center;align-items:center;gap:8px;">
+<!-- 个人地址无税务变更 -->
+<div style="display:flex; justify-content:center; align-items:center; gap:8px;">
 <span style="color:#2e7d32;font-size:16px;">✅</span>
 <div style="text-align:center;">
 <strong style="font-size:14px;">个人地址无税务变更</strong>
