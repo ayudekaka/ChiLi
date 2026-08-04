@@ -241,5 +241,89 @@ document.getElementById("copyBtn") && document.getElementById("copyBtn").onclick
     setTimeout(() => { this.innerHTML = "复制合约地址"; }, 2000);
 };
 </script>
+
+<!-- ============================================================ -->
+<!-- 灵动性增强 — 仅作用于内容卡片，不影响页眉/页脚/导航等任何其他元素 -->
+<!-- ============================================================ -->
+<style>
+/* 卡片滚动入场 — 仅改变透明度与Y轴位移，不影响布局 */
+.whitepaper-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+}
+
+.whitepaper-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 卡片悬停 — 仅轻微上浮，不改变任何颜色/背景/边框/阴影 */
+.whitepaper-section:hover {
+    transform: translateY(-5px) !important;
+    /* 不修改 box-shadow，不修改 border，不修改 background，不修改颜色 */
+}
+</style>
+
+<script>
+(function() {
+    'use strict';
+
+    const cards = document.querySelectorAll('.whitepaper-section');
+    if (cards.length && 'IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -20px 0px' });
+
+        cards.forEach(function(card, index) {
+            setTimeout(function() {
+                observer.observe(card);
+            }, index * 100);
+        });
+
+        requestAnimationFrame(function() {
+            cards.forEach(function(card) {
+                const rect = card.getBoundingClientRect();
+                const winHeight = window.innerHeight || document.documentElement.clientHeight;
+                if (rect.top < winHeight - 50) {
+                    card.classList.add('visible');
+                    observer.unobserve(card);
+                }
+            });
+        });
+    } else {
+        cards.forEach(function(card) {
+            card.classList.add('visible');
+        });
+    }
+
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            cards.forEach(function(card) {
+                if (card.classList.contains('visible')) return;
+                const rect = card.getBoundingClientRect();
+                const winHeight = window.innerHeight || document.documentElement.clientHeight;
+                if (rect.top < winHeight - 40) {
+                    card.classList.add('visible');
+                }
+            });
+        }, 200);
+    });
+
+})();
+</script>
+<!-- ============================================================ -->
+<!-- 灵动性增强 — 结束                                              -->
+<!-- ============================================================ -->
+
 </body>
 </html>
