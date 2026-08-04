@@ -155,6 +155,93 @@
     transform: scale(1.04);
     box-shadow: 0 4px 16px rgba(46, 125, 50, 0.15);
 }
+
+/* ===== 交易所卡片样式（无灵动性） ===== */
+.exchange-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.exchange-card {
+    border: 1px solid #f0ede8;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    padding: 28px 26px !important;
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+}
+
+.exchange-card:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06) !important;
+}
+
+.exchange-card .btn-okx {
+    background: #000;
+    color: #fff;
+}
+.exchange-card .btn-okx:hover {
+    background: #1a1a1a;
+    transform: translateY(-2px) scale(1.02);
+}
+
+.exchange-card .btn-binance {
+    background: #F0B90B;
+    color: #181a20;
+}
+.exchange-card .btn-binance:hover {
+    background: #d4a30a;
+    transform: translateY(-2px) scale(1.02);
+}
+
+/* 奖励提示块 */
+.reward-block {
+    display: block;
+    margin-top: 10px;
+    padding: 12px 16px;
+    background: #ffffff !important;
+    border-radius: 10px;
+    border: 1px solid #e8e0d8;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.reward-block:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.06);
+    border-color: #d32f2f;
+}
+.reward-block .reward-main {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: #2e7d32;
+    transition: color 0.3s ease;
+}
+.reward-block:hover .reward-main {
+    color: #d32f2f;
+}
+.reward-block .reward-sub {
+    display: block;
+    font-size: 11px;
+    color: #999;
+    margin-top: 2px;
+    transition: color 0.3s ease;
+}
+.reward-block:hover .reward-sub {
+    color: #d32f2f;
+}
+
+@media(min-width:601px){
+    .exchange-card {
+        padding: 32px 30px !important;
+    }
+}
+@media(max-width:600px){
+    .exchange-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
 </style>
 </head>
 <body>
@@ -231,6 +318,66 @@
 <p style="margin-top:12px;font-size:13px;opacity:0.85;line-height:1.5;">
 请在去中心化交易所使用该合约地址搜索 CHILI。
 </p>
+</div>
+</div>
+</section>
+
+<!-- ========== 交易所注册推荐卡片（无灵动性） ========== -->
+<section class="features" style="padding-top:8px;">
+<div class="container">
+<div class="exchange-grid">
+
+    <!-- 欧意注册 -->
+    <div class="exchange-card">
+        <h3 style="display:flex;align-items:center;justify-content:center;gap:10px;font-size:20px;margin-bottom:8px;">
+            <!-- 欧意 OKX 官方图标 SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24">
+                <g clip-path="url(#okex__a)">
+                    <path fill="#000" d="M24 0H0v24h24z"/>
+                    <path fill="#fff" d="M4 4h5.333v5.333H4zm10.667 5.333H9.333v5.334H4V20h5.333v-5.333h5.334V20H20v-5.333h-5.333zm0 0V4H20v5.333z"/>
+                </g>
+                <defs>
+                    <clipPath id="okex__a">
+                        <path fill="#fff" d="M0 0h24v24H0z"/>
+                    </clipPath>
+                </defs>
+            </svg>
+            欧意注册
+        </h3>
+        <p style="font-size:14px;color:#666;margin-bottom:14px;">全球领先的数字资产交易平台</p>
+        <a href="https://www.topqwxrvknf.com/join/31321658" target="_blank" rel="noopener" class="btn-okx" style="display:inline-block;padding:10px 32px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;transition:background 0.3s ease,transform 0.3s ease;">立即注册 →</a>
+        <p style="font-size:11px;color:#aaa;margin-top:10px;">通过此链接注册享专属福利</p>
+        <a href="contact.html" class="reward-block">
+            <span class="reward-main">🎁 注册成功最高可获得100枚小辣椒币 →</span>
+            <span class="reward-sub">👆 点击跳转联系页面领取奖励</span>
+        </a>
+    </div>
+
+    <!-- 币安注册 -->
+    <div class="exchange-card">
+        <h3 style="display:flex;align-items:center;justify-content:center;gap:10px;font-size:20px;margin-bottom:8px;">
+            <!-- 币安 Binance 官方图标 SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24">
+                <g clip-path="url(#binance__a)">
+                    <path fill="#F0B90B" d="M7.616 12 5.81 13.805 4.002 12l1.805-1.805zm4.386-4.386 3.096 3.095 1.804-1.804L12.002 4 7.098 8.905l1.804 1.804zm6.191 2.581L16.39 12l1.804 1.805L19.998 12zm-6.19 6.191-3.096-3.095-1.805 1.804 4.9 4.905 4.9-4.905-1.804-1.804zm0-2.581L13.806 12l-1.805-1.805L10.193 12z"/>
+                </g>
+                <defs>
+                    <clipPath id="binance__a">
+                        <path fill="#fff" d="M0 0h24v24H0z"/>
+                    </clipPath>
+                </defs>
+            </svg>
+            币安注册
+        </h3>
+        <p style="font-size:14px;color:#666;margin-bottom:14px;">全球最大的加密货币交易所</p>
+        <a href="https://www.bsmkweb.cc/activity/referral-entry/CPA?ref=CPA_00YAMR8ZLW" target="_blank" rel="noopener" class="btn-binance" style="display:inline-block;padding:10px 32px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;transition:background 0.3s ease,transform 0.3s ease;">立即注册 →</a>
+        <p style="font-size:11px;color:#aaa;margin-top:10px;">通过此链接注册享专属福利</p>
+        <a href="contact.html" class="reward-block">
+            <span class="reward-main">🎁 注册成功最高可获得100枚小辣椒币 →</span>
+            <span class="reward-sub">👆 点击跳转联系页面领取奖励</span>
+        </a>
+    </div>
+
 </div>
 </div>
 </section>
@@ -516,7 +663,7 @@ document.getElementById("copyBtn").onclick = function() {
     }, 2000);
 };
 
-// 滚动入场 Intersection Observer
+// 滚动入场 Intersection Observer（仅对 .float-card 生效）
 (function() {
     const cards = document.querySelectorAll('.float-card');
     if (cards.length && 'IntersectionObserver' in window) {
