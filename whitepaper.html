@@ -123,13 +123,35 @@
     }
 }
 
-/* ========== 仅针对 hero 区域"小辣椒 CHILI"链接的灵动样式 ========== */
+/* ========== Hero 区域整体浮动 ========== */
+.hero-content {
+    display: inline-block;
+    animation: heroFloat 3.2s ease-in-out infinite;
+    will-change: transform;
+}
+
+@keyframes heroFloat {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-18px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.hero-content:hover {
+    animation-play-state: paused;
+}
+
+/* ========== 小辣椒 CHILI 链接样式 ========== */
 .hero-link {
     color: #d32f2f;
     text-decoration: none;
     font-weight: inherit;
     position: relative;
-    transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
     display: inline-block;
 }
 
@@ -153,6 +175,11 @@
 .hero-link:hover::after {
     width: 100%;
 }
+
+/* 保持 lead 原有样式 */
+.lead {
+    /* 原有样式保持不变 */
+}
 </style>
 </head>
 <body>
@@ -174,11 +201,13 @@
 
 <section class="hero">
 <div class="container">
-<h1> 白皮书</h1>
-<p class="lead">
-    <a href="index.html" class="hero-link">小辣椒 CHILI</a>
-    — 社区驱动 · 透明共建
-</p>
+    <div class="hero-content">
+        <h1> 白皮书</h1>
+        <p class="lead">
+            <a href="index.html" class="hero-link">小辣椒 CHILI</a>
+            — 社区驱动 · 透明共建
+        </p>
+    </div>
 </div>
 </section>
 
@@ -277,16 +306,16 @@ document.getElementById("copyBtn") && document.getElementById("copyBtn").onclick
 </script>
 
 <!-- ============================================================ -->
-<!-- 灵动性增强 — 所有卡片：纯白背景 + 自动浮动 + 2.1倍强度        -->
+<!-- 灵动性增强 — 所有卡片：纯白背景 + 自动浮动(1.2倍增强) + 2.1倍强度 -->
 <!-- ============================================================ -->
 <style>
-/* ========== 自动浮动动画（所有卡片） ========== */
+/* ========== 自动浮动动画（所有卡片）- 浮动幅度增强1.2倍 ========== */
 @keyframes floatUpDown {
     0% {
         transform: translateY(0px);
     }
     50% {
-        transform: translateY(-8px);
+        transform: translateY(-18px);
     }
     100% {
         transform: translateY(0px);
