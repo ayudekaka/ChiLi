@@ -123,7 +123,7 @@
     }
 }
 
-/* ========== Hero 区域整体浮动 ========== */
+/* ========== Hero 区域整体浮动 - 幅度减弱 ========== */
 .hero-content {
     display: inline-block;
     animation: heroFloat 3.2s ease-in-out infinite;
@@ -135,7 +135,7 @@
         transform: translateY(0px);
     }
     50% {
-        transform: translateY(-18px);
+        transform: translateY(-10px);
     }
     100% {
         transform: translateY(0px);
@@ -174,11 +174,6 @@
 
 .hero-link:hover::after {
     width: 100%;
-}
-
-/* 保持 lead 原有样式 */
-.lead {
-    /* 原有样式保持不变 */
 }
 </style>
 </head>
@@ -306,16 +301,16 @@ document.getElementById("copyBtn") && document.getElementById("copyBtn").onclick
 </script>
 
 <!-- ============================================================ -->
-<!-- 灵动性增强 — 所有卡片：纯白背景 + 自动浮动(1.2倍增强) + 2.1倍强度 -->
+<!-- 灵动性增强 — 所有卡片：纯白背景 + 自动浮动(减弱) + 2.1倍强度 -->
 <!-- ============================================================ -->
 <style>
-/* ========== 自动浮动动画（所有卡片）- 浮动幅度增强1.2倍 ========== */
+/* ========== 自动浮动动画（所有卡片）- 幅度减弱至 -10px ========== */
 @keyframes floatUpDown {
     0% {
         transform: translateY(0px);
     }
     50% {
-        transform: translateY(-18px);
+        transform: translateY(-10px);
     }
     100% {
         transform: translateY(0px);
