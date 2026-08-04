@@ -3,225 +3,253 @@
 
 <head>
 
-<meta charset="UTF-8" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>活动中心 - 小辣椒 CHILI</title>
 
-<title>路线图 - 小辣椒 CHILI</title>
+    <link rel="stylesheet" href="style.css" />
 
-<link rel="stylesheet" href="style.css" />
+    <style>
+        .activity-hero {
+            text-align: center;
+            padding: 40px 20px 20px;
+        }
+
+        .activity-hero h1 {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+        }
+
+        .activity-hero .lead {
+            font-size: 1.15rem;
+            color: #666;
+        }
+
+        .activity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto 50px;
+        }
+
+        .activity-card {
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+            padding: 28px 24px;
+            display: flex;
+            flex-direction: column;
+            /* 无任何边框 */
+            border: none;
+            transition: transform 0.2s;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .activity-card h3 {
+            margin-top: 0;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .activity-card p {
+            flex: 1;
+            color: #555;
+            line-height: 1.7;
+            margin: 12px 0 18px;
+        }
+
+        .status-badge {
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 16px;
+            border-radius: 30px;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+            background: #f0f0f0;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+
+        .progress-wrapper {
+            margin-top: auto;
+            padding-top: 12px;
+            border-top: 1px solid #edf2f7;
+        }
+
+        .progress-bar-bg {
+            background: #edf2f7;
+            border-radius: 20px;
+            height: 8px;
+            overflow: hidden;
+            margin-top: 4px;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            border-radius: 20px;
+            background: #38a169;
+            width: 0%;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: #4a5568;
+            font-weight: 500;
+        }
+
+        .activity-card .card-footer {
+            margin-top: 14px;
+            font-size: 0.85rem;
+            color: #718096;
+        }
+
+        @media (max-width: 600px) {
+            .activity-hero h1 {
+                font-size: 1.6rem;
+            }
+            .activity-card h3 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
 
 </head>
 
 
 <body>
 
+    <header class="site-header">
+
+        <div class="container">
+
+            <a class="brand" href="index.html">
+
+                <img src="https://raw.githubusercontent.com/ayudekaka/lifengyu/main/chili-32x32.svg" alt="小辣椒 CHILI"
+                width="32" height="32" />
+
+                <span class="brand-name">
+                    小辣椒 <strong>CHILI</strong>
+                </span>
+
+            </a>
+
+            <nav class="main-nav">
 
-<header class="site-header">
+                <a href="index.html">首页</a>
+                <a href="whitepaper.html">白皮书</a>
+                <a href="tokenomics.html">代币经济</a>
+                <a href="roadmap.html">活动中心</a>
+                <a href="contact.html">联系我们</a>
 
-<div class="container">
+            </nav>
 
+        </div>
 
-<a class="brand" href="index.html">
+    </header>
 
-<img 
-src="https://raw.githubusercontent.com/ayudekaka/lifengyu/main/chili-32x32.svg"
-alt="小辣椒 CHILI"
-width="32"
-height="32"
-/>
 
+    <main>
 
-<span class="brand-name">
-小辣椒 <strong>CHILI</strong>
-</span>
+        <div class="container">
 
+            <div class="activity-hero">
+                <h1>活动中心</h1>
+                <p class="lead">我们计划逐步推进项目，让社区参与并共享成长</p>
+            </div>
 
-</a>
+            <div class="activity-grid">
 
+                <!-- 阶段 1 -->
+                <article class="activity-card">
+                    <h3>
+                        阶段 1（上线）
+                        <span class="status-badge">✅ 已完成 100%</span>
+                    </h3>
+                    <p>合约部署、添加流动性、开启官网与基础社媒渠道。</p>
+                    <div class="progress-wrapper">
+                        <div class="progress-label">
+                            <span>完成度</span>
+                            <span>100%</span>
+                        </div>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill" style="width:100%;"></div>
+                        </div>
+                    </div>
+                </article>
 
+                <!-- 阶段 2 -->
+                <article class="activity-card">
+                    <h3>
+                        阶段 2（增长）
+                        <span class="status-badge">🔄 进行中</span>
+                    </h3>
+                    <p>社群建设、空投与活动、流动性补充。</p>
+                    <div class="progress-wrapper">
+                        <div class="progress-label">
+                            <span>完成度</span>
+                            <span>约 40%</span>
+                        </div>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill" style="width:40%; background: #ecc94b;"></div>
+                        </div>
+                    </div>
+                    <div class="card-footer">⏳ 当前阶段，更多活动即将推出</div>
+                </article>
 
+                <!-- 阶段 3 -->
+                <article class="activity-card">
+                    <h3>
+                        阶段 3（生态）
+                        <span class="status-badge">📋 规划中</span>
+                    </h3>
+                    <p>合作伙伴拓展、工具与生态激励、可能的审计。</p>
+                    <div class="progress-wrapper">
+                        <div class="progress-label">
+                            <span>完成度</span>
+                            <span>0%</span>
+                        </div>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill" style="width:0%; background: #cbd5e0;"></div>
+                        </div>
+                    </div>
+                </article>
 
+            </div>
 
-<nav class="main-nav">
+        </div>
 
+    </main>
 
-<a href="index.html">
-首页
-</a>
 
- 
-<a href="whitepaper.html">
-白皮书
-</a>
+    <footer class="site-footer">
 
- 
-<a href="tokenomics.html">
-代币经济
-</a>
+        <div class="container">
 
+            <div class="footer-grid">
 
-<a href="roadmap.html">
-活动中心
-</a>
+                <div>
 
+                    <h4>小辣椒 CHILI</h4>
 
-<a href="contact.html">
-联系我们
-</a>
+                    <p>© 2026 小辣椒 CHILI。保留所有权利。</p>
 
+                </div>
 
-</nav>
+            </div>
 
+        </div>
 
-</div>
-
-</header>
-
-
-
-
-
-
-
-<main class="hero">
-
-
-<div class="container">
-
-
-<h1>
-路线图 / Roadmap
-</h1>
-
-
-<p class="lead">
-我们计划逐步推进项目，让社区参与并共享成长
-</p>
-
-
-</div>
-
-
-</main>
-
-
-
-
-
-
-
-
-<section class="features">
-
-
-<div class="container grid">
-
-
-
-<article class="card">
-
-
-<h3>
-阶段 1（上线）
-</h3>
-
-
-<p>
-合约部署、添加流动性、开启官网与基础社媒渠道。
-</p>
-
-
-</article>
-
-
-
-
-
-<article class="card">
-
-
-<h3>
-阶段 2（增长）
-</h3>
-
-
-<p>
-社群建设、空投与活动、流动性补充。
-</p>
-
-
-</article>
-
-
-
-
-
-<article class="card">
-
-
-<h3>
-阶段 3（生态）
-</h3>
-
-
-<p>
-合作伙伴拓展、工具与生态激励、可能的审计。
-</p>
-
-
-</article>
-
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-
-<footer class="site-footer">
-
-
-<div class="container">
-
-
-<div class="footer-grid">
-
-
-<div>
-
-
-<h4>
- 小辣椒 CHILI
-</h4>
-
-
-<p>
-© 2026 小辣椒 CHILI。保留所有权利。
-</p>
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-</footer>
-
-
-
+    </footer>
 
 
 </body>
