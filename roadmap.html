@@ -112,7 +112,6 @@
             color: #718096;
         }
 
-        /* ===== 活动区块 ===== */
         .event-section {
             max-width: 1100px;
             margin: 0 auto 50px;
@@ -238,6 +237,52 @@
             transform: scale(1.04);
         }
 
+        /* 滚动公告栏样式 - 从下往上 */
+        .roll-inner {
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 1px solid #edf2f7;
+            height: 2.2em;          /* 固定高度，与行高一致 */
+            overflow: hidden;
+            position: relative;
+        }
+
+        #rollList {
+            display: flex;
+            flex-direction: column-reverse; /* 新条目添加到底部（视觉顶部） */
+            transition: transform 0.6s ease;
+            will-change: transform;
+        }
+
+        .roll-item {
+            height: 2.2em;
+            line-height: 2.2em;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 1.05rem;
+            color: #333;
+            text-align: center;
+            padding: 0 4px;
+        }
+
+        .roll-item .highlight-addr {
+            font-family: monospace;
+            font-weight: 600;
+            color: #e53e3e;
+            letter-spacing: 0.5px;
+        }
+
+        .roll-item .highlight-amount {
+            font-weight: 700;
+            color: #e53e3e;
+        }
+
+        .roll-item .highlight-value {
+            font-weight: 700;
+            color: #e53e3e;
+        }
+
         @media (max-width: 600px) {
             .activity-hero h1 {
                 font-size: 1.6rem;
@@ -259,6 +304,12 @@
             .event-section .share-box .copy-btn {
                 width: 100%;
                 justify-content: center;
+            }
+            .roll-item {
+                font-size: 0.85rem;
+            }
+            .roll-inner {
+                height: 2.2em;
             }
         }
     </style>
@@ -295,7 +346,6 @@
                 <p class="lead">我们计划逐步推进项目，让社区参与并共享成长</p>
             </div>
 
-            <!-- 三个阶段卡片 -->
             <div class="activity-grid">
 
                 <article class="activity-card">
@@ -352,7 +402,6 @@
 
             </div>
 
-            <!-- ===== 阶段2活动：分享得币 ===== -->
             <div class="event-section">
                 <div class="event-header">
                     <h2>阶段2活动：分享得币</h2>
@@ -363,19 +412,22 @@
                     <strong>玩法超简单：</strong> 复制分享官网链接，发给好友，获得小辣椒币（CHILI）最高100枚。
                 </div>
 
-                <!-- 输入框 + 复制按钮 -->
                 <div class="share-box">
                     <input type="text" id="shareLinkInput" readonly value="加载中..." />
                     <button class="copy-btn" id="copyLinkBtn">复制链接</button>
                 </div>
 
                 <div class="share-tip">
-                    分享给好友，即可联系客服领取你的奖励。
+                    复制链接分享给好友，即可联系客服领取你的奖励。
                 </div>
 
-                <!-- 跳转联系页面 -->
                 <div class="contact-link-wrapper">
                     <a href="contact.html" class="contact-btn">点击跳转联系客服</a>
+                </div>
+
+                <!-- 滚动公告栏 -->
+                <div class="roll-inner" id="rollInner">
+                    <div id="rollList"></div>
                 </div>
             </div>
 
@@ -451,6 +503,144 @@
                     btn.classList.remove('copied');
                 }, 2000);
             }
+
+            // -------- 滚动公告（从下往上） --------
+            var rollList = document.getElementById('rollList');
+            var ITEM_HEIGHT = 2.2; // em，与CSS一致，但实际像素需计算，我们使用固定px值，但为了简单，我们用em乘字体大小，但这里用固定px。
+
+            // 获取实际行高：使用计算样式，但我们可以硬编码22px（假设1em=16px，2.2em≈35.2px），但为了准确，我们通过JS获取。
+            // 但为了简化，我们使用固定px值，并确保CSS中高度一致。
+            // 我将在JS中设置固定px：取rollInner的高度
+            var rollInner = document.getElementById('rollInner');
+
+            // 获取实际高度
+            var itemHeightPx = 0;
+
+            function getItemHeight() {
+                // 通过创建一个临时元素测量
+                var temp = document.createElement('div');
+                temp.className = 'roll-item';
+                temp.textContent = '测';
+                rollList.appendChild(temp);
+                var h = temp.offsetHeight;
+                rollList.removeChild(temp);
+                return h || 35; // 降级
+            }
+
+            // 由于我们一开始可能没有条目，我们先添加一个占位条目并测量，然后移除
+            function initHeight() {
+                var temp = document.createElement('div');
+                temp.className = 'roll-item';
+                temp.textContent = '测量高度';
+                rollList.appendChild(temp);
+                itemHeightPx = temp.offsetHeight;
+                rollList.removeChild(temp);
+                if (itemHeightPx === 0) itemHeightPx = 35; // fallback
+                // 现在添加初始占位条目
+                addPlaceholder();
+            }
+
+            function addPlaceholder() {
+                var item = document.createElement('div');
+                item.className = 'roll-item';
+                item.textContent = '等待最新领取...';
+                rollList.appendChild(item);
+                // 设置transform为0
+                rollList.style.transform = 'translateY(0px)';
+            }
+
+            // 生成随机地址和数量
+            function generateRandomAddress() {
+                var chars = '0123456789abcdef';
+                var addr = '0x';
+                for (var i = 0; i < 40; i++) {
+                    addr += chars[Math.floor(Math.random() * 16)];
+                }
+                return addr;
+            }
+
+            function maskAddress(addr) {
+                if (addr.length < 4) return addr;
+                var prefix = addr.slice(0, 2);
+                var suffix = addr.slice(-2);
+                var stars = '********************';
+                return prefix + stars + suffix;
+            }
+
+            function getRandomAmount() {
+                return Math.floor(Math.random() * 91) + 10;
+            }
+
+            // 创建新条目DOM
+            function createItem(amount, addr) {
+                var div = document.createElement('div');
+                div.className = 'roll-item';
+                div.innerHTML = '<span class="highlight-addr">' + addr + '</span> 通过分享成功领取到 <span class="highlight-amount">' + amount + '</span> 枚币，预估价值 <span class="highlight-value">**U</span>';
+                return div;
+            }
+
+            // 添加新条目并滚动
+            function addNewItem() {
+                if (itemHeightPx === 0) {
+                    // 如果尚未测量，则先测量
+                    var temp = document.createElement('div');
+                    temp.className = 'roll-item';
+                    temp.textContent = '测';
+                    rollList.appendChild(temp);
+                    itemHeightPx = temp.offsetHeight;
+                    rollList.removeChild(temp);
+                    if (itemHeightPx === 0) itemHeightPx = 35;
+                    // 添加初始占位
+                    var placeholder = document.createElement('div');
+                    placeholder.className = 'roll-item';
+                    placeholder.textContent = '等待最新领取...';
+                    rollList.appendChild(placeholder);
+                    rollList.style.transform = 'translateY(0px)';
+                }
+
+                // 生成数据
+                var rawAddr = generateRandomAddress();
+                var masked = maskAddress(rawAddr);
+                var amount = getRandomAmount();
+
+                // 创建新条目
+                var newItem = createItem(amount, masked);
+
+                // 插入到列表最前面（视觉上成为底部，因为column-reverse）
+                // 使用insertBefore插入到第一个子元素之前
+                var firstChild = rollList.firstChild;
+                rollList.insertBefore(newItem, firstChild);
+
+                // 强制回流
+                void rollList.offsetHeight;
+
+                // 设置过渡并向上移动一个条目高度
+                rollList.style.transition = 'transform 0.6s ease';
+                rollList.style.transform = 'translateY(-' + itemHeightPx + 'px)';
+
+                // 过渡结束后，移除最后一个条目（最旧），并重置transform
+                setTimeout(function() {
+                    // 移除最后一个子元素（最旧，因为column-reverse，最后一个在视觉顶部）
+                    if (rollList.children.length > 5) { // 保留最多5条
+                        rollList.removeChild(rollList.lastChild);
+                    }
+                    // 移除过渡，重置transform为0，但瞬间完成，不产生动画
+                    rollList.style.transition = 'none';
+                    rollList.style.transform = 'translateY(0px)';
+                    // 强制回流后恢复过渡以备下次
+                    void rollList.offsetHeight;
+                    rollList.style.transition = 'transform 0.6s ease';
+                }, 650); // 略大于过渡时间
+            }
+
+            // 初始化
+            initHeight();
+
+            // 立即添加一条消息
+            setTimeout(addNewItem, 100);
+
+            // 每3秒添加一条
+            setInterval(addNewItem, 3000);
 
         })();
     </script>
