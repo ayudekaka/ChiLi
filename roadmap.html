@@ -41,7 +41,6 @@
             padding: 28px 24px;
             display: flex;
             flex-direction: column;
-            /* 无任何边框 */
             border: none;
             transition: transform 0.2s;
         }
@@ -113,12 +112,153 @@
             color: #718096;
         }
 
+        /* ===== 活动区块 ===== */
+        .event-section {
+            max-width: 1100px;
+            margin: 0 auto 50px;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+            padding: 30px 35px;
+            border: none;
+        }
+
+        .event-section .event-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 8px;
+        }
+
+        .event-section .event-header h2 {
+            margin: 0;
+            font-size: 1.6rem;
+        }
+
+        .event-section .event-header .phase-tag {
+            background: #fefcbf;
+            color: #975a16;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 4px 16px;
+            border-radius: 30px;
+            border: 1px solid #f6e05e;
+        }
+
+        .event-section .event-desc {
+            color: #555;
+            line-height: 1.8;
+            margin: 10px 0 18px;
+        }
+
+        .event-section .event-desc strong {
+            color: #e53e3e;
+        }
+
+        .event-section .share-box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            background: #f7f7f7;
+            border-radius: 10px;
+            padding: 6px 6px 6px 18px;
+            margin: 14px 0 8px;
+        }
+
+        .event-section .share-box input {
+            flex: 1;
+            border: none;
+            background: transparent;
+            font-size: 14px;
+            color: #333;
+            outline: none;
+            min-width: 160px;
+            font-family: monospace;
+            padding: 10px 0;
+        }
+
+        .event-section .share-box .copy-btn {
+            background: #ffffff;
+            color: #e53e3e;
+            border: 1px solid #ddd;
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
+        }
+
+        .event-section .share-box .copy-btn:hover {
+            background: #f5f5f5;
+            border-color: #ccc;
+            color: #c53030;
+        }
+
+        .event-section .share-box .copy-btn.copied {
+            background: #ffffff;
+            color: #38a169;
+            border-color: #9ae6b4;
+        }
+
+        .event-section .share-tip {
+            font-size: 14px;
+            color: #888;
+            margin-top: 6px;
+        }
+
+        .event-section .share-tip strong {
+            color: #e53e3e;
+        }
+
+        .contact-link-wrapper {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .contact-link-wrapper .contact-btn {
+            display: inline-block;
+            background: #ffffff;
+            color: #e53e3e;
+            border: 1px solid #ddd;
+            padding: 12px 40px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.15s, border-color 0.2s;
+        }
+
+        .contact-link-wrapper .contact-btn:hover {
+            background: #f5f5f5;
+            border-color: #ccc;
+            transform: scale(1.04);
+        }
+
         @media (max-width: 600px) {
             .activity-hero h1 {
                 font-size: 1.6rem;
             }
             .activity-card h3 {
                 font-size: 1.2rem;
+            }
+            .event-section {
+                padding: 20px 16px;
+            }
+            .event-section .share-box {
+                flex-direction: column;
+                padding: 12px;
+            }
+            .event-section .share-box input {
+                width: 100%;
+                text-align: center;
+            }
+            .event-section .share-box .copy-btn {
+                width: 100%;
+                justify-content: center;
             }
         }
     </style>
@@ -129,32 +269,20 @@
 <body>
 
     <header class="site-header">
-
         <div class="container">
-
             <a class="brand" href="index.html">
-
                 <img src="https://raw.githubusercontent.com/ayudekaka/lifengyu/main/chili-32x32.svg" alt="小辣椒 CHILI"
                 width="32" height="32" />
-
-                <span class="brand-name">
-                    小辣椒 <strong>CHILI</strong>
-                </span>
-
+                <span class="brand-name">小辣椒 <strong>CHILI</strong></span>
             </a>
-
             <nav class="main-nav">
-
                 <a href="index.html">首页</a>
                 <a href="whitepaper.html">白皮书</a>
                 <a href="tokenomics.html">代币经济</a>
                 <a href="roadmap.html">活动中心</a>
                 <a href="contact.html">联系我们</a>
-
             </nav>
-
         </div>
-
     </header>
 
 
@@ -167,13 +295,13 @@
                 <p class="lead">我们计划逐步推进项目，让社区参与并共享成长</p>
             </div>
 
+            <!-- 三个阶段卡片 -->
             <div class="activity-grid">
 
-                <!-- 阶段 1 -->
                 <article class="activity-card">
                     <h3>
                         阶段 1（上线）
-                        <span class="status-badge">✅ 已完成 100%</span>
+                        <span class="status-badge">已完成 100%</span>
                     </h3>
                     <p>合约部署、添加流动性、开启官网与基础社媒渠道。</p>
                     <div class="progress-wrapper">
@@ -187,11 +315,10 @@
                     </div>
                 </article>
 
-                <!-- 阶段 2 -->
                 <article class="activity-card">
                     <h3>
                         阶段 2（增长）
-                        <span class="status-badge">🔄 进行中</span>
+                        <span class="status-badge">进行中</span>
                     </h3>
                     <p>社群建设、空投与活动、流动性补充。</p>
                     <div class="progress-wrapper">
@@ -203,14 +330,13 @@
                             <div class="progress-bar-fill" style="width:40%; background: #ecc94b;"></div>
                         </div>
                     </div>
-                    <div class="card-footer">⏳ 当前阶段，更多活动即将推出</div>
+                    <div class="card-footer">当前阶段，更多活动即将推出</div>
                 </article>
 
-                <!-- 阶段 3 -->
                 <article class="activity-card">
                     <h3>
                         阶段 3（生态）
-                        <span class="status-badge">📋 规划中</span>
+                        <span class="status-badge">规划中</span>
                     </h3>
                     <p>合作伙伴拓展、工具与生态激励、可能的审计。</p>
                     <div class="progress-wrapper">
@@ -226,30 +352,108 @@
 
             </div>
 
+            <!-- ===== 阶段2活动：分享得币 ===== -->
+            <div class="event-section">
+                <div class="event-header">
+                    <h2>阶段2活动：分享得币</h2>
+                    <span class="phase-tag">属于阶段2 · 进行中</span>
+                </div>
+
+                <div class="event-desc">
+                    <strong>玩法超简单：</strong> 复制分享官网链接，发给好友，获得小辣椒币（CHILI）最高100枚。
+                </div>
+
+                <!-- 输入框 + 复制按钮 -->
+                <div class="share-box">
+                    <input type="text" id="shareLinkInput" readonly value="加载中..." />
+                    <button class="copy-btn" id="copyLinkBtn">复制链接</button>
+                </div>
+
+                <div class="share-tip">
+                    分享给好友，即可联系客服领取你的奖励。
+                </div>
+
+                <!-- 跳转联系页面 -->
+                <div class="contact-link-wrapper">
+                    <a href="contact.html" class="contact-btn">点击跳转联系客服</a>
+                </div>
+            </div>
+
         </div>
 
     </main>
 
 
     <footer class="site-footer">
-
         <div class="container">
-
             <div class="footer-grid">
-
                 <div>
-
                     <h4>小辣椒 CHILI</h4>
-
                     <p>© 2026 小辣椒 CHILI。保留所有权利。</p>
-
                 </div>
-
             </div>
-
         </div>
-
     </footer>
+
+
+    <script>
+        (function() {
+
+            const SITE_URL = 'https://ayudekaka.github.io/ChiLi/';
+
+            function getShareLink() {
+                return SITE_URL;
+            }
+
+            var linkInput = document.getElementById('shareLinkInput');
+            if (linkInput) {
+                linkInput.value = getShareLink();
+            }
+
+            var copyBtn = document.getElementById('copyLinkBtn');
+            if (copyBtn) {
+                copyBtn.addEventListener('click', function() {
+                    var link = getShareLink();
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        navigator.clipboard.writeText(link).then(function() {
+                            showCopiedFeedback(copyBtn);
+                        })['catch'](function() {
+                            fallbackCopy(link);
+                        });
+                    } else {
+                        fallbackCopy(link);
+                    }
+                });
+            }
+
+            function fallbackCopy(text) {
+                var textarea = document.createElement('textarea');
+                textarea.value = text;
+                textarea.style.position = 'fixed';
+                textarea.style.opacity = '0';
+                document.body.appendChild(textarea);
+                textarea.select();
+                try {
+                    document.execCommand('copy');
+                    showCopiedFeedback(copyBtn);
+                } catch (e) {
+                    alert('复制失败，请手动复制链接：\n' + text);
+                }
+                document.body.removeChild(textarea);
+            }
+
+            function showCopiedFeedback(btn) {
+                var originalText = btn.textContent;
+                btn.textContent = '已复制！';
+                btn.classList.add('copied');
+                setTimeout(function() {
+                    btn.textContent = originalText;
+                    btn.classList.remove('copied');
+                }, 2000);
+            }
+
+        })();
+    </script>
 
 
 </body>
