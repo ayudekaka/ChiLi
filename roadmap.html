@@ -237,29 +237,29 @@
             transform: scale(1.04);
         }
 
-        /* 滚动公告栏样式 - 从下往上 */
+        /* 滚动公告栏样式 - 从下往上，完整显示一行 */
         .roll-inner {
             margin-top: 24px;
             padding-top: 16px;
             border-top: 1px solid #edf2f7;
-            height: 2.2em;          /* 固定高度，与行高一致 */
+            height: 2.8em;           /* 增高容器，确保一行完整显示 */
             overflow: hidden;
             position: relative;
         }
 
         #rollList {
             display: flex;
-            flex-direction: column-reverse; /* 新条目添加到底部（视觉顶部） */
+            flex-direction: column-reverse;
             transition: transform 0.6s ease;
             will-change: transform;
         }
 
         .roll-item {
-            height: 2.2em;
-            line-height: 2.2em;
+            height: 2.8em;
+            line-height: 2.8em;
             white-space: nowrap;
             overflow: hidden;
-            text-overflow: ellipsis;
+            text-overflow: ellipsis;   /* 极端情况截断，但一般不会 */
             font-size: 1.05rem;
             color: #333;
             text-align: center;
@@ -307,9 +307,11 @@
             }
             .roll-item {
                 font-size: 0.85rem;
+                height: 2.6em;
+                line-height: 2.6em;
             }
             .roll-inner {
-                height: 2.2em;
+                height: 2.6em;
             }
         }
     </style>
@@ -504,48 +506,27 @@
                 }, 2000);
             }
 
-            // -------- 滚动公告（从下往上） --------
+            // -------- 滚动公告（从下往上，完整显示一行） --------
             var rollList = document.getElementById('rollList');
-            var ITEM_HEIGHT = 2.2; // em，与CSS一致，但实际像素需计算，我们使用固定px值，但为了简单，我们用em乘字体大小，但这里用固定px。
-
-            // 获取实际行高：使用计算样式，但我们可以硬编码22px（假设1em=16px，2.2em≈35.2px），但为了准确，我们通过JS获取。
-            // 但为了简化，我们使用固定px值，并确保CSS中高度一致。
-            // 我将在JS中设置固定px：取rollInner的高度
-            var rollInner = document.getElementById('rollInner');
-
-            // 获取实际高度
             var itemHeightPx = 0;
 
+            // 获取条目高度（固定）
             function getItemHeight() {
-                // 通过创建一个临时元素测量
                 var temp = document.createElement('div');
                 temp.className = 'roll-item';
                 temp.textContent = '测';
                 rollList.appendChild(temp);
                 var h = temp.offsetHeight;
                 rollList.removeChild(temp);
-                return h || 35; // 降级
+                return h || 40; // 降级
             }
 
-            // 由于我们一开始可能没有条目，我们先添加一个占位条目并测量，然后移除
-            function initHeight() {
-                var temp = document.createElement('div');
-                temp.className = 'roll-item';
-                temp.textContent = '测量高度';
-                rollList.appendChild(temp);
-                itemHeightPx = temp.offsetHeight;
-                rollList.removeChild(temp);
-                if (itemHeightPx === 0) itemHeightPx = 35; // fallback
-                // 现在添加初始占位条目
-                addPlaceholder();
-            }
-
+            // 添加初始占位
             function addPlaceholder() {
                 var item = document.createElement('div');
                 item.className = 'roll-item';
                 item.textContent = '等待最新领取...';
                 rollList.appendChild(item);
-                // 设置transform为0
                 rollList.style.transform = 'translateY(0px)';
             }
 
@@ -559,11 +540,12 @@
                 return addr;
             }
 
+            // 掩码：前2位 + 8个星号 + 后2位（缩短长度以容纳完整一行）
             function maskAddress(addr) {
                 if (addr.length < 4) return addr;
                 var prefix = addr.slice(0, 2);
                 var suffix = addr.slice(-2);
-                var stars = '********************';
+                var stars = '********'; // 8个星号
                 return prefix + stars + suffix;
             }
 
@@ -582,15 +564,9 @@
             // 添加新条目并滚动
             function addNewItem() {
                 if (itemHeightPx === 0) {
-                    // 如果尚未测量，则先测量
-                    var temp = document.createElement('div');
-                    temp.className = 'roll-item';
-                    temp.textContent = '测';
-                    rollList.appendChild(temp);
-                    itemHeightPx = temp.offsetHeight;
-                    rollList.removeChild(temp);
-                    if (itemHeightPx === 0) itemHeightPx = 35;
-                    // 添加初始占位
+                    itemHeightPx = getItemHeight();
+                    if (itemHeightPx === 0) itemHeightPx = 40;
+                    // 添加占位
                     var placeholder = document.createElement('div');
                     placeholder.className = 'roll-item';
                     placeholder.textContent = '等待最新领取...';
@@ -598,49 +574,52 @@
                     rollList.style.transform = 'translateY(0px)';
                 }
 
-                // 生成数据
                 var rawAddr = generateRandomAddress();
                 var masked = maskAddress(rawAddr);
                 var amount = getRandomAmount();
 
-                // 创建新条目
                 var newItem = createItem(amount, masked);
 
-                // 插入到列表最前面（视觉上成为底部，因为column-reverse）
-                // 使用insertBefore插入到第一个子元素之前
+                // 插入到列表最前面（底部视觉）
                 var firstChild = rollList.firstChild;
                 rollList.insertBefore(newItem, firstChild);
 
-                // 强制回流
                 void rollList.offsetHeight;
 
-                // 设置过渡并向上移动一个条目高度
                 rollList.style.transition = 'transform 0.6s ease';
                 rollList.style.transform = 'translateY(-' + itemHeightPx + 'px)';
 
-                // 过渡结束后，移除最后一个条目（最旧），并重置transform
                 setTimeout(function() {
-                    // 移除最后一个子元素（最旧，因为column-reverse，最后一个在视觉顶部）
-                    if (rollList.children.length > 5) { // 保留最多5条
+                    // 保留最多5条
+                    while (rollList.children.length > 5) {
                         rollList.removeChild(rollList.lastChild);
                     }
-                    // 移除过渡，重置transform为0，但瞬间完成，不产生动画
+                    // 重置位置
                     rollList.style.transition = 'none';
                     rollList.style.transform = 'translateY(0px)';
-                    // 强制回流后恢复过渡以备下次
                     void rollList.offsetHeight;
                     rollList.style.transition = 'transform 0.6s ease';
-                }, 650); // 略大于过渡时间
+                }, 650);
             }
 
             // 初始化
-            initHeight();
-
-            // 立即添加一条消息
-            setTimeout(addNewItem, 100);
-
-            // 每3秒添加一条
-            setInterval(addNewItem, 3000);
+            addPlaceholder(); // 实际会立即添加一个占位
+            // 但为了立刻显示一条，我们先获取高度
+            setTimeout(function() {
+                itemHeightPx = getItemHeight();
+                if (itemHeightPx === 0) itemHeightPx = 40;
+                // 清空占位
+                rollList.innerHTML = '';
+                // 添加一条模拟数据
+                var raw = generateRandomAddress();
+                var masked = maskAddress(raw);
+                var amt = getRandomAmount();
+                var first = createItem(amt, masked);
+                rollList.appendChild(first);
+                rollList.style.transform = 'translateY(0px)';
+                // 开启定时器
+                setInterval(addNewItem, 3000);
+            }, 100);
 
         })();
     </script>
