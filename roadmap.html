@@ -237,12 +237,12 @@
             transform: scale(1.04);
         }
 
-        /* 滚动公告栏样式 - 从下往上，完整显示一行 */
+        /* ===== 滚动公告栏样式（电脑端优化） ===== */
         .roll-inner {
             margin-top: 24px;
             padding-top: 16px;
             border-top: 1px solid #edf2f7;
-            height: 2.8em;           /* 增高容器，确保一行完整显示 */
+            height: 52px;           /* 固定像素高度，避免em缩放问题 */
             overflow: hidden;
             position: relative;
         }
@@ -255,11 +255,11 @@
         }
 
         .roll-item {
-            height: 2.8em;
-            line-height: 2.8em;
+            height: 52px;
+            line-height: 52px;
             white-space: nowrap;
             overflow: hidden;
-            text-overflow: ellipsis;   /* 极端情况截断，但一般不会 */
+            text-overflow: ellipsis;
             font-size: 1.05rem;
             color: #333;
             text-align: center;
@@ -283,6 +283,7 @@
             color: #e53e3e;
         }
 
+        /* 移动端适配 */
         @media (max-width: 600px) {
             .activity-hero h1 {
                 font-size: 1.6rem;
@@ -305,13 +306,13 @@
                 width: 100%;
                 justify-content: center;
             }
-            .roll-item {
-                font-size: 0.85rem;
-                height: 2.6em;
-                line-height: 2.6em;
-            }
             .roll-inner {
-                height: 2.6em;
+                height: 42px;
+            }
+            .roll-item {
+                height: 42px;
+                line-height: 42px;
+                font-size: 0.85rem;
             }
         }
     </style>
@@ -506,11 +507,11 @@
                 }, 2000);
             }
 
-            // -------- 滚动公告（从下往上，完整显示一行） --------
+            // -------- 滚动公告（从下往上，固定像素高度） --------
             var rollList = document.getElementById('rollList');
-            var itemHeightPx = 0;
+            var itemHeightPx = 52; // 桌面默认，移动端会通过媒体查询调整，但JS测量实际高度更准确
 
-            // 获取条目高度（固定）
+            // 获取实际条目高度
             function getItemHeight() {
                 var temp = document.createElement('div');
                 temp.className = 'roll-item';
@@ -518,16 +519,7 @@
                 rollList.appendChild(temp);
                 var h = temp.offsetHeight;
                 rollList.removeChild(temp);
-                return h || 40; // 降级
-            }
-
-            // 添加初始占位
-            function addPlaceholder() {
-                var item = document.createElement('div');
-                item.className = 'roll-item';
-                item.textContent = '等待最新领取...';
-                rollList.appendChild(item);
-                rollList.style.transform = 'translateY(0px)';
+                return h || 52;
             }
 
             // 生成随机地址和数量
@@ -540,12 +532,12 @@
                 return addr;
             }
 
-            // 掩码：前2位 + 8个星号 + 后2位（缩短长度以容纳完整一行）
+            // 掩码：前2位 + 8个星号 + 后2位
             function maskAddress(addr) {
                 if (addr.length < 4) return addr;
                 var prefix = addr.slice(0, 2);
                 var suffix = addr.slice(-2);
-                var stars = '********'; // 8个星号
+                var stars = '********';
                 return prefix + stars + suffix;
             }
 
@@ -563,17 +555,11 @@
 
             // 添加新条目并滚动
             function addNewItem() {
-                if (itemHeightPx === 0) {
-                    itemHeightPx = getItemHeight();
-                    if (itemHeightPx === 0) itemHeightPx = 40;
-                    // 添加占位
-                    var placeholder = document.createElement('div');
-                    placeholder.className = 'roll-item';
-                    placeholder.textContent = '等待最新领取...';
-                    rollList.appendChild(placeholder);
-                    rollList.style.transform = 'translateY(0px)';
-                }
+                // 获取实际高度（每次获取，适应响应式变化）
+                var h = getItemHeight();
+                if (h > 0) itemHeightPx = h;
 
+                // 生成数据
                 var rawAddr = generateRandomAddress();
                 var masked = maskAddress(rawAddr);
                 var amount = getRandomAmount();
@@ -603,21 +589,20 @@
             }
 
             // 初始化
-            addPlaceholder(); // 实际会立即添加一个占位
-            // 但为了立刻显示一条，我们先获取高度
             setTimeout(function() {
+                // 先获取高度
                 itemHeightPx = getItemHeight();
-                if (itemHeightPx === 0) itemHeightPx = 40;
-                // 清空占位
+                if (itemHeightPx === 0) itemHeightPx = 52;
+                // 清空并添加初始消息
                 rollList.innerHTML = '';
-                // 添加一条模拟数据
                 var raw = generateRandomAddress();
                 var masked = maskAddress(raw);
                 var amt = getRandomAmount();
                 var first = createItem(amt, masked);
                 rollList.appendChild(first);
                 rollList.style.transform = 'translateY(0px)';
-                // 开启定时器
+
+                // 启动定时器
                 setInterval(addNewItem, 3000);
             }, 100);
 
