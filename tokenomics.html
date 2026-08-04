@@ -184,6 +184,106 @@ border-left: 4px solid #d32f2f;
 
 }
 
+/* ===== 奖励提示 — 整体块（白色背景） ===== */
+
+.reward-block {
+
+display: block;
+
+margin-top: 10px;
+
+padding: 12px 16px;
+
+background: #ffffff !important;
+
+border-radius: 10px;
+
+border: 1px solid #e8e0d8;
+
+text-decoration: none;
+
+transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+
+}
+
+.reward-block:hover {
+
+transform: translateY(-2px);
+
+box-shadow: 0 6px 24px rgba(0,0,0,0.06);
+
+border-color: #d32f2f;
+
+}
+
+.reward-block .reward-main {
+
+display: block;
+
+font-size: 13px;
+
+font-weight: 700;
+
+color: #2e7d32;
+
+transition: color 0.3s ease;
+
+}
+
+.reward-block:hover .reward-main {
+
+color: #d32f2f;
+
+}
+
+.reward-block .reward-sub {
+
+display: block;
+
+font-size: 11px;
+
+color: #999;
+
+margin-top: 2px;
+
+transition: color 0.3s ease;
+
+}
+
+.reward-block:hover .reward-sub {
+
+color: #d32f2f;
+
+}
+
+/* ===== 交易所卡片整体放宽 ===== */
+
+.exchange-card {
+
+padding: 28px 26px !important;
+
+}
+
+/* 桌面端容器放宽 */
+
+.exchange-grid {
+
+max-width: 100% !important;
+
+}
+
+/* 桌面端卡片内边距调整 */
+
+@media(min-width:601px){
+
+.exchange-card {
+
+padding: 32px 30px !important;
+
+}
+
+}
+
 </style>
 
 
@@ -402,10 +502,10 @@ BNB Smart Chain (BSC)
 <!-- ========== 交易所注册推荐卡片（含真实图标） ========== -->
 <section class="features">
 <div class="container">
-<div class="exchange-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
+<div class="exchange-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
 
     <!-- 欧意注册 -->
-    <div class="card exchange-card" style="text-align:center;padding:24px 20px;border:1px solid #f0ede8;border-radius:16px;background:#ffffff;box-shadow:0 2px 12px rgba(0,0,0,0.04);">
+    <div class="card exchange-card" style="text-align:center;border:1px solid #f0ede8;border-radius:16px;background:#ffffff;box-shadow:0 2px 12px rgba(0,0,0,0.04);">
         <h3 style="display:flex;align-items:center;justify-content:center;gap:10px;font-size:20px;margin-bottom:8px;">
             <!-- 欧意 OKX 官方图标 SVG -->
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24">
@@ -424,10 +524,15 @@ BNB Smart Chain (BSC)
         <p style="font-size:14px;color:#666;margin-bottom:14px;">全球领先的数字资产交易平台</p>
         <a href="https://www.topqwxrvknf.com/join/31321658" target="_blank" rel="noopener" class="btn-okx" style="display:inline-block;padding:10px 32px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;transition:background 0.3s ease,transform 0.3s ease;">立即注册 →</a>
         <p style="font-size:11px;color:#aaa;margin-top:10px;">通过此链接注册享专属福利</p>
+        <!-- 奖励提示 — 白色背景块 -->
+        <a href="contact.html" class="reward-block">
+            <span class="reward-main">🎁 注册成功最高可获得100枚小辣椒币 →</span>
+            <span class="reward-sub">👆 点击跳转联系页面领取奖励</span>
+        </a>
     </div>
 
     <!-- 币安注册 -->
-    <div class="card exchange-card" style="text-align:center;padding:24px 20px;border:1px solid #f0ede8;border-radius:16px;background:#ffffff;box-shadow:0 2px 12px rgba(0,0,0,0.04);">
+    <div class="card exchange-card" style="text-align:center;border:1px solid #f0ede8;border-radius:16px;background:#ffffff;box-shadow:0 2px 12px rgba(0,0,0,0.04);">
         <h3 style="display:flex;align-items:center;justify-content:center;gap:10px;font-size:20px;margin-bottom:8px;">
             <!-- 币安 Binance 官方图标 SVG -->
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24">
@@ -445,6 +550,11 @@ BNB Smart Chain (BSC)
         <p style="font-size:14px;color:#666;margin-bottom:14px;">全球最大的加密货币交易所</p>
         <a href="https://www.bsmkweb.cc/activity/referral-entry/CPA?ref=CPA_00YAMR8ZLW" target="_blank" rel="noopener" class="btn-binance" style="display:inline-block;padding:10px 32px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;transition:background 0.3s ease,transform 0.3s ease;">立即注册 →</a>
         <p style="font-size:11px;color:#aaa;margin-top:10px;">通过此链接注册享专属福利</p>
+        <!-- 奖励提示 — 白色背景块 -->
+        <a href="contact.html" class="reward-block">
+            <span class="reward-main">🎁 注册成功最高可获得100枚小辣椒币 →</span>
+            <span class="reward-sub">👆 点击跳转联系页面领取奖励</span>
+        </a>
     </div>
 
 </div>
@@ -452,7 +562,7 @@ BNB Smart Chain (BSC)
 </section>
 
 
-<!-- ========== 风险提示（已移到交易所卡片下方） ========== -->
+<!-- ========== 风险提示 ========== -->
 <section class="features">
 <div class="container">
 <div class="card risk-card" style="border-left:4px solid #d32f2f;background:#ffffff;border-radius:16px;padding:24px 28px;box-shadow:0 2px 12px rgba(0,0,0,0.04);border:1px solid #f0ede8;border-left-width:4px;">
@@ -468,7 +578,6 @@ CHILI Token 是基于区块链技术的社区项目，数字资产存在风险�
 </div>
 </div>
 </section>
-<!-- ========== 风险提示结束 ========== -->
 
 
 <footer class="site-footer">
