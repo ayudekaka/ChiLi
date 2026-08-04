@@ -120,7 +120,17 @@ text-align:center;
 
 
 
+/* 移动端交易所卡片改为单列 */
+
+.exchange-grid{
+
+grid-template-columns:1fr !important;
+
 }
+
+}
+
+
 
 /* 交易所卡片悬停效果 */
 
@@ -163,6 +173,14 @@ color: #181a20;
 background: #d4a30a;
 
 transform: translateY(-2px) scale(1.02);
+
+}
+
+/* 风险卡片样式 */
+
+.risk-card {
+
+border-left: 4px solid #d32f2f;
 
 }
 
@@ -381,36 +399,10 @@ BNB Smart Chain (BSC)
 </section>
 
 
-
-
-
-
-
-<section class="features">
-
-<div class="container">
-
-<div class="card risk-card">
-
-<h3>
-⚠️ 风险提示
-</h3>
-
-<p>
-CHILI Token 是基于区块链技术的社区项目，数字资产存在风险，请参与前自行研究。
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ========== 新增：交易所注册推荐卡片（含真实图标） ========== -->
+<!-- ========== 交易所注册推荐卡片（含真实图标） ========== -->
 <section class="features">
 <div class="container">
-<div class="grid" style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
+<div class="exchange-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
 
     <!-- 欧意注册 -->
     <div class="card exchange-card" style="text-align:center;padding:24px 20px;border:1px solid #f0ede8;border-radius:16px;background:#ffffff;box-shadow:0 2px 12px rgba(0,0,0,0.04);">
@@ -458,7 +450,25 @@ CHILI Token 是基于区块链技术的社区项目，数字资产存在风险�
 </div>
 </div>
 </section>
-<!-- ========== 新增结束 ========== -->
+
+
+<!-- ========== 风险提示（已移到交易所卡片下方） ========== -->
+<section class="features">
+<div class="container">
+<div class="card risk-card" style="border-left:4px solid #d32f2f;background:#ffffff;border-radius:16px;padding:24px 28px;box-shadow:0 2px 12px rgba(0,0,0,0.04);border:1px solid #f0ede8;border-left-width:4px;">
+
+<h3 style="color:#d32f2f;font-size:20px;margin-top:0;margin-bottom:8px;">
+⚠️ 风险提示
+</h3>
+
+<p style="color:#444;font-size:15px;line-height:1.8;margin:0;">
+CHILI Token 是基于区块链技术的社区项目，数字资产存在风险，请参与前自行研究。
+</p>
+
+</div>
+</div>
+</section>
+<!-- ========== 风险提示结束 ========== -->
 
 
 <footer class="site-footer">
