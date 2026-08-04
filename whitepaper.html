@@ -122,6 +122,37 @@
         font-size: 19px;
     }
 }
+
+/* ========== 仅针对 hero 区域"小辣椒 CHILI"链接的灵动样式 ========== */
+.hero-link {
+    color: #d32f2f;
+    text-decoration: none;
+    font-weight: inherit;
+    position: relative;
+    transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+
+.hero-link:hover {
+    color: #b71c1c;
+    text-shadow: 0 0 12px rgba(211, 47, 47, 0.3);
+    transform: translateY(-2px) scale(1.02);
+}
+
+.hero-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    transition: width 0.3s ease;
+}
+
+.hero-link:hover::after {
+    width: 100%;
+}
 </style>
 </head>
 <body>
@@ -144,7 +175,10 @@
 <section class="hero">
 <div class="container">
 <h1> 白皮书</h1>
-<p class="lead">小辣椒 CHILI — 社区驱动 · 透明共建</p>
+<p class="lead">
+    <a href="index.html" class="hero-link">小辣椒 CHILI</a>
+    — 社区驱动 · 透明共建
+</p>
 </div>
 </section>
 
@@ -153,14 +187,14 @@
 <div class="container whitepaper-content">
 
     <!-- 1. 项目愿景 -->
-    <div class="whitepaper-section">
+    <div class="whitepaper-section float-card">
         <h2>🌶️ 项目愿景</h2>
         <p>CHILI 小辣椒希望打造一个由社区共同参与的数字文化生态。</p>
         <p>通过区块链技术的开放性和透明性，CHILI 致力于连接全球用户，建立一个充满活力、互动和创造力的社区。</p>
     </div>
 
     <!-- 2. 项目理念 -->
-    <div class="whitepaper-section">
+    <div class="whitepaper-section float-card">
         <h2>💡 项目理念</h2>
         <h3>🏗️ 社区共建</h3>
         <p>CHILI 相信社区是项目发展的核心，未来的发展方向将围绕用户参与和社区建设展开。</p>
@@ -171,7 +205,7 @@
     </div>
 
     <!-- 3. 社区发展战略 -->
-    <div class="whitepaper-section">
+    <div class="whitepaper-section float-card">
         <h2>🤝 社区发展战略</h2>
         <h3>🌐 社区建设</h3>
         <ul>
@@ -194,7 +228,7 @@
     </div>
 
     <!-- 4. 生态发展方向 -->
-    <div class="whitepaper-section">
+    <div class="whitepaper-section float-card">
         <h2>🚀 生态发展方向</h2>
         <p>CHILI 将持续探索区块链生态中的更多可能性，包括社区应用、数字文化、合作生态等方向。</p>
         <div class="plan-grid">
@@ -215,7 +249,7 @@
     </div>
 
     <!-- 5. 风险说明 -->
-    <div class="whitepaper-section">
+    <div class="whitepaper-section float-card">
         <h2>⚠️ 风险说明</h2>
         <div class="risk-box">
             <p>数字资产市场具有高度波动性，参与者应充分了解相关风险。</p>
@@ -243,10 +277,50 @@ document.getElementById("copyBtn") && document.getElementById("copyBtn").onclick
 </script>
 
 <!-- ============================================================ -->
-<!-- 灵动性增强 — 仅作用于内容卡片，不影响页眉/页脚/导航等任何其他元素 -->
+<!-- 灵动性增强 — 所有卡片：纯白背景 + 自动浮动 + 2.1倍强度        -->
 <!-- ============================================================ -->
 <style>
-/* 卡片滚动入场 — 仅改变透明度与Y轴位移，不影响布局 */
+/* ========== 自动浮动动画（所有卡片） ========== */
+@keyframes floatUpDown {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.float-card {
+    animation: floatUpDown 3.2s ease-in-out infinite;
+    will-change: transform;
+}
+
+/* 每个卡片浮动节奏不同，更自然 */
+.whitepaper-section:nth-child(1).float-card {
+    animation-delay: 0s;
+}
+.whitepaper-section:nth-child(2).float-card {
+    animation-delay: 0.4s;
+}
+.whitepaper-section:nth-child(3).float-card {
+    animation-delay: 0.8s;
+}
+.whitepaper-section:nth-child(4).float-card {
+    animation-delay: 0.2s;
+}
+.whitepaper-section:nth-child(5).float-card {
+    animation-delay: 0.6s;
+}
+
+/* 悬停时暂停浮动 */
+.float-card:hover {
+    animation-play-state: paused;
+}
+
+/* 卡片滚动入场 — 淡入上浮 */
 .whitepaper-section {
     opacity: 0;
     transform: translateY(20px);
@@ -254,16 +328,140 @@ document.getElementById("copyBtn") && document.getElementById("copyBtn").onclick
                 transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
     will-change: opacity, transform;
 }
-
 .whitepaper-section.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* 卡片悬停 — 仅轻微上浮，不改变任何颜色/背景/边框/阴影 */
+/* ========== 强制所有卡片纯白背景（无淡红） ========== */
+.whitepaper-section {
+    background: #ffffff !important;
+}
+
+.whitepaper-section .plan-item {
+    background: #ffffff !important;
+    border-color: #f0ede8 !important;
+}
+
+.whitepaper-section .risk-box {
+    background: #ffffff !important;
+    border-left-color: #d32f2f !important;
+}
+
+/* 悬停时保持纯白 */
+.whitepaper-section:hover {
+    background: #ffffff !important;
+}
+
+.whitepaper-section:hover .plan-item {
+    background: #ffffff !important;
+    border-color: #f0ede8 !important;
+}
+
+.whitepaper-section:hover .risk-box {
+    background: #ffffff !important;
+    border-left-color: #d32f2f !important;
+}
+
+/* ========== 2.1倍灵动强度（悬停效果） ========== */
+.whitepaper-section {
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.3s ease;
+}
+
 .whitepaper-section:hover {
     transform: translateY(-5px) !important;
-    /* 不修改 box-shadow，不修改 border，不修改 background，不修改颜色 */
+    box-shadow: 0 8px 28px rgba(0,0,0,0.06) !important;
+}
+
+/* 标题：缩放 + 光晕 + 位移 */
+.whitepaper-section h2 {
+    transition: color 0.4s ease, text-shadow 0.4s ease, transform 0.4s ease;
+}
+.whitepaper-section:hover h2 {
+    color: #b71c1c;
+    text-shadow: 0 0 32px rgba(211, 47, 47, 0.35), 0 4px 24px rgba(211, 47, 47, 0.15);
+    transform: scale(1.06) translateX(8px);
+}
+
+/* 二级标题 h3 */
+.whitepaper-section h3 {
+    transition: color 0.4s ease, transform 0.4s ease, text-shadow 0.4s ease;
+}
+.whitepaper-section:hover h3 {
+    color: #111;
+    transform: translateX(8px) scale(1.02);
+    text-shadow: 0 0 16px rgba(0,0,0,0.04);
+}
+
+/* 段落文字 */
+.whitepaper-section p {
+    transition: color 0.4s ease, transform 0.4s ease, letter-spacing 0.4s ease;
+}
+.whitepaper-section:hover p {
+    color: #111;
+    transform: scale(1.02) translateX(4px);
+    letter-spacing: 0.6px;
+}
+
+/* 列表项 */
+.whitepaper-section ul li {
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                color 0.4s ease;
+}
+.whitepaper-section:hover ul li {
+    transform: translateX(12px);
+    color: #111;
+}
+.whitepaper-section ul li::before {
+    transition: transform 0.4s ease, color 0.4s ease;
+}
+.whitepaper-section:hover ul li::before {
+    transform: scale(1.4);
+    color: #b71c1c;
+}
+
+/* 规划卡片 */
+.whitepaper-section .plan-item {
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.5s ease,
+                border-color 0.5s ease;
+}
+.whitepaper-section:hover .plan-item {
+    transform: translateY(-12px) scale(1.06);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+    border-color: rgba(211, 47, 47, 0.15);
+}
+.whitepaper-section .plan-item .plan-title {
+    transition: color 0.4s ease, transform 0.4s ease;
+}
+.whitepaper-section:hover .plan-item .plan-title {
+    color: #b71c1c;
+    transform: scale(1.08);
+}
+.whitepaper-section .plan-item .plan-desc {
+    transition: color 0.4s ease, transform 0.3s ease;
+}
+.whitepaper-section:hover .plan-item .plan-desc {
+    color: #333;
+    transform: translateY(2px);
+}
+
+/* 风险框 */
+.whitepaper-section .risk-box {
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.5s ease;
+}
+.whitepaper-section:hover .risk-box {
+    transform: translateX(18px) scale(1.03);
+    box-shadow: 0 12px 36px rgba(0,0,0,0.06);
+}
+.whitepaper-section .risk-box p {
+    transition: color 0.4s ease, transform 0.4s ease;
+}
+.whitepaper-section:hover .risk-box p {
+    color: #111;
+    transform: translateX(6px);
 }
 </style>
 
@@ -285,7 +483,7 @@ document.getElementById("copyBtn") && document.getElementById("copyBtn").onclick
         cards.forEach(function(card, index) {
             setTimeout(function() {
                 observer.observe(card);
-            }, index * 100);
+            }, index * 80);
         });
 
         requestAnimationFrame(function() {
