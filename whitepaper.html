@@ -6,6 +6,123 @@
 <title>白皮书 - 小辣椒 CHILI</title>
 <link rel="icon" href="https://raw.githubusercontent.com/ayudekaka/lifengyu/main/chili-32x32.svg">
 <link rel="stylesheet" href="style.css">
+<style>
+/* 白皮书页面专用样式 - 只增加内容卡片，不影响其他任何地方 */
+.whitepaper-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 10px 0 40px;
+}
+
+.whitepaper-section {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    border: 1px solid #f0ede8;
+}
+
+.whitepaper-section h2 {
+    color: #d32f2f;
+    font-size: 22px;
+    margin-top: 0;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f5f0eb;
+}
+
+.whitepaper-section p {
+    color: #444;
+    font-size: 15px;
+    line-height: 1.8;
+    margin: 8px 0;
+}
+
+.whitepaper-section h3 {
+    color: #333;
+    font-size: 16px;
+    margin-top: 18px;
+    margin-bottom: 4px;
+}
+
+.whitepaper-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 4px 0 0;
+}
+
+.whitepaper-section ul li {
+    padding: 4px 0 4px 24px;
+    position: relative;
+    color: #555;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.whitepaper-section ul li::before {
+    content: "▸";
+    position: absolute;
+    left: 2px;
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+.plan-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+    margin-top: 10px;
+}
+
+.plan-item {
+    background: #faf8f6;
+    border-radius: 10px;
+    padding: 14px 16px;
+    text-align: center;
+    border: 1px solid #f0ede8;
+}
+
+.plan-item .plan-title {
+    font-weight: 600;
+    color: #d32f2f;
+    font-size: 14px;
+    margin-bottom: 2px;
+}
+
+.plan-item .plan-desc {
+    font-size: 13px;
+    color: #777;
+    line-height: 1.5;
+}
+
+.risk-box {
+    background: #fef8f6;
+    border-left: 4px solid #d32f2f;
+    padding: 14px 18px;
+    border-radius: 0 10px 10px 0;
+    margin-top: 6px;
+}
+
+.risk-box p {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .whitepaper-section {
+        padding: 20px;
+    }
+    .plan-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    .whitepaper-section h2 {
+        font-size: 19px;
+    }
+}
+</style>
 </head>
 <body>
 <header class="site-header">
@@ -23,17 +140,106 @@
 </nav>
 </div>
 </header>
+
 <section class="hero">
 <div class="container">
 <h1>📄 白皮书</h1>
-<p class="lead">小辣椒 CHILI 白皮书即将发布</p>
+<p class="lead">小辣椒 CHILI — 社区驱动 · 透明共建</p>
 </div>
 </section>
+
+<!-- 内容卡片区域 -->
+<section class="features" style="padding-top:0;">
+<div class="container whitepaper-content">
+
+    <!-- 1. 项目愿景 -->
+    <div class="whitepaper-section">
+        <h2>🌶️ 项目愿景</h2>
+        <p>CHILI 小辣椒希望打造一个由社区共同参与的数字文化生态。</p>
+        <p>通过区块链技术的开放性和透明性，CHILI 致力于连接全球用户，建立一个充满活力、互动和创造力的社区。</p>
+    </div>
+
+    <!-- 2. 项目理念 -->
+    <div class="whitepaper-section">
+        <h2>💡 项目理念</h2>
+        <h3>🏗️ 社区共建</h3>
+        <p>CHILI 相信社区是项目发展的核心，未来的发展方向将围绕用户参与和社区建设展开。</p>
+        <h3>🔍 开放透明</h3>
+        <p>CHILI 坚持公开透明原则，链上数据公开可查询，项目进展持续向社区公布。</p>
+        <h3>📈 长期发展</h3>
+        <p>项目不会只关注短期市场表现，而是通过持续建设、用户增长和生态探索推动长期发展。</p>
+    </div>
+
+    <!-- 3. 社区发展战略 -->
+    <div class="whitepaper-section">
+        <h2>🤝 社区发展战略</h2>
+        <h3>🌐 社区建设</h3>
+        <ul>
+            <li>建立官方社区</li>
+            <li>增加全球用户参与</li>
+            <li>建立社区交流平台</li>
+        </ul>
+        <h3>🎯 用户参与</h3>
+        <ul>
+            <li>社区活动</li>
+            <li>用户贡献奖励</li>
+            <li>社区互动</li>
+        </ul>
+        <h3>📢 品牌传播</h3>
+        <ul>
+            <li>内容推广</li>
+            <li>社区合作</li>
+            <li>提升 CHILI 品牌影响力</li>
+        </ul>
+    </div>
+
+    <!-- 4. 生态发展方向 -->
+    <div class="whitepaper-section">
+        <h2>🚀 生态发展方向</h2>
+        <p>CHILI 将持续探索区块链生态中的更多可能性，包括社区应用、数字文化、合作生态等方向。</p>
+        <div class="plan-grid">
+            <div class="plan-item">
+                <div class="plan-title">社区应用</div>
+                <div class="plan-desc">探索社区治理与互动应用</div>
+            </div>
+            <div class="plan-item">
+                <div class="plan-title">数字文化</div>
+                <div class="plan-desc">探索数字内容与创意生态</div>
+            </div>
+            <div class="plan-item">
+                <div class="plan-title">合作生态</div>
+                <div class="plan-desc">探索跨项目合作与生态联动</div>
+            </div>
+        </div>
+        <p style="font-size:13px;color:#999;margin-top:12px;font-style:italic;">* 以上为未来探索方向，非已实现功能</p>
+    </div>
+
+    <!-- 5. 风险说明 -->
+    <div class="whitepaper-section">
+        <h2>⚠️ 风险说明</h2>
+        <div class="risk-box">
+            <p>数字资产市场具有高度波动性，参与者应充分了解相关风险。</p>
+            <p style="margin-top:6px;">CHILI 不承诺任何投资收益，用户应根据自身情况谨慎参与。</p>
+        </div>
+    </div>
+
+</div>
+</section>
+
 <footer class="site-footer">
 <div class="container">
 <h4>小辣椒 CHILI</h4>
 <p>© 2026 小辣椒 CHILI。保留所有权利。</p>
 </div>
 </footer>
+
+<script>
+document.getElementById("copyBtn") && document.getElementById("copyBtn").onclick = function() {
+    let address = "0xed3caca4903256fb3e4997bc0c7830d19fb35f7c";
+    navigator.clipboard.writeText(address);
+    this.innerHTML = "已复制 ✓";
+    setTimeout(() => { this.innerHTML = "复制合约地址"; }, 2000);
+};
+</script>
 </body>
 </html>
