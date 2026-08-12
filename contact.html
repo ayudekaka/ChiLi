@@ -217,10 +217,10 @@
             text-decoration: underline;
         }
 
-        /* ===== 三列网格布局 ===== */
+        /* ===== 两列网格布局（与首页一致） ===== */
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 20px;
             padding-top: 28px;
             padding-bottom: 20px;
@@ -337,11 +337,23 @@
         </div>
     </section>
 
-    <!-- ===== 联系方式三列卡片 ===== -->
+    <!-- ===== 联系方式网格卡片（2×2 布局） ===== -->
     <div class="container">
         <div class="contact-grid">
 
-            <!-- 1. GitHub -->
+            <!-- 1. Email -->
+            <div class="float-card">
+                <span class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#b71c1c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="4" width="20" height="16" rx="2"/>
+                        <path d="M22 7l-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                    </svg>
+                </span>
+                <h3>Email</h3>
+                <p class="value"><a href="mailto:ayudekaka@gmail.com">ayudekaka@gmail.com</a></p>
+            </div>
+
+            <!-- 2. GitHub -->
             <div class="float-card">
                 <span class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#b71c1c">
@@ -352,7 +364,7 @@
                 <p class="value"><a href="https://github.com/ayudekaka/ChiLi" target="_blank" rel="noopener">https://github.com/ayudekaka/ChiLi</a></p>
             </div>
 
-            <!-- 2. Website -->
+            <!-- 3. Website -->
             <div class="float-card">
                 <span class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#b71c1c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -365,7 +377,7 @@
                 <p class="value"><a href="https://ayudekaka.github.io/ChiLi/" target="_blank" rel="noopener">https://ayudekaka.github.io/ChiLi/</a></p>
             </div>
 
-            <!-- 3. Telegram -->
+            <!-- 4. Telegram -->
             <div class="float-card">
                 <span class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#b71c1c">
