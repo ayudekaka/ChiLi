@@ -1,534 +1,718 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>白皮书 - 小辣椒 CHILI</title>
-<link rel="icon" href="https://raw.githubusercontent.com/ayudekaka/lifengyu/main/chili-32x32.svg">
-<link rel="stylesheet" href="style.css">
-<style>
-/* 白皮书页面专用样式 - 只增加内容卡片，不影响其他任何地方 */
-.whitepaper-content {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 10px 0 40px;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小辣椒 CHILI - 白皮书</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/ayudekaka/lifengyu/main/chili-32x32.svg">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ========== 全部背景改为白色 ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.whitepaper-section {
-    background: #ffffff;
-    border-radius: 16px;
-    padding: 28px 32px;
-    margin-bottom: 24px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-    border: 1px solid #f0ede8;
-}
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
 
-.whitepaper-section h2 {
-    color: #d32f2f;
-    font-size: 22px;
-    margin-top: 0;
-    margin-bottom: 14px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #f5f0eb;
-}
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
 
-.whitepaper-section p {
-    color: #444;
-    font-size: 15px;
-    line-height: 1.8;
-    margin: 8px 0;
-}
+        /* ===== 头部导航 ===== */
+        .site-header {
+            background: #ffffff;
+            border-bottom: 1px solid #f0ede8;
+            padding: 14px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-.whitepaper-section h3 {
-    color: #333;
-    font-size: 16px;
-    margin-top: 18px;
-    margin-bottom: 4px;
-}
+        .site-header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
 
-.whitepaper-section ul {
-    list-style: none;
-    padding: 0;
-    margin: 4px 0 0;
-}
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #1a1a1a;
+        }
 
-.whitepaper-section ul li {
-    padding: 4px 0 4px 24px;
-    position: relative;
-    color: #555;
-    font-size: 14px;
-    line-height: 1.7;
-}
+        .brand img {
+            width: 40px;
+            height: 40px;
+        }
 
-.whitepaper-section ul li::before {
-    content: "▸";
-    position: absolute;
-    left: 2px;
-    color: #d32f2f;
-    font-weight: bold;
-}
+        .brand-name {
+            font-size: 20px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
 
-.plan-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 14px;
-    margin-top: 10px;
-}
+        .brand-name strong {
+            color: #b71c1c;
+            font-weight: 700;
+        }
 
-.plan-item {
-    background: #faf8f6;
-    border-radius: 10px;
-    padding: 14px 16px;
-    text-align: center;
-    border: 1px solid #f0ede8;
-}
+        .main-nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
 
-.plan-item .plan-title {
-    font-weight: 600;
-    color: #d32f2f;
-    font-size: 14px;
-    margin-bottom: 2px;
-}
+        .main-nav a {
+            text-decoration: none;
+            color: #444;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
+        }
 
-.plan-item .plan-desc {
-    font-size: 13px;
-    color: #777;
-    line-height: 1.5;
-}
+        .main-nav a:hover {
+            color: #b71c1c;
+            border-bottom-color: #b71c1c;
+        }
 
-.risk-box {
-    background: #fef8f6;
-    border-left: 4px solid #d32f2f;
-    padding: 14px 18px;
-    border-radius: 0 10px 10px 0;
-    margin-top: 6px;
-}
+        .main-nav a.active {
+            color: #b71c1c;
+            border-bottom-color: #b71c1c;
+        }
 
-.risk-box p {
-    margin: 0;
-    font-size: 14px;
-    color: #666;
-}
+        /* ===== Hero 背景纯白 ===== */
+        .hero {
+            background: #ffffff;
+            padding: 50px 0 42px;
+            text-align: center;
+            border-bottom: 1px solid #f0ede8;
+        }
 
-@media (max-width: 768px) {
-    .whitepaper-section {
-        padding: 20px;
-    }
-    .plan-grid {
-        grid-template-columns: 1fr;
-        gap: 10px;
-    }
-    .whitepaper-section h2 {
-        font-size: 19px;
-    }
-}
+        .hero h1 {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
 
-/* ========== Hero 区域 - 已取消整体浮动 ========== */
-/* hero-content 不再浮动，保持静态 */
+        .hero h1 .accent {
+            color: #b71c1c;
+        }
 
-/* ========== 小辣椒 CHILI 链接样式 ========== */
-.hero-link {
-    color: #d32f2f;
-    text-decoration: none;
-    font-weight: inherit;
-    position: relative;
-    display: inline-block;
-    transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
-}
+        /* ===== 卡片通用 ===== */
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            padding: 28px 30px;
+            margin-bottom: 20px;
+            border: 1px solid #f0ede8;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
 
-.hero-link:hover {
-    color: #b71c1c;
-    text-shadow: 0 0 12px rgba(211, 47, 47, 0.3);
-    transform: translateY(-2px) scale(1.02);
-}
+        .card:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        }
 
-.hero-link::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-    width: 0;
-    height: 2px;
-    background: currentColor;
-    transition: width 0.3s ease;
-}
+        .card h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0ede8;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-.hero-link:hover::after {
-    width: 100%;
-}
-</style>
+        .card h2 .section-number {
+            color: #b71c1c;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin: 18px 0 10px 0;
+        }
+
+        .card h3:first-of-type {
+            margin-top: 0;
+        }
+
+        .card p {
+            font-size: 15px;
+            color: #444;
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .card ul,
+        .card ol {
+            padding-left: 24px;
+            margin-bottom: 14px;
+        }
+
+        .card li {
+            font-size: 15px;
+            color: #444;
+            line-height: 1.8;
+            margin-bottom: 4px;
+        }
+
+        .card li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ===== 信息表格 ===== */
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0 8px;
+            font-size: 15px;
+        }
+
+        .info-table td {
+            padding: 10px 14px;
+            border-bottom: 1px solid #f0ede8;
+        }
+
+        .info-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .info-table .label {
+            font-weight: 600;
+            color: #1a1a1a;
+            width: 28%;
+            background: #ffffff;
+        }
+
+        .info-table .value {
+            color: #444;
+            word-break: break-all;
+        }
+
+        .info-table .value a {
+            color: #b71c1c;
+            text-decoration: none;
+        }
+
+        .info-table .value a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== 合约地址高亮 ===== */
+        .contract-address {
+            font-family: "SF Mono", "Menlo", "Monaco", monospace;
+            font-size: 14px;
+            background: #f8f6f5;
+            padding: 10px 16px;
+            border-radius: 8px;
+            word-break: break-all;
+            color: #1a1a1a;
+            display: inline-block;
+            border: 1px solid #f0ede8;
+        }
+
+        /* ===== 特性列表（勾勾） ===== */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 24px;
+            margin: 10px 0 6px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 15px;
+            color: #444;
+            padding: 4px 0;
+        }
+
+        .feature-item .check {
+            color: #2e7d32;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* ===== 风险披露框（无红色边框） ===== */
+        .risk-box {
+            background: #ffffff;
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 10px 0 4px;
+        }
+
+        .risk-box p {
+            margin-bottom: 6px;
+        }
+
+        /* ===== 页脚 ===== */
+        .site-footer {
+            background: #ffffff;
+            border-top: 1px solid #f0ede8;
+            padding: 28px 0;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .site-footer h4 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+
+        .site-footer p {
+            font-size: 14px;
+            color: #999;
+        }
+
+        /* ===== 响应式 ===== */
+        @media (max-width: 768px) {
+            .site-header .container {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+            }
+
+            .brand {
+                justify-content: center;
+            }
+
+            .main-nav {
+                justify-content: center;
+                gap: 14px;
+            }
+
+            .main-nav a {
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .card {
+                padding: 20px 18px;
+            }
+
+            .card h2 {
+                font-size: 20px;
+            }
+
+            .info-table td {
+                padding: 8px 10px;
+                font-size: 14px;
+            }
+
+            .info-table .label {
+                width: 34%;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contract-address {
+                font-size: 13px;
+                padding: 8px 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 14px;
+            }
+
+            .hero {
+                padding: 30px 0 24px;
+            }
+
+            .hero h1 {
+                font-size: 24px;
+            }
+
+            .card h2 {
+                font-size: 18px;
+            }
+
+            .card p,
+            .card li {
+                font-size: 14px;
+            }
+
+            .info-table td {
+                font-size: 13px;
+                padding: 6px 8px;
+            }
+        }
+    </style>
 </head>
 <body>
-<header class="site-header">
-<div class="container">
-<a class="brand" href="index.html">
-<img src="https://raw.githubusercontent.com/ayudekaka/lifengyu/main/chili-32x32.svg" width="48" height="48" alt="小辣椒 CHILI">
-<span class="brand-name">小辣椒 <strong>CHILI</strong></span>
-</a>
-<nav class="main-nav">
-<a href="index.html">首页</a>
-<a href="whitepaper.html">白皮书</a>
-<a href="tokenomics.html">代币经济</a>
-<a href="roadmap.html">活动中心</a>
-<a href="contact.html">联系我们</a>
-</nav>
-</div>
-</header>
 
-<section class="hero">
-<div class="container">
-    <!-- hero-content 已移除浮动动画 -->
-    <div>
-        <h1> 白皮书</h1>
-        <p class="lead">
-            <a href="index.html" class="hero-link">小辣椒 CHILI</a>
-            — 社区驱动 · 透明共建
-        </p>
-    </div>
-</div>
-</section>
+    <!-- ===== 头部导航 ===== -->
+    <header class="site-header">
+        <div class="container">
+            <a class="brand" href="index.html">
+                <img src="https://raw.githubusercontent.com/ayudekaka/lifengyu/main/chili-32x32.svg" width="40" height="40" alt="小辣椒 CHILI">
+                <span class="brand-name">小辣椒 <strong>CHILI</strong></span>
+            </a>
+            <nav class="main-nav">
+                <a href="index.html">首页</a>
+                <a href="whitepaper.html" class="active">白皮书</a>
+                <a href="tokenomics.html">代币经济</a>
+                <a href="roadmap.html">活动中心</a>
+                <a href="contact.html">联系我们</a>
+            </nav>
+        </div>
+    </header>
 
-<!-- 内容卡片区域 -->
-<section class="features" style="padding-top:0;">
-<div class="container whitepaper-content">
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+        <div class="container">
+            <h1>小辣椒 <span class="accent">CHILI</span></h1>
+        </div>
+    </section>
 
-    <!-- 1. 项目愿景 -->
-    <div class="whitepaper-section float-card">
-        <h2>🌶️ 项目愿景</h2>
-        <p>CHILI 小辣椒希望打造一个由社区共同参与的数字文化生态。</p>
-        <p>通过区块链技术的开放性和透明性，CHILI 致力于连接全球用户，建立一个充满活力、互动和创造力的社区。</p>
-    </div>
+    <!-- ===== 主内容 ===== -->
+    <div class="container" style="padding-top: 28px; padding-bottom: 20px;">
 
-    <!-- 2. 项目理念 -->
-    <div class="whitepaper-section float-card">
-        <h2>💡 项目理念</h2>
-        <h3>🏗️ 社区共建</h3>
-        <p>CHILI 相信社区是项目发展的核心，未来的发展方向将围绕用户参与和社区建设展开。</p>
-        <h3>🔍 开放透明</h3>
-        <p>CHILI 坚持公开透明原则，链上数据公开可查询，项目进展持续向社区公布。</p>
-        <h3>📈 长期发展</h3>
-        <p>项目不会只关注短期市场表现，而是通过持续建设、用户增长和生态探索推动长期发展。</p>
-    </div>
+        <!-- 1. 项目简介 -->
+        <div class="card">
+            <h2><span class="section-number">1.</span> 项目简介</h2>
+            <h3>项目概述</h3>
+            <p>
+                CHILI（小辣椒）是一个基于 BNB Smart Chain（BSC）的社区驱动型代币项目。
+            </p>
+            <p>
+                项目由独立开发者发起创建，旨在通过公开透明的方式建立一个由参与者共同见证发展的社区型数字资产。
+            </p>
+            <p>
+                CHILI 不以传统中心化团队模式运营，而是通过公开合约、公开信息和社区参与推动项目发展。
+            </p>
+            <p>
+                项目希望成为一个连接参与者的社区符号，让每一位参与者都能参与并见证项目成长过程。
+            </p>
+        </div>
 
-    <!-- 3. 社区发展战略 -->
-    <div class="whitepaper-section float-card">
-        <h2>🤝 社区发展战略</h2>
-        <h3>🌐 社区建设</h3>
-        <ul>
-            <li>建立官方社区</li>
-            <li>增加全球用户参与</li>
-            <li>建立社区交流平台</li>
-        </ul>
-        <h3>🎯 用户参与</h3>
-        <ul>
-            <li>社区活动</li>
-            <li>用户贡献奖励</li>
-            <li>社区互动</li>
-        </ul>
-        <h3>📢 品牌传播</h3>
-        <ul>
-            <li>内容推广</li>
-            <li>社区合作</li>
-            <li>提升 CHILI 品牌影响力</li>
-        </ul>
-    </div>
+        <!-- 2. 项目基本信息 -->
+        <div class="card">
+            <h2><span class="section-number">2.</span> 项目基本信息</h2>
+            <table class="info-table">
+                <tr>
+                    <td class="label">项目名称</td>
+                    <td class="value">小辣椒 CHILI</td>
+                </tr>
+                <tr>
+                    <td class="label">代币符号</td>
+                    <td class="value">CHILI</td>
+                </tr>
+                <tr>
+                    <td class="label">区块链网络</td>
+                    <td class="value">BNB Smart Chain</td>
+                </tr>
+                <tr>
+                    <td class="label">代币标准</td>
+                    <td class="value">BEP-20</td>
+                </tr>
+                <tr>
+                    <td class="label">总发行量</td>
+                    <td class="value">20,150,822 CHILI</td>
+                </tr>
+                <tr>
+                    <td class="label">合约地址</td>
+                    <td class="value">
+                        <span class="contract-address">0xed3caca4903256fb3e4997bc0c7830d19fb35f7c</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">BscScan</td>
+                    <td class="value">
+                        <a href="https://bscscan.com/address/0xed3caca4903256fb3e4997bc0c7830d19fb35f7c" target="_blank" rel="noopener">https://bscscan.com/address/0xed3caca4903256fb3e4997bc0c7830d19fb35f7c</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
 
-    <!-- 4. 生态发展方向 -->
-    <div class="whitepaper-section float-card">
-        <h2>🚀 生态发展方向</h2>
-        <p>CHILI 将持续探索区块链生态中的更多可能性，包括社区应用、数字文化、合作生态等方向。</p>
-        <div class="plan-grid">
-            <div class="plan-item">
-                <div class="plan-title">社区应用</div>
-                <div class="plan-desc">探索社区治理与互动应用</div>
+        <!-- 3. 项目愿景 -->
+        <div class="card">
+            <h2><span class="section-number">3.</span> 项目愿景</h2>
+            <p>
+                CHILI 的愿景是创建一个简单、透明、公开的社区代币项目。
+            </p>
+            <p>
+                项目参考比特币固定供应理念，坚持：
+            </p>
+            <ul>
+                <li>固定发行数量</li>
+                <li>公开链上数据</li>
+                <li>无人为增发</li>
+                <li>透明规则运行</li>
+            </ul>
+            <p>
+                CHILI 希望通过时间积累和社区参与，让项目价值由公开规则和真实社区共同推动。
+            </p>
+        </div>
+
+        <!-- 4. 创始人与项目方声明 -->
+        <div class="card">
+            <h2><span class="section-number">4.</span> 创始人与项目方声明</h2>
+            <h3>创始人声明</h3>
+            <p>
+                CHILI 由独立开发者发起创建。
+            </p>
+            <p>
+                项目目前没有传统公司团队架构，由个人负责项目建设和维护。
+            </p>
+            <p>
+                创始人的主要职责包括：
+            </p>
+            <ul>
+                <li>智能合约部署</li>
+                <li>网站建设与维护</li>
+                <li>项目文档更新</li>
+                <li>社区运营</li>
+                <li>项目后续规划</li>
+            </ul>
+            <p>
+                CHILI 坚持公开透明原则，通过官方网站、GitHub 和社区渠道持续更新项目相关信息。
+            </p>
+            <p>
+                项目不会虚构团队背景，也不会包装不存在的机构。
+            </p>
+            <p>
+                所有公开信息均以实际情况为基础。
+            </p>
+        </div>
+
+        <!-- 5. 技术与合约说明 -->
+        <div class="card">
+            <h2><span class="section-number">5.</span> 技术与合约说明</h2>
+            <h3> 智能合约</h3>
+            <p>
+                CHILI 部署于 BNB Smart Chain。<br>
+                CHILI is deployed on the BNB Smart Chain.
+            </p>
+            <p>
+                <strong>合约地址：</strong>
+            </p>
+            <p>
+                <span class="contract-address">0xed3caca4903256fb3e4997bc0c7830d19fb35f7c</span>
+            </p>
+            <p>
+                智能合约源码已在 BscScan 完成验证。
+            </p>
+            <p>
+                用户可以公开查询：
+            </p>
+            <ul>
+                <li>合约代码</li>
+                <li>链上交易记录</li>
+                <li>持币地址</li>
+                <li>转账记录</li>
+            </ul>
+        </div>
+
+        <!-- 6. 合约机制与透明度 -->
+        <div class="card">
+            <h2><span class="section-number">6.</span> 合约机制与透明度</h2>
+            <p>
+                CHILI 采用固定供应模型。
+            </p>
+            <p>
+                合约设计原则：
+            </p>
+            <div class="feature-grid">
+                <div class="feature-item"><span class="check">✅</span> 不支持后续增发（No Mint）</div>
+                <div class="feature-item"><span class="check">✅</span> 无黑名单功能（No Blacklist）</div>
+                <div class="feature-item"><span class="check">✅</span> 无暂停交易功能（No Pause）</div>
+                <div class="feature-item"><span class="check">✅</span> 总发行量固定</div>
             </div>
-            <div class="plan-item">
-                <div class="plan-title">数字文化</div>
-                <div class="plan-desc">探索数字内容与创意生态</div>
-            </div>
-            <div class="plan-item">
-                <div class="plan-title">合作生态</div>
-                <div class="plan-desc">探索跨项目合作与生态联动</div>
+            <p>
+                项目无法通过隐藏方式改变代币供应规则。
+            </p>
+            <p>
+                所有链上数据均公开可验证。
+            </p>
+        </div>
+
+        <!-- 7. 代币经济模型 -->
+        <div class="card">
+            <h2><span class="section-number">7.</span> 代币经济模型（Tokenomics）</h2>
+            <h3>总供应量</h3>
+            <p style="font-size: 20px; font-weight: 700; color: #b71c1c;">20,150,822 CHILI</p>
+            <p>
+                CHILI 总量在合约部署时确定。
+            </p>
+            <p>
+                未来不会通过额外发行增加供应量。
+            </p>
+            <h3>代币特点</h3>
+            <ul>
+                <li>固定供应</li>
+                <li>社区驱动</li>
+                <li>公开透明</li>
+                <li>无中心化发行机制</li>
+            </ul>
+        </div>
+
+        <!-- 8. 发行与募资说明 -->
+        <div class="card">
+            <h2><span class="section-number">8.</span> 发行与募资说明</h2>
+            <p>
+                CHILI 项目启动阶段：
+            </p>
+            <ul>
+                <li>未进行公开预售（Public Sale）</li>
+                <li>未进行私募融资（Private Sale）</li>
+                <li>未进行机构融资</li>
+            </ul>
+            <p>
+                项目不是通过销售代币募集资金启动。
+            </p>
+            <p>
+                代币信息和链上数据均公开查询。
+            </p>
+        </div>
+
+        <!-- 9. 流动性说明 -->
+        <div class="card">
+            <h2><span class="section-number">9.</span> 流动性说明</h2>
+            <p>
+                CHILI 已建立去中心化交易流动性池。
+            </p>
+            <p>
+                项目初期流动性规模较小，属于早期社区项目阶段。
+            </p>
+            <p>
+                未来将根据社区发展情况逐步完善交易环境和生态建设。
+            </p>
+        </div>
+
+        <!-- 10. 发展路线规划 -->
+        <div class="card">
+            <h2><span class="section-number">10.</span> 发展路线规划（Roadmap）</h2>
+
+            <h3>第一阶段：项目基础建设</h3>
+            <p><strong>已完成：</strong></p>
+            <ul>
+                <li>CHILI 合约部署</li>
+                <li>官网建设</li>
+                <li>白皮书发布</li>
+                <li>BscScan 信息完善</li>
+            </ul>
+
+            <h3>第二阶段：社区发展</h3>
+            <p><strong>计划：</strong></p>
+            <ul>
+                <li>建设 Telegram 社区</li>
+                <li>增加社区互动</li>
+                <li>发布项目动态</li>
+                <li>收集社区建议</li>
+            </ul>
+
+            <h3>第三阶段：生态探索</h3>
+            <p><strong>计划：</strong></p>
+            <ul>
+                <li>探索社区应用方向</li>
+                <li>推动更多社区参与</li>
+                <li>根据实际情况发展生态</li>
+            </ul>
+        </div>
+
+        <!-- 11. 社区与公开信息 -->
+        <div class="card">
+            <h2><span class="section-number">11.</span> 社区与公开信息</h2>
+            <table class="info-table">
+                <tr>
+                    <td class="label">官方网站</td>
+                    <td class="value"><a href="https://ayudekaka.github.io/ChiLi/" target="_blank" rel="noopener">https://ayudekaka.github.io/ChiLi/</a></td>
+                </tr>
+                <tr>
+                    <td class="label">GitHub</td>
+                    <td class="value"><a href="https://github.com/ayudekaka" target="_blank" rel="noopener">https://github.com/ayudekaka</a></td>
+                </tr>
+                <tr>
+                    <td class="label">Telegram</td>
+                    <td class="value"><a href="https://t.me/xiaolajiaoCHILI" target="_blank" rel="noopener">https://t.me/xiaolajiaoCHILI</a></td>
+                </tr>
+            </table>
+            <p style="margin-top: 12px;">
+                CHILI 鼓励社区参与讨论，并保持项目信息公开更新。
+            </p>
+        </div>
+
+        <!-- 12. 风险披露 -->
+        <div class="card">
+            <h2><span class="section-number">12.</span> 风险披露</h2>
+            <div class="risk-box">
+                <p>
+                    CHILI 属于早期社区驱动型数字资产项目。
+                </p>
+                <p>
+                    加密资产市场具有高度波动性，可能受到市场环境、流动性、用户参与程度以及其他不可预测因素影响。
+                </p>
+                <p>
+                    CHILI 不承诺任何投资收益，也不保证代币价格上涨。
+                </p>
+                <p>
+                    参与者应充分了解相关风险，并根据自身情况独立判断。
+                </p>
             </div>
         </div>
-        <p style="font-size:13px;color:#999;margin-top:12px;font-style:italic;">* 以上为未来探索方向，非已实现功能</p>
-    </div>
 
-    <!-- 5. 风险说明 -->
-    <div class="whitepaper-section float-card">
-        <h2>⚠️ 风险说明</h2>
-        <div class="risk-box">
-            <p>数字资产市场具有高度波动性，参与者应充分了解相关风险。</p>
-            <p style="margin-top:6px;">CHILI 不承诺任何投资收益，用户应根据自身情况谨慎参与。</p>
+        <!-- 13. 结语（已移除红色左边框） -->
+        <div class="card">
+            <h2><span class="section-number">13.</span> 结语</h2>
+            <p style="font-size: 16px; font-weight: 500; color: #1a1a1a;">
+                CHILI 小辣椒希望通过简单、透明、公开的方式，建立一个属于社区的数字符号。
+            </p>
+            <p>
+                项目由个人开发者开始，但未来的发展将取决于社区参与者共同推动。
+            </p>
+            <p>
+                规则公开，数据公开，发展过程公开。
+            </p>
+            <p style="font-size: 18px; font-weight: 600; color: #b71c1c; margin-top: 10px;">
+                这就是 CHILI 的初心。
+            </p>
         </div>
+
     </div>
 
-</div>
-</section>
-
-<footer class="site-footer">
-<div class="container">
-<h4>小辣椒 CHILI</h4>
-<p>© 2026 小辣椒 CHILI。保留所有权利。</p>
-</div>
-</footer>
-
-<script>
-document.getElementById("copyBtn") && document.getElementById("copyBtn").onclick = function() {
-    let address = "0xed3caca4903256fb3e4997bc0c7830d19fb35f7c";
-    navigator.clipboard.writeText(address);
-    this.innerHTML = "已复制 ✓";
-    setTimeout(() => { this.innerHTML = "复制合约地址"; }, 2000);
-};
-</script>
-
-<!-- ============================================================ -->
-<!-- 灵动性增强 — 所有卡片：纯白背景 + 自动浮动(减弱) + 2.1倍强度 -->
-<!-- 注意：Hero 区域浮动已取消，仅卡片保留灵动性                    -->
-<!-- ============================================================ -->
-<style>
-/* ========== 自动浮动动画（所有卡片）- 幅度减弱至 -10px ========== */
-@keyframes floatUpDown {
-    0% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-    100% {
-        transform: translateY(0px);
-    }
-}
-
-.float-card {
-    animation: floatUpDown 3.2s ease-in-out infinite;
-    will-change: transform;
-}
-
-/* 每个卡片浮动节奏不同，更自然 */
-.whitepaper-section:nth-child(1).float-card {
-    animation-delay: 0s;
-}
-.whitepaper-section:nth-child(2).float-card {
-    animation-delay: 0.4s;
-}
-.whitepaper-section:nth-child(3).float-card {
-    animation-delay: 0.8s;
-}
-.whitepaper-section:nth-child(4).float-card {
-    animation-delay: 0.2s;
-}
-.whitepaper-section:nth-child(5).float-card {
-    animation-delay: 0.6s;
-}
-
-/* 悬停时暂停浮动 */
-.float-card:hover {
-    animation-play-state: paused;
-}
-
-/* 卡片滚动入场 — 淡入上浮 */
-.whitepaper-section {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
-                transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-    will-change: opacity, transform;
-}
-.whitepaper-section.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* ========== 强制所有卡片纯白背景（无淡红） ========== */
-.whitepaper-section {
-    background: #ffffff !important;
-}
-
-.whitepaper-section .plan-item {
-    background: #ffffff !important;
-    border-color: #f0ede8 !important;
-}
-
-.whitepaper-section .risk-box {
-    background: #ffffff !important;
-    border-left-color: #d32f2f !important;
-}
-
-/* 悬停时保持纯白 */
-.whitepaper-section:hover {
-    background: #ffffff !important;
-}
-
-.whitepaper-section:hover .plan-item {
-    background: #ffffff !important;
-    border-color: #f0ede8 !important;
-}
-
-.whitepaper-section:hover .risk-box {
-    background: #ffffff !important;
-    border-left-color: #d32f2f !important;
-}
-
-/* ========== 2.1倍灵动强度（悬停效果） ========== */
-.whitepaper-section {
-    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-                box-shadow 0.3s ease;
-}
-
-.whitepaper-section:hover {
-    transform: translateY(-5px) !important;
-    box-shadow: 0 8px 28px rgba(0,0,0,0.06) !important;
-}
-
-/* 标题：缩放 + 光晕 + 位移 */
-.whitepaper-section h2 {
-    transition: color 0.4s ease, text-shadow 0.4s ease, transform 0.4s ease;
-}
-.whitepaper-section:hover h2 {
-    color: #b71c1c;
-    text-shadow: 0 0 32px rgba(211, 47, 47, 0.35), 0 4px 24px rgba(211, 47, 47, 0.15);
-    transform: scale(1.06) translateX(8px);
-}
-
-/* 二级标题 h3 */
-.whitepaper-section h3 {
-    transition: color 0.4s ease, transform 0.4s ease, text-shadow 0.4s ease;
-}
-.whitepaper-section:hover h3 {
-    color: #111;
-    transform: translateX(8px) scale(1.02);
-    text-shadow: 0 0 16px rgba(0,0,0,0.04);
-}
-
-/* 段落文字 */
-.whitepaper-section p {
-    transition: color 0.4s ease, transform 0.4s ease, letter-spacing 0.4s ease;
-}
-.whitepaper-section:hover p {
-    color: #111;
-    transform: scale(1.02) translateX(4px);
-    letter-spacing: 0.6px;
-}
-
-/* 列表项 */
-.whitepaper-section ul li {
-    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-                color 0.4s ease;
-}
-.whitepaper-section:hover ul li {
-    transform: translateX(12px);
-    color: #111;
-}
-.whitepaper-section ul li::before {
-    transition: transform 0.4s ease, color 0.4s ease;
-}
-.whitepaper-section:hover ul li::before {
-    transform: scale(1.4);
-    color: #b71c1c;
-}
-
-/* 规划卡片 */
-.whitepaper-section .plan-item {
-    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-                box-shadow 0.5s ease,
-                border-color 0.5s ease;
-}
-.whitepaper-section:hover .plan-item {
-    transform: translateY(-12px) scale(1.06);
-    box-shadow: 0 16px 40px rgba(0,0,0,0.08);
-    border-color: rgba(211, 47, 47, 0.15);
-}
-.whitepaper-section .plan-item .plan-title {
-    transition: color 0.4s ease, transform 0.4s ease;
-}
-.whitepaper-section:hover .plan-item .plan-title {
-    color: #b71c1c;
-    transform: scale(1.08);
-}
-.whitepaper-section .plan-item .plan-desc {
-    transition: color 0.4s ease, transform 0.3s ease;
-}
-.whitepaper-section:hover .plan-item .plan-desc {
-    color: #333;
-    transform: translateY(2px);
-}
-
-/* 风险框 */
-.whitepaper-section .risk-box {
-    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-                box-shadow 0.5s ease;
-}
-.whitepaper-section:hover .risk-box {
-    transform: translateX(18px) scale(1.03);
-    box-shadow: 0 12px 36px rgba(0,0,0,0.06);
-}
-.whitepaper-section .risk-box p {
-    transition: color 0.4s ease, transform 0.4s ease;
-}
-.whitepaper-section:hover .risk-box p {
-    color: #111;
-    transform: translateX(6px);
-}
-</style>
-
-<script>
-(function() {
-    'use strict';
-
-    const cards = document.querySelectorAll('.whitepaper-section');
-    if (cards.length && 'IntersectionObserver' in window) {
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.15, rootMargin: '0px 0px -20px 0px' });
-
-        cards.forEach(function(card, index) {
-            setTimeout(function() {
-                observer.observe(card);
-            }, index * 80);
-        });
-
-        requestAnimationFrame(function() {
-            cards.forEach(function(card) {
-                const rect = card.getBoundingClientRect();
-                const winHeight = window.innerHeight || document.documentElement.clientHeight;
-                if (rect.top < winHeight - 50) {
-                    card.classList.add('visible');
-                    observer.unobserve(card);
-                }
-            });
-        });
-    } else {
-        cards.forEach(function(card) {
-            card.classList.add('visible');
-        });
-    }
-
-    let resizeTimer;
-    window.addEventListener('resize', function() {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(function() {
-            cards.forEach(function(card) {
-                if (card.classList.contains('visible')) return;
-                const rect = card.getBoundingClientRect();
-                const winHeight = window.innerHeight || document.documentElement.clientHeight;
-                if (rect.top < winHeight - 40) {
-                    card.classList.add('visible');
-                }
-            });
-        }, 200);
-    });
-
-})();
-</script>
-<!-- ============================================================ -->
-<!-- 灵动性增强 — 结束                                              -->
-<!-- ============================================================ -->
+    <!-- ===== 页脚 ===== -->
+    <footer class="site-footer">
+        <div class="container">
+            <h4>小辣椒 CHILI</h4>
+            <p>© 2026 小辣椒 CHILI。保留所有权利。</p>
+        </div>
+    </footer>
 
 </body>
 </html>
