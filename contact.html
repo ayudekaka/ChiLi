@@ -1,215 +1,429 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>联系我们 - 小辣椒 CHILI</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="https://raw.githubusercontent.com/ayudekaka/lifengyu/main/chili-32x32.svg">
+    <link rel="stylesheet" href="style.css">
     <style>
-        /* 图标与标题对齐 */
-        .card h3 {
+        /* ========== 基础重置 ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #faf8f7;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== 头部导航 ===== */
+        .site-header {
+            background: #ffffff;
+            border-bottom: 1px solid #f0ede8;
+            padding: 14px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .site-header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .brand {
             display: flex;
             align-items: center;
             gap: 10px;
-        }
-        .card h3 svg {
-            flex-shrink: 0;
-        }
-        /* 链接悬停效果 */
-        .card a {
-            transition: color 0.3s ease;
-        }
-        .card a:hover {
-            color: #b71c1c !important;
-        }
-        /* 联系方式主体显示 */
-        .contact-value {
-            font-size: 18px;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 4px;
-            word-break: break-all;
-        }
-        .contact-value .highlight {
-            color: #d32f2f;
-        }
-        /* 点击操作链接 */
-        .contact-action {
-            font-size: 14px;
-        }
-        .contact-action a {
-            color: #d32f2f;
             text-decoration: none;
+            color: #1a1a1a;
+        }
+
+        .brand img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .brand-name {
+            font-size: 20px;
             font-weight: 500;
+            letter-spacing: 0.5px;
         }
-        .contact-action a:hover {
-            color: #b71c1c !important;
+
+        .brand-name strong {
+            color: #b71c1c;
+            font-weight: 700;
         }
-        /* 待定状态 */
-        .coming-soon {
-            color: #888;
-            font-size: 14px;
+
+        .main-nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
         }
-        .coming-soon span {
-            font-size: 13px;
+
+        .main-nav a {
+            text-decoration: none;
+            color: #444;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .main-nav a:hover {
+            color: #b71c1c;
+            border-bottom-color: #b71c1c;
+        }
+
+        .main-nav a.active {
+            color: #b71c1c;
+            border-bottom-color: #b71c1c;
+        }
+
+        /* ===== Hero ===== */
+        .hero {
+            background: #ffffff;
+            padding: 50px 0 30px;
+            text-align: center;
+            border-bottom: 1px solid #f0ede8;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 .accent {
+            color: #b71c1c;
+        }
+
+        .hero .lead {
+            font-size: 18px;
+            color: #444;
+            font-weight: 400;
+            margin-top: 10px;
+            max-width: 720px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        /* ================================================================ */
+        /* ===== 卡片样式（与首页一致，无浮动动画） ===== */
+        /* ================================================================ */
+
+        .float-card {
+            animation: none !important;
+            background: #ffffff !important;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            padding: 28px 22px 24px;
+            border: 1px solid #f0ede8;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+                        transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+                        box-shadow 0.3s ease,
+                        transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: opacity, transform;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* 滚动入场 */
+        .float-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 悬停上浮 + 阴影 */
+        .float-card:hover {
+            transform: translateY(-5px) !important;
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06) !important;
+        }
+
+        /* 图标 */
+        .float-card .icon {
+            display: block;
+            margin: 0 auto 12px auto;
+            width: 48px;
+            height: 48px;
+            transition: transform 0.4s ease;
+        }
+        .float-card:hover .icon {
+            transform: scale(1.10);
+        }
+
+        .float-card .icon svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        /* 标题 */
+        .float-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+            transition: color 0.4s ease, text-shadow 0.4s ease;
+        }
+        .float-card:hover h3 {
+            color: #b71c1c;
+            text-shadow: 0 0 32px rgba(211, 47, 47, 0.35), 0 4px 24px rgba(211, 47, 47, 0.15);
+        }
+
+        /* 链接地址 */
+        .float-card .value {
+            font-size: 15px;
+            color: #444;
+            word-break: break-all;
+            transition: color 0.4s ease, transform 0.4s ease;
+        }
+        .float-card:hover .value {
+            color: #111;
+            transform: scale(1.02);
+        }
+
+        .float-card .value a {
+            color: #b71c1c;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .float-card:hover .value a {
+            color: #b71c1c;
+            transform: scale(1.02);
+        }
+        .float-card .value a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== 三列网格布局 ===== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            padding-top: 28px;
+            padding-bottom: 20px;
+        }
+
+        /* ===== 页脚样式 ===== */
+        .site-footer {
+            width: 100%;
+            background: #ffffff;
+            border-top: 1px solid #f0ede8;
+            padding: 25px 15px;
+            text-align: center;
+        }
+
+        .site-footer h4 {
+            font-weight: 600;
+            color: #b71c1c;
+            margin-bottom: 4px;
+        }
+
+        .site-footer p {
+            color: #999;
+        }
+
+        /* ===== 响应式 ===== */
+        @media (max-width: 768px) {
+            .site-header .container {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+            }
+            .brand {
+                justify-content: center;
+            }
+            .main-nav {
+                justify-content: center;
+                gap: 14px;
+            }
+            .main-nav a {
+                font-size: 14px;
+            }
+            .hero h1 {
+                font-size: 28px;
+            }
+            .hero .lead {
+                font-size: 16px;
+                padding: 0 10px;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+                padding-top: 20px;
+            }
+            .float-card {
+                padding: 24px 18px 20px;
+            }
+            .site-footer {
+                padding: 25px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 14px;
+            }
+            .hero {
+                padding: 30px 0 20px;
+            }
+            .hero h1 {
+                font-size: 24px;
+            }
+            .hero .lead {
+                font-size: 15px;
+                padding: 0 6px;
+            }
+            .float-card {
+                padding: 20px 14px 16px;
+            }
+            .float-card .value {
+                font-size: 14px;
+            }
+            .site-footer {
+                padding: 25px 15px;
+            }
         }
     </style>
 </head>
 <body>
+
+    <!-- ===== 头部导航 ===== -->
     <header class="site-header">
         <div class="container">
             <a class="brand" href="index.html">
-                <img src="https://raw.githubusercontent.com/ayudekaka/lifengyu/main/chili-32x32.svg" alt="小辣椒 CHILI" width="32" height="32" />
-                <span class="brand-name">
-                    小辣椒 <strong>CHILI</strong>
-                </span>
+                <img src="https://raw.githubusercontent.com/ayudekaka/lifengyu/main/chili-32x32.svg" width="40" height="40" alt="小辣椒 CHILI">
+                <span class="brand-name">小辣椒 <strong>CHILI</strong></span>
             </a>
             <nav class="main-nav">
                 <a href="index.html">首页</a>
                 <a href="whitepaper.html">白皮书</a>
                 <a href="tokenomics.html">代币经济</a>
                 <a href="roadmap.html">活动中心</a>
-                <a href="contact.html">联系我们</a>
+                <a href="contact.html" class="active">联系我们</a>
             </nav>
         </div>
     </header>
-    <main class="hero">
+
+    <!-- ===== Hero ===== -->
+    <section class="hero">
         <div class="container">
-            <h1>联系我们</h1>
-            <p class="lead">有问题或建议，请通过以下方式联系</p>
-        </div>
-    </main>
-    <section class="features">
-        <div class="container grid">
-
-            <!-- 电子邮件 -->
-            <article class="card">
-                <h3>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d32f2f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="2" y="4" width="20" height="16" rx="2"/>
-                        <path d="M22 7L12 13L2 7"/>
-                    </svg>
-                    电子邮件
-                </h3>
-                <div class="contact-value">
-                    <a href="mailto:ayudekaka@gmail.com" style="color:#1a1a1a;text-decoration:none;">
-                        ayudekaka@gmail.com
-                    </a>
-                </div>
-                <div class="contact-action">
-                    <a href="mailto:ayudekaka@gmail.com">点击发送邮件 →</a>
-                </div>
-            </article>
-
-            <!-- 微信（已关闭） -->
-            <article class="card" style="display:none;">
-                <h3>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#07C160">
-                        <path d="M8.5 13.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5S10 11.17 10 12s-.67 1.5-1.5 1.5zm5 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5S15 11.17 15 12s-.67 1.5-1.5 1.5zM12 2C6.48 2 2 6.04 2 11c0 2.93 1.52 5.57 3.87 7.16l-.87 2.6 2.94-1.61c.97.33 2.01.51 3.06.51 5.52 0 10-4.04 10-9S17.52 2 12 2z"/>
-                    </svg>
-                    微信
-                </h3>
-                <div class="contact-value">
-                    <span id="wechatId" style="color:#d32f2f;cursor:pointer;" onclick="copyWechat()">
-                        2041316568
-                    </span>
-                </div>
-                <div class="contact-action">
-                    <span id="wechatAction" style="color:#d32f2f;cursor:pointer;font-weight:500;" onclick="copyWechat()">
-                        点击复制微信号 →
-                    </span>
-                </div>
-                <p id="wechatTip" style="font-size:12px;color:#888;margin-top:4px;min-height:16px;"></p>
-            </article>
-
-            <!-- 欧意群聊 -->
-            <article class="card">
-                <h3>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <circle cx="12" cy="12" r="10" fill="#000"/>
-                        <path d="M7 8h10M7 12h6M7 16h4" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                    欧意群聊
-                </h3>
-                <div class="contact-value">
-                    <span class="highlight">小辣椒 CHILI 官方群</span>
-                </div>
-                <div class="contact-action">
-                    <a href="https://oyidl.net/ul/r3HZQQG" target="_blank" rel="noopener">点击进入群聊 →</a>
-                </div>
-            </article>
-
-            <!-- 国际版抖音 TikTok -->
-            <article class="card">
-                <h3>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#000">
-                        <path d="M16.6 5.82s.51.5 1.5.73c0 0 .5-.73.5-.73s-.8-.3-1.5-.73c-.5-.3-1.1-.82-1.3-1.5-.3-.8-.2-1.8-.2-1.8s-.8-.1-1.2-.1c-.4 0-1.2.1-1.2.1s.1 1-.2 1.8c-.2.7-.8 1.2-1.3 1.5-.7.4-1.5.7-1.5.7s.5.7.5.7c.8-.3 1.4-.5 2.1-.7.7-.2 1.4-.3 2.1-.3.7 0 1.4.1 2.1.3.7.2 1.3.4 2.1.7z"/>
-                        <path d="M13.7 2.7c-.1 0-.2 0-.3-.1-.1 0-.1-.1-.2-.1-.1-.1-.2-.2-.2-.3s-.1-.3-.1-.4c0-.1 0-.2.1-.3.1-.1.1-.1.2-.2.1-.1.2-.2.4-.2.1 0 .3 0 .4.1.1.1.2.1.2.2.1.1.1.2.1.3 0 .1 0 .2-.1.3-.1.1-.1.2-.2.2-.1.1-.2.1-.4.1z"/>
-                    </svg>
-                    国际版抖音
-                </h3>
-                <div class="contact-value">
-                    <span class="highlight">@ayudekaka0</span>
-                </div>
-                <div class="contact-action">
-                    <a href="https://www.tiktok.com/@ayudekaka0?_r=1&_t=ZS-98aqCLFrKjg" target="_blank" rel="noopener">点击进入抖音 →</a>
-                </div>
-            </article>
-
-            <!-- Telegram（已更新为有效链接） -->
-            <article class="card">
-                <h3>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#26A5E4">
-                        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-                    </svg>
-                    Telegram
-                </h3>
-                <div class="contact-value">
-                    <span class="highlight">小辣椒 CHILI 官方群</span>
-                </div>
-                <div class="contact-action">
-                    <a href="https://t.me/XiaoLaJiaoCHILI" target="_blank" rel="noopener">点击加入 Telegram 群 →</a>
-                </div>
-            </article>
-
-            <!-- Twitter / X -->
-            <article class="card">
-                <h3>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#000">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                    </svg>
-                    Twitter / X
-                </h3>
-                <div class="coming-soon">
-                    Coming Soon<br />
-                    <span>（X / Twitter Account）</span>
-                </div>
-            </article>
-
+            <h1>📬 联系我们</h1>
+            <p class="lead">
+                CHILI（小辣椒）由独立创始人创建并维护。欢迎社区成员、合作伙伴及关注者通过以下渠道联系我们。
+            </p>
         </div>
     </section>
+
+    <!-- ===== 联系方式三列卡片 ===== -->
+    <div class="container">
+        <div class="contact-grid">
+
+            <!-- 1. GitHub -->
+            <div class="float-card">
+                <span class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#b71c1c">
+                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.15 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.62.24 2.85.12 3.15.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                    </svg>
+                </span>
+                <h3>GitHub</h3>
+                <p class="value"><a href="https://github.com/ayudekaka/ChiLi" target="_blank" rel="noopener">https://github.com/ayudekaka/ChiLi</a></p>
+            </div>
+
+            <!-- 2. Website -->
+            <div class="float-card">
+                <span class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#b71c1c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="2" y1="12" x2="22" y2="12"/>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                    </svg>
+                </span>
+                <h3>Website</h3>
+                <p class="value"><a href="https://ayudekaka.github.io/ChiLi/" target="_blank" rel="noopener">https://ayudekaka.github.io/ChiLi/</a></p>
+            </div>
+
+            <!-- 3. Telegram -->
+            <div class="float-card">
+                <span class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#b71c1c">
+                        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                    </svg>
+                </span>
+                <h3>Telegram</h3>
+                <p class="value"><a href="https://t.me/xiaolajiaoCHILI" target="_blank" rel="noopener">https://t.me/xiaolajiaoCHILI</a></p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ===== 页脚 ===== -->
     <footer class="site-footer">
         <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <h4> 小辣椒 CHILI</h4>
-                    <p>© 2026 小辣椒 CHILI。保留所有权利。</p>
-                </div>
-            </div>
+            <h4>小辣椒 CHILI</h4>
+            <p>© 2026 小辣椒 CHILI。保留所有权利。</p>
         </div>
     </footer>
+
+    <!-- ===== 滚动入场 Script ===== -->
     <script>
-        function copyWechat() {
-            const id = "2041316568";
-            navigator.clipboard.writeText(id).then(() => {
-                const tip = document.getElementById("wechatTip");
-                tip.innerText = "已复制 ✓";
-                tip.style.color = "#2e7d32";
-                setTimeout(() => {
-                    tip.innerText = "";
-                }, 2000);
-            });
-        }
+        (function() {
+            const cards = document.querySelectorAll('.float-card');
+            if (cards.length && 'IntersectionObserver' in window) {
+                const observer = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.15, rootMargin: '0px 0px -20px 0px' });
+
+                cards.forEach(function(card, index) {
+                    setTimeout(function() {
+                        observer.observe(card);
+                    }, index * 80);
+                });
+
+                requestAnimationFrame(function() {
+                    cards.forEach(function(card) {
+                        const rect = card.getBoundingClientRect();
+                        const winHeight = window.innerHeight || document.documentElement.clientHeight;
+                        if (rect.top < winHeight - 50) {
+                            card.classList.add('visible');
+                            observer.unobserve(card);
+                        }
+                    });
+                });
+            } else {
+                cards.forEach(function(card) {
+                    card.classList.add('visible');
+                });
+            }
+        })();
     </script>
+
 </body>
 </html>
