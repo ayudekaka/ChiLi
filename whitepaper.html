@@ -28,6 +28,36 @@
         }
 
         /* ===== 头部导航 ===== */
+        .site-header {<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小辣椒 CHILI - 白皮书</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/ayudekaka/lifengyu/main/chili-32x32.svg">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ========== 全部背景改为白色 ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== 头部导航 ===== */
         .site-header {
             background: #ffffff;
             border-bottom: 1px solid #f0ede8;
@@ -169,10 +199,12 @@
             margin-bottom: 0;
         }
 
+        /* ===== 列表缩进 ===== */
         .card ul,
         .card ol {
-            padding-left: 24px;
+            padding-left: 18px;
             margin-bottom: 14px;
+            list-style-position: outside;
         }
 
         .card li {
@@ -180,6 +212,7 @@
             color: #444;
             line-height: 1.8;
             margin-bottom: 4px;
+            padding-left: 4px;
         }
 
         .card li:last-child {
@@ -260,7 +293,7 @@
             flex-shrink: 0;
         }
 
-        /* ===== 风险披露框（无红色边框） ===== */
+        /* ===== 风险披露框 ===== */
         .risk-box {
             background: #ffffff;
             padding: 16px 20px;
@@ -270,6 +303,53 @@
 
         .risk-box p {
             margin-bottom: 6px;
+        }
+
+        /* ===== 安全检测表格（与 info-table 风格统一，增加状态徽标） ===== */
+        .security-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0 8px;
+            font-size: 15px;
+        }
+
+        .security-table td {
+            padding: 10px 14px;
+            border-bottom: 1px solid #f0ede8;
+        }
+
+        .security-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .security-table .check-item {
+            font-weight: 600;
+            color: #1a1a1a;
+            width: 22%;
+            background: #ffffff;
+        }
+
+        .security-table .status {
+            width: 14%;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .security-table .status .pass {
+            color: #2e7d32;
+        }
+
+        .security-table .desc {
+            color: #444;
+        }
+
+        .security-table .desc a {
+            color: #b71c1c;
+            text-decoration: none;
+        }
+
+        .security-table .desc a:hover {
+            text-decoration: underline;
         }
 
         /* ===== 页脚 ===== */
@@ -326,12 +406,14 @@
                 font-size: 20px;
             }
 
-            .info-table td {
+            .info-table td,
+            .security-table td {
                 padding: 8px 10px;
                 font-size: 14px;
             }
 
-            .info-table .label {
+            .info-table .label,
+            .security-table .check-item {
                 width: 34%;
             }
 
@@ -342,6 +424,11 @@
             .contract-address {
                 font-size: 13px;
                 padding: 8px 12px;
+            }
+
+            .card ul,
+            .card ol {
+                padding-left: 16px;
             }
         }
 
@@ -367,9 +454,20 @@
                 font-size: 14px;
             }
 
-            .info-table td {
+            .info-table td,
+            .security-table td {
                 font-size: 13px;
                 padding: 6px 8px;
+            }
+
+            .card ul,
+            .card ol {
+                padding-left: 14px;
+            }
+
+            .security-table .status {
+                width: 18%;
+                font-size: 13px;
             }
         }
     </style>
@@ -406,7 +504,7 @@
         <!-- 1. 项目简介 -->
         <div class="card">
             <h2><span class="section-number">1.</span> 项目简介</h2>
-            <h3>项目概述</h3>
+            <h3>1.1 项目概述</h3>
             <p>
                 CHILI（小辣椒）是一个基于 BNB Smart Chain（BSC）的社区驱动型代币项目。
             </p>
@@ -514,7 +612,7 @@
         <!-- 5. 技术与合约说明 -->
         <div class="card">
             <h2><span class="section-number">5.</span> 技术与合约说明</h2>
-            <h3> 智能合约</h3>
+            <h3>5.1 智能合约</h3>
             <p>
                 CHILI 部署于 BNB Smart Chain。<br>
                 CHILI is deployed on the BNB Smart Chain.
@@ -539,7 +637,7 @@
             </ul>
         </div>
 
-        <!-- 6. 合约机制与透明度 -->
+        <!-- ===== 6. 合约机制与透明度（已整合 GoPlus 检测结果） ===== -->
         <div class="card">
             <h2><span class="section-number">6.</span> 合约机制与透明度</h2>
             <p>
@@ -555,10 +653,52 @@
                 <div class="feature-item"><span class="check">✅</span> 总发行量固定</div>
             </div>
             <p>
-                项目无法通过隐藏方式改变代币供应规则。
+                项目无法通过隐藏方式改变代币供应规则。所有链上数据均公开可验证。
             </p>
+
+            <h3>GoPlus 安全检测结果</h3>
             <p>
-                所有链上数据均公开可验证。
+                基于 <a href="https://console.gopluslabs.io/token-security/56/0xed3caca4903256fb3e4997bc0c7830d19fb35f7c" target="_blank" rel="noopener" style="color:#b71c1c;text-decoration:none;">GoPlus 安全平台</a> 的公开检测报告，CHILI 合约主要检测项结果如下：
+            </p>
+            <table class="security-table">
+                <tr>
+                    <td class="check-item">合约源代码验证</td>
+                    <td class="status"><span class="pass">✅ 已验证</span></td>
+                    <td class="desc">合约代码已在 BscScan 公开验证</td>
+                </tr>
+                <tr>
+                    <td class="check-item">铸币功能（Mint）</td>
+                    <td class="status"><span class="pass">✅ 不存在</span></td>
+                    <td class="desc">不支持后续增发，总供应量固定</td>
+                </tr>
+                <tr>
+                    <td class="check-item">黑名单功能</td>
+                    <td class="status"><span class="pass">✅ 不存在</span></td>
+                    <td class="desc">无地址黑名单限制</td>
+                </tr>
+                <tr>
+                    <td class="check-item">暂停交易功能</td>
+                    <td class="status"><span class="pass">✅ 不存在</span></td>
+                    <td class="desc">无暂停/冻结交易功能</td>
+                </tr>
+                <tr>
+                    <td class="check-item">蜜罐风险</td>
+                    <td class="status"><span class="pass">✅ 低风险</span></td>
+                    <td class="desc">买卖税率 0%，无恶意代码</td>
+                </tr>
+                <tr>
+                    <td class="check-item">所有权 / 代理</td>
+                    <td class="status"><span class="pass">✅ 无风险</span></td>
+                    <td class="desc">未检测到隐藏所有者或代理</td>
+                </tr>
+                <tr>
+                    <td class="check-item">交易冷却限制</td>
+                    <td class="status"><span class="pass">✅ 无限制</span></td>
+                    <td class="desc">无交易冷却或最大卖出比例</td>
+                </tr>
+            </table>
+            <p style="font-size:13px;color:#999;margin-top:8px;">
+                📌 以上检测结果基于 GoPlus 公开数据整理，用户可访问 <a href="https://console.gopluslabs.io/token-security/56/0xed3caca4903256fb3e4997bc0c7830d19fb35f7c" target="_blank" rel="noopener" style="color:#b71c1c;text-decoration:none;">GoPlus 检测页面</a> 查看完整实时报告。
             </p>
         </div>
 
@@ -687,7 +827,7 @@
             </div>
         </div>
 
-        <!-- 13. 结语（已移除红色左边框） -->
+        <!-- 13. 结语 -->
         <div class="card">
             <h2><span class="section-number">13.</span> 结语</h2>
             <p style="font-size: 16px; font-weight: 500; color: #1a1a1a;">
