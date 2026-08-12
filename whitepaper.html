@@ -49,6 +49,57 @@
             gap: 10px;
             text-decoration: none;
             color: #1a1a1a;
+        }<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小辣椒 CHILI - 白皮书</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/ayudekaka/lifengyu/main/chili-32x32.svg">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #faf8f7;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .site-header {
+            background: #ffffff;
+            border-bottom: 1px solid #f0ede8;
+            padding: 14px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .site-header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #1a1a1a;
         }
 
         .brand img {
@@ -303,13 +354,13 @@
             margin-bottom: 6px;
         }
 
-        /* ===== 页脚样式（已与首页完全一致） ===== */
+        /* ===== 页脚样式 — 与代币经济页面完全一致 ===== */
         .site-footer {
+            width: 100%;
             background: #ffffff;
             border-top: 1px solid #f0ede8;
-            padding: 20px 0;
+            padding: 25px 15px;
             text-align: center;
-            /* 移除 margin-top，与首页保持统一 */
         }
 
         .site-footer h4 {
@@ -366,6 +417,9 @@
             .float-card ol {
                 padding-left: 16px;
             }
+            .site-footer {
+                padding: 25px 15px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -397,6 +451,9 @@
             .security-table .status {
                 width: 18%;
                 font-size: 13px;
+            }
+            .site-footer {
+                padding: 25px 15px;
             }
         }
     </style>
@@ -649,13 +706,13 @@
 
     </div>
 
+    <!-- ===== 页脚（已调整为与其他页面一致） ===== -->
     <footer class="site-footer">
-<div class="container">
-<h4>小辣椒 CHILI</h4>
-<p>© 2026 小辣椒 CHILI。保留所有权利。</p>
-</div>
-</footer>
-
+        <div class="container">
+            <h4>小辣椒 CHILI</h4>
+            <p>© 2026 小辣椒 CHILI。保留所有权利。</p>
+        </div>
+    </footer>
 
 </body>
 </html>
