@@ -242,6 +242,11 @@
         grid-template-columns: 1fr !important;
     }
 }
+
+/* ===== 取消部分卡片的浮动动画（仅对 no-float 类） ===== */
+.float-card.no-float {
+    animation: none !important;
+}
 </style>
 </head>
 <body>
@@ -320,8 +325,8 @@
 </p>
 </div>
 
-<!-- ===== 项目方说明卡片（居中排版，链接文字跳转，不显示URL） ===== -->
-<div class="card float-card" style="grid-column: 1 / -1; padding:22px 20px; text-align:center; margin-top:20px;">
+<!-- ===== 项目方说明卡片（取消跳动，并排 Telegram 和 GitHub） ===== -->
+<div class="card float-card no-float" style="grid-column: 1 / -1; padding:22px 20px; text-align:center; margin-top:20px;">
     <h3 style="font-size:20px;margin-bottom:12px;">项目方说明</h3>
     <p style="font-size:14px;line-height:1.75;color:#444;margin:0 0 8px;">
         小辣椒 CHILI 由独立开发者创建，并负责项目持续维护。
@@ -332,9 +337,11 @@
     <p style="font-size:14px;line-height:1.75;color:#444;margin:0 0 12px;">
         CHILI 是一个社区驱动型代币，致力于保持项目信息公开透明，通过官方网站和官方社区持续更新项目动态。
     </p>
-    <!-- 修改：将“官方 Telegram 社区”作为链接，点击跳转，不显示URL -->
-    <p style="margin:0;font-size:14px;color:#444;">
+    <!-- Telegram 和 GitHub 并排显示 -->
+    <p style="margin:0;font-size:14px;color:#444;display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap;">
         <a href="https://t.me/xiaolajiaoCHILI" target="_blank" rel="noopener" style="color:#d32f2f;text-decoration:none;font-weight:500;">官方 Telegram 社区</a>
+        <span style="color:#ccc;">|</span>
+        <a href="https://github.com/ayudekaka" target="_blank" rel="noopener" style="color:#d32f2f;text-decoration:none;font-weight:500;">GitHub</a>
     </p>
 </div>
 
