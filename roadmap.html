@@ -157,64 +157,6 @@
             color: #e53e3e;
         }
 
-        .event-section .share-box {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            align-items: center;
-            background: #f7f7f7;
-            border-radius: 10px;
-            padding: 6px 6px 6px 18px;
-            margin: 14px 0 8px;
-        }
-
-        .event-section .share-box input {
-            flex: 1;
-            border: none;
-            background: transparent;
-            font-size: 14px;
-            color: #333;
-            outline: none;
-            min-width: 160px;
-            font-family: monospace;
-            padding: 10px 0;
-        }
-
-        .event-section .share-box .copy-btn {
-            background: #ffffff;
-            color: #e53e3e;
-            border: 1px solid #ddd;
-            padding: 8px 20px;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            white-space: nowrap;
-            transition: background 0.2s, color 0.2s, border-color 0.2s;
-        }
-
-        .event-section .share-box .copy-btn:hover {
-            background: #f5f5f5;
-            border-color: #ccc;
-            color: #c53030;
-        }
-
-        .event-section .share-box .copy-btn.copied {
-            background: #ffffff;
-            color: #38a169;
-            border-color: #9ae6b4;
-        }
-
-        .event-section .share-tip {
-            font-size: 14px;
-            color: #888;
-            margin-top: 6px;
-        }
-
-        .event-section .share-tip strong {
-            color: #e53e3e;
-        }
-
         .contact-link-wrapper {
             margin-top: 20px;
             text-align: center;
@@ -295,18 +237,6 @@
             }
             .event-section {
                 padding: 20px 16px;
-            }
-            .event-section .share-box {
-                flex-direction: column;
-                padding: 12px;
-            }
-            .event-section .share-box input {
-                width: 100%;
-                text-align: center;
-            }
-            .event-section .share-box .copy-btn {
-                width: 100%;
-                justify-content: center;
             }
             .roll-inner {
                 height: 52px;        /* 与桌面相同，保证足够空间 */
@@ -409,30 +339,22 @@
 
             </div>
 
+            <!-- 修改后的活动卡片：签到领币 -->
             <div class="event-section">
                 <div class="event-header">
-                    <h2>阶段2活动：分享得币</h2>
+                    <h2>阶段2活动：签到领币</h2>
                     <span class="phase-tag">属于阶段2 · 进行中</span>
                 </div>
 
                 <div class="event-desc">
-                    <strong>玩法超简单：</strong> 复制分享官网链接，发给好友，获得小辣椒币（CHILI）最高100枚。
-                </div>
-
-                <div class="share-box">
-                    <input type="text" id="shareLinkInput" readonly value="加载中..." />
-                    <button class="copy-btn" id="copyLinkBtn">复制链接</button>
-                </div>
-
-                <div class="share-tip">
-                    复制链接分享给好友，即可联系客服领取你的奖励。
+                    <strong>每日签到，奖励不断！</strong> 进入官方 Telegram 社区，每日签到即可领取小辣椒币（CHILI），连续签到奖励更多！
                 </div>
 
                 <div class="contact-link-wrapper">
-                    <a href="contact.html" class="contact-btn">点击跳转联系客服</a>
+                    <a href="https://t.me/xiaolajiaoCHILI" target="_blank" class="contact-btn">进入社区签到</a>
                 </div>
 
-                <!-- 滚动公告栏 -->
+                <!-- 滚动公告栏保持不变 -->
                 <div class="roll-inner" id="rollInner">
                     <div id="rollList"></div>
                 </div>
@@ -457,59 +379,6 @@
 
     <script>
         (function() {
-
-            const SITE_URL = 'https://ayudekaka.github.io/ChiLi/';
-
-            function getShareLink() {
-                return SITE_URL;
-            }
-
-            var linkInput = document.getElementById('shareLinkInput');
-            if (linkInput) {
-                linkInput.value = getShareLink();
-            }
-
-            var copyBtn = document.getElementById('copyLinkBtn');
-            if (copyBtn) {
-                copyBtn.addEventListener('click', function() {
-                    var link = getShareLink();
-                    if (navigator.clipboard && navigator.clipboard.writeText) {
-                        navigator.clipboard.writeText(link).then(function() {
-                            showCopiedFeedback(copyBtn);
-                        })['catch'](function() {
-                            fallbackCopy(link);
-                        });
-                    } else {
-                        fallbackCopy(link);
-                    }
-                });
-            }
-
-            function fallbackCopy(text) {
-                var textarea = document.createElement('textarea');
-                textarea.value = text;
-                textarea.style.position = 'fixed';
-                textarea.style.opacity = '0';
-                document.body.appendChild(textarea);
-                textarea.select();
-                try {
-                    document.execCommand('copy');
-                    showCopiedFeedback(copyBtn);
-                } catch (e) {
-                    alert('复制失败，请手动复制链接：\n' + text);
-                }
-                document.body.removeChild(textarea);
-            }
-
-            function showCopiedFeedback(btn) {
-                var originalText = btn.textContent;
-                btn.textContent = '已复制！';
-                btn.classList.add('copied');
-                setTimeout(function() {
-                    btn.textContent = originalText;
-                    btn.classList.remove('copied');
-                }, 2000);
-            }
 
             // -------- 滚动公告（从下往上，固定高度） --------
             var rollList = document.getElementById('rollList');
