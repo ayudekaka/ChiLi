@@ -1,0 +1,2144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小辣椒 CHILI 官方网站</title>
+<link rel="icon" type="image/svg+xml" href="logo-red32.svg">
+<link rel="apple-touch-icon" href="logo-red32.svg">
+
+<style>
+
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+:root{
+  --red:      #e60000;
+  --red-hi:   #ff2b2b;
+  --red-deep: #8f0000;
+
+  --ink:      #0a0a0a;
+  --ink-2:    #1c1c1c;
+  --muted:    #767676;
+  --muted-2:  #a3a3a3;
+
+  --bg:       #ffffff;
+  --bg-2:     #fafafa;
+  --bg-3:     #f4f4f4;
+  --line:     #e6e6e6;
+  --line-2:   #d4d4d4;
+
+  --green:    #16a34a;
+  --green-bg: #f0fdf4;
+  --green-bd: #bbf7d0;
+
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo,
+          Consolas, "Liberation Mono", monospace;
+  --sans: "Inter", "Helvetica Neue", Arial,
+          "PingFang SC", "Microsoft YaHei", sans-serif;
+
+  --pad: clamp(18px, 4.5vw, 60px);
+  --sec-y: clamp(70px, 8vw, 120px);
+}
+
+body{
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.55;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  font-variant-numeric: tabular-nums;
+}
+
+body::before{
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0 3px,
+    rgba(0,0,0,.012) 3px 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: multiply;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.wrap{
+  max-width: 1400px;
+  margin-inline: auto;
+  padding-inline: var(--pad);
+}
+
+section[id]{ scroll-margin-top: 100px; }
+
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* TOP STATUS BAR */
+.topbar{
+  border-bottom: 1px solid var(--line);
+  background: var(--bg-2);
+  position: relative;
+}
+.topbar::after{
+  content: "";
+  position: absolute;
+  left: 0; bottom: -1px;
+  width: 80px; height: 1px;
+  background: var(--red);
+}
+.topbar-inner{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  height: 32px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .12em;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+}
+.topbar-inner b{ color: var(--ink); font-weight: 700; margin-left: 6px; }
+.topbar-item{ display: inline-flex; align-items: center; gap: 2px; }
+.dot{
+  display: inline-block;
+  width: 6px; height: 6px;
+  margin-right: 7px;
+  border-radius: 50%;
+  background: var(--red);
+  box-shadow: 0 0 8px rgba(230,0,0,.6);
+  animation: blink 1.6s ease-in-out infinite;
+  vertical-align: middle;
+}
+@keyframes blink{ 50% { opacity: .25; } }
+
+/* NAV */
+.navbar{
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,.88);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner{
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 20px;
+  height: 80px;
+}
+.logo{
+  justify-self: start;
+  font-family: var(--mono);
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.logo .bracket{ color: var(--red); }
+.logo .cursor{
+  display: inline-block;
+  width: 8px; height: 16px;
+  margin-left: 3px;
+  background: var(--red);
+  animation: blink 1s steps(2) infinite;
+}
+.logo img{
+  display: block;
+  width: auto;
+  height: 52px;
+  max-width: 220px;
+  object-fit: contain;
+}
+.logo-text {
+  font-family: var(--mono);
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.nav-links{
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  justify-self: center;
+}
+.nav-links a{
+  padding: 8px 13px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .16em;
+  color: var(--muted);
+  transition: color .2s, background .2s;
+  position: relative;
+}
+.nav-links a:hover{
+  color: var(--red);
+  background: var(--bg-3);
+}
+.nav-right{
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.lang-switch{
+  display: inline-flex;
+  border: 1px solid var(--line-2);
+  background: #fff;
+  overflow: hidden;
+}
+.lang-switch button{
+  appearance: none;
+  background: transparent;
+  border: 0;
+  padding: 8px 11px;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  color: var(--muted);
+  cursor: pointer;
+  transition: background .2s, color .2s;
+}
+.lang-switch button:hover{
+  color: var(--ink);
+  background: var(--bg-3);
+}
+.lang-switch button.active{
+  background: var(--red);
+  color: #fff;
+}
+.nav-cta{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: var(--red);
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  transition: background .25s, transform .25s;
+}
+.nav-cta:hover{
+  background: var(--red-deep);
+  transform: translateY(-1px);
+}
+
+/* HERO */
+.hero{
+  position: relative;
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+  background: var(--bg);
+}
+.hero-grid{
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(230,0,0,.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(230,0,0,.055) 1px, transparent 1px);
+  background-size: 56px 56px;
+  background-position: -1px -1px;
+  -webkit-mask-image: radial-gradient(140% 90% at 50% 0%, #000 30%, transparent 100%);
+          mask-image: radial-gradient(140% 90% at 50% 0%, #000 30%, transparent 100%);
+  pointer-events: none;
+}
+.hero-ruler{
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 22px;
+  border-bottom: 1px solid var(--line);
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--line-2) 0 1px,
+    transparent 1px 56px
+  );
+  pointer-events: none;
+  opacity: .85;
+}
+.hero-inner{
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.06fr .94fr;
+  align-items: center;
+  gap: clamp(24px, 4vw, 64px);
+  padding-block: clamp(52px, 6vw, 92px) clamp(96px, 10vw, 140px);
+  min-height: min(700px, 88vh);
+}
+.hero-eyebrow{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 14px;
+  border: 1px solid var(--line-2);
+  background: #fff;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .2em;
+  color: var(--muted);
+}
+.hero-eyebrow i{
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--red);
+  box-shadow: 0 0 0 3px rgba(230,0,0,.15);
+  animation: pulse 2.2s ease-in-out infinite;
+}
+@keyframes pulse{ 50% { box-shadow: 0 0 0 9px rgba(230,0,0,0); } }
+.hero-title{
+  font-family: var(--sans);
+  font-size: clamp(76px, 11.5vw, 176px);
+  line-height: .82;
+  letter-spacing: -.055em;
+  font-weight: 900;
+  color: var(--ink);
+  margin: clamp(20px, 2.4vw, 30px) 0 clamp(18px, 1.8vw, 26px);
+  position: relative;
+}
+.hero-title span{ color: var(--red); }
+.hero-sub{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin-bottom: 18px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .14em;
+  color: var(--muted);
+}
+.hero-sub b{ color: var(--ink); font-weight: 700; }
+.hero-desc{
+  max-width: 44ch;
+  font-size: clamp(14.5px, 1.05vw, 16.5px);
+  line-height: 1.65;
+  color: var(--muted);
+}
+.hero-actions{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: clamp(26px, 3vw, 38px);
+}
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 22px;
+  border: 1px solid transparent;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .16em;
+  transition: transform .22s, background .22s,
+              border-color .22s, color .22s;
+  position: relative;
+  cursor: pointer;
+}
+.btn-primary{
+  background: var(--red);
+  color: #fff;
+}
+.btn-primary:hover{
+  background: var(--red-deep);
+  transform: translateY(-2px);
+}
+.btn-outline{
+  background: #fff;
+  border-color: var(--line-2);
+  color: var(--ink);
+}
+.btn-outline:hover{
+  border-color: var(--ink);
+  background: var(--bg-3);
+  transform: translateY(-2px);
+}
+
+/* HERO VISUAL */
+.hero-visual{
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  aspect-ratio: 1 / 1;
+  justify-self: center;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+}
+.hero-visual::before{
+  content: "";
+  position: absolute;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(230,0,0,.1) 0%,
+    rgba(230,0,0,.045) 28%,
+    rgba(230,0,0,.015) 48%,
+    transparent 68%);
+  filter: blur(14px);
+  z-index: 0;
+}
+.hv-ticks{
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: repeating-conic-gradient(
+    from 0deg,
+    rgba(0,0,0,.3) 0deg 0.6deg,
+    transparent 0.6deg 6deg
+  );
+  -webkit-mask: radial-gradient(circle,
+    transparent 46.5%, #000 47%, #000 49.6%, transparent 50%);
+          mask: radial-gradient(circle,
+    transparent 46.5%, #000 47%, #000 49.6%, transparent 50%);
+  pointer-events: none;
+}
+.hv-ticks-major{
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: repeating-conic-gradient(
+    from 0deg,
+    rgba(230,0,0,.7) 0deg 0.9deg,
+    transparent 0.9deg 30deg
+  );
+  -webkit-mask: radial-gradient(circle,
+    transparent 42.5%, #000 43%, #000 49.6%, transparent 50%);
+          mask: radial-gradient(circle,
+    transparent 42.5%, #000 43%, #000 49.6%, transparent 50%);
+  pointer-events: none;
+}
+.hv-ticks-inner{
+  position: absolute;
+  inset: 18%;
+  border-radius: 50%;
+  background: repeating-conic-gradient(
+    from 0deg,
+    rgba(230,0,0,.55) 0deg 0.8deg,
+    transparent 0.8deg 15deg
+  );
+  -webkit-mask: radial-gradient(circle,
+    transparent 47.5%, #000 48%, #000 50%, transparent 50.4%);
+          mask: radial-gradient(circle,
+    transparent 47.5%, #000 48%, #000 50%, transparent 50.4%);
+  pointer-events: none;
+}
+.hv-ticks-center{
+  position: absolute;
+  inset: 36%;
+  border-radius: 50%;
+  background: repeating-conic-gradient(
+    from 0deg,
+    rgba(230,0,0,.45) 0deg 1deg,
+    transparent 1deg 20deg
+  );
+  -webkit-mask: radial-gradient(circle,
+    transparent 46%, #000 47%, #000 50%, transparent 51%);
+          mask: radial-gradient(circle,
+    transparent 46%, #000 47%, #000 50%, transparent 51%);
+  pointer-events: none;
+}
+.hv-ring-outer{
+  position: absolute;
+  inset: 3%;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,.1);
+  pointer-events: none;
+}
+.hv-ring-mid{
+  position: absolute;
+  inset: 14%;
+  border-radius: 50%;
+  border: 1px dashed rgba(230,0,0,.35);
+  pointer-events: none;
+}
+.hv-ring-inner{
+  position: absolute;
+  inset: 30%;
+  border-radius: 50%;
+  border: 1px solid rgba(230,0,0,.18);
+  pointer-events: none;
+}
+.hv-orbit-a{
+  position: absolute;
+  inset: 8%;
+  border-radius: 50%;
+  border: 1.5px solid rgba(230,0,0,.55);
+  border-top-color: transparent;
+  animation: hvSpin 22s linear infinite;
+  pointer-events: none;
+}
+.hv-orbit-b{
+  position: absolute;
+  inset: 20%;
+  border-radius: 50%;
+  border: 1px dashed rgba(0,0,0,.24);
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  animation: hvSpin 32s linear infinite reverse;
+  pointer-events: none;
+}
+.hv-orbit-c{
+  position: absolute;
+  inset: 36%;
+  border-radius: 50%;
+  border: 1px solid rgba(230,0,0,.5);
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  animation: hvSpin 14s linear infinite;
+  pointer-events: none;
+}
+@keyframes hvSpin{ to { transform: rotate(360deg); } }
+.hv-scan{
+  position: absolute;
+  inset: 3%;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 310deg,
+    rgba(230,0,0,.04) 328deg,
+    rgba(230,0,0,.2) 350deg,
+    rgba(230,0,0,.4) 359deg,
+    transparent 360deg
+  );
+  animation: hvSpin 9s linear infinite;
+  pointer-events: none;
+  z-index: 3;
+}
+.hv-scan::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 358.2deg,
+    rgba(230,0,0,.9) 0deg,
+    transparent 1.8deg,
+    transparent 360deg
+  );
+  -webkit-mask: radial-gradient(circle,
+    transparent 24%, #000 28%, #000 49%, transparent 50%);
+          mask: radial-gradient(circle,
+    transparent 24%, #000 28%, #000 49%, transparent 50%);
+}
+
+.hv-core{
+  position: relative;
+  z-index: 6;
+  width: 9%;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  animation: hvCorePulse 2.6s ease-in-out infinite;
+}
+.hv-core img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(230,0,0,.75))
+          drop-shadow(0 0 22px rgba(230,0,0,.35));
+}
+.hv-core::before{
+  content: "";
+  position: absolute;
+  inset: -40%;
+  border-radius: 50%;
+  border: 1px solid rgba(230,0,0,.55);
+  animation: hvRing 2.6s ease-out infinite;
+  pointer-events: none;
+}
+.hv-core::after{
+  content: "";
+  position: absolute;
+  inset: -90%;
+  border-radius: 50%;
+  border: 1px solid rgba(230,0,0,.25);
+  animation: hvRing 2.6s ease-out 1.3s infinite;
+  pointer-events: none;
+}
+@keyframes hvCorePulse{
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.1); }
+}
+@keyframes hvRing{
+  0%   { transform: scale(.7); opacity: .9; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+.hv-halo{
+  position: absolute;
+  width: 4%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid rgba(230,0,0,.5);
+  z-index: 5;
+  pointer-events: none;
+  animation: hvHalo 4.4s ease-out infinite;
+}
+.hv-halo-2{ animation-delay: 2.2s; }
+@keyframes hvHalo{
+  0%   { transform: scale(.8); opacity: .85; }
+  100% { transform: scale(7); opacity: 0; }
+}
+.hv-node{
+  position: absolute;
+  width: 12px; height: 12px;
+  z-index: 7;
+  pointer-events: none;
+}
+.hv-node::before{
+  content: "";
+  position: absolute;
+  inset: 50%;
+  width: 10px; height: 10px;
+  margin: -5px 0 0 -5px;
+  border-radius: 50%;
+  background: var(--red);
+  box-shadow:
+    0 0 0 2px rgba(255,255,255,.95),
+    0 0 0 3px rgba(230,0,0,.3),
+    0 0 16px rgba(230,0,0,.9);
+  animation: hvNodePulse 3s ease-in-out infinite;
+}
+.hv-node::after{
+  content: "";
+  position: absolute;
+  inset: 50%;
+  width: 22px; height: 22px;
+  margin: -11px 0 0 -11px;
+  border: 1px solid rgba(230,0,0,.4);
+  border-radius: 50%;
+  animation: hvNodeHalo 3s ease-out infinite;
+}
+@keyframes hvNodePulse{ 50% { transform: scale(.6); opacity: .65; } }
+@keyframes hvNodeHalo{
+  0%   { transform: scale(.55); opacity: .9; }
+  100% { transform: scale(1.7); opacity: 0; }
+}
+.hv-node-1{ top: 8%;  left: 50%; margin-left: -6px; }
+.hv-node-1::before{ animation-delay: 0s; }
+.hv-node-2{ top: 52%;  right: 6%; margin-top: -6px; }
+.hv-node-2::before{ animation-delay: 1.1s; }
+.hv-node-3{ bottom: 12%; left: 18%; }
+.hv-node-3::before{ animation-delay: 2.2s; }
+
+.readout{
+  position: absolute;
+  z-index: 8;
+  padding: 8px 12px 8px 14px;
+  border: 1px solid var(--line-2);
+  background: rgba(255,255,255,.94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-family: var(--mono);
+  font-size: 9.5px;
+  line-height: 1.9;
+  letter-spacing: .1em;
+  color: var(--muted);
+  white-space: nowrap;
+  box-shadow: 0 8px 22px -16px rgba(0,0,0,.35);
+}
+.readout b{ color: var(--ink); font-weight: 700; }
+.readout b.red{ color: var(--red); }
+
+.readout-1{ top: 0;    left: 50%; transform: translateX(-50%); }
+.readout-2{ top: 40%;  left: 0; }
+.readout-5{ top: 40%;  right: 0; }
+.readout-3{ bottom: 14%; left: 0; }
+.readout-4{ bottom: 14%; right: 8%; }
+
+.contract-strip{
+  position: absolute;
+  left: 50%;
+  bottom: -58px;
+  transform: translateX(-50%);
+  z-index: 9;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 14px 10px 16px;
+  border: 1px solid var(--line-2);
+  background: rgba(255,255,255,.96);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: .08em;
+  color: var(--muted);
+  white-space: nowrap;
+  box-shadow: 0 10px 26px -18px rgba(0,0,0,.35);
+}
+.contract-strip-label{
+  font-weight: 700;
+  letter-spacing: .18em;
+  color: var(--ink);
+}
+.contract-strip-value{
+  color: var(--red);
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+.contract-strip-copy{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border: 1px solid var(--line-2);
+  background: #fff;
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  cursor: pointer;
+  transition: color .2s, border-color .2s, background .2s;
+}
+.contract-strip-copy:hover{
+  color: var(--red);
+  border-color: var(--red);
+  background: var(--bg-2);
+}
+.contract-strip-copy svg{
+  width: 12px;
+  height: 12px;
+  display: block;
+}
+.contract-strip-copy.copied{
+  color: var(--red);
+  border-color: var(--red);
+  background: var(--bg-2);
+}
+
+/* MARQUEE */
+.marquee{
+  background: var(--red);
+  color: #fff;
+  overflow: hidden;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.marquee-track{
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  padding-left: 34px;
+  white-space: nowrap;
+  animation: marquee 100s linear infinite;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .22em;
+}
+.marquee-track i{
+  display: inline-block;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: #fff;
+  opacity: .7;
+}
+.marquee-check{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.marquee-value{
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+@keyframes marquee{ to { transform: translateX(-50%); } }
+
+/* SECTION */
+.section{
+  padding-block: var(--sec-y);
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  background: #ffffff;
+}
+.section--soft{ background: var(--bg-2); }
+
+.section-head{
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 420px);
+  align-items: end;
+  gap: clamp(20px, 4vw, 60px);
+  margin-bottom: clamp(36px, 4.5vw, 64px);
+  position: relative;
+  z-index: 1;
+}
+.section-tag{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .22em;
+  color: var(--ink);
+}
+.section-tag::before{
+  content: ">";
+  color: var(--red);
+  font-weight: 900;
+}
+.section-tag::after{
+  content: "";
+  width: 22px; height: 1px;
+  background: var(--red);
+  margin-left: -4px;
+}
+.section-title{
+  font-size: clamp(38px, 5vw, 64px);
+  line-height: .96;
+  letter-spacing: -.045em;
+  font-weight: 900;
+  color: var(--ink);
+  position: relative;
+}
+.section-lead{
+  font-size: clamp(14px, 1.02vw, 15.5px);
+  line-height: 1.7;
+  color: var(--muted);
+  padding-left: 14px;
+  border-left: 2px solid var(--red);
+}
+
+/* 关于 CHILI */
+.about-statement{
+  font-size: clamp(26px, 2.6vw, 40px);
+  line-height: 1.3;
+  letter-spacing: -.02em;
+  font-weight: 800;
+  color: var(--ink);
+  max-width: 32ch;
+  margin-bottom: clamp(28px, 3vw, 42px);
+  position: relative;
+  z-index: 1;
+}
+.about-statement em{
+  font-style: normal;
+  color: var(--red);
+}
+.about-tags{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: clamp(36px, 4.5vw, 60px);
+  position: relative;
+  z-index: 1;
+}
+.about-tag{
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  border: 1px solid var(--line-2);
+  background: #fff;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  color: var(--muted);
+  transition: color .2s, border-color .2s;
+}
+.about-tag:hover{
+  color: var(--red);
+  border-color: var(--red);
+}
+.about-tag::before{
+  content: "";
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--red);
+}
+.about-note{
+  padding: clamp(24px, 2.8vw, 36px) clamp(24px, 3vw, 44px);
+  border: 1px solid var(--line-2);
+  background: var(--bg-2);
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(20px, 3vw, 40px);
+  align-items: start;
+}
+.about-note::before{
+  content: "";
+  position: absolute;
+  top: -1px; left: -1px;
+  width: 14px; height: 14px;
+  border-top: 2px solid var(--red);
+  border-left: 2px solid var(--red);
+}
+.about-note::after{
+  content: "";
+  position: absolute;
+  bottom: -1px; right: -1px;
+  width: 14px; height: 14px;
+  border-bottom: 2px solid var(--red);
+  border-right: 2px solid var(--red);
+}
+.about-note-mark{
+  font-family: var(--mono);
+  font-size: 42px;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--red);
+  user-select: none;
+}
+.about-note-body{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.about-note-tag{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .2em;
+  color: var(--red);
+  margin-bottom: 4px;
+}
+.about-note-tag::before{
+  content: "";
+  width: 18px; height: 1px;
+  background: var(--red);
+}
+.about-note p{
+  font-size: clamp(14px, 1.05vw, 15.5px);
+  line-height: 1.75;
+  color: var(--ink);
+  max-width: 88ch;
+}
+.about-note strong{
+  color: var(--red);
+  font-weight: 700;
+}
+
+/* —— 代币详情表 —— */
+.detail-section{
+  position: relative;
+  z-index: 1;
+}
+.detail-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.detail-title{
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .22em;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.detail-title::before{
+  content: ">";
+  color: var(--red);
+  font-weight: 900;
+}
+
+.detail-table{
+  border: 1px solid var(--line);
+  background: #fff;
+}
+.detail-row{
+  display: grid;
+  grid-template-columns: minmax(0, 160px) minmax(0, 1fr);
+  gap: 16px;
+  padding: 15px 20px;
+  border-bottom: 1px solid var(--line);
+  align-items: center;
+}
+.detail-row:last-child{ border-bottom: none; }
+.detail-row-label{
+  font-family: var(--mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  color: var(--muted);
+}
+.detail-row-value{
+  font-family: var(--mono);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--ink);
+  word-break: break-all;
+}
+.detail-row-value.accent{ color: var(--red); }
+
+.detail-row--contract{
+  display: block;
+  padding: 18px 20px;
+}
+.detail-row--contract .detail-row-label{
+  display: block;
+  margin-bottom: 10px;
+}
+.contract-inline{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.contract-inline-value{
+  font-family: var(--mono);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--red);
+  word-break: break-all;
+  letter-spacing: .02em;
+}
+.contract-inline-copy{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid var(--line-2);
+  background: #fff;
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  cursor: pointer;
+  transition: color .2s, border-color .2s, background .2s;
+  flex: 0 0 auto;
+}
+.contract-inline-copy:hover{
+  color: var(--red);
+  border-color: var(--red);
+  background: var(--bg-2);
+}
+.contract-inline-copy svg{
+  width: 12px;
+  height: 12px;
+  display: block;
+}
+.contract-inline-copy.copied{
+  color: var(--red);
+  border-color: var(--red);
+  background: var(--bg-2);
+}
+
+.data-actions{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: clamp(24px, 3vw, 36px);
+  position: relative;
+  z-index: 1;
+}
+.data-action{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border: 1px solid var(--line-2);
+  background: #fff;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  color: var(--ink);
+  transition: color .2s, border-color .2s, background .2s;
+  cursor: pointer;
+}
+.data-action:hover{
+  color: var(--red);
+  border-color: var(--red);
+  background: var(--bg-2);
+}
+.data-action svg{
+  width: 14px;
+  height: 14px;
+  display: block;
+}
+
+/* 社区 */
+.contact-links{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(14px, 1.5vw, 20px);
+  margin-top: clamp(28px, 3vw, 40px);
+  position: relative;
+  z-index: 1;
+}
+.contact-link{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  background: #fff;
+  transition: transform .25s, border-color .25s, box-shadow .25s;
+}
+.contact-link:hover{
+  transform: translateY(-3px);
+  border-color: var(--red);
+  box-shadow: 0 12px 28px -22px rgba(230,0,0,.55);
+}
+.contact-link-main{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+.contact-link-icon{
+  width: 28px;
+  height: 28px;
+  flex: 0 0 28px;
+  display: grid;
+  place-items: center;
+  color: var(--red);
+}
+.contact-link-icon img{
+  width: 28px;
+  height: 28px;
+  display: block;
+  object-fit: contain;
+}
+.contact-link-icon svg{
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.contact-link-label{
+  font-family: var(--mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  color: var(--muted);
+}
+.contact-link-value{
+  margin-top: 5px;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink);
+  word-break: break-all;
+}
+.contact-link-arrow{
+  color: var(--red);
+  font-family: var(--mono);
+  font-weight: 900;
+  flex: 0 0 auto;
+}
+
+/* FOOTER */
+footer{
+  padding-block: 30px;
+  background: #fff;
+  border-top: 1px solid var(--line);
+  position: relative;
+}
+.footer-inner{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .16em;
+  color: var(--muted);
+}
+.footer-inner .brand{ color: var(--ink); font-weight: 700; }
+.footer-inner .brand em{ color: var(--red); font-style: normal; }
+.footer-links{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.footer-links a{
+  display: inline-grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  transition: color .2s, border-color .2s,
+              background .2s, transform .2s;
+}
+.footer-links a img{
+  width: 24px;
+  height: 24px;
+  display: block;
+  object-fit: contain;
+}
+.footer-links a svg{
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+.footer-links a:hover{
+  color: var(--red);
+  border-color: var(--red);
+  background: var(--bg-2);
+  transform: translateY(-2px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1080px){
+  .nav-links{ display: none; }
+  .nav-inner{ grid-template-columns: 1fr auto; }
+
+  .hero-inner{
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-block: 52px 60px 120px;
+    gap: 60px;
+  }
+  .hero-visual{ max-width: 460px; }
+
+  .section-head{
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 18px;
+  }
+
+  .about-note{ grid-template-columns: 1fr; gap: 12px; }
+  .about-note-mark{ font-size: 32px; }
+  .contact-links{ grid-template-columns: 1fr; }
+}
+
+@media (max-width: 680px){
+  .topbar-inner{
+    gap: 6px;
+    font-size: 8.5px;
+    letter-spacing: .02em;
+    height: 28px;
+    justify-content: space-between;
+  }
+  .topbar-inner b{ margin-left: 3px; }
+  .topbar-item{ gap: 1px; }
+  .dot{
+    width: 5px; height: 5px;
+    margin-right: 4px;
+  }
+
+  .hero-ruler{ display: none; }
+
+  .hero-title{ letter-spacing: -.045em; }
+
+  .hero-visual{ max-width: 320px; }
+
+  .readout{ font-size: 8.5px; padding: 7px 10px 7px 12px; }
+
+  .readout-1{
+    top: -2%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .readout-2{ top: 42%; left: -4px; }
+  .readout-5{ top: 42%; right: -4px; }
+  .readout-3{ bottom: 12%; left: -4px; }
+  .readout-4{ bottom: 12%; right: 4%; }
+
+  .contract-strip{
+    bottom: -70px;
+    gap: 8px;
+    padding: 8px 10px 8px 12px;
+    font-size: 8px;
+    max-width: calc(100% - 16px);
+  }
+  .contract-strip-value{
+    max-width: 130px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .contract-strip-copy{
+    padding: 4px 8px;
+    font-size: 8px;
+  }
+  .contract-strip-copy svg{ width: 10px; height: 10px; }
+
+  .detail-row{
+    display: block;
+    padding: 16px 18px;
+  }
+  .detail-row-label{
+    display: block;
+    margin-bottom: 8px;
+    font-size: 9px;
+    letter-spacing: .22em;
+    color: var(--muted-2);
+  }
+  .detail-row-value{
+    display: block;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .detail-row--contract{
+    padding: 16px 18px;
+  }
+  .detail-row--contract .detail-row-label{
+    margin-bottom: 10px;
+  }
+  .contract-inline{
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .contract-inline-value{
+    font-size: 12px;
+    line-height: 1.55;
+    word-break: break-all;
+  }
+  .contract-inline-copy{
+    justify-content: center;
+    padding: 9px 12px;
+  }
+
+  .hero-actions{
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .btn{
+    flex: 1 1 0;
+    width: auto;
+    padding: 12px 10px;
+    font-size: 10px;
+    letter-spacing: .1em;
+    gap: 6px;
+  }
+
+  .nav-inner{ height: 64px; }
+  .logo img{ height: 36px; max-width: 150px; }
+  .logo-text { font-size: 14px; }
+  .nav-cta{
+    padding: 7px 10px;
+    font-size: 9px;
+    letter-spacing: .1em;
+  }
+  .lang-switch button{ padding: 6px 7px; font-size: 9px; }
+
+  footer{
+    padding-block: 40px;
+  }
+  .footer-inner{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    text-align: center;
+  }
+  .footer-inner .brand{ order: 1; }
+  .footer-inner > span[data-en]{ order: 2; }
+  .footer-links{
+    order: 3;
+    gap: 14px;
+  }
+}
+</style>
+</head>
+
+<body>
+<!-- TOP STATUS BAR -->
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <span class="topbar-item">
+      <i class="dot"></i>
+      <span data-en="SYSTEM ONLINE" data-zh="系统在线">系统在线</span>
+    </span>
+    <span class="topbar-item">
+      <span data-en="BNB CHAIN · BLOCK" data-zh="BNB 链 · 区块">BNB 链 · 区块</span>
+      <b id="blockNum">—</b>
+    </span>
+    <span class="topbar-item">
+      <span data-en="GAS" data-zh="GAS">GAS</span>
+      <b id="gasPrice">—</b>
+    </span>
+    <span class="topbar-item" data-en-html="CHILI/USDT · <b>LIVE</b>"
+          data-zh-html="CHILI/USDT · <b>实时</b>">
+      CHILI/USDT · <b>实时</b>
+    </span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="navbar">
+  <div class="wrap nav-inner">
+    <a class="logo" href="#" aria-label="小辣椒 CHILI">
+      <img src="logo-red32.svg" alt="小辣椒 CHILI">
+      <span class="logo-text" data-en="CHILI" data-zh="小辣椒 CHILI">小辣椒 CHILI</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="#about" data-en="01 · ABOUT" data-zh="01 · 关于">01 · ABOUT</a>
+      <a href="#data" data-en="02 · DATA" data-zh="02 · 数据">02 · DATA</a>
+      <a href="#community" data-en="03 · COMMUNITY" data-zh="03 · 社区">03 · COMMUNITY</a>
+    </div>
+
+    <div class="nav-right">
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-lang="en" class="active">EN</button>
+        <button type="button" data-lang="zh">中文</button>
+      </div>
+      <!-- ===== 购买按钮链接改为 DexScreener ===== -->
+      <a class="nav-cta"
+         href="https://dexscreener.com/bsc/0xEd3Caca4903256fB3E4997BC0C7830D19Fb35f7c"
+         target="_blank" rel="noopener"
+         data-en="BUY CHILI ↗" data-zh="购买 CHILI ↗">
+        购买 CHILI ↗
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-ruler"></div>
+  <div class="wrap hero-inner">
+    <div class="hero-content">
+      <div class="hero-eyebrow"
+           data-en-html="<i></i> BNB CHAIN · ON-CHAIN TOKEN"
+           data-zh-html="<i></i> BNB 链 · 链上代币">
+        <i></i> BNB 链 · 链上代币
+      </div>
+      <h1 class="hero-title">CHI<span>LI</span></h1>
+      <div class="hero-sub">
+        <span data-en-html="NETWORK <b>BNB</b>"
+              data-zh-html="网络 <b>BNB</b>">
+          网络 <b>BNB</b>
+        </span>
+        <span data-en-html="PAIR <b>CHILI / USDT</b>"
+              data-zh-html="交易对 <b>CHILI / USDT</b>">
+          交易对 <b>CHILI / USDT</b>
+        </span>
+        <span data-en-html="STATUS <b>ACTIVE</b>"
+              data-zh-html="状态 <b>运行中</b>">
+          状态 <b>运行中</b>
+        </span>
+      </div>
+      <p class="hero-desc"
+         data-en="A next-generation community token built on BNB Chain. Simple. Transparent. On-chain."
+         data-zh="基于 BNB 链构建的新一代社区代币。简单。透明。链上。">
+        基于 BNB 链构建的新一代社区代币。简单。透明。链上。
+      </p>
+      <div class="hero-actions">
+        <!-- ===== 购买按钮链接改为 DexScreener ===== -->
+        <a class="btn btn-primary"
+           href="https://dexscreener.com/bsc/0xEd3Caca4903256fB3E4997BC0C7830D19Fb35f7c"
+           target="_blank" rel="noopener"
+           data-en="▶ BUY CHILI" data-zh="▶ 购买 CHILI">
+          ▶ 购买 CHILI
+        </a>
+        <a class="btn btn-outline" href="#data"
+           data-en="▼ VIEW ON-CHAIN DATA" data-zh="▼ 查看链上数据">
+          ▼ 查看链上数据
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hv-ticks"></div>
+      <div class="hv-ticks-major"></div>
+      <div class="hv-ticks-inner"></div>
+      <div class="hv-ticks-center"></div>
+      <div class="hv-ring-outer"></div>
+      <div class="hv-ring-mid"></div>
+      <div class="hv-ring-inner"></div>
+      <div class="hv-orbit-a"></div>
+      <div class="hv-orbit-b"></div>
+      <div class="hv-orbit-c"></div>
+      <div class="hv-scan"></div>
+      <div class="hv-halo hv-halo-1"></div>
+      <div class="hv-halo hv-halo-2"></div>
+
+      <div class="hv-core">
+        <img src="logo-red32.svg" alt="CHILI">
+      </div>
+
+      <div class="hv-node hv-node-1"></div>
+      <div class="hv-node hv-node-2"></div>
+      <div class="hv-node hv-node-3"></div>
+
+      <div class="readout readout-1"
+           data-en-html="NETWORK // <b class='red'>BNB Smart Chain (BSC)</b>"
+           data-zh-html="网络 // <b class='red'>BNB Smart Chain (BSC)</b>">
+        网络 // <b class="red">BNB Smart Chain (BSC)</b>
+      </div>
+
+      <div class="readout readout-2"
+           data-en-html="TOKEN NAME // <b class='red'>小辣椒</b>"
+           data-zh-html="代币名称 // <b class='red'>小辣椒</b>">
+        代币名称 // <b class="red">小辣椒</b>
+      </div>
+
+      <div class="readout readout-5"
+           data-en-html="TOKEN SYMBOL // <b class='red'>CHILI</b>"
+           data-zh-html="代币符号 // <b class='red'>CHILI</b>">
+        代币符号 // <b class="red">CHILI</b>
+      </div>
+
+      <div class="readout readout-3"
+           data-en-html="TOTAL SUPPLY // <b class='red' id='supplyHero'>LOADING</b>"
+           data-zh-html="总供应量 // <b class='red' id='supplyHero'>加载中</b>">
+        总供应量 // <b class="red" id="supplyHero">加载中</b>
+      </div>
+
+      <div class="readout readout-4"
+           data-en-html="HOLDERS // <b class='red' id='holdersHero'>LOADING</b>"
+           data-zh-html="持币人数 // <b class='red' id='holdersHero'>加载中</b>">
+        持币人数 // <b class="red" id="holdersHero">加载中</b>
+      </div>
+
+      <div class="contract-strip">
+        <span class="contract-strip-label" data-en="CONTRACT" data-zh="合约地址">合约地址</span>
+        <span class="contract-strip-value" id="contractAddr">0xEd3Caca4903256fB3E4997BC0C7830D19Fb35f7c</span>
+        <button class="contract-strip-copy" id="copyBtn" type="button" aria-label="复制合约地址">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="8" width="12" height="12" rx="1.5" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M16 8V5.5C16 4.7 15.3 4 14.5 4H5.5C4.7 4 4 4.7 4 5.5V14.5C4 15.3 4.7 16 5.5 16H8" stroke="currentColor" stroke-width="1.8"/>
+          </svg>
+          <span class="copy-text" data-en="COPY" data-zh="复制">复制</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span data-en="小辣椒" data-zh="小辣椒">小辣椒</span><i></i>
+    <span data-en="CHILI" data-zh="CHILI">CHILI</span><i></i>
+    <span data-en="BNB Smart Chain (BSC)" data-zh="BNB Smart Chain (BSC)">BNB Smart Chain (BSC)</span><i></i>
+    <span data-en="TOTAL SUPPLY" data-zh="总供应量">总供应量</span>
+    <span class="marquee-value" id="marqueeSupply">—</span><i></i>
+    <span class="marquee-check">
+      <span data-en="HONEYPOT" data-zh="蜜罐检测">蜜罐检测</span>
+      <b class="marquee-value" data-marquee="honeypot">—</b>
+    </span><i></i>
+    <span class="marquee-check">
+      <span data-en="BUY/SELL TAX" data-zh="买入/卖出税">买入/卖出税</span>
+      <b class="marquee-value" data-marquee="tax">—</b>
+    </span><i></i>
+    <span class="marquee-check">
+      <span data-en="MINTABLE" data-zh="可增发">可增发</span>
+      <b class="marquee-value" data-marquee="mintable">—</b>
+    </span><i></i>
+    <span class="marquee-check">
+      <span data-en="PROXY" data-zh="代理合约">代理合约</span>
+      <b class="marquee-value" data-marquee="proxy">—</b>
+    </span><i></i>
+    <span class="marquee-check">
+      <span data-en="OWNER" data-zh="所有者权限">所有者权限</span>
+      <b class="marquee-value" data-marquee="owner">—</b>
+    </span><i></i>
+    <span data-en="LIQUIDITY LIVE" data-zh="流动性已上线">流动性已上线</span><i></i>
+    <span data-en="COMMUNITY DRIVEN" data-zh="社区驱动">社区驱动</span><i></i>
+    <span data-en="ON-CHAIN" data-zh="链上">链上</span><i></i>
+
+    <span data-en="小辣椒" data-zh="小辣椒">小辣椒</span><i></i>
+    <span data-en="CHILI" data-zh="CHILI">CHILI</span><i></i>
+    <span data-en="BNB Smart Chain (BSC)" data-zh="BNB Smart Chain (BSC)">BNB Smart Chain (BSC)</span><i></i>
+    <span data-en="TOTAL SUPPLY" data-zh="总供应量">总供应量</span>
+    <span class="marquee-value" id="marqueeSupply2">—</span><i></i>
+    <span class="marquee-check">
+      <span data-en="HONEYPOT" data-zh="蜜罐检测">蜜罐检测</span>
+      <b class="marquee-value" data-marquee="honeypot">—</b>
+    </span><i></i>
+    <span class="marquee-check">
+      <span data-en="BUY/SELL TAX" data-zh="买入/卖出税">买入/卖出税</span>
+      <b class="marquee-value" data-marquee="tax">—</b>
+    </span><i></i>
+    <span class="marquee-check">
+      <span data-en="MINTABLE" data-zh="可增发">可增发</span>
+      <b class="marquee-value" data-marquee="mintable">—</b>
+    </span><i></i>
+    <span class="marquee-check">
+      <span data-en="PROXY" data-zh="代理合约">代理合约</span>
+      <b class="marquee-value" data-marquee="proxy">—</b>
+    </span><i></i>
+    <span class="marquee-check">
+      <span data-en="OWNER" data-zh="所有者权限">所有者权限</span>
+      <b class="marquee-value" data-marquee="owner">—</b>
+    </span><i></i>
+    <span data-en="LIQUIDITY LIVE" data-zh="流动性已上线">流动性已上线</span><i></i>
+    <span data-en="COMMUNITY DRIVEN" data-zh="社区驱动">社区驱动</span><i></i>
+    <span data-en="ON-CHAIN" data-zh="链上">链上</span><i></i>
+  </div>
+</div>
+
+<!-- 01 · 关于 CHILI -->
+<section id="about" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-tag" data-en="01 · ABOUT" data-zh="01 · 关于">01 · 关于</div>
+        <h2 class="section-title"
+            data-en-html="WHAT IS<br>CHILI?"
+            data-zh-html="CHILI<br>是什么？">
+          CHILI<br>是什么？
+        </h2>
+      </div>
+      <p class="section-lead"
+         data-en="CHILI was initiated and created by an independent developer. The project is at an early stage, and everything important is disclosed in public."
+         data-zh="CHILI 由独立开发者发起创建，项目处于早期阶段，重要信息全部公开披露。">
+        CHILI 由独立开发者发起创建，项目处于早期阶段，重要信息全部公开披露。
+      </p>
+    </div>
+
+    <p class="about-statement"
+       data-en-html="Simple. <em>Transparent.</em> On-chain."
+       data-zh-html="简单。<em>透明。</em>链上。">
+      简单。<em>透明。</em>链上。
+    </p>
+
+    <div class="about-tags">
+      <span class="about-tag" data-en="COMMUNITY DRIVEN" data-zh="社区驱动">社区驱动</span>
+      <span class="about-tag" data-en="INDEPENDENT DEVELOPER" data-zh="独立开发者">独立开发者</span>
+      <span class="about-tag" data-en="EARLY STAGE" data-zh="早期阶段">早期阶段</span>
+      <span class="about-tag" data-en="NO PRESALE" data-zh="无预售">无预售</span>
+    </div>
+
+    <div class="about-note">
+      <div class="about-note-mark">//</div>
+      <div class="about-note-body">
+        <div class="about-note-tag"
+             data-en="PROJECT &amp; FOUNDER DISCLOSURE"
+             data-zh="项目方与创始人说明">项目方与创始人说明</div>
+
+        <p data-en="小辣椒 CHILI was initiated and created by an independent developer, and is currently developed, maintained and built by an individual."
+           data-zh="小辣椒 CHILI 由独立开发者发起创建，目前由个人负责项目开发、维护与建设。">
+          小辣椒 CHILI 由独立开发者发起创建，目前由个人负责项目开发、维护与建设。
+        </p>
+
+        <p data-en="The founder is responsible for smart contract deployment, official website construction, project documentation maintenance, and community operations."
+           data-zh="创始人负责智能合约部署、官方网站建设、项目文档维护以及社区运营等相关工作。">
+          创始人负责智能合约部署、官方网站建设、项目文档维护以及社区运营等相关工作。
+        </p>
+
+        <p data-en="CHILI does not have a traditional team structure and is at an early stage of development. Project-related information — including contract address, tokenomics, roadmap and code — is continuously updated through the official website and public channels."
+           data-zh="CHILI 不设立传统团队架构，项目目前处于早期发展阶段。项目相关信息，包括合约地址、代币经济模型、发展规划和代码信息，均通过官方网站及公开渠道持续更新。">
+          CHILI 不设立传统团队架构，项目目前处于早期发展阶段。项目相关信息，包括合约地址、代币经济模型、发展规划和代码信息，均通过官方网站及公开渠道持续更新。
+        </p>
+
+        <p data-en="小辣椒 CHILI is a community-driven token. Through an open and transparent approach, we hope to witness the project's development together with all participants."
+           data-zh="小辣椒 CHILI 是一个社区驱动型代币，希望通过公开透明的方式，与参与者共同见证项目的发展过程。">
+          小辣椒 CHILI 是一个社区驱动型代币，希望通过公开透明的方式，与参与者共同见证项目的发展过程。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 · 链上数据 -->
+<section id="data" class="section section--soft">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-tag" data-en="02 · DATA" data-zh="02 · 数据">02 · 数据</div>
+        <h2 class="section-title"
+            data-en-html="SECURITY &<br>ON-CHAIN."
+            data-zh-html="合约安全<br>与链上信息。">
+          合约安全<br>与链上信息。
+        </h2>
+      </div>
+      <p class="section-lead"
+         data-en="Contract security from GoPlus. On-chain state from BNB Smart Chain. All data read directly from public sources."
+         data-zh="合约安全来自 GoPlus 检测。链上状态来自 BNB Smart Chain。所有数据均直接读取自公开来源。">
+        合约安全来自 GoPlus 检测。链上状态来自 BNB Smart Chain。所有数据均直接读取自公开来源。
+      </p>
+    </div>
+
+    <div class="detail-section">
+      <div class="detail-header">
+        <div class="detail-title" data-en="TOKEN DETAILS" data-zh="代币详情">代币详情</div>
+      </div>
+      <div class="detail-table">
+        <div class="detail-row">
+          <span class="detail-row-label" data-en="NETWORK" data-zh="网络">网络</span>
+          <span class="detail-row-value">BNB Smart Chain (BSC)</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-row-label" data-en="TOKEN NAME" data-zh="代币名称">代币名称</span>
+          <span class="detail-row-value">小辣椒</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-row-label" data-en="TOKEN SYMBOL" data-zh="代币符号">代币符号</span>
+          <span class="detail-row-value">CHILI</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-row-label" data-en="TOTAL SUPPLY" data-zh="总供应量">总供应量</span>
+          <span class="detail-row-value accent" id="statSupply">加载中</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-row-label" data-en="HOLDERS" data-zh="持币人数">持币人数</span>
+          <span class="detail-row-value" id="holdersTable">加载中</span>
+        </div>
+        <div class="detail-row detail-row--contract">
+          <span class="detail-row-label" data-en="CONTRACT ADDRESS" data-zh="合约地址">合约地址</span>
+          <div class="contract-inline">
+            <span class="contract-inline-value" id="contractDetail">0xEd3Caca4903256fB3E4997BC0C7830D19Fb35f7c</span>
+            <button class="contract-inline-copy" id="copyBtnTable" type="button" aria-label="复制合约地址">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="8" y="8" width="12" height="12" rx="1.5" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M16 8V5.5C16 4.7 15.3 4 14.5 4H5.5C4.7 4 4 4.7 4 5.5V14.5C4 15.3 4.7 16 5.5 16H8" stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+              <span class="copy-text" data-en="COPY" data-zh="复制">复制</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="data-actions">
+      <a class="data-action"
+         href="https://bscscan.com/token/0xEd3Caca4903256fB3E4997BC0C7830D19Fb35f7c"
+         target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M15 3h6v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M10 14L21 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <span data-en="VIEW ON BSCSCAN ↗" data-zh="在 BscScan 查看 ↗">在 BscScan 查看 ↗</span>
+      </a>
+      <a class="data-action"
+         href="https://dexscreener.com/bsc/0xEd3Caca4903256fB3E4997BC0C7830D19Fb35f7c"
+         target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M3.5 12H20.5M12 3C14.2 5.4 15.3 8.4 15.3 12C15.3 15.6 14.2 18.6 12 21C9.8 18.6 8.7 15.6 8.7 12C8.7 8.4 9.8 5.4 12 3Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span data-en="VIEW ON DEXSCREENER ↗" data-zh="在 DexScreener 查看 ↗">在 DexScreener 查看 ↗</span>
+      </a>
+      <a class="data-action"
+         href="https://console.gopluslabs.io/token-security/56/0xed3caca4903256fb3e4997bc0c7830d19fb35f7c"
+         target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L3 7v5c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+          <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span data-en="VIEW FULL SECURITY REPORT ↗" data-zh="查看完整安全报告 ↗">查看完整安全报告 ↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 03 · 社区 -->
+<section id="community" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-tag" data-en="03 · COMMUNITY" data-zh="03 · 社区">03 · 社区</div>
+        <h2 class="section-title"
+            data-en-html="JOIN<br>THE HEAT."
+            data-zh-html="加入社区。">
+          JOIN<br>THE HEAT.
+        </h2>
+      </div>
+      <p class="section-lead"
+         data-en="Telegram, official website and email. One CHILI community, built in public."
+         data-zh="Telegram、官方网站和邮箱。一个 CHILI 社区，公开构建。">
+        Telegram、官方网站和邮箱。一个 CHILI 社区，公开构建。
+      </p>
+    </div>
+
+    <div class="contact-links">
+      <a class="contact-link" href="mailto:ayudekaka@gmail.com">
+        <div class="contact-link-main">
+          <div class="contact-link-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="3" y="5" width="18" height="14" rx="1.5" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M4 7L12 13L20 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <div class="contact-link-label" data-en="OFFICIAL EMAIL" data-zh="官方邮箱">官方邮箱</div>
+            <div class="contact-link-value">ayudekaka@gmail.com</div>
+          </div>
+        </div>
+        <div class="contact-link-arrow">↗</div>
+      </a>
+
+      <a class="contact-link" href="https://ayudekaka.github.io/ChiLi/" target="_blank" rel="noopener">
+        <div class="contact-link-main">
+          <div class="contact-link-icon" aria-hidden="true">
+            <img src="logo-red32.svg" alt="小辣椒 CHILI">
+          </div>
+          <div>
+            <div class="contact-link-label" data-en="OFFICIAL WEBSITE" data-zh="官方网站">官方网站</div>
+            <div class="contact-link-value">ayudekaka.github.io/ChiLi/</div>
+          </div>
+        </div>
+        <div class="contact-link-arrow">↗</div>
+      </a>
+
+      <a class="contact-link" href="https://t.me/xiaolajiaoCHILI" target="_blank" rel="noopener">
+        <div class="contact-link-main">
+          <div class="contact-link-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M21.5 4.5L18.4 19.2C18.2 20.2 17.6 20.5 16.8 20L12.5 16.8L10.4 18.8C10.2 19 10 19.2 9.6 19.2L9.9 14.7L18.1 7.3C18.5 7 18 6.8 17.4 7.1L7.3 13.5L2.9 12.1C1.9 11.8 1.9 11.1 3.1 10.6L20.2 4C21 3.7 21.8 4 21.5 4.5Z" fill="currentColor"/>
+            </svg>
+          </div>
+          <div>
+            <div class="contact-link-label" data-en="TELEGRAM COMMUNITY" data-zh="Telegram 社区">Telegram 社区</div>
+            <div class="contact-link-value">t.me/xiaolajiaoCHILI</div>
+          </div>
+        </div>
+        <div class="contact-link-arrow">↗</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap footer-inner">
+    <span class="brand">[ 小辣椒 CHILI <em>//</em> © 2026 ]</span>
+    <span data-en="BUILT ON BNB CHAIN · COMMUNITY DRIVEN"
+          data-zh="基于 BNB 链构建 · 社区驱动">
+      基于 BNB 链构建 · 社区驱动
+    </span>
+    <div class="footer-links">
+      <a href="mailto:ayudekaka@gmail.com" aria-label="Email" title="Email">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="5" width="18" height="14" rx="1.5" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M4 7L12 13L20 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <a href="https://ayudekaka.github.io/ChiLi/" target="_blank" rel="noopener" aria-label="Website" title="Website">
+        <img src="logo-red32.svg" alt="小辣椒 CHILI">
+      </a>
+      <a href="https://t.me/xiaolajiaoCHILI" target="_blank" rel="noopener" aria-label="Telegram" title="Telegram">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21.5 4.5L18.4 19.2C18.2 20.2 17.6 20.5 16.8 20L12.5 16.8L10.4 18.8C10.2 19 10 19.2 9.6 19.2L9.9 14.7L18.1 7.3C18.5 7 18 6.8 17.4 7.1L7.3 13.5L2.9 12.1C1.9 11.8 1.9 11.1 3.1 10.6L20.2 4C21 3.7 21.8 4 21.5 4.5Z" fill="currentColor"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- 数据脚本 -->
+<script>
+const chainDataCache = { supply: null, holders: null };
+
+(function(){
+  'use strict';
+  const CONTRACT = '0xEd3Caca4903256fB3E4997BC0C7830D19Fb35f7c';
+  const CONTRACT_LOWER = CONTRACT.toLowerCase();
+  const CHAIN_ID = '56';
+  const GOPLUS_API = 'https://api.gopluslabs.io/api/v1/token_security/' + CHAIN_ID + '?contract_addresses=' + CONTRACT_LOWER;
+  const RPC_ENDPOINTS = [
+    'https://bsc.publicnode.com',
+    'https://bsc-dataseed1.defibit.io',
+    'https://bsc-dataseed1.ninicoin.io',
+    'https://bsc-dataseed.binance.org',
+    'https://binance.llamarpc.com'
+  ];
+
+  function fmt(n){
+    if (n === null || n === undefined || isNaN(n)) return '—';
+    return Number(n).toLocaleString('en-US');
+  }
+  function setText(id, text){
+    const el = document.getElementById(id);
+    if (el) el.textContent = text;
+  }
+  function setMarqueeValue(key, text){
+    document.querySelectorAll('[data-marquee="' + key + '"]').forEach(function(el){
+      el.textContent = text;
+    });
+  }
+  function setMarqueeSupply(text){
+    ['marqueeSupply', 'marqueeSupply2'].forEach(function(id){
+      const el = document.getElementById(id);
+      if (el) el.textContent = text;
+    });
+  }
+
+  function injectContractAddress(){
+    ['contractAddr', 'contractDetail'].forEach(function(id){
+      const el = document.getElementById(id);
+      if (el) el.textContent = CONTRACT;
+    });
+  }
+
+  function setCheck(id, value){
+    const key = id.charAt(0).toLowerCase() + id.slice(1);
+    if (key !== 'buyTax' && key !== 'sellTax') {
+      setMarqueeValue(key, value);
+    }
+  }
+
+  async function fetchGoPlus(){
+    try {
+      const res = await fetch(GOPLUS_API);
+      const json = await res.json();
+      if (json.code !== 1 || !json.result) throw new Error('GoPlus code ' + json.code);
+      const data = json.result[CONTRACT_LOWER];
+      if (!data) throw new Error('No data');
+
+      const honeypot = data.is_honeypot === '1';
+      setCheck('Honeypot', honeypot ? 'YES' : 'NO');
+
+      const buyTaxNum = data.buy_tax ? parseFloat(data.buy_tax) : 0;
+      const sellTaxNum = data.sell_tax ? parseFloat(data.sell_tax) : 0;
+      const maxTax = Math.max(buyTaxNum, sellTaxNum);
+      setMarqueeValue('tax', (maxTax * 100).toFixed(1) + '%');
+
+      const mintable = data.is_mintable === '1';
+      setCheck('Mintable', mintable ? 'YES' : 'NO');
+
+      const proxy = data.is_proxy === '1';
+      setCheck('Proxy', proxy ? 'YES' : 'NO');
+
+      const ownerRisk = data.owner_change_balance === '1' || data.can_take_back_ownership === '1' || data.hidden_owner === '1';
+      setCheck('Owner', ownerRisk ? 'YES' : 'NO');
+
+      if (data.holder_count) {
+        const holders = Number(data.holder_count).toLocaleString('en-US');
+        chainDataCache.holders = holders;
+        setText('holdersHero', holders);
+        setText('holdersTable', holders);
+      } else {
+        chainDataCache.holders = '—';
+        setText('holdersHero', '—');
+        setText('holdersTable', '—');
+      }
+
+      if (data.total_supply) {
+        const s = fmt(Number(data.total_supply)) + ' 枚';
+        chainDataCache.supply = s;
+        setText('supplyHero', s);
+        setText('statSupply', s);
+        setMarqueeSupply(s);
+      }
+
+      return data;
+    } catch(e) {
+      ['Honeypot','Mintable','Proxy','Owner'].forEach(function(id){
+        setCheck(id, '—');
+      });
+      setMarqueeValue('tax', '—');
+      return null;
+    }
+  }
+
+  async function rpcCall(method, params){
+    for (let i = 0; i < RPC_ENDPOINTS.length; i++) {
+      try {
+        const res = await fetch(RPC_ENDPOINTS[i], {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ jsonrpc: '2.0', id: 1, method, params: params || [] })
+        });
+        const json = await res.json();
+        if (json && json.result) return json.result;
+      } catch(e) { continue; }
+    }
+    return null;
+  }
+
+  async function readTotalSupplyFromRPC(){
+    try {
+      const decimalsHex = await rpcCall('eth_call', [{ to: CONTRACT, data: '0x313ce567' }, 'latest']);
+      let decimals = 18;
+      if (decimalsHex && decimalsHex !== '0x') {
+        const d = parseInt(decimalsHex, 16);
+        if (!isNaN(d) && d >= 0 && d <= 36) decimals = d;
+      }
+      const supplyHex = await rpcCall('eth_call', [{ to: CONTRACT, data: '0x18160ddd' }, 'latest']);
+      if (!supplyHex || supplyHex === '0x') return null;
+      const supplyBig = BigInt(supplyHex);
+      const divisor = 10n ** BigInt(decimals);
+      const whole = supplyBig / divisor;
+      const fraction = supplyBig % divisor;
+      let display;
+      if (fraction === 0n) display = Number(whole).toLocaleString('en-US');
+      else {
+        const f = fraction.toString().padStart(decimals, '0').slice(0, 4);
+        display = Number(whole).toLocaleString('en-US') + '.' + f;
+      }
+      return display + ' 枚';
+    } catch(e) { return null; }
+  }
+
+  async function readBlockNumber(){
+    const hex = await rpcCall('eth_blockNumber');
+    if (hex) setText('blockNum', '#' + parseInt(hex, 16).toLocaleString('en-US'));
+    else setText('blockNum', '—');
+  }
+  async function readGasPrice(){
+    const hex = await rpcCall('eth_gasPrice');
+    if (hex) setText('gasPrice', Math.round(parseInt(hex, 16) / 1e9) + ' GWEI');
+    else setText('gasPrice', '—');
+  }
+
+  async function loadChainData(){
+    const rpcSupply = await readTotalSupplyFromRPC();
+    if (rpcSupply) {
+      chainDataCache.supply = rpcSupply;
+      setText('supplyHero', rpcSupply);
+      setText('statSupply', rpcSupply);
+      setMarqueeSupply(rpcSupply);
+    }
+    const gp = await fetchGoPlus();
+    if (gp && gp.total_supply) {
+      const s = fmt(Number(gp.total_supply)) + ' 枚';
+      chainDataCache.supply = s;
+      setText('supplyHero', s);
+      setText('statSupply', s);
+      setMarqueeSupply(s);
+    }
+    if (!chainDataCache.supply) {
+      chainDataCache.supply = '—';
+      setText('supplyHero', '—');
+      setText('statSupply', '—');
+      setMarqueeSupply('—');
+    }
+    if (!chainDataCache.holders) {
+      chainDataCache.holders = '—';
+      setText('holdersHero', '—');
+      setText('holdersTable', '—');
+    }
+  }
+
+  function setupCopy(btnId){
+    const btn = document.getElementById(btnId);
+    if (!btn) return;
+    btn.addEventListener('click', function(){
+      const done = function(){
+        btn.classList.add('copied');
+        const txt = btn.querySelector('.copy-text');
+        if (txt) txt.textContent = '✓ COPIED';
+        setTimeout(function(){
+          btn.classList.remove('copied');
+          if (txt) {
+            txt.textContent = document.documentElement.lang === 'zh' ? '复制' : 'COPY';
+          }
+        }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(CONTRACT).then(done).catch(function(){
+          fallbackCopy(CONTRACT, done);
+        });
+      } else fallbackCopy(CONTRACT, done);
+    });
+  }
+  function fallbackCopy(text, cb){
+    const ta = document.createElement('textarea');
+    ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); } catch(e){}
+    document.body.removeChild(ta); cb && cb();
+  }
+
+  function init(){
+    injectContractAddress();
+    setupCopy('copyBtn');
+    setupCopy('copyBtnTable');
+    loadChainData();
+    readBlockNumber();
+    readGasPrice();
+    setInterval(loadChainData, 120000);
+    setInterval(readBlockNumber, 30000);
+    setInterval(readGasPrice, 30000);
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+
+/* 语言切换 */
+(function(){
+  const STORAGE_KEY = 'chili-lang';
+  const DEFAULT = 'zh';
+  const meta = {
+    en: { title: '小辣椒 CHILI — Official Website', htmlLang: 'en' },
+    zh: { title: '小辣椒 CHILI 官方网站', htmlLang: 'zh-CN' }
+  };
+  function applyLang(lang){
+    if (lang !== 'en' && lang !== 'zh') lang = DEFAULT;
+    document.documentElement.lang = meta[lang].htmlLang;
+    document.title = meta[lang].title;
+    document.querySelectorAll('[data-en][data-zh]').forEach(function(el){
+      const v = el.getAttribute('data-' + lang);
+      if (v !== null) el.textContent = v;
+    });
+    document.querySelectorAll('[data-en-html][data-zh-html]').forEach(function(el){
+      const v = el.getAttribute('data-' + lang + '-html');
+      if (v !== null) el.innerHTML = v;
+    });
+    document.querySelectorAll('.lang-switch button').forEach(function(btn){
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+    if (chainDataCache.supply !== null) {
+      const el = document.getElementById('supplyHero');
+      if (el) el.textContent = chainDataCache.supply;
+    }
+    if (chainDataCache.holders !== null) {
+      const el = document.getElementById('holdersHero');
+      if (el) el.textContent = chainDataCache.holders;
+    }
+    try { localStorage.setItem(STORAGE_KEY, lang); } catch(e){}
+  }
+  document.querySelectorAll('.lang-switch button').forEach(function(btn){
+    btn.addEventListener('click', function(){ applyLang(btn.dataset.lang); });
+  });
+  let initial = DEFAULT;
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved === 'en' || saved === 'zh') initial = saved;
+    else if (navigator.language && navigator.language.indexOf('zh') === 0) initial = 'zh';
+  } catch(e){
+    if (navigator.language && navigator.language.indexOf('zh') === 0) initial = 'zh';
+  }
+  applyLang(initial);
+})();
+</script>
+</body>
+</html>
