@@ -854,6 +854,41 @@ section[id]{ scroll-margin-top: 100px; }
   font-style: normal;
   color: var(--red);
 }
+
+/* ===== 项目宣言 ===== */
+.about-manifesto{
+  position: relative;
+  max-width: 76ch;
+  padding: clamp(20px, 2.6vw, 32px) clamp(20px, 3vw, 36px)
+           clamp(20px, 2.6vw, 32px) clamp(26px, 3.4vw, 44px);
+  border: 1px solid var(--line-2);
+  border-left: 3px solid var(--red);
+  background: #fff;
+  margin-bottom: clamp(28px, 3vw, 42px);
+  z-index: 1;
+}
+.about-manifesto::before{
+  content: "\201C";
+  position: absolute;
+  top: -6px;
+  left: 14px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 72px;
+  line-height: 1;
+  color: var(--red);
+  opacity: .22;
+  user-select: none;
+  pointer-events: none;
+}
+.about-manifesto p{
+  font-size: clamp(15px, 1.2vw, 18px);
+  line-height: 1.85;
+  color: var(--ink);
+  font-weight: 500;
+  letter-spacing: .005em;
+}
+
+/* 关于标签 */
 .about-tags{
   display: flex;
   flex-wrap: wrap;
@@ -953,7 +988,7 @@ section[id]{ scroll-margin-top: 100px; }
   font-weight: 700;
 }
 
-/* ===== 创始人 / 仓库链接：并排展示 ===== */
+/* 创始人链接块 */
 .about-links{
   margin-top: 10px;
   padding-top: 18px;
@@ -979,7 +1014,6 @@ section[id]{ scroll-margin-top: 100px; }
 }
 .about-link-row:hover{
   border-color: var(--red);
-  background: #fff;
   transform: translateY(-1px);
 }
 .about-link-label{
@@ -1435,7 +1469,6 @@ footer{
     gap: 14px;
   }
 
-  /* 手机端创始人链接块：上下堆叠 */
   .about-links{
     flex-direction: column;
     gap: 10px;
@@ -1446,6 +1479,15 @@ footer{
   }
   .about-link{
     font-size: 10px;
+  }
+
+  .about-manifesto{
+    padding: 20px 18px 20px 24px;
+  }
+  .about-manifesto::before{
+    font-size: 56px;
+    top: -4px;
+    left: 10px;
   }
 }
 </style>
@@ -1698,6 +1740,14 @@ footer{
       </p>
     </div>
 
+    <!-- ===== 项目宣言 ===== -->
+    <div class="about-manifesto">
+      <p data-en="Born from ordinary lives and humble beginnings, CHILI is a tribute to those who quietly carry the weight of life, hold on to their dreams, and keep moving forward. People may come and go, and dreams may fade with time, but what we leave behind can endure. CHILI carries a small piece of these stories onto the blockchain — a lasting mark of lives that mattered."
+         data-zh="CHILI 诞生于平凡的生活与微小的起点，献给那些默默承受生活重量、坚持梦想、继续前行的人。人会来来去去，梦想也会随时间淡去，但我们留下的东西可以长久存在。CHILI 把这些故事的一小部分带上链——作为那些真实存在过的生命，留下的印记。">
+        CHILI 诞生于平凡的生活与微小的起点，献给那些默默承受生活重量、坚持梦想、继续前行的人。人会来来去去，梦想也会随时间淡去，但我们留下的东西可以长久存在。CHILI 把这些故事的一小部分带上链——作为那些真实存在过的生命，留下的印记。
+      </p>
+    </div>
+
     <p class="about-statement"
        data-en-html="Simple. <em>Transparent.</em> On-chain."
        data-zh-html="简单。<em>透明。</em>链上。">
@@ -1738,7 +1788,7 @@ footer{
           小辣椒 CHILI 是一个社区驱动型代币，希望通过公开透明的方式，与参与者共同见证项目的发展过程。
         </p>
 
-        <!-- ===== 创始人 / 仓库链接（并排） ===== -->
+        <!-- ===== 创始人 / 仓库链接 ===== -->
         <div class="about-links">
           <div class="about-link-row">
             <span class="about-link-label"
@@ -1945,8 +1995,9 @@ footer{
           <path d="M4 7L12 13L20 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </a>
+      <!-- ===== 页脚 logo 改成黑色版 logo01-32x32.svg ===== -->
       <a href="https://ayudekaka.github.io/ChiLi/" target="_blank" rel="noopener" aria-label="Website" title="Website">
-        <img src="logo-red32.svg" alt="小辣椒 CHILI">
+        <img src="logo01-32x32.svg" alt="小辣椒 CHILI">
       </a>
       <a href="https://t.me/xiaolajiaoCHILI" target="_blank" rel="noopener" aria-label="Telegram" title="Telegram">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
