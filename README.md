@@ -1,72 +1,137 @@
-<a href="https://ayudekaka.github.io/ChiLi/">
-  <img src="https://raw.githubusercontent.com/ayudekaka/ChiLi/main/logo-red32.svg" width="96" alt="CHILI Logo">
-</a>
+<p align="center">
+  <a href="https://ayudekaka.github.io/ChiLi/">
+    <img src="https://raw.githubusercontent.com/ayudekaka/ChiLi/main/logo-red32.svg" width="72" alt="CHILI Logo">
+  </a>
+</p>
 
-#  CHILI — 小辣椒
-
-**CHILI** 是一个部署在 **BNB Smart Chain（BSC）** 上的社区驱动型代币项目。
-
-**CHILI** is a community-driven token project deployed on **BNB Smart Chain (BSC)**.
-
-项目致力于通过公开的智能合约、透明的链上数据和持续的社区建设，为用户提供一个简单、公开、可验证的项目环境。
-
-The project focuses on transparent smart-contract information, publicly verifiable on-chain data, and continuous community development.
-
----
-
-## 🔗 官方入口 | Official Links
+<h1 align="center">CHILI — 小辣椒</h1>
 
 <p align="center">
+  <strong>Community Driven · BNB Smart Chain</strong><br>
+  <strong>社区驱动 · BNB Smart Chain</strong>
+</p>
 
-<a href="https://ayudekaka.github.io/ChiLi/">
-<img src="https://img.shields.io/badge/🌐%20Website-CHILI-E53935?style=for-the-badge" alt="CHILI Website">
-</a>
+<p align="center">
+  CHILI 是一个部署在 BNB Smart Chain（BSC）上的社区驱动型代币项目。
+</p>
 
-<a href="https://bscscan.com/address/0xEd3Caca4903256fB3E4997BC0C7830D19Fb35F7c">
-<img src="https://img.shields.io/badge/📜%20BscScan-Contract-111111?style=for-the-badge" alt="BscScan">
-</a>
-
-<a href="https://dexscreener.com/">
-<img src="https://img.shields.io/badge/📊%20DexScreener-Market-111111?style=for-the-badge" alt="DexScreener">
-</a>
-
-<a href="https://t.me/xiaolajiaoCHILI">
-<img src="https://img.shields.io/badge/💬%20Telegram-Community-E53935?style=for-the-badge" alt="Telegram">
-</a>
-
-<a href="https://github.com/ayudekaka/ChiLi">
-<img src="https://img.shields.io/badge/💻%20GitHub-Repository-111111?style=for-the-badge" alt="GitHub">
-</a>
-
+<p align="center">
+  CHILI is a community-driven token project deployed on BNB Smart Chain (BSC).
 </p>
 
 ---
 
-## 📋 项目基本信息 | Project Information
+## 官方入口 | Official Links
 
-| 项目   | Project            | 信息                                                  | Information     |
-| ---- | ------------------ | --------------------------------------------------- | --------------- |
-| 项目名称 | Token Name         | 小辣椒 CHILI                                           | CHILI           |
-| 代币符号 | Symbol             | CHILI                                               | CHILI           |
-| 区块链  | Network            | BNB Smart Chain                                     | BNB Smart Chain |
-| 合约地址 | Contract           | `0xEd3Caca4903256fB3E4997BC0C7830D19Fb35F7c`        | Same            |
-| 精度   | Decimals           | 18                                                  | 18              |
-| 官方网站 | Official Website   | [CHILI Website](https://ayudekaka.github.io/ChiLi/) | Same            |
-| 官方社区 | Official Community | [Telegram](https://t.me/xiaolajiaoCHILI)            | Same            |
+<p align="center">
+  <a href="https://ayudekaka.github.io/ChiLi/">
+    <strong>Website</strong>
+  </a>
+  &nbsp;&nbsp;·&nbsp;&nbsp;
+  <a href="https://bscscan.com/address/0xEd3Caca4903256fB3E4997BC0C7830D19Fb35F7c">
+    <strong>BscScan</strong>
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://dexscreener.com/">
+    <strong>DexScreener</strong>
+  </a>
+  &nbsp;&nbsp;·&nbsp;&nbsp;
+  <a href="https://t.me/xiaolajiaoCHILI">
+    <strong>Telegram</strong>
+  </a>
+  &nbsp;&nbsp;·&nbsp;&nbsp;
+  <a href="https://github.com/ayudekaka/ChiLi">
+    <strong>GitHub</strong>
+  </a>
+</p>
 
 ---
 
-## 📜 智能合约 | Smart Contract
+## 项目基本信息 | Project Information
 
-### BNB Smart Chain Contract
+**项目名称 | Token Name**
+
+小辣椒 CHILI
+
+**代币符号 | Symbol**
+
+CHILI
+
+**区块链 | Network**
+
+BNB Smart Chain
+
+**精度 | Decimals**
+
+18
+
+**交易对 | Trading Pair**
+
+CHILI / USDT
+
+**合约地址 | Contract**
 
 ```text
 0xEd3Caca4903256fB3E4997BC0C7830D19Fb35F7c
 ```
 
-<a href="https://bscscan.com/address/0xEd3Caca4903256fB3E4997BC0C7830D19Fb35F7c">
-  <img src="https://img.shields.io/badge/View%20Contract%20on-BscScan-111111?style=for-the-badge" alt="View CHILI Contract on BscScan">
+**官方网站 | Official Website**
+
+<a href="https://ayudekaka.github.io/ChiLi/">
+CHILI Official Website
 </a>
+
+**官方社区 | Official Community**
+
+<a href="https://t.me/xiaolajiaoCHILI">
+CHILI Telegram
+</a>
+
+---
+
+## 官方网站 | Official Website
+
+<p align="center">
+  <a href="https://ayudekaka.github.io/ChiLi/">
+    <img
+      src="https://raw.githubusercontent.com/ayudekaka/ChiLi/main/logo-red32.svg"
+      width="64"
+      alt="CHILI Official Website"
+    >
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://ayudekaka.github.io/ChiLi/">
+    <strong>Visit CHILI Official Website</strong>
+  </a>
+</p>
+
+CHILI 官方网站：
+
+https://ayudekaka.github.io/ChiLi/
+
+点击 Logo 可以直接进入官方网站。
+
+Click the Logo to visit the official website.
+
+---
+
+## 智能合约 | Smart Contract
+
+### BNB Smart Chain
+
+```text
+0xEd3Caca4903256fB3E4997BC0C7830D19Fb35F7c
+```
+
+<p align="center">
+  <a href="https://bscscan.com/address/0xEd3Caca4903256fB3E4997BC0C7830D19Fb35F7c">
+    View Contract on BscScan
+  </a>
+</p>
 
 用户在进行任何交易或与合约交互之前，请务必确认正确的官方合约地址。
 
@@ -74,7 +139,7 @@ Always verify the official CHILI contract address before trading or interacting 
 
 ---
 
-## 📊 代币信息 | Token Information
+## 代币信息 | Token Information
 
 CHILI 部署于 **BNB Smart Chain**。
 
@@ -90,51 +155,51 @@ The smart contract address is publicly available on-chain, allowing users to ind
 0xEd3Caca4903256fB3E4997BC0C7830D19Fb35F7c
 ```
 
-### Trading Pair
+### Token Details
 
-```text
-CHILI / USDT
-```
-
-用户在交易前应确认正确的交易对以及官方合约地址。
-
-Users should verify the correct trading pair and official contract address before trading.
+| 项目       | 信息              |
+| -------- | --------------- |
+| Name     | CHILI           |
+| Symbol   | CHILI           |
+| Network  | BNB Smart Chain |
+| Decimals | 18              |
+| Pair     | CHILI / USDT    |
 
 ---
 
-## 📈 市场数据 | Market Data
+## 市场数据 | Market Data
 
 ### DexScreener
 
-<a href="https://dexscreener.com/">
-  <img src="https://img.shields.io/badge/📊%20Open-DexScreener-111111?style=for-the-badge" alt="DexScreener">
-</a>
+<p align="center">
+  <a href="https://dexscreener.com/">
+    Open DexScreener
+  </a>
+</p>
 
-DexScreener 用于查看 CHILI 的市场价格、交易量、流动性和交易活动等公开市场数据。
+DexScreener 可用于查看公开市场数据，例如价格、交易量、流动性以及交易活动。
 
 DexScreener can be used to view publicly available market information such as price, trading volume, liquidity, and trading activity.
 
-> 注：建议后续将这里替换为 CHILI/USDT 交易对的**具体 DexScreener 页面**，这样用户点击后可以直接进入 CHILI 市场页面。
+> 当前链接为 DexScreener 官方入口。后续如果确定 CHILI/USDT 的具体 Pair 页面，可以替换成 CHILI 专属行情链接。
 
 ---
 
-## 🔐 安全与透明度 | Security & Transparency
+## 安全与透明度 | Security & Transparency
 
 CHILI 重视项目资料和链上信息的公开透明。
 
 CHILI aims to maintain transparent and publicly verifiable project information.
 
-目前公开的信息包括：
-
-The following information is publicly available:
+### 公开信息 | Public Information
 
 * 智能合约地址 | Smart contract address
-* 合约源代码（如已公开验证） | Contract source code where publicly verified
+* 合约源代码（如已公开验证） | Verified contract source code where available
 * 官方网站 | Official website
 * 链上代币信息 | On-chain token information
 * 交易及市场信息 | Trading and market information
 * 官方社区 | Official community
-* 项目开发资料 | Project development information
+* 安全信息 | Security information
 
 用户可以通过区块链浏览器及第三方安全分析工具自行检查相关信息。
 
@@ -143,72 +208,66 @@ Users can independently inspect relevant information through blockchain explorer
 ### BscScan
 
 <a href="https://bscscan.com/address/0xEd3Caca4903256fB3E4997BC0C7830D19Fb35F7c">
-  <img src="https://img.shields.io/badge/🔎%20Verify-BscScan-111111?style=for-the-badge" alt="BscScan">
+View CHILI Contract
 </a>
 
 ### GoPlus Security
 
 <a href="https://gopluslabs.io/">
-  <img src="https://img.shields.io/badge/🛡️%20Security-GoPlus-111111?style=for-the-badge" alt="GoPlus Security">
+Open GoPlus Security
 </a>
 
 ---
 
-## 💧 交易与流动性 | Trading & Liquidity
+## 交易与流动性 | Trading & Liquidity
 
 CHILI 面向 **BNB Smart Chain** 生态进行交易。
 
 CHILI is designed for trading within the **BNB Smart Chain** ecosystem.
 
-当前项目使用的主要交易对为：
-
-The project's primary trading pair is:
-
-###  CHILI / USDT
+### CHILI / USDT
 
 ```text
 CHILI / USDT
 ```
 
-用户在交易前应确认正确的交易对、合约地址以及市场信息。
+用户在交易前应确认：
 
-Users should verify the correct trading pair, contract address, and market information before trading.
+* 正确的 CHILI 合约地址
+* 正确的交易对
+* 当前市场信息
+* 流动性情况
 
----
+Before trading, users should verify:
 
-## 🌐 官方网站 | Official Website
-
-<a href="https://ayudekaka.github.io/ChiLi/">
-  <img src="https://raw.githubusercontent.com/ayudekaka/ChiLi/main/logo-red32.svg" width="72" alt="CHILI Logo">
-</a>
-
-### CHILI Official Website
-
-**https://ayudekaka.github.io/ChiLi/**
-
-点击上方 CHILI Logo 或 Website 图标即可进入官方网站。
-
-Click the CHILI logo or Website icon above to visit the official website.
+* The correct CHILI contract address
+* The correct trading pair
+* Current market information
+* Liquidity conditions
 
 ---
 
-## 💬 社区 | Community
+## 社区 | Community
 
 ### Telegram
 
-<a href="https://t.me/xiaolajiaoCHILI">
-  <img src="https://img.shields.io/badge/💬%20Join-CHILI%20Telegram-E53935?style=for-the-badge" alt="CHILI Telegram">
-</a>
+<p align="center">
+  <a href="https://t.me/xiaolajiaoCHILI">
+    <strong>Join CHILI Telegram Community</strong>
+  </a>
+</p>
 
-CHILI 官方 Telegram 社区：
+官方 Telegram：
 
-Official CHILI Telegram community:
+https://t.me/xiaolajiaoCHILI
 
-**https://t.me/xiaolajiaoCHILI**
+CHILI 官方社区用于项目交流、公告以及后续社区建设。
+
+The official Telegram community is used for project discussions, announcements, and future community development.
 
 ---
 
-## 🚀 社区与项目发展 | Community & Development
+## 社区与项目发展 | Community & Development
 
 CHILI 采用社区驱动的发展方向。
 
@@ -218,17 +277,17 @@ CHILI follows a community-driven development approach.
 
 The project currently focuses on:
 
-*   社区建设 | Community development
-* 🔐 信息透明 | Transparency
-* ⛓️ 链上数据验证 | On-chain verification
-* 🌐 官方网站建设 | Website development
-* 📊 交易基础设施 | Trading infrastructure
-* 🤖 Telegram 社区工具 | Telegram community tools
-* 🚀 后续生态建设 | Future ecosystem development
+* 社区建设 | Community development
+* 信息透明 | Transparency
+* 链上数据验证 | On-chain verification
+* 官方网站建设 | Website development
+* 交易基础设施 | Trading infrastructure
+* Telegram 社区工具 | Telegram community tools
+* 后续生态建设 | Future ecosystem development
 
 ---
 
-## 👨‍💻 创始人 / 开发者 | Founder & Developer
+## 创始人 / 开发者 | Founder & Developer
 
 ### AYUDEKAKA
 
@@ -240,55 +299,64 @@ CHILI is developed and maintained by an independent developer.
 
 ### GitHub Profile
 
-<a href="https://github.com/ayudekaka">
-  <img src="https://img.shields.io/badge/💻%20GitHub-AYUDEKAKA-111111?style=for-the-badge" alt="AYUDEKAKA GitHub">
-</a>
+<p align="center">
+  <a href="https://github.com/ayudekaka">
+    <strong>AYUDEKAKA GitHub Profile</strong>
+  </a>
+</p>
 
 ### CHILI Official Repository
 
-<a href="https://github.com/ayudekaka/ChiLi">
-  <img src="https://img.shields.io/badge/🌶️%20CHILI-Official%20Repository-E53935?style=for-the-badge" alt="CHILI GitHub Repository">
-</a>
+<p align="center">
+  <a href="https://github.com/ayudekaka/ChiLi">
+    <strong>CHILI Official Repository</strong>
+  </a>
+</p>
 
 ---
 
-## 📁 GitHub Repository
+## GitHub Repository
 
 本仓库用于存放 CHILI 官方网站及相关项目资源。
 
 This repository contains the official CHILI website and related project resources.
 
-### Official Repository
+### Repository
 
-**https://github.com/ayudekaka/ChiLi**
+<a href="https://github.com/ayudekaka/ChiLi">
+https://github.com/ayudekaka/ChiLi
+</a>
 
-官网主要用于提供：
-
-The website provides:
+### 官网主要提供 | Website Provides
 
 * 项目基本信息 | Project information
 * Token 信息 | Token information
 * 合约地址 | Contract address
 * BscScan 链接 | BscScan link
-* 交易及市场信息 | Trading and market information
+* 市场信息 | Market information
 * 安全信息 | Security information
 * 社区入口 | Community links
 
 ---
 
-## 📞 联系方式 | Contact
+## 联系方式 | Contact
 
 ### Official Email
 
 **[ayudekaka@gmail.com](mailto:ayudekaka@gmail.com)**
 
-如需了解 CHILI 的官方信息，请优先参考官方网站、GitHub 官方仓库以及官方 Telegram 社区。
+如需了解 CHILI 的官方信息，请优先参考：
 
-For official CHILI information, please refer to the official website, GitHub repository, and official Telegram community.
+For official CHILI information, please refer to:
+
+* Official Website
+* Official GitHub Repository
+* Official Telegram Community
+* BscScan Contract
 
 ---
 
-## ⚠️ 风险提示 | Disclaimer
+## 风险提示 | Disclaimer
 
 CHILI 是一个区块链代币项目。
 
@@ -308,22 +376,32 @@ Users should conduct their own research and independently verify relevant inform
 
 ---
 
-<a href="https://ayudekaka.github.io/ChiLi/">
-  <img src="https://raw.githubusercontent.com/ayudekaka/ChiLi/main/logo-red32.svg" width="64" alt="CHILI">
-</a>
+<p align="center">
+  <a href="https://ayudekaka.github.io/ChiLi/">
+    <img
+      src="https://raw.githubusercontent.com/ayudekaka/ChiLi/main/logo-red32.svg"
+      width="56"
+      alt="CHILI"
+    >
+  </a>
+</p>
 
-# CHILI
-
-### 小辣椒 · 社区驱动 · BNB Smart Chain
-
-### Small Pepper · Community Driven · BNB Smart Chain
+<h3 align="center">CHILI</h3>
 
 <p align="center">
+  小辣椒 · 社区驱动 · BNB Smart Chain
+  <br>
+  Small Pepper · Community Driven · BNB Smart Chain
+</p>
 
-<a href="https://ayudekaka.github.io/ChiLi/">🌐 Website</a>
-  •   <a href="https://bscscan.com/address/0xEd3Caca4903256fB3E4997BC0C7830D19Fb35F7c">📜 BscScan</a>
-  •   <a href="https://dexscreener.com/">📊 DexScreener</a>
-  •   <a href="https://t.me/xiaolajiaoCHILI">💬 Telegram</a>
-  •   <a href="https://github.com/ayudekaka/ChiLi">💻 GitHub</a>
-
+<p align="center">
+  <a href="https://ayudekaka.github.io/ChiLi/">Website</a>
+  &nbsp; · &nbsp;
+  <a href="https://bscscan.com/address/0xEd3Caca4903256fB3E4997BC0C7830D19Fb35F7c">BscScan</a>
+  &nbsp; · &nbsp;
+  <a href="https://dexscreener.com/">DexScreener</a>
+  &nbsp; · &nbsp;
+  <a href="https://t.me/xiaolajiaoCHILI">Telegram</a>
+  &nbsp; · &nbsp;
+  <a href="https://github.com/ayudekaka/ChiLi">GitHub</a>
 </p>
