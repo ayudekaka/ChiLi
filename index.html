@@ -4,6 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>小辣椒 CHILI 官方网站</title>
+
+<meta name="description" content="小辣椒 CHILI - 基于 BNB 链构建的社区驱动型代币。简单、透明、链上。">
+<meta property="og:title" content="小辣椒 CHILI 官方网站">
+<meta property="og:description" content="基于 BNB 链构建的新一代社区代币。简单。透明。链上。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://chili.dpdns.org">
+<meta name="twitter:card" content="summary_large_image">
+
 <link rel="icon" type="image/svg+xml" href="logo-red32.svg">
 <link rel="apple-touch-icon" href="logo-red32.svg">
 
@@ -32,10 +40,6 @@ html {
   --bg-3:     #f4f4f4;
   --line:     #e6e6e6;
   --line-2:   #d4d4d4;
-
-  --green:    #16a34a;
-  --green-bg: #f0fdf4;
-  --green-bd: #bbf7d0;
 
   --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo,
           Consolas, "Liberation Mono", monospace;
@@ -156,14 +160,6 @@ section[id]{ scroll-margin-top: 100px; }
   display: inline-flex;
   align-items: center;
   gap: 12px;
-}
-.logo .bracket{ color: var(--red); }
-.logo .cursor{
-  display: inline-block;
-  width: 8px; height: 16px;
-  margin-left: 3px;
-  background: var(--red);
-  animation: blink 1s steps(2) infinite;
 }
 .logo img{
   display: block;
@@ -325,17 +321,6 @@ section[id]{ scroll-margin-top: 100px; }
   position: relative;
 }
 .hero-title span{ color: var(--red); }
-.hero-sub{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 14px;
-  margin-bottom: 18px;
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: .14em;
-  color: var(--muted);
-}
-.hero-sub b{ color: var(--ink); font-weight: 700; }
 .hero-desc{
   max-width: 44ch;
   font-size: clamp(14.5px, 1.05vw, 16.5px);
@@ -654,6 +639,7 @@ section[id]{ scroll-margin-top: 100px; }
 .hv-node-3{ bottom: 12%; left: 18%; }
 .hv-node-3::before{ animation-delay: 2.2s; }
 
+/* READOUT */
 .readout{
   position: absolute;
   z-index: 8;
@@ -674,10 +660,9 @@ section[id]{ scroll-margin-top: 100px; }
 .readout b.red{ color: var(--red); }
 
 .readout-1{ top: 0;    left: 50%; transform: translateX(-50%); }
-.readout-2{ top: 40%;  left: 0; }
-.readout-5{ top: 40%;  right: 0; }
-.readout-3{ bottom: 14%; left: 0; }
-.readout-4{ bottom: 14%; right: 8%; }
+.readout-2{ top: 50%;  left: 4%;  transform: translateY(-50%); }
+.readout-5{ top: 50%;  right: 4%; transform: translateY(-50%); }
+.readout-3{ bottom: 4%; left: 50%; transform: translateX(-50%); }
 
 .contract-strip{
   position: absolute;
@@ -741,47 +726,6 @@ section[id]{ scroll-margin-top: 100px; }
   background: var(--bg-2);
 }
 
-/* MARQUEE */
-.marquee{
-  background: var(--red);
-  color: #fff;
-  overflow: hidden;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-.marquee-track{
-  display: flex;
-  align-items: center;
-  gap: 34px;
-  padding-left: 34px;
-  white-space: nowrap;
-  animation: marquee 100s linear infinite;
-  font-family: var(--mono);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .22em;
-}
-.marquee-track i{
-  display: inline-block;
-  width: 5px; height: 5px;
-  border-radius: 50%;
-  background: #fff;
-  opacity: .7;
-}
-.marquee-check{
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-}
-.marquee-value{
-  color: #fff;
-  font-weight: 800;
-  letter-spacing: .08em;
-}
-@keyframes marquee{ to { transform: translateX(-50%); } }
-
 /* SECTION */
 .section{
   padding-block: var(--sec-y);
@@ -838,101 +782,16 @@ section[id]{ scroll-margin-top: 100px; }
   border-left: 2px solid var(--red);
 }
 
-/* 关于 CHILI */
-.about-statement{
-  font-size: clamp(26px, 2.6vw, 40px);
-  line-height: 1.3;
-  letter-spacing: -.02em;
-  font-weight: 800;
-  color: var(--ink);
-  max-width: 32ch;
-  margin-bottom: clamp(28px, 3vw, 42px);
-  position: relative;
-  z-index: 1;
-}
-.about-statement em{
-  font-style: normal;
-  color: var(--red);
-}
+/* ================= 关于 区域（与其他页面统一风格） ================= */
 
-/* 项目宣言 */
-.about-manifesto{
-  position: relative;
-  max-width: 76ch;
-  padding: clamp(20px, 2.6vw, 32px) clamp(20px, 3vw, 36px)
-           clamp(20px, 2.6vw, 32px) clamp(26px, 3.4vw, 44px);
-  border: 1px solid var(--line-2);
-  border-left: 3px solid var(--red);
+/* 主卡片：与 wp-card / token-verify 一致的左上角标 */
+.about-card{
+  padding: clamp(28px, 3.4vw, 48px);
+  border: 1px solid var(--line);
   background: #fff;
-  margin-bottom: clamp(28px, 3vw, 42px);
-  z-index: 1;
-}
-.about-manifesto::before{
-  content: "\201C";
-  position: absolute;
-  top: -6px;
-  left: 14px;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 72px;
-  line-height: 1;
-  color: var(--red);
-  opacity: .22;
-  user-select: none;
-  pointer-events: none;
-}
-.about-manifesto p{
-  font-size: clamp(15px, 1.2vw, 18px);
-  line-height: 1.85;
-  color: var(--ink);
-  font-weight: 500;
-  letter-spacing: .005em;
-}
-
-/* 关于标签 */
-.about-tags{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: clamp(36px, 4.5vw, 60px);
   position: relative;
-  z-index: 1;
 }
-.about-tag{
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 8px 14px;
-  border: 1px solid var(--line-2);
-  background: #fff;
-  font-family: var(--mono);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: .16em;
-  color: var(--muted);
-  transition: color .2s, border-color .2s;
-}
-.about-tag:hover{
-  color: var(--red);
-  border-color: var(--red);
-}
-.about-tag::before{
-  content: "";
-  width: 5px; height: 5px;
-  border-radius: 50%;
-  background: var(--red);
-}
-.about-note{
-  padding: clamp(24px, 2.8vw, 36px) clamp(24px, 3vw, 44px);
-  border: 1px solid var(--line-2);
-  background: var(--bg-2);
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: clamp(20px, 3vw, 40px);
-  align-items: start;
-}
-.about-note::before{
+.about-card::before{
   content: "";
   position: absolute;
   top: -1px; left: -1px;
@@ -940,230 +799,378 @@ section[id]{ scroll-margin-top: 100px; }
   border-top: 2px solid var(--red);
   border-left: 2px solid var(--red);
 }
-.about-note::after{
-  content: "";
-  position: absolute;
-  bottom: -1px; right: -1px;
-  width: 14px; height: 14px;
-  border-bottom: 2px solid var(--red);
-  border-right: 2px solid var(--red);
+
+/* 宣言引文 */
+.about-quote{
+  margin: 0 0 clamp(28px, 3vw, 40px) 0;
+  padding-left: clamp(20px, 2.4vw, 28px);
+  border-left: 3px solid var(--red);
 }
-.about-note-mark{
-  font-family: var(--mono);
-  font-size: 42px;
+.about-quote p{
+  font-size: clamp(15px, 1.08vw, 17px);
+  line-height: 1.85;
+  color: var(--ink);
+  font-weight: 500;
+  letter-spacing: .003em;
+}
+
+/* 口号 */
+.about-slogan{
+  margin: 0 0 clamp(28px, 3vw, 40px);
+  padding-bottom: clamp(28px, 3vw, 40px);
+  border-bottom: 1px solid var(--line);
+  font-size: clamp(26px, 3vw, 40px);
+  line-height: 1.15;
+  letter-spacing: -.025em;
   font-weight: 900;
-  line-height: 1;
-  color: var(--red);
-  user-select: none;
+  color: var(--ink);
 }
-.about-note-body{
+.about-slogan em{
+  font-style: normal;
+  color: var(--red);
+}
+
+/* 说明段落 */
+.about-body{
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: clamp(14px, 1.6vw, 20px);
 }
-.about-note-tag{
+.about-body p{
+  font-size: clamp(14.5px, 1.05vw, 16px);
+  line-height: 1.9;
+  color: var(--ink);
+}
+
+/* 链接按钮行 */
+.about-cta{
+  margin-top: clamp(28px, 3vw, 40px);
+  padding-top: clamp(24px, 2.8vw, 32px);
+  border-top: 1px dashed var(--line-2);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.about-cta-link{
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  padding: 12px 18px;
+  border: 1px solid var(--line-2);
+  background: #fff;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  color: var(--ink);
+  transition: border-color .22s, color .22s, background .22s, transform .22s;
+}
+.about-cta-link:hover{
+  border-color: var(--red);
+  color: var(--red);
+  background: var(--bg-2);
+  transform: translateY(-1px);
+}
+.about-cta-link svg{
+  width: 16px;
+  height: 16px;
+  display: block;
+  flex: 0 0 auto;
+}
+.about-cta-link::after{
+  content: "↗";
+  color: var(--red);
+  font-weight: 900;
+}
+
+/* 脚注：商标声明（与 token-disclaimer 一致） */
+.about-footnote{
+  margin-top: clamp(20px, 2.4vw, 28px);
+  padding: clamp(18px, 2.2vw, 24px) clamp(20px, 2.4vw, 28px);
+  border: 1px solid var(--line-2);
+  border-left: 3px solid var(--red);
+  background: #fff;
+  font-size: clamp(12.5px, 1vw, 14px);
+  line-height: 1.8;
+  color: var(--muted);
+}
+.about-footnote .label{
+  display: inline-block;
   font-family: var(--mono);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: .2em;
   color: var(--red);
-  margin-bottom: 4px;
-}
-.about-note-tag::before{
-  content: "";
-  width: 18px; height: 1px;
-  background: var(--red);
-}
-.about-note p{
-  font-size: clamp(14px, 1.05vw, 15.5px);
-  line-height: 1.75;
-  color: var(--ink);
-  max-width: 88ch;
-}
-.about-note strong{
-  color: var(--red);
-  font-weight: 700;
+  margin-right: 10px;
+  text-transform: uppercase;
 }
 
-/* 创始人链接块 */
-.about-links{
-  margin-top: 10px;
-  padding-top: 18px;
-  border-top: 1px dashed var(--line-2);
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 14px;
+/* ================= 关于 结束 ================= */
+
+/* 白皮书 */
+.wp-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(14px, 1.5vw, 20px);
 }
-.about-link-row{
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: .04em;
-  flex: 1 1 calc(50% - 7px);
-  min-width: 0;
-  padding: 10px 14px;
-  border: 1px solid var(--line-2);
+.wp-card{
+  padding: clamp(22px, 2.6vw, 32px);
+  border: 1px solid var(--line);
   background: #fff;
-  transition: border-color .2s, background .2s, transform .2s;
-}
-.about-link-row:hover{
-  border-color: var(--red);
-  transform: translateY(-1px);
-}
-.about-link-label{
-  color: var(--muted);
-  font-weight: 700;
-  letter-spacing: .12em;
-  white-space: nowrap;
-  flex: 0 0 auto;
-}
-.about-link{
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--red);
-  font-weight: 700;
-  word-break: break-all;
-  min-width: 0;
-  transition: color .2s;
-  flex: 1 1 auto;
-}
-.about-link:hover{
-  color: var(--red-deep);
-}
-.about-link svg{
-  width: 14px;
-  height: 14px;
-  flex: 0 0 auto;
-}
-
-/* 代币详情表 */
-.detail-section{
   position: relative;
-  z-index: 1;
 }
-.detail-header{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 16px;
-  flex-wrap: wrap;
+.wp-card::before{
+  content: "";
+  position: absolute;
+  top: -1px; left: -1px;
+  width: 14px; height: 14px;
+  border-top: 2px solid var(--red);
+  border-left: 2px solid var(--red);
 }
-.detail-title{
+.wp-card-tag{
   font-family: var(--mono);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: .22em;
-  color: var(--muted);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.detail-title::before{
-  content: ">";
   color: var(--red);
-  font-weight: 900;
+  margin-bottom: 12px;
+}
+.wp-card-title{
+  font-size: clamp(17px, 1.4vw, 20px);
+  font-weight: 800;
+  letter-spacing: -.02em;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+.wp-card p{
+  font-size: clamp(13.5px, 1vw, 15px);
+  line-height: 1.75;
+  color: var(--muted);
 }
 
-.detail-table{
+.wp-tech{
+  margin-top: clamp(28px, 3vw, 40px);
   border: 1px solid var(--line);
   background: #fff;
 }
-.detail-row{
+.wp-tech-row{
   display: grid;
-  grid-template-columns: minmax(0, 160px) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 180px) minmax(0, 1fr);
   gap: 16px;
   padding: 15px 20px;
   border-bottom: 1px solid var(--line);
   align-items: center;
 }
-.detail-row:last-child{ border-bottom: none; }
-.detail-row-label{
+.wp-tech-row:last-child{ border-bottom: none; }
+.wp-tech-label{
   font-family: var(--mono);
   font-size: 9.5px;
   font-weight: 700;
   letter-spacing: .16em;
   color: var(--muted);
 }
-.detail-row-value{
+.wp-tech-value{
   font-family: var(--mono);
   font-size: 12.5px;
   font-weight: 700;
   color: var(--ink);
   word-break: break-all;
 }
-.detail-row-value.accent{ color: var(--red); }
+.wp-tech-value.red{ color: var(--red); }
 
-.detail-row--contract{
-  display: block;
-  padding: 18px 20px;
-}
-.detail-row--contract .detail-row-label{
-  display: block;
-  margin-bottom: 10px;
-}
-.contract-inline{
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-.contract-inline-value{
-  font-family: var(--mono);
-  font-size: 12.5px;
-  font-weight: 700;
+.wp-tech-value.link{
   color: var(--red);
-  word-break: break-all;
-  letter-spacing: .02em;
-}
-.contract-inline-copy{
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 6px 12px;
-  border: 1px solid var(--line-2);
+  transition: color .2s;
+}
+.wp-tech-value.link:hover{
+  color: var(--red-deep);
+}
+.wp-tech-value.link::after{
+  content: "↗";
+  font-weight: 900;
+  font-size: 11px;
+}
+
+.wp-roadmap{
+  margin-top: clamp(28px, 3vw, 40px);
+  border: 1px solid var(--line);
   background: #fff;
-  color: var(--ink);
+}
+.wp-roadmap-item{
+  display: grid;
+  grid-template-columns: minmax(0, 160px) minmax(0, 1fr);
+  gap: 24px;
+  padding: 22px 24px;
+  border-bottom: 1px solid var(--line);
+  align-items: start;
+}
+.wp-roadmap-item:last-child{ border-bottom: none; }
+.wp-roadmap-phase{
   font-family: var(--mono);
   font-size: 10px;
   font-weight: 700;
-  letter-spacing: .12em;
-  cursor: pointer;
-  transition: color .2s, border-color .2s, background .2s;
-  flex: 0 0 auto;
-}
-.contract-inline-copy:hover{
+  letter-spacing: .22em;
   color: var(--red);
-  border-color: var(--red);
-  background: var(--bg-2);
+  padding-top: 4px;
 }
-.contract-inline-copy svg{
-  width: 12px;
-  height: 12px;
-  display: block;
+.wp-roadmap-body h4{
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--ink);
+  margin-bottom: 10px;
 }
-.contract-inline-copy.copied{
+.wp-roadmap-body ul{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.wp-roadmap-body li{
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--muted);
+  padding-left: 16px;
+  position: relative;
+}
+.wp-roadmap-body li::before{
+  content: "—";
+  position: absolute;
+  left: 0;
   color: var(--red);
-  border-color: var(--red);
-  background: var(--bg-2);
+  font-weight: 700;
 }
 
-.data-actions{
+/* 代币经济 */
+.token-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(14px, 1.5vw, 20px);
+}
+.token-card{
+  padding: clamp(24px, 2.8vw, 36px);
+  border: 1px solid var(--line);
+  background: #fff;
+  position: relative;
+  display: block;
+  transition: border-color .25s, transform .25s, box-shadow .25s;
+}
+.token-card::before{
+  content: "";
+  position: absolute;
+  top: -1px; left: -1px;
+  width: 14px; height: 14px;
+  border-top: 2px solid var(--red);
+  border-left: 2px solid var(--red);
+}
+a.token-card:hover{
+  border-color: var(--red);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -22px rgba(230,0,0,.55);
+}
+.token-card-label{
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .22em;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+.token-card-value{
+  font-family: var(--mono);
+  font-size: clamp(20px, 2vw, 28px);
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -.02em;
+  word-break: break-all;
+}
+.token-card-value.red{ color: var(--red); }
+.token-card-value.link{
+  color: var(--red);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.token-card-value.link::after{
+  content: "↗";
+  font-weight: 900;
+  font-size: 0.7em;
+}
+.token-card-sub{
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-top: 12px;
+}
+
+.token-use{
+  margin-top: clamp(28px, 3vw, 40px);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(14px, 1.5vw, 20px);
+}
+.token-use-item{
+  padding: clamp(22px, 2.4vw, 30px);
+  border: 1px solid var(--line-2);
+  background: var(--bg-2);
+}
+.token-use-icon{
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 900;
+  color: var(--red);
+  letter-spacing: .16em;
+  margin-bottom: 14px;
+}
+.token-use-title{
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+.token-use p{
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.token-verify{
+  margin-top: clamp(28px, 3vw, 40px);
+  padding: clamp(24px, 2.8vw, 36px) clamp(24px, 3vw, 40px);
+  border: 1px solid var(--line);
+  background: #fff;
+  position: relative;
+}
+.token-verify::before{
+  content: "";
+  position: absolute;
+  top: -1px; left: -1px;
+  width: 14px; height: 14px;
+  border-top: 2px solid var(--red);
+  border-left: 2px solid var(--red);
+}
+.token-verify-title{
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .22em;
+  color: var(--red);
+  margin-bottom: 10px;
+}
+.token-verify-desc{
+  font-size: clamp(13.5px, 1vw, 15px);
+  line-height: 1.7;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+.token-verify-actions{
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: clamp(24px, 3vw, 36px);
-  position: relative;
-  z-index: 1;
 }
-.data-action{
+.verify-action{
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -1175,18 +1182,35 @@ section[id]{ scroll-margin-top: 100px; }
   font-weight: 700;
   letter-spacing: .14em;
   color: var(--ink);
-  transition: color .2s, border-color .2s, background .2s;
-  cursor: pointer;
+  transition: color .2s, border-color .2s, background .2s, transform .2s;
 }
-.data-action:hover{
+.verify-action:hover{
   color: var(--red);
   border-color: var(--red);
   background: var(--bg-2);
+  transform: translateY(-1px);
 }
-.data-action svg{
+.verify-action svg{
   width: 14px;
   height: 14px;
   display: block;
+}
+
+.token-disclaimer{
+  margin-top: clamp(28px, 3vw, 40px);
+  padding: clamp(20px, 2.4vw, 28px) clamp(22px, 2.6vw, 32px);
+  border: 1px solid var(--line-2);
+  border-left: 3px solid var(--red);
+  background: #fff;
+}
+.token-disclaimer p{
+  font-size: clamp(13px, 1vw, 14.5px);
+  line-height: 1.8;
+  color: var(--muted);
+}
+.token-disclaimer strong{
+  color: var(--ink);
+  font-weight: 800;
 }
 
 /* 社区 */
@@ -1333,15 +1357,17 @@ footer{
     gap: 18px;
   }
 
-  .about-note{ grid-template-columns: 1fr; gap: 12px; }
-  .about-note-mark{ font-size: 32px; }
+  .wp-grid{ grid-template-columns: 1fr; }
+  .token-grid{ grid-template-columns: 1fr; }
+  .token-use{ grid-template-columns: 1fr; }
+
   .contact-links{ grid-template-columns: 1fr; }
 }
 
 @media (max-width: 680px){
   .topbar-inner{
     gap: 6px;
-    font-size: 8.5px;
+    font-size: 10px;
     letter-spacing: .02em;
     height: 28px;
     justify-content: space-between;
@@ -1366,10 +1392,9 @@ footer{
     left: 50%;
     transform: translateX(-50%);
   }
-  .readout-2{ top: 42%; left: -4px; }
-  .readout-5{ top: 42%; right: -4px; }
-  .readout-3{ bottom: 12%; left: -4px; }
-  .readout-4{ bottom: 12%; right: 4%; }
+  .readout-2{ top: 45%; left: 0; transform: translateY(-50%); }
+  .readout-5{ top: 45%; right: 0; transform: translateY(-50%); }
+  .readout-3{ bottom: 4%; left: 50%; transform: translateX(-50%); }
 
   .contract-strip{
     bottom: -70px;
@@ -1389,43 +1414,29 @@ footer{
   }
   .contract-strip-copy svg{ width: 10px; height: 10px; }
 
-  .detail-row{
+  .wp-tech-row{
     display: block;
     padding: 16px 18px;
   }
-  .detail-row-label{
+  .wp-tech-label{
     display: block;
     margin-bottom: 8px;
     font-size: 9px;
     letter-spacing: .22em;
     color: var(--muted-2);
   }
-  .detail-row-value{
+  .wp-tech-value{
     display: block;
     font-size: 13px;
     line-height: 1.5;
   }
 
-  .detail-row--contract{
-    padding: 16px 18px;
-  }
-  .detail-row--contract .detail-row-label{
-    margin-bottom: 10px;
-  }
-  .contract-inline{
-    flex-direction: column;
-    align-items: stretch;
+  .wp-roadmap-item{
+    grid-template-columns: 1fr;
     gap: 10px;
+    padding: 20px 20px;
   }
-  .contract-inline-value{
-    font-size: 12px;
-    line-height: 1.55;
-    word-break: break-all;
-  }
-  .contract-inline-copy{
-    justify-content: center;
-    padding: 9px 12px;
-  }
+  .wp-roadmap-phase{ padding-top: 0; }
 
   .hero-actions{
     flex-direction: row;
@@ -1469,25 +1480,26 @@ footer{
     gap: 14px;
   }
 
-  .about-links{
-    flex-direction: column;
-    gap: 10px;
+  /* 关于区域移动端微调 */
+  .about-quote{
+    padding-left: 16px;
   }
-  .about-link-row{
-    flex: 1 1 100%;
+  .about-cta{
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .about-cta-link{
+    justify-content: space-between;
     width: 100%;
   }
-  .about-link{
-    font-size: 10px;
+  .about-footnote .label{
+    display: block;
+    margin-bottom: 6px;
   }
 
-  .about-manifesto{
-    padding: 20px 18px 20px 24px;
-  }
-  .about-manifesto::before{
-    font-size: 56px;
-    top: -4px;
-    left: 10px;
+  .verify-action{
+    flex: 1 1 100%;
+    justify-content: center;
   }
 }
 </style>
@@ -1500,14 +1512,6 @@ footer{
     <span class="topbar-item">
       <i class="dot"></i>
       <span data-en="SYSTEM ONLINE" data-zh="系统在线">系统在线</span>
-    </span>
-    <span class="topbar-item">
-      <span data-en="BNB CHAIN · BLOCK" data-zh="BNB 链 · 区块">BNB 链 · 区块</span>
-      <b id="blockNum">—</b>
-    </span>
-    <span class="topbar-item">
-      <span data-en="GAS" data-zh="GAS">GAS</span>
-      <b id="gasPrice">—</b>
     </span>
     <span class="topbar-item" data-en-html="CHILI/USDT · <b>LIVE</b>"
           data-zh-html="CHILI/USDT · <b>实时</b>">
@@ -1526,14 +1530,15 @@ footer{
 
     <div class="nav-links">
       <a href="#about" data-en="01 · ABOUT" data-zh="01 · 关于">01 · 关于</a>
-      <a href="#data" data-en="02 · DATA" data-zh="02 · 数据">02 · 数据</a>
-      <a href="#community" data-en="03 · COMMUNITY" data-zh="03 · 社区">03 · 社区</a>
+      <a href="#whitepaper" data-en="02 · WHITEPAPER" data-zh="02 · 白皮书">02 · 白皮书</a>
+      <a href="#tokenomics" data-en="03 · TOKENOMICS" data-zh="03 · 代币经济">03 · 代币经济</a>
+      <a href="#community" data-en="04 · COMMUNITY" data-zh="04 · 社区">04 · 社区</a>
     </div>
 
     <div class="nav-right">
       <div class="lang-switch" role="group" aria-label="Language">
-        <button type="button" data-lang="en" class="active">EN</button>
-        <button type="button" data-lang="zh">中文</button>
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="zh" class="active">中文</button>
       </div>
       <a class="nav-cta"
          href="https://dexscreener.com/bsc/0xEd3Caca4903256fB3E4997BC0C7830D19Fb35f7c"
@@ -1557,20 +1562,6 @@ footer{
         <i></i> BNB 链 · 链上代币
       </div>
       <h1 class="hero-title">CHI<span>LI</span></h1>
-      <div class="hero-sub">
-        <span data-en-html="NETWORK <b>BNB</b>"
-              data-zh-html="网络 <b>BNB</b>">
-          网络 <b>BNB</b>
-        </span>
-        <span data-en-html="PAIR <b>CHILI / USDT</b>"
-              data-zh-html="交易对 <b>CHILI / USDT</b>">
-          交易对 <b>CHILI / USDT</b>
-        </span>
-        <span data-en-html="STATUS <b>ACTIVE</b>"
-              data-zh-html="状态 <b>运行中</b>">
-          状态 <b>运行中</b>
-        </span>
-      </div>
       <p class="hero-desc"
          data-en="A next-generation community token built on BNB Chain. Simple. Transparent. On-chain."
          data-zh="基于 BNB 链构建的新一代社区代币。简单。透明。链上。">
@@ -1583,9 +1574,9 @@ footer{
            data-en="▶ BUY CHILI" data-zh="▶ 购买 CHILI">
           ▶ 购买 CHILI
         </a>
-        <a class="btn btn-outline" href="#data"
-           data-en="▼ VIEW ON-CHAIN DATA" data-zh="▼ 查看链上数据">
-          ▼ 查看链上数据
+        <a class="btn btn-outline" href="#whitepaper"
+           data-en="▼ WHITEPAPER" data-zh="▼ 查看白皮书">
+          ▼ 查看白皮书
         </a>
       </div>
     </div>
@@ -1632,15 +1623,9 @@ footer{
       </div>
 
       <div class="readout readout-3"
-           data-en-html="TOTAL SUPPLY // <b class='red' id='supplyHero'>LOADING</b>"
-           data-zh-html="总供应量 // <b class='red' id='supplyHero'>加载中</b>">
-        总供应量 // <b class="red" id="supplyHero">加载中</b>
-      </div>
-
-      <div class="readout readout-4"
-           data-en-html="HOLDERS // <b class='red' id='holdersHero'>LOADING</b>"
-           data-zh-html="持币人数 // <b class='red' id='holdersHero'>加载中</b>">
-        持币人数 // <b class="red" id="holdersHero">加载中</b>
+           data-en-html="TOTAL SUPPLY // <b class='red'>20,150,822</b>"
+           data-zh-html="总供应量 // <b class='red'>20,150,822 枚</b>">
+        总供应量 // <b class="red">20,150,822 枚</b>
       </div>
 
       <div class="contract-strip">
@@ -1657,69 +1642,6 @@ footer{
     </div>
   </div>
 </header>
-
-<!-- MARQUEE -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee-track">
-    <span data-en="小辣椒" data-zh="小辣椒">小辣椒</span><i></i>
-    <span data-en="CHILI" data-zh="CHILI">CHILI</span><i></i>
-    <span data-en="BNB Smart Chain (BSC)" data-zh="BNB Smart Chain (BSC)">BNB Smart Chain (BSC)</span><i></i>
-    <span data-en="TOTAL SUPPLY" data-zh="总供应量">总供应量</span>
-    <span class="marquee-value" id="marqueeSupply">—</span><i></i>
-    <span class="marquee-check">
-      <span data-en="HONEYPOT" data-zh="蜜罐检测">蜜罐检测</span>
-      <b class="marquee-value" data-marquee="honeypot">—</b>
-    </span><i></i>
-    <span class="marquee-check">
-      <span data-en="BUY/SELL TAX" data-zh="买入/卖出税">买入/卖出税</span>
-      <b class="marquee-value" data-marquee="tax">—</b>
-    </span><i></i>
-    <span class="marquee-check">
-      <span data-en="MINTABLE" data-zh="可增发">可增发</span>
-      <b class="marquee-value" data-marquee="mintable">—</b>
-    </span><i></i>
-    <span class="marquee-check">
-      <span data-en="PROXY" data-zh="代理合约">代理合约</span>
-      <b class="marquee-value" data-marquee="proxy">—</b>
-    </span><i></i>
-    <span class="marquee-check">
-      <span data-en="OWNER" data-zh="所有者权限">所有者权限</span>
-      <b class="marquee-value" data-marquee="owner">—</b>
-    </span><i></i>
-    <span data-en="LIQUIDITY LIVE" data-zh="流动性已上线">流动性已上线</span><i></i>
-    <span data-en="COMMUNITY DRIVEN" data-zh="社区驱动">社区驱动</span><i></i>
-    <span data-en="ON-CHAIN" data-zh="链上">链上</span><i></i>
-
-    <span data-en="小辣椒" data-zh="小辣椒">小辣椒</span><i></i>
-    <span data-en="CHILI" data-zh="CHILI">CHILI</span><i></i>
-    <span data-en="BNB Smart Chain (BSC)" data-zh="BNB Smart Chain (BSC)">BNB Smart Chain (BSC)</span><i></i>
-    <span data-en="TOTAL SUPPLY" data-zh="总供应量">总供应量</span>
-    <span class="marquee-value" id="marqueeSupply2">—</span><i></i>
-    <span class="marquee-check">
-      <span data-en="HONEYPOT" data-zh="蜜罐检测">蜜罐检测</span>
-      <b class="marquee-value" data-marquee="honeypot">—</b>
-    </span><i></i>
-    <span class="marquee-check">
-      <span data-en="BUY/SELL TAX" data-zh="买入/卖出税">买入/卖出税</span>
-      <b class="marquee-value" data-marquee="tax">—</b>
-    </span><i></i>
-    <span class="marquee-check">
-      <span data-en="MINTABLE" data-zh="可增发">可增发</span>
-      <b class="marquee-value" data-marquee="mintable">—</b>
-    </span><i></i>
-    <span class="marquee-check">
-      <span data-en="PROXY" data-zh="代理合约">代理合约</span>
-      <b class="marquee-value" data-marquee="proxy">—</b>
-    </span><i></i>
-    <span class="marquee-check">
-      <span data-en="OWNER" data-zh="所有者权限">所有者权限</span>
-      <b class="marquee-value" data-marquee="owner">—</b>
-    </span><i></i>
-    <span data-en="LIQUIDITY LIVE" data-zh="流动性已上线">流动性已上线</span><i></i>
-    <span data-en="COMMUNITY DRIVEN" data-zh="社区驱动">社区驱动</span><i></i>
-    <span data-en="ON-CHAIN" data-zh="链上">链上</span><i></i>
-  </div>
-</div>
 
 <!-- 01 · 关于 CHILI -->
 <section id="about" class="section">
@@ -1740,183 +1662,358 @@ footer{
       </p>
     </div>
 
-    <div class="about-manifesto">
-      <p data-en="Born from ordinary lives and humble beginnings, CHILI is a tribute to those who quietly carry the weight of life, hold on to their dreams, and keep moving forward. People may come and go, and dreams may fade with time, but what we leave behind can endure. CHILI carries a small piece of these stories onto the blockchain — a lasting mark of lives that mattered."
-         data-zh="CHILI 诞生于平凡的生活与微小的起点，献给那些默默承受生活重量、坚持梦想、继续前行的人。人会来来去去，梦想也会随时间淡去，但我们留下的东西可以长久存在。CHILI 把这些故事的一小部分带上链——作为那些真实存在过的生命，留下的印记。">
-        CHILI 诞生于平凡的生活与微小的起点，献给那些默默承受生活重量、坚持梦想、继续前行的人。人会来来去去，梦想也会随时间淡去，但我们留下的东西可以长久存在。CHILI 把这些故事的一小部分带上链——作为那些真实存在过的生命，留下的印记。
+    <div class="about-card">
+      <blockquote class="about-quote">
+        <p data-en="Born from ordinary lives and humble beginnings, CHILI is a tribute to those who quietly carry the weight of life, hold on to their dreams, and keep moving forward. People may come and go, and dreams may fade with time, but what we leave behind can endure. CHILI carries a small piece of these stories onto the blockchain — a lasting mark of lives that mattered."
+           data-zh="CHILI 诞生于平凡的生活与微小的起点，献给那些默默承受生活重量、坚持梦想、继续前行的人。人会来来去去，梦想也会随时间淡去，但我们留下的东西可以长久存在。CHILI 把这些故事的一小部分带上链——作为那些真实存在过的生命，留下的印记。">
+          CHILI 诞生于平凡的生活与微小的起点，献给那些默默承受生活重量、坚持梦想、继续前行的人。人会来来去去，梦想也会随时间淡去，但我们留下的东西可以长久存在。CHILI 把这些故事的一小部分带上链——作为那些真实存在过的生命，留下的印记。
+        </p>
+      </blockquote>
+
+      <p class="about-slogan"
+         data-en-html="Simple. <em>Transparent.</em> On-chain."
+         data-zh-html="简单。<em>透明。</em>链上。">
+        简单。<em>透明。</em>链上。
       </p>
-    </div>
 
-    <p class="about-statement"
-       data-en-html="Simple. <em>Transparent.</em> On-chain."
-       data-zh-html="简单。<em>透明。</em>链上。">
-      简单。<em>透明。</em>链上。
-    </p>
-
-    <div class="about-tags">
-      <span class="about-tag" data-en="COMMUNITY DRIVEN" data-zh="社区驱动">社区驱动</span>
-      <span class="about-tag" data-en="INDEPENDENT DEVELOPER" data-zh="独立开发者">独立开发者</span>
-      <span class="about-tag" data-en="EARLY STAGE" data-zh="早期阶段">早期阶段</span>
-      <span class="about-tag" data-en="NO PRESALE" data-zh="无预售">无预售</span>
-    </div>
-
-    <div class="about-note">
-      <div class="about-note-mark">//</div>
-      <div class="about-note-body">
-        <div class="about-note-tag"
-             data-en="PROJECT &amp; FOUNDER DISCLOSURE"
-             data-zh="项目方与创始人说明">项目方与创始人说明</div>
-
-        <p data-en="小辣椒 CHILI was initiated and created by an independent developer, and is currently developed, maintained and built by an individual."
-           data-zh="小辣椒 CHILI 由独立开发者发起创建，目前由个人负责项目开发、维护与建设。">
-          小辣椒 CHILI 由独立开发者发起创建，目前由个人负责项目开发、维护与建设。
+      <div class="about-body">
+        <p data-en="CHILI was initiated and is maintained by an independent developer, with no traditional team structure. The project is at an early stage, and the founder is responsible for smart contract deployment, website development, documentation, and community operations."
+           data-zh="小辣椒 CHILI 由独立开发者发起创建并维护，不设立传统团队架构，目前处于早期发展阶段。创始人负责智能合约部署、官方网站建设、项目文档维护及社区运营。">
+          小辣椒 CHILI 由独立开发者发起创建并维护，不设立传统团队架构，目前处于早期发展阶段。创始人负责智能合约部署、官方网站建设、项目文档维护及社区运营。
         </p>
 
-        <p data-en="The founder is responsible for smart contract deployment, official website construction, project documentation maintenance, and community operations."
-           data-zh="创始人负责智能合约部署、官方网站建设、项目文档维护以及社区运营等相关工作。">
-          创始人负责智能合约部署、官方网站建设、项目文档维护以及社区运营等相关工作。
+        <p data-en="All key information — contract address, tokenomics, roadmap, and code — is continuously updated through the official website and public channels. CHILI is a community-driven token, built in public with all participants."
+           data-zh="合约地址、代币经济模型、发展规划和代码信息等项目相关资料，均通过官方网站及公开渠道持续更新。CHILI 是社区驱动型代币，希望通过公开透明的方式，与参与者共同见证项目发展。">
+          合约地址、代币经济模型、发展规划和代码信息等项目相关资料，均通过官方网站及公开渠道持续更新。CHILI 是社区驱动型代币，希望通过公开透明的方式，与参与者共同见证项目发展。
         </p>
+      </div>
 
-        <p data-en="CHILI does not have a traditional team structure and is at an early stage of development. Project-related information — including contract address, tokenomics, roadmap and code — is continuously updated through the official website and public channels."
-           data-zh="CHILI 不设立传统团队架构，项目目前处于早期发展阶段。项目相关信息，包括合约地址、代币经济模型、发展规划和代码信息，均通过官方网站及公开渠道持续更新。">
-          CHILI 不设立传统团队架构，项目目前处于早期发展阶段。项目相关信息，包括合约地址、代币经济模型、发展规划和代码信息，均通过官方网站及公开渠道持续更新。
-        </p>
+      <div class="about-cta">
+        <a class="about-cta-link"
+           href="https://github.com/ayudekaka"
+           target="_blank" rel="noopener"
+           aria-label="创始人 GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.16.08 1.78 1.19 1.78 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.41.35.78 1.05.78 2.12 0 1.53-.01 2.77-.01 3.15 0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"/>
+          </svg>
+          <span data-en="FOUNDER GITHUB" data-zh="创始人 GitHub">创始人 GitHub</span>
+        </a>
 
-        <p data-en="小辣椒 CHILI is a community-driven token. Through an open and transparent approach, we hope to witness the project's development together with all participants."
-           data-zh="小辣椒 CHILI 是一个社区驱动型代币，希望通过公开透明的方式，与参与者共同见证项目的发展过程。">
-          小辣椒 CHILI 是一个社区驱动型代币，希望通过公开透明的方式，与参与者共同见证项目的发展过程。
-        </p>
-
-        <div class="about-links">
-          <div class="about-link-row">
-            <span class="about-link-label"
-                  data-en="FOUNDER GITHUB" data-zh="创始人 GitHub">创始人 GitHub</span>
-            <a class="about-link"
-               href="https://github.com/ayudekaka"
-               target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.16.08 1.78 1.19 1.78 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.41.35.78 1.05.78 2.12 0 1.53-.01 2.77-.01 3.15 0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"/>
-              </svg>
-              github.com/ayudekaka
-            </a>
-          </div>
-          <div class="about-link-row">
-            <span class="about-link-label"
-                  data-en="REPOSITORY" data-zh="项目仓库">项目仓库</span>
-            <a class="about-link"
-               href="https://github.com/ayudekaka/ChiLi"
-               target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.16.08 1.78 1.19 1.78 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.41.35.78 1.05.78 2.12 0 1.53-.01 2.77-.01 3.15 0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"/>
-              </svg>
-              github.com/ayudekaka/ChiLi
-            </a>
-          </div>
-        </div>
+        <a class="about-cta-link"
+           href="https://github.com/ayudekaka/ChiLi"
+           target="_blank" rel="noopener"
+           aria-label="项目仓库">
+          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.16.08 1.78 1.19 1.78 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.41.35.78 1.05.78 2.12 0 1.53-.01 2.77-.01 3.15 0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"/>
+          </svg>
+          <span data-en="REPOSITORY" data-zh="项目仓库">项目仓库</span>
+        </a>
       </div>
     </div>
+
+    <p class="about-footnote">
+      <span class="label" data-en="NAME &amp; TRADEMARK" data-zh="名称与商标声明">名称与商标声明</span>
+      <span data-en="This project is a decentralized token initiated by an independent individual creator. It is not affiliated with, nor authorized by, any company, brand, product or organization with the same or similar name. For any rights conflict, please contact us through official channels."
+            data-zh="本项目为独立个人创作者发起的去中心化代币项目，与任何同名或相似名称的公司、品牌、产品或组织无关联、无授权关系。如存在权利冲突，请通过官方联系方式与我们联系。">
+        本项目为独立个人创作者发起的去中心化代币项目，与任何同名或相似名称的公司、品牌、产品或组织无关联、无授权关系。如存在权利冲突，请通过官方联系方式与我们联系。
+      </span>
+    </p>
   </div>
 </section>
 
-<!-- 02 · 链上数据 -->
-<section id="data" class="section section--soft">
+<!-- 02 · 白皮书 -->
+<section id="whitepaper" class="section section--soft">
   <div class="wrap">
     <div class="section-head">
       <div>
-        <div class="section-tag" data-en="02 · DATA" data-zh="02 · 数据">02 · 数据</div>
+        <div class="section-tag" data-en="02 · WHITEPAPER" data-zh="02 · 白皮书">02 · 白皮书</div>
         <h2 class="section-title"
-            data-en-html="SECURITY &<br>ON-CHAIN."
-            data-zh-html="合约安全<br>与链上信息。">
-          合约安全<br>与链上信息。
+            data-en-html="CHILI<br>WHITEPAPER."
+            data-zh-html="CHILI<br>白皮书。">
+          CHILI<br>白皮书。
         </h2>
       </div>
       <p class="section-lead"
-         data-en="Contract security from GoPlus. On-chain state from BNB Smart Chain. All data read directly from public sources."
-         data-zh="合约安全来自 GoPlus 检测。链上状态来自 BNB Smart Chain。所有数据均直接读取自公开来源。">
-        合约安全来自 GoPlus 检测。链上状态来自 BNB Smart Chain。所有数据均直接读取自公开来源。
+         data-en="Vision, mission and roadmap of CHILI. All information is public and continuously updated."
+         data-zh="CHILI 的愿景、使命与发展路线。所有信息均公开披露并持续更新。">
+        CHILI 的愿景、使命与发展路线。所有信息均公开披露并持续更新。
       </p>
     </div>
 
-    <div class="detail-section">
-      <div class="detail-header">
-        <div class="detail-title" data-en="TOKEN DETAILS" data-zh="代币详情">代币详情</div>
+    <div class="wp-grid">
+      <div class="wp-card">
+        <div class="wp-card-tag" data-en="VISION" data-zh="愿景">愿景</div>
+        <div class="wp-card-title"
+             data-en="A lasting mark for ordinary lives."
+             data-zh="为平凡的生命留下印记。">为平凡的生命留下印记。</div>
+        <p data-en="CHILI is born from ordinary lives and humble beginnings. It is a tribute to those who quietly carry the weight of life, hold on to their dreams, and keep moving forward. People may come and go, and dreams may fade with time, but what we leave behind can endure. CHILI carries a small piece of these stories onto the blockchain."
+           data-zh="CHILI 诞生于平凡的生活与微小的起点，献给那些默默承受生活重量、坚持梦想、继续前行的人。人会来来去去，梦想也会随时间淡去，但我们留下的东西可以长久存在。CHILI 把这些故事的一小部分带上链。">
+          CHILI 诞生于平凡的生活与微小的起点，献给那些默默承受生活重量、坚持梦想、继续前行的人。人会来来去去，梦想也会随时间淡去，但我们留下的东西可以长久存在。CHILI 把这些故事的一小部分带上链。
+        </p>
       </div>
-      <div class="detail-table">
-        <div class="detail-row">
-          <span class="detail-row-label" data-en="NETWORK" data-zh="网络">网络</span>
-          <span class="detail-row-value">BNB Smart Chain (BSC)</span>
-        </div>
-        <div class="detail-row">
-          <span class="detail-row-label" data-en="TOKEN NAME" data-zh="代币名称">代币名称</span>
-          <span class="detail-row-value">小辣椒</span>
-        </div>
-        <div class="detail-row">
-          <span class="detail-row-label" data-en="TOKEN SYMBOL" data-zh="代币符号">代币符号</span>
-          <span class="detail-row-value">CHILI</span>
-        </div>
-        <div class="detail-row">
-          <span class="detail-row-label" data-en="TOTAL SUPPLY" data-zh="总供应量">总供应量</span>
-          <span class="detail-row-value accent" id="statSupply">加载中</span>
-        </div>
-        <div class="detail-row">
-          <span class="detail-row-label" data-en="HOLDERS" data-zh="持币人数">持币人数</span>
-          <span class="detail-row-value" id="holdersTable">加载中</span>
-        </div>
-        <div class="detail-row detail-row--contract">
-          <span class="detail-row-label" data-en="CONTRACT ADDRESS" data-zh="合约地址">合约地址</span>
-          <div class="contract-inline">
-            <span class="contract-inline-value" id="contractDetail">0xEd3Caca4903256fB3E4997BC0C7830D19Fb35f7c</span>
-            <button class="contract-inline-copy" id="copyBtnTable" type="button" aria-label="复制合约地址">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="8" y="8" width="12" height="12" rx="1.5" stroke="currentColor" stroke-width="1.8"/>
-                <path d="M16 8V5.5C16 4.7 15.3 4 14.5 4H5.5C4.7 4 4 4.7 4 5.5V14.5C4 15.3 4.7 16 5.5 16H8" stroke="currentColor" stroke-width="1.8"/>
-              </svg>
-              <span class="copy-text" data-en="COPY" data-zh="复制">复制</span>
-            </button>
-          </div>
-        </div>
+
+      <div class="wp-card">
+        <div class="wp-card-tag" data-en="MISSION" data-zh="使命">使命</div>
+        <div class="wp-card-title"
+             data-en="An open and transparent community token."
+             data-zh="一个公开透明的社区代币。">一个公开透明的社区代币。</div>
+        <p data-en="CHILI aims to build a truly community-driven token through an open and transparent approach. All important information — contract address, tokenomics, roadmap and code — is published through the official website and public channels, so that participants can verify and witness the project's development together."
+           data-zh="CHILI 希望通过公开透明的方式，构建一个真正属于社区的代币。所有重要信息——合约地址、代币经济模型、发展规划和代码——均通过官方网站及公开渠道披露，让参与者能够自行核实，共同见证项目的发展过程。">
+          CHILI 希望通过公开透明的方式，构建一个真正属于社区的代币。所有重要信息——合约地址、代币经济模型、发展规划和代码——均通过官方网站及公开渠道披露，让参与者能够自行核实，共同见证项目的发展过程。
+        </p>
+      </div>
+
+      <div class="wp-card">
+        <div class="wp-card-tag" data-en="PRINCIPLES" data-zh="原则">原则</div>
+        <div class="wp-card-title"
+             data-en="Simple. Transparent. On-chain."
+             data-zh="简单。透明。链上。">简单。透明。链上。</div>
+        <p data-en="CHILI does not have a traditional team structure, does not conduct a presale, and does not make any promises of return. It is an experimental, community-driven project at an early stage of development, maintained and built by an independent developer."
+           data-zh="CHILI 不设立传统团队架构，不进行预售，不承诺任何回报。这是一个处于早期发展阶段的实验性、社区驱动型项目，由独立开发者维护与建设。">
+          CHILI 不设立传统团队架构，不进行预售，不承诺任何回报。这是一个处于早期发展阶段的实验性、社区驱动型项目，由独立开发者维护与建设。
+        </p>
       </div>
     </div>
 
-    <div class="data-actions">
-      <a class="data-action"
-         href="https://bscscan.com/token/0xEd3Caca4903256fB3E4997BC0C7830D19Fb35f7c"
-         target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-          <path d="M15 3h6v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M10 14L21 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-        </svg>
-        <span data-en="VIEW ON BSCSCAN ↗" data-zh="在 BscScan 查看 ↗">在 BscScan 查看 ↗</span>
-      </a>
-      <a class="data-action"
-         href="https://dexscreener.com/bsc/0xEd3Caca4903256fB3E4997BC0C7830D19Fb35f7c"
-         target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/>
-          <path d="M3.5 12H20.5M12 3C14.2 5.4 15.3 8.4 15.3 12C15.3 15.6 14.2 18.6 12 21C9.8 18.6 8.7 15.6 8.7 12C8.7 8.4 9.8 5.4 12 3Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-        <span data-en="VIEW ON DEXSCREENER ↗" data-zh="在 DexScreener 查看 ↗">在 DexScreener 查看 ↗</span>
-      </a>
-      <a class="data-action"
-         href="https://console.gopluslabs.io/token-security/56/0xed3caca4903256fb3e4997bc0c7830d19fb35f7c"
-         target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2L3 7v5c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-          <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <span data-en="VIEW FULL SECURITY REPORT ↗" data-zh="查看完整安全报告 ↗">查看完整安全报告 ↗</span>
-      </a>
+    <div class="wp-tech">
+      <div class="wp-tech-row">
+        <span class="wp-tech-label" data-en="NETWORK" data-zh="网络">网络</span>
+        <a class="wp-tech-value link"
+           href="https://bscscan.com/token/0xEd3Caca4903256fB3E4997BC0C7830D19Fb35f7c"
+           target="_blank" rel="noopener"
+           data-en="BNB Smart Chain (BSC)" data-zh="BNB Smart Chain (BSC)">BNB Smart Chain (BSC)</a>
+      </div>
+      <div class="wp-tech-row">
+        <span class="wp-tech-label" data-en="TOKEN STANDARD" data-zh="代币标准">代币标准</span>
+        <span class="wp-tech-value">BEP-20</span>
+      </div>
+      <div class="wp-tech-row">
+        <span class="wp-tech-label" data-en="TOKEN NAME" data-zh="代币名称">代币名称</span>
+        <span class="wp-tech-value">小辣椒</span>
+      </div>
+      <div class="wp-tech-row">
+        <span class="wp-tech-label" data-en="TOKEN SYMBOL" data-zh="代币符号">代币符号</span>
+        <span class="wp-tech-value">CHILI</span>
+      </div>
+      <div class="wp-tech-row">
+        <span class="wp-tech-label" data-en="TOTAL SUPPLY" data-zh="总供应量">总供应量</span>
+        <a class="wp-tech-value link"
+           href="https://bscscan.com/token/0xEd3Caca4903256fB3E4997BC0C7830D19Fb35f7c"
+           target="_blank" rel="noopener"
+           data-en="20,150,822" data-zh="20,150,822 枚">20,150,822 枚</a>
+      </div>
+      <div class="wp-tech-row">
+        <span class="wp-tech-label" data-en="CONTRACT ADDRESS" data-zh="合约地址">合约地址</span>
+        <a class="wp-tech-value link"
+           href="https://bscscan.com/token/0xEd3Caca4903256fB3E4997BC0C7830D19Fb35f7c"
+           target="_blank" rel="noopener"
+           data-en="0xEd3Caca4903256fB3E4997BC0C7830D19Fb35f7c"
+           data-zh="0xEd3Caca4903256fB3E4997BC0C7830D19Fb35f7c">0xEd3Caca4903256fB3E4997BC0C7830D19Fb35f7c</a>
+      </div>
+      <div class="wp-tech-row">
+        <span class="wp-tech-label" data-en="SOURCE CODE" data-zh="源代码">源代码</span>
+        <a class="wp-tech-value link"
+           href="https://github.com/ayudekaka/ChiLi"
+           target="_blank" rel="noopener"
+           data-en="github.com/ayudekaka/ChiLi"
+           data-zh="github.com/ayudekaka/ChiLi">github.com/ayudekaka/ChiLi</a>
+      </div>
+    </div>
+
+    <div class="wp-roadmap">
+      <div class="wp-roadmap-item">
+        <div class="wp-roadmap-phase" data-en="PHASE 01" data-zh="阶段 01">阶段 01</div>
+        <div class="wp-roadmap-body">
+          <h4 data-en="Foundation · Completed" data-zh="基础建设 · 已完成">基础建设 · 已完成</h4>
+          <ul>
+            <li data-en="Smart contract deployment on BNB Smart Chain" data-zh="在 BNB Smart Chain 上部署智能合约">在 BNB Smart Chain 上部署智能合约</li>
+            <li data-en="Official website launch with on-chain data display" data-zh="官方网站上线，展示链上数据">官方网站上线，展示链上数据</li>
+            <li data-en="Source code open-sourced on GitHub" data-zh="源代码在 GitHub 开源">源代码在 GitHub 开源</li>
+            <li data-en="Initial community channels established" data-zh="建立基础社区渠道">建立基础社区渠道</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="wp-roadmap-item">
+        <div class="wp-roadmap-phase" data-en="PHASE 02" data-zh="阶段 02">阶段 02</div>
+        <div class="wp-roadmap-body">
+          <h4 data-en="Community · In Progress" data-zh="社区建设 · 进行中">社区建设 · 进行中</h4>
+          <ul>
+            <li data-en="Expand community channels (Telegram, social media)" data-zh="扩展社区渠道（Telegram、社交媒体）">扩展社区渠道（Telegram、社交媒体）</li>
+            <li data-en="Continuously update project documentation" data-zh="持续更新项目文档">持续更新项目文档</li>
+            <li data-en="Publish token security and on-chain data" data-zh="公开代币安全检测与链上数据">公开代币安全检测与链上数据</li>
+            <li data-en="Improve transparency and information disclosure" data-zh="提升透明度与信息披露">提升透明度与信息披露</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="wp-roadmap-item">
+        <div class="wp-roadmap-phase" data-en="PHASE 03" data-zh="阶段 03">阶段 03</div>
+        <div class="wp-roadmap-body">
+          <h4 data-en="Long-term · Planned" data-zh="长期发展 · 规划中">长期发展 · 规划中</h4>
+          <ul>
+            <li data-en="Continuous development and maintenance" data-zh="持续开发与维护">持续开发与维护</li>
+            <li data-en="Long-term community governance and participation" data-zh="长期社区治理与参与">长期社区治理与参与</li>
+            <li data-en="Ecosystem exploration based on community feedback" data-zh="基于社区反馈进行生态探索">基于社区反馈进行生态探索</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- 03 · 社区 -->
-<section id="community" class="section">
+<!-- 03 · 代币经济 -->
+<section id="tokenomics" class="section">
   <div class="wrap">
     <div class="section-head">
       <div>
-        <div class="section-tag" data-en="03 · COMMUNITY" data-zh="03 · 社区">03 · 社区</div>
+        <div class="section-tag" data-en="03 · TOKENOMICS" data-zh="03 · 代币经济">03 · 代币经济</div>
+        <h2 class="section-title"
+            data-en-html="TOKEN<br>ECONOMICS."
+            data-zh-html="代币<br>经济模型。">
+          代币<br>经济模型。
+        </h2>
+      </div>
+      <p class="section-lead"
+         data-en="CHILI token economics follows the principles of simplicity and transparency. All information is verifiable on-chain."
+         data-zh="CHILI 代币经济模型遵循简单、透明的原则。所有信息均可在链上核实。">
+        CHILI 代币经济模型遵循简单、透明的原则。所有信息均可在链上核实。
+      </p>
+    </div>
+
+    <div class="token-grid">
+      <div class="token-card">
+        <div class="token-card-label" data-en="TOKEN NAME" data-zh="代币名称">代币名称</div>
+        <div class="token-card-value">小辣椒 / CHILI</div>
+        <div class="token-card-sub"
+             data-en="The token name reflects the project's origin — born from ordinary lives, carrying a small piece of real stories onto the blockchain."
+             data-zh="代币名称体现了项目的起源——诞生于平凡的生活，把真实故事的一小部分带上链。">
+          代币名称体现了项目的起源——诞生于平凡的生活，把真实故事的一小部分带上链。
+        </div>
+      </div>
+
+      <a class="token-card"
+         href="https://bscscan.com/token/0xEd3Caca4903256fB3E4997BC0C7830D19Fb35f7c"
+         target="_blank" rel="noopener">
+        <div class="token-card-label" data-en="NETWORK &amp; STANDARD" data-zh="网络与标准">网络与标准</div>
+        <div class="token-card-value link">BNB Smart Chain</div>
+        <div class="token-card-sub"
+             data-en="Deployed on BNB Smart Chain as a BEP-20 token. Click to verify the contract directly on BscScan."
+             data-zh="作为 BEP-20 代币部署在 BNB Smart Chain 上。点击可直接在 BscScan 上验证合约。">
+          作为 BEP-20 代币部署在 BNB Smart Chain 上。点击可直接在 BscScan 上验证合约。
+        </div>
+      </a>
+
+      <a class="token-card"
+         href="https://bscscan.com/token/0xEd3Caca4903256fB3E4997BC0C7830D19Fb35f7c"
+         target="_blank" rel="noopener">
+        <div class="token-card-label" data-en="TOTAL SUPPLY" data-zh="总供应量">总供应量</div>
+        <div class="token-card-value link">20,150,822 枚</div>
+        <div class="token-card-sub"
+             data-en="The total supply is fixed at 20,150,822 CHILI. Click to verify on-chain via BscScan."
+             data-zh="总供应量固定为 20,150,822 枚 CHILI。点击可通过 BscScan 在链上核实。">
+          总供应量固定为 20,150,822 枚 CHILI。点击可通过 BscScan 在链上核实。
+        </div>
+      </a>
+
+      <div class="token-card">
+        <div class="token-card-label" data-en="PRESALE" data-zh="预售">预售</div>
+        <div class="token-card-value">NO PRESALE</div>
+        <div class="token-card-sub"
+             data-en="CHILI did not conduct any presale or private sale. There is no early allocation or privileged access."
+             data-zh="CHILI 未进行任何预售或私募。不存在早期分配或特殊通道。">
+          CHILI 未进行任何预售或私募。不存在早期分配或特殊通道。
+        </div>
+      </div>
+    </div>
+
+    <div class="token-use">
+      <div class="token-use-item">
+        <div class="token-use-icon" data-en="01 / COMMUNITY" data-zh="01 / 社区">01 / 社区</div>
+        <div class="token-use-title" data-en="Community Governance" data-zh="社区治理">社区治理</div>
+        <p data-en="CHILI is a community-driven token. Holders can participate in the project's long-term direction through open discussion and community feedback."
+           data-zh="CHILI 是一个社区驱动型代币。持币者可以通过公开讨论和社区反馈，参与项目的长期方向。">
+          CHILI 是一个社区驱动型代币。持币者可以通过公开讨论和社区反馈，参与项目的长期方向。
+        </p>
+      </div>
+
+      <div class="token-use-item">
+        <div class="token-use-icon" data-en="02 / ECOSYSTEM" data-zh="02 / 生态">02 / 生态</div>
+        <div class="token-use-title" data-en="Ecosystem Participation" data-zh="生态参与">生态参与</div>
+        <p data-en="As the project develops, CHILI may be used within community activities and ecosystem explorations based on community feedback."
+           data-zh="随着项目发展，CHILI 可能会基于社区反馈，用于社区活动与生态探索。">
+          随着项目发展，CHILI 可能会基于社区反馈，用于社区活动与生态探索。
+        </p>
+      </div>
+
+      <div class="token-use-item">
+        <div class="token-use-icon" data-en="03 / ON-CHAIN" data-zh="03 / 链上">03 / 链上</div>
+        <div class="token-use-title" data-en="On-chain Asset" data-zh="链上资产">链上资产</div>
+        <p data-en="CHILI is a BEP-20 token on BNB Smart Chain. It can be transferred, traded and verified freely on public block explorers."
+           data-zh="CHILI 是 BNB Smart Chain 上的 BEP-20 代币，可以在公开区块浏览器上自由转账、交易与核实。">
+          CHILI 是 BNB Smart Chain 上的 BEP-20 代币，可以在公开区块浏览器上自由转账、交易与核实。
+        </p>
+      </div>
+    </div>
+
+    <div class="token-verify">
+      <div class="token-verify-title"
+           data-en="EXTERNAL VERIFICATION" data-zh="外部验证">外部验证</div>
+      <p class="token-verify-desc"
+         data-en="All on-chain data and security information can be verified independently through the following public platforms. Click to open in a new tab."
+         data-zh="所有链上数据与安全信息均可通过以下公开平台独立核实。点击将在新标签页中打开。">
+        所有链上数据与安全信息均可通过以下公开平台独立核实。点击将在新标签页中打开。
+      </p>
+      <div class="token-verify-actions">
+        <a class="verify-action"
+           href="https://bscscan.com/token/0xEd3Caca4903256fB3E4997BC0C7830D19Fb35f7c"
+           target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M15 3h6v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M10 14L21 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          <span data-en="VIEW ON BSCSCAN ↗" data-zh="在 BscScan 查看 ↗">在 BscScan 查看 ↗</span>
+        </a>
+        <a class="verify-action"
+           href="https://dexscreener.com/bsc/0xEd3Caca4903256fB3E4997BC0C7830D19Fb35f7c"
+           target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M3.5 12H20.5M12 3C14.2 5.4 15.3 8.4 15.3 12C15.3 15.6 14.2 18.6 12 21C9.8 18.6 8.7 15.6 8.7 12C8.7 8.4 9.8 5.4 12 3Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span data-en="VIEW ON DEXSCREENER ↗" data-zh="在 DexScreener 查看 ↗">在 DexScreener 查看 ↗</span>
+        </a>
+        <a class="verify-action"
+           href="https://console.gopluslabs.io/token-security/56/0xed3caca4903256fb3e4997bc0c7830d19fb35f7c"
+           target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L3 7v5c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+            <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span data-en="VIEW FULL SECURITY REPORT ↗" data-zh="查看完整安全报告 ↗">查看完整安全报告 ↗</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="token-disclaimer">
+      <p>
+        <strong data-en="Disclaimer:" data-zh="免责声明：">免责声明：</strong>
+        <span data-en="This page is for informational purposes only and does not constitute investment advice. Cryptocurrency is highly volatile and carries significant risk. Please do your own research before participating."
+              data-zh="本页面仅供信息参考，不构成投资建议。加密货币波动极大，风险较高。请在参与前自行研究。">
+          本页面仅供信息参考，不构成投资建议。加密货币波动极大，风险较高。请在参与前自行研究。
+        </span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 04 · 社区 -->
+<section id="community" class="section section--soft">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-tag" data-en="04 · COMMUNITY" data-zh="04 · 社区">04 · 社区</div>
         <h2 class="section-title"
             data-en-html="JOIN<br>THE HEAT."
             data-zh-html="加入社区。">
@@ -1994,7 +2091,7 @@ footer{
         </svg>
       </a>
       <a href="https://chili.dpdns.org" target="_blank" rel="noopener" aria-label="Website" title="Website">
-        <img src="logo01-32x32.svg" alt="小辣椒 CHILI">
+        <img src="logo-red32.svg" alt="小辣椒 CHILI">
       </a>
       <a href="https://t.me/xiaolajiaoCHILI" target="_blank" rel="noopener" aria-label="Telegram" title="Telegram">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2010,190 +2107,11 @@ footer{
   </div>
 </footer>
 
-<!-- 数据脚本 -->
+<!-- 脚本：复制合约地址 + 语言切换 -->
 <script>
-const chainDataCache = { supply: null, holders: null };
-
 (function(){
   'use strict';
   const CONTRACT = '0xEd3Caca4903256fB3E4997BC0C7830D19Fb35f7c';
-  const CONTRACT_LOWER = CONTRACT.toLowerCase();
-  const CHAIN_ID = '56';
-  const GOPLUS_API = 'https://api.gopluslabs.io/api/v1/token_security/' + CHAIN_ID + '?contract_addresses=' + CONTRACT_LOWER;
-  const RPC_ENDPOINTS = [
-    'https://bsc.publicnode.com',
-    'https://bsc-dataseed1.defibit.io',
-    'https://bsc-dataseed1.ninicoin.io',
-    'https://bsc-dataseed.binance.org',
-    'https://binance.llamarpc.com'
-  ];
-
-  function fmt(n){
-    if (n === null || n === undefined || isNaN(n)) return '—';
-    return Number(n).toLocaleString('en-US');
-  }
-  function setText(id, text){
-    const el = document.getElementById(id);
-    if (el) el.textContent = text;
-  }
-  function setMarqueeValue(key, text){
-    document.querySelectorAll('[data-marquee="' + key + '"]').forEach(function(el){
-      el.textContent = text;
-    });
-  }
-  function setMarqueeSupply(text){
-    ['marqueeSupply', 'marqueeSupply2'].forEach(function(id){
-      const el = document.getElementById(id);
-      if (el) el.textContent = text;
-    });
-  }
-
-  function injectContractAddress(){
-    ['contractAddr', 'contractDetail'].forEach(function(id){
-      const el = document.getElementById(id);
-      if (el) el.textContent = CONTRACT;
-    });
-  }
-
-  function setCheck(id, value){
-    const key = id.charAt(0).toLowerCase() + id.slice(1);
-    if (key !== 'buyTax' && key !== 'sellTax') {
-      setMarqueeValue(key, value);
-    }
-  }
-
-  async function fetchGoPlus(){
-    try {
-      const res = await fetch(GOPLUS_API);
-      const json = await res.json();
-      if (json.code !== 1 || !json.result) throw new Error('GoPlus code ' + json.code);
-      const data = json.result[CONTRACT_LOWER];
-      if (!data) throw new Error('No data');
-
-      const honeypot = data.is_honeypot === '1';
-      setCheck('Honeypot', honeypot ? 'YES' : 'NO');
-
-      const buyTaxNum = data.buy_tax ? parseFloat(data.buy_tax) : 0;
-      const sellTaxNum = data.sell_tax ? parseFloat(data.sell_tax) : 0;
-      const maxTax = Math.max(buyTaxNum, sellTaxNum);
-      setMarqueeValue('tax', (maxTax * 100).toFixed(1) + '%');
-
-      const mintable = data.is_mintable === '1';
-      setCheck('Mintable', mintable ? 'YES' : 'NO');
-
-      const proxy = data.is_proxy === '1';
-      setCheck('Proxy', proxy ? 'YES' : 'NO');
-
-      const ownerRisk = data.owner_change_balance === '1' || data.can_take_back_ownership === '1' || data.hidden_owner === '1';
-      setCheck('Owner', ownerRisk ? 'YES' : 'NO');
-
-      if (data.holder_count) {
-        const holders = Number(data.holder_count).toLocaleString('en-US');
-        chainDataCache.holders = holders;
-        setText('holdersHero', holders);
-        setText('holdersTable', holders);
-      } else {
-        chainDataCache.holders = '—';
-        setText('holdersHero', '—');
-        setText('holdersTable', '—');
-      }
-
-      if (data.total_supply) {
-        const s = fmt(Number(data.total_supply)) + ' 枚';
-        chainDataCache.supply = s;
-        setText('supplyHero', s);
-        setText('statSupply', s);
-        setMarqueeSupply(s);
-      }
-
-      return data;
-    } catch(e) {
-      ['Honeypot','Mintable','Proxy','Owner'].forEach(function(id){
-        setCheck(id, '—');
-      });
-      setMarqueeValue('tax', '—');
-      return null;
-    }
-  }
-
-  async function rpcCall(method, params){
-    for (let i = 0; i < RPC_ENDPOINTS.length; i++) {
-      try {
-        const res = await fetch(RPC_ENDPOINTS[i], {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ jsonrpc: '2.0', id: 1, method, params: params || [] })
-        });
-        const json = await res.json();
-        if (json && json.result) return json.result;
-      } catch(e) { continue; }
-    }
-    return null;
-  }
-
-  async function readTotalSupplyFromRPC(){
-    try {
-      const decimalsHex = await rpcCall('eth_call', [{ to: CONTRACT, data: '0x313ce567' }, 'latest']);
-      let decimals = 18;
-      if (decimalsHex && decimalsHex !== '0x') {
-        const d = parseInt(decimalsHex, 16);
-        if (!isNaN(d) && d >= 0 && d <= 36) decimals = d;
-      }
-      const supplyHex = await rpcCall('eth_call', [{ to: CONTRACT, data: '0x18160ddd' }, 'latest']);
-      if (!supplyHex || supplyHex === '0x') return null;
-      const supplyBig = BigInt(supplyHex);
-      const divisor = 10n ** BigInt(decimals);
-      const whole = supplyBig / divisor;
-      const fraction = supplyBig % divisor;
-      let display;
-      if (fraction === 0n) display = Number(whole).toLocaleString('en-US');
-      else {
-        const f = fraction.toString().padStart(decimals, '0').slice(0, 4);
-        display = Number(whole).toLocaleString('en-US') + '.' + f;
-      }
-      return display + ' 枚';
-    } catch(e) { return null; }
-  }
-
-  async function readBlockNumber(){
-    const hex = await rpcCall('eth_blockNumber');
-    if (hex) setText('blockNum', '#' + parseInt(hex, 16).toLocaleString('en-US'));
-    else setText('blockNum', '—');
-  }
-  async function readGasPrice(){
-    const hex = await rpcCall('eth_gasPrice');
-    if (hex) setText('gasPrice', Math.round(parseInt(hex, 16) / 1e9) + ' GWEI');
-    else setText('gasPrice', '—');
-  }
-
-  async function loadChainData(){
-    const rpcSupply = await readTotalSupplyFromRPC();
-    if (rpcSupply) {
-      chainDataCache.supply = rpcSupply;
-      setText('supplyHero', rpcSupply);
-      setText('statSupply', rpcSupply);
-      setMarqueeSupply(rpcSupply);
-    }
-    const gp = await fetchGoPlus();
-    if (gp && gp.total_supply) {
-      const s = fmt(Number(gp.total_supply)) + ' 枚';
-      chainDataCache.supply = s;
-      setText('supplyHero', s);
-      setText('statSupply', s);
-      setMarqueeSupply(s);
-    }
-    if (!chainDataCache.supply) {
-      chainDataCache.supply = '—';
-      setText('supplyHero', '—');
-      setText('statSupply', '—');
-      setMarqueeSupply('—');
-    }
-    if (!chainDataCache.holders) {
-      chainDataCache.holders = '—';
-      setText('holdersHero', '—');
-      setText('holdersTable', '—');
-    }
-  }
 
   function setupCopy(btnId){
     const btn = document.getElementById(btnId);
@@ -2202,11 +2120,15 @@ const chainDataCache = { supply: null, holders: null };
       const done = function(){
         btn.classList.add('copied');
         const txt = btn.querySelector('.copy-text');
-        if (txt) txt.textContent = '✓ COPIED';
+        if (txt) {
+          const isZh = document.documentElement.lang === 'zh-CN' || document.documentElement.lang === 'zh';
+          txt.textContent = isZh ? '✓ 已复制' : '✓ COPIED';
+        }
         setTimeout(function(){
           btn.classList.remove('copied');
           if (txt) {
-            txt.textContent = document.documentElement.lang === 'zh' ? '复制' : 'COPY';
+            const isZh = document.documentElement.lang === 'zh-CN' || document.documentElement.lang === 'zh';
+            txt.textContent = isZh ? '复制' : 'COPY';
           }
         }, 1600);
       };
@@ -2217,28 +2139,28 @@ const chainDataCache = { supply: null, holders: null };
       } else fallbackCopy(CONTRACT, done);
     });
   }
+
   function fallbackCopy(text, cb){
     const ta = document.createElement('textarea');
-    ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
-    document.body.appendChild(ta); ta.select();
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
     try { document.execCommand('copy'); } catch(e){}
-    document.body.removeChild(ta); cb && cb();
+    document.body.removeChild(ta);
+    cb && cb();
   }
 
   function init(){
-    injectContractAddress();
     setupCopy('copyBtn');
-    setupCopy('copyBtnTable');
-    loadChainData();
-    readBlockNumber();
-    readGasPrice();
-    setInterval(loadChainData, 120000);
-    setInterval(readBlockNumber, 30000);
-    setInterval(readGasPrice, 30000);
   }
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
-  else init();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 })();
 
 /* 语言切换 */
@@ -2246,7 +2168,7 @@ const chainDataCache = { supply: null, holders: null };
   const STORAGE_KEY = 'chili-lang';
   const DEFAULT = 'zh';
   const meta = {
-    en: { title: '小辣椒 CHILI — Official Website', htmlLang: 'en' },
+    en: { title: 'CHILI — Official Website', htmlLang: 'en' },
     zh: { title: '小辣椒 CHILI 官方网站', htmlLang: 'zh-CN' }
   };
   function applyLang(lang){
@@ -2264,14 +2186,6 @@ const chainDataCache = { supply: null, holders: null };
     document.querySelectorAll('.lang-switch button').forEach(function(btn){
       btn.classList.toggle('active', btn.dataset.lang === lang);
     });
-    if (chainDataCache.supply !== null) {
-      const el = document.getElementById('supplyHero');
-      if (el) el.textContent = chainDataCache.supply;
-    }
-    if (chainDataCache.holders !== null) {
-      const el = document.getElementById('holdersHero');
-      if (el) el.textContent = chainDataCache.holders;
-    }
     try { localStorage.setItem(STORAGE_KEY, lang); } catch(e){}
   }
   document.querySelectorAll('.lang-switch button').forEach(function(btn){
