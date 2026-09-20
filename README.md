@@ -27,6 +27,7 @@
 ## 官方入口
 
 - 官网：https://chili.dpdns.org
+- 白皮书：https://chili.dpdns.org/#whitepaper
 - BscScan：https://bscscan.com/token/0xEd3Caca4903256fB3E4997BC0C7830D19Fb35f7c
 - DexScreener：https://dexscreener.com/bsc/0xEd3Caca4903256fB3E4997BC0C7830D19Fb35f7c
 - GoPlus：https://console.gopluslabs.io/token-security/56/0xed3caca4903256fb3e4997bc0c7830d19fb35f7c
@@ -46,6 +47,28 @@ CHILI 是由独立开发者发起并维护的社区驱动型代币，部署于 B
 - 创始人负责智能合约部署、官网建设、文档维护及社区运营
 
 所有重要信息（合约地址、代币经济、发展规划、源代码）均通过官网及公开渠道持续更新。
+
+---
+
+## 白皮书
+
+<p align="center">
+  <a href="https://chili.dpdns.org/#whitepaper">
+    <img
+      src="https://raw.githubusercontent.com/ayudekaka/ChiLi/main/logo-red32.svg"
+      width="56"
+      alt="CHILI Whitepaper"
+    >
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://chili.dpdns.org/#whitepaper">
+    <strong>阅读 CHILI 白皮书 →</strong>
+  </a>
+</p>
+
+白皮书包含项目的愿景、使命、原则、技术参数及发展路线图，所有信息均公开披露并持续更新。
 
 ---
 
