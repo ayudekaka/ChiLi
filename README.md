@@ -32,7 +32,7 @@
 - GoPlus：https://console.gopluslabs.io/token-security/56/0xed3caca4903256fb3e4997bc0c7830d19fb35f7c
 - Telegram：https://t.me/xiaolajiaoCHILI
 - GitHub：https://github.com/ayudekaka/ChiLi
-- 邮箱：ayudekaka@gmail.com
+- 邮箱：contact@chili.dpdns.org
 
 ---
 
